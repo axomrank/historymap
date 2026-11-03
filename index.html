@@ -2,63 +2,59 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Axom Historical Atlas — অসম বুৰঞ্জী মানচিত্ৰ | Historical Map of Assam (350–1826 CE)</title>
-<meta name="description" content="Interactive Historical Atlas of Assam and ancient Kāmarūpa (350–1826 CE). Explore kingdoms, frontiers, royal capitals, battle forts, and the Four Pīṭhas through space and time.">
-<link rel="icon" href="favicon.svg">
-<link rel="apple-touch-icon" href="assets/icon-192.png">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="canonical" href="https://axomrank.github.io/historymap/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Axom Historical Atlas">
-<meta property="og:title" content="Axom Historical Atlas — অসম বুৰঞ্জী মানচিত্ৰ">
-<meta property="og:description" content="Interactive cartography of Assam's historical kingdoms, frontiers, capitals, and spots through time (350–1826 CE).">
-<meta property="og:url" content="https://axomrank.github.io/historymap/">
-<meta property="og:image" content="https://axomrank.github.io/historymap/assets/og.jpg">
-<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Axom Historical Atlas — অসম বুৰঞ্জী মানচিত্ৰ">
-<meta name="twitter:description" content="Interactive cartography of Assam's historical kingdoms, frontiers, capitals, and spots through time (350–1826 CE).">
-<meta name="twitter:image" content="https://axomrank.github.io/historymap/assets/og.jpg">
-<meta name="theme-color" content="#16120d" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f6f3ea" media="(prefers-color-scheme: light)">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/app.css?v=atlas-20261103-v1">
-<script defer src="data/site.js?v=atlas-20261103-v1"></script>
-<script defer src="assets/polygon-clipping.umd.min.js"></script>
-<script defer src="assets/inscriptions-data.js"></script>
-<script defer src="assets/app.js?v=atlas-20261103-v1"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assam Through Time</title>
+<meta name="description" content="Explore every year of Assam's history from 350 CE to today: how kingdoms rose, reached their height and gave way to the next.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="app/explore.css">
 </head>
-<body class="mappage">
-<a class="skip" href="#main">Skip to content</a>
-<header class="atlas-header">
-  <div class="atlas-brand-wrap">
-    <a class="atlas-brand" href="#/map" aria-label="Axom Historical Atlas home">
-      <span class="atlas-brand-symbol" aria-hidden="true">❖</span>
-      <div class="atlas-brand-titles">
-        <strong id="brandName">Axom Historical Atlas</strong>
-        <span class="atlas-brand-sub" id="brandSub">অসম বুৰঞ্জী মানচিত্ৰ · 350–1826 CE</span>
-      </div>
-    </a>
-  </div>
-
-  <nav id="nav" class="atlas-nav" aria-label="Main Navigation"></nav>
-
-  <div class="atlas-top-tools">
-    <div class="atlas-search-box">
-      <form id="searchForm" role="search">
-        <input type="search" id="hq" autocomplete="off" spellcheck="false" placeholder="Search places, kingdoms, kings..." aria-label="Search places and kingdoms">
-      </form>
-      <div id="searchSuggestions" class="search-suggestions" hidden></div>
-    </div>
-    <button id="langBtn" type="button" class="atlas-btn-quiet" aria-label="Switch language">অসমীয়া</button>
-  </div>
+<body>
+<header class="top">
+  <h1>Assam Through Time <span class="sub">350 CE – today</span></h1>
+  <label class="toggle"><input type="checkbox" id="modernToggle" checked> Today's borders</label>
 </header>
 
-<main id="main" tabindex="-1"></main>
+<main class="layout">
+  <section class="mapbox" aria-label="Map">
+    <svg id="map" role="img" aria-label="Map of Assam and its kingdoms in the selected year"></svg>
+    <div class="zoom">
+      <button id="zin" aria-label="Zoom in">+</button>
+      <button id="zout" aria-label="Zoom out">−</button>
+      <button id="zfit" aria-label="Show whole map">⤢</button>
+    </div>
+    <div id="tip" class="tip" hidden></div>
+    <div class="yearbig" aria-hidden="true"><span id="yearBig"></span><small id="eraBig"></small></div>
+  </section>
 
-<div id="toast" role="status" aria-live="polite"></div>
+  <aside class="panel" id="panel" aria-live="polite"></aside>
+</main>
+
+<section class="time" aria-label="Timeline">
+  <div class="controls">
+    <button id="play" class="play" aria-label="Play">▶</button>
+    <button id="prev" title="Previous change on the map (Page Up)">◀ change</button>
+    <div class="yearctl">
+      <button id="yminus" aria-label="One year back">−</button>
+      <input id="yearIn" type="number" min="350" max="2026" aria-label="Year">
+      <button id="yplus" aria-label="One year forward">+</button>
+    </div>
+    <button id="next" title="Next change on the map (Page Down)">change ▶</button>
+    <select id="speed" aria-label="Playback speed">
+      <option value="140">Slow</option>
+      <option value="45" selected>Normal</option>
+      <option value="12">Fast</option>
+    </select>
+  </div>
+  <div class="chart" id="chart">
+    <div class="eras" id="eras"></div>
+    <div class="rows" id="rows"></div>
+    <div class="cursor" id="cursor"><span id="cursorYear"></span></div>
+    <div class="axis" id="axis"></div>
+  </div>
+  <p class="hint">Each band is a kingdom: its thickness is the land it held that year, so you can watch it rise, peak and fade. Click or drag anywhere on the bands to travel in time.</p>
+</section>
+
+<script src="data/atlas.js"></script>
+<script src="app/explore.js"></script>
 </body>
 </html>
