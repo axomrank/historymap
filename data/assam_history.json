@@ -25953,7 +25953,7 @@
    "id": "sadiya",
    "name": "Sadiya",
    "name_assamese": "সদিয়া",
-   "kind": "Town",
+   "kind": "Capital",
    "also_called": [
     "Sadiya",
     "Sadhaya",
@@ -26193,7 +26193,7 @@
    "id": "dimapur",
    "name": "Dimapur",
    "name_assamese": "ডিমাপুৰ",
-   "kind": "City",
+   "kind": "Capital",
    "also_called": [
     "Dimapur",
     "Dimapur ruins",
@@ -26214,7 +26214,7 @@
    "id": "maibong",
    "name": "Maibong",
    "name_assamese": "মাইবং",
-   "kind": "Town",
+   "kind": "Capital",
    "also_called": [
     "Maibong"
    ],
@@ -26226,6 +26226,25 @@
    "longitude": 93.17,
    "sources": [
     "https://github.com/axomrank/AHOM"
+   ]
+  },
+  {
+   "id": "khaspur",
+   "name": "Khaspur",
+   "name_assamese": "খাসপুৰ",
+   "kind": "Capital",
+   "also_called": [
+    "Khaspur",
+    "Khaspur Rajbari"
+   ],
+   "present_name": "Khaspur",
+   "location": "Cachar, Assam",
+   "summary": "The 18th century capital of the Dimasa kingdom in the plains of Cachar.",
+   "confidence": "high",
+   "latitude": 24.8142,
+   "longitude": 92.9567,
+   "sources": [
+    "https://en.wikipedia.org/wiki/Khaspur"
    ]
   },
   {
@@ -26243,6 +26262,8 @@
    "summary": "The capital of Kamata from about 1257, and of the Khen kings; destroyed in 1498.",
    "notes": "Sources place it near Cooch Behar or at Gosanimari.",
    "confidence": "medium",
+   "latitude": 26.0247,
+   "longitude": 89.3458,
    "sources": [
     "https://en.wikipedia.org/wiki/Kamata_Kingdom"
    ]
@@ -26251,7 +26272,7 @@
    "id": "cooch-behar",
    "name": "Cooch Behar",
    "name_assamese": "কোচবিহাৰ",
-   "kind": "City",
+   "kind": "Capital",
    "also_called": [
     "Koch Bihar",
     "Cooch Behar",
@@ -26261,6 +26282,8 @@
    "location": "Cooch Behar district, West Bengal",
    "summary": "The Koch Bihar capital in the 16th century, near the old Kamatapur.",
    "confidence": "high",
+   "latitude": 26.3239,
+   "longitude": 89.4511,
    "sources": [
     "https://github.com/axomrank/AHOM"
    ]
