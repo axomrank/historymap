@@ -68,10 +68,54 @@ const PITHA_COLORS = {
   saumara: '#4f46e5'
 };
 const PITHA_INFO = {
-  ratna: { name: 'Ratnapīṭha', name_as: 'ৰত্নপীঠ', span: 'Karatoyā → Sankosh River', span_as: 'করতোয়া নদীৰ পৰা সোণকোষ নদীলৈ', zone: 'Western Sector (North Bengal & Goalpara)' },
-  kama: { name: 'Kāmapīṭha', name_as: 'কামপীঠ', span: 'Sankosh → Rupahi (Bornadi)', span_as: 'সোণকোষ নদীৰ পৰা ৰূপহী (বৰনদী)লৈ', zone: 'Heartland (Prāgjyotiṣpura & Kamakhya)' },
-  suvarna: { name: 'Suvarṇapīṭha', name_as: 'স্বৰ্ণপীঠ', span: 'Rupahi (Bornadi) → Bharali River', span_as: 'ৰূপহী (বৰনদী)ৰ পৰা ভৰলী নদীলৈ', zone: 'Central Sector (Darrang & Biswanath)' },
-  saumara: { name: 'Saumārapīṭha', name_as: 'সৌমাৰপীঠ', span: 'Bharali → Dikkaravasini (Dikrang)', span_as: 'ভৰলী নদীৰ পৰা দিক্কৰবাসিনীলৈ', zone: 'Eastern Sector (Upper Assam & Sadiya)' }
+  ratna: {
+    name: 'Ratnapīṭha',
+    name_as: 'ৰত্নপীঠ',
+    span: 'Karatoyā → Sankosh River',
+    span_as: 'করতোয়া নদীৰ পৰা সোণকোষ নদীলৈ',
+    zone: 'Western Gateway (North Bengal & Western Goalpara)',
+    zone_as: 'পশ্চিম প্ৰান্ত (উত্তৰ বংগ, কোচবিহাৰ আৰু গোৱালপাৰা)',
+    desc: 'The westernmost province of ancient Kāmarūpa, stretching from the sacred Karatoyā River to the Sankosh River. It guarded the realm’s frontiers against Aryavarta and Magadha, encompassing rich alluvial trade corridors and the ancient shrines of Jalpesh and Kamateswari.',
+    desc_as: 'প্ৰাচীন কামৰূপৰ পশ্চিমতম প্ৰদেশ, পৱিত্ৰ করতোয়া নদীৰ পৰা সোণকোষ নদীলৈ বিস্তৃত। এই অঞ্চলে উত্তৰ ভাৰত আৰু মগধৰ সৈতে যোগাযোগ ৰক্ষা কৰিছিল।',
+    center: [26.2, 89.2],
+    sites: ['kamata', 'karatoya', 'kamatapur', 'cooch-behar', 'rangpur-bangladesh']
+  },
+  kama: {
+    name: 'Kāmapīṭha',
+    name_as: 'কামপীঠ',
+    span: 'Sankosh → Rupahi (Bornadi) River',
+    span_as: 'সোণকোষ নদীৰ পৰা ৰূপহী (বৰনদী)লৈ',
+    zone: 'Imperial Heartland (Prāgjyotiṣpura & Nilachal)',
+    zone_as: 'সাম্ৰাজ্যৰ হৃদয়ভূমি (প্ৰাগজ্যোতিষপুৰ আৰু নীলাচল)',
+    desc: 'The central heartland and spiritual core of Kāmarūpa between the Sankosh and Bornadi rivers. Anchored by the royal citadel of Prāgjyotiṣpura and the tantric mother-shrine atop Nilachal Hill (Kāmākhyā), it served as the royal seat of Naraka, Bhagadatta, and the Varman dynasty.',
+    desc_as: 'কামৰূপৰ কেন্দ্ৰীয় হৃদয়ভূমি আৰু ধৰ্মীয় প্ৰাণকেন্দ্ৰ। প্ৰাগজ্যোতিষপুৰ ৰাজধানী আৰু নীলাচলৰ কামাখ্যা ধাম ইয়াতেই অৱস্থিত। বৰ্মা বংশৰ ৰজাসকলৰ প্ৰধান শাসনকেন্দ্ৰ।',
+    center: [26.18, 91.2],
+    sites: ['pragjyotishpura', 'guwahati', 'nilachal', 'umachal', 'hajo', 'kamarupanagara']
+  },
+  suvarna: {
+    name: 'Suvarṇapīṭha',
+    name_as: 'স্বৰ্ণপীঠ',
+    span: 'Rupahi (Bornadi) → Bharali River',
+    span_as: 'ৰূপহী (বৰনদী)ৰ পৰা ভৰলী নদীলৈ',
+    zone: 'Central Province (Darrang & Sonitpur / Haruppeśwara)',
+    zone_as: 'মধ্য খণ্ড (দৰং আৰু শোণিতপুৰ / হৰুপ্পেশ্বৰ)',
+    desc: 'The golden central province spanning between the Bornadi and Bharali rivers. Famed for alluvial gold deposits along the river sandbars, it hosted the imperial capital Haruppeśwara (Tezpur) during the Śālastambha dynasty, the naval base of Harjjaravarman, and the Mahabhairav temple.',
+    desc_as: 'বৰনদীৰ পৰা ভৰলী নদীলৈ বিস্তৃত সোণালী শস্য-শ্যামলা মধ্যভূমি। শালস্তম্ভ বংশৰ ৰাজধানী হৰুপ্পেশ্বৰ (তেজপুৰ), নৌ-ঘাটি আৰু প্ৰাচীন মহাভৈৰৱ মন্দিৰ ইয়াতে অৱস্থিত আছিল।',
+    center: [26.55, 92.4],
+    sites: ['haruppeswara', 'durjaya', 'tezpur', 'parbatiya', 'biswanath', 'samdhara']
+  },
+  saumara: {
+    name: 'Saumārapīṭha',
+    name_as: 'সৌমাৰপীঠ',
+    span: 'Bharali → Dikkaravasini (Dikrang / Sadiya)',
+    span_as: 'ভৰলী নদীৰ পৰা দিক্কৰবাসিনী (দিক্ৰং/শদিয়া)লৈ',
+    zone: 'Eastern Frontier (Upper Assam & Brahmakunda)',
+    zone_as: 'পূব সীমান্ত (উজনি অসম, শদিয়া আৰু ব্ৰহ্মকুণ্ড)',
+    desc: 'The easternmost province of Kāmarūpa extending from the Bharali River to the shrine of Dikkaravasini (Tamreswari Temple) and the foothills of Sadiya. Traditionally regarded as the sacred frontier sanctified by Paraśurāma, it later nurtured the medieval Chutia and Ahom realms.',
+    desc_as: 'ভৰলী নদীৰ পৰা দিক্কৰবাসিনী (তাম্ৰেশ্বৰী মন্দিৰ) আৰু শদিয়ালৈকে বিস্তৃত প্ৰাচীন কামৰূপৰ পূব সীমান্ত। পৰশুৰাম কুণ্ডৰ দ্বাৰা পৱিত্ৰ এই ভূখণ্ড পিছলৈ চুতীয়া আৰু আহোম ৰাজ্যৰ উত্থানস্থল হৈ পৰে।',
+    center: [27.05, 94.6],
+    sites: ['dikkaravasini', 'sadiya', 'majuli', 'habung', 'charaideo']
+  }
 };
 
 /* Chronological Geopolitical Milestones */
@@ -268,6 +312,13 @@ const STR = {
     timeline: 'Timeline',
     about: 'About & Sources',
     searchPh: 'Search places, capitals, kingdoms, kings...',
+    historicalOnly: 'Historical Only',
+    modernOverlay: 'Modern Districts',
+    hidePresentDay: 'Hide Present-Day Borders',
+    showPresentDay: 'Show Modern District Overlay',
+    kamarupaProvinces: 'Four Pīṭhas of Kāmarūpa',
+    flyToProvince: '📍 Fly to Province on Map',
+    provinceShrines: 'Sacred Shrines & Key Sites in this Pīṭha',
     layerRealms: 'Kingdoms',
     layerCapitals: 'Capitals',
     layerForts: 'Forts & Battles',
@@ -310,6 +361,13 @@ const STR = {
     timeline: 'সময়ৰেখা',
     about: 'আমাৰ বিষয়ে',
     searchPh: 'ঠাই, ৰাজধানী, ৰাজ্য বা ৰজা বিচাৰক...',
+    historicalOnly: 'কেৱল ইতিহাস',
+    modernOverlay: 'বৰ্তমানৰ জিলাসমূহ',
+    hidePresentDay: 'বৰ্তমানৰ জিলা-সীমা লুকুৱাওক',
+    showPresentDay: 'বৰ্তমানৰ জিলাৰ সীমা দেখুৱাওক',
+    kamarupaProvinces: 'কামৰূপৰ চাৰি পীঠ',
+    flyToProvince: '📍 মানচিত্ৰত পীঠ চাওক',
+    provinceShrines: 'এই পীঠৰ প্ৰধান তীৰ্থ আৰু ঐতিহাসিক স্থানসমূহ',
     layerRealms: 'ৰাজ্যসমূহ',
     layerCapitals: 'ৰাজধানী',
     layerForts: 'দুৰ্গ আৰু ৰণক্ষেত্ৰ',
@@ -421,7 +479,7 @@ function landFor(polity, plain) {
   if (landCache[key]) return landCache[key];
   if (!mapGeo || !mapGeo.a) return [];
   const polys = Object.entries(mapGeo.a.districts)
-    .filter(([id]) => !(['karbi-anglong', 'west-karbi-anglong'].includes(id) && polity !== 'dimasa-kingdom') && !(id === 'dima-hasao' && polity !== 'dimasa-kingdom') && !(['cachar', 'hailakandi', 'karimganj'].includes(id) && !['kamarupa', 'dimasa-kingdom'].includes(polity)))
+    .filter(([id]) => !(['karbi-anglong', 'west-karbi-anglong'].includes(id) && polity !== 'dimasa-kingdom') && !(id === 'dima-hasao' && polity !== 'dimasa-kingdom') && !(['cachar', 'hailakandi', 'karimganj'].includes(id) && !['kamarupa', 'kamarupa-pithas', 'dimasa-kingdom'].includes(polity)))
     .flatMap(([, d]) => d.rings.map(toPC));
   if (plain) {
     (mapGeo.nb.countries.India || []).flatMap(rg => [clipBox(rg, 25.4, 27.0, 87.5, 89.95), clipBox(rg, 26.05, 27.0, 89.9, 90.2)]).filter(x => x.length > 2).forEach(rg => polys.push(toPC(rg)));
@@ -459,6 +517,8 @@ const atlasState = {
   year: 643,
   isPlaying: false,
   playTimer: null,
+  hidePresentDay: true, // Antique pure historical view by default (hides modern 33 districts, state, and country borders)
+  selectedPithaKey: null,
   layers: {
     realms: true,
     capitals: true,
@@ -466,7 +526,6 @@ const atlasState = {
     sacred: true,
     cities: true,
     rivers: true,
-    pithas: false,
     inscriptions: false
   },
   selectedPlaceId: null,
@@ -495,8 +554,10 @@ function placeCategory(p) {
 function viewMap(q) {
   const requestedYear = Number(q.get('y')) || (q.get('era') === 'kamarupa' ? 643 : atlasState.year || 643);
   atlasState.year = Math.min(1826, Math.max(350, requestedYear));
-  if (q.get('pithas') === '1') atlasState.layers.pithas = true;
+  if (q.get('modern') === '1') atlasState.hidePresentDay = false;
+  if (q.get('pure') === '1') atlasState.hidePresentDay = true;
   if (q.get('inscr') === '1') atlasState.layers.inscriptions = true;
+  if (q.get('pitha')) atlasState.selectedPithaKey = q.get('pitha');
 
   if (!mapGeo) {
     mapGeo = 'loading';
@@ -539,6 +600,9 @@ function viewMap(q) {
       </div>
 
       <div class="atlas-layer-bar" id="atlasLayerBar">
+        <button type="button" class="atlas-pill present-pill ${atlasState.hidePresentDay ? 'active' : ''}" id="togglePresentPill" title="${atlasState.hidePresentDay ? esc(t('showPresentDay')) : esc(t('hidePresentDay'))}">
+          <span class="pill-dot present-dot"></span><span>${atlasState.hidePresentDay ? esc(t('historicalOnly')) : esc(t('modernOverlay'))}</span>
+        </button>
         <button type="button" class="atlas-pill ${atlasState.layers.realms ? 'active' : ''}" data-layer="realms">
           <span class="pill-dot realm-dot"></span><span>${esc(t('layerRealms'))}</span>
         </button>
@@ -553,9 +617,6 @@ function viewMap(q) {
         </button>
         <button type="button" class="atlas-pill ${atlasState.layers.rivers ? 'active' : ''}" data-layer="rivers">
           <span class="pill-dot river-dot"></span><span>${esc(t('layerRivers'))}</span>
-        </button>
-        <button type="button" class="atlas-pill pitha-pill ${atlasState.layers.pithas ? 'active' : ''}" id="pithaPillBtn" data-layer="pithas" ${atlasState.year <= 1100 ? '' : 'hidden'}>
-          <span class="pill-dot pitha-dot"></span><span>${esc(t('layerPithas'))}</span>
         </button>
         <button type="button" class="atlas-pill inscr-pill ${atlasState.layers.inscriptions ? 'active' : ''}" data-layer="inscriptions">
           <span class="pill-dot inscr-dot"></span><span>${esc(t('layerInscriptions'))}</span>
@@ -572,6 +633,10 @@ function viewMap(q) {
             <button type="button" id="mzout" title="Zoom Out" aria-label="Zoom out">−</button>
             <button type="button" id="mzreset" title="Reset View" aria-label="Reset view">⟲</button>
           </div>
+          <button type="button" class="hud-action-btn ${atlasState.hidePresentDay ? 'active' : ''}" id="hudPresentBtn" title="${atlasState.hidePresentDay ? 'Showing antique historical view (click to reveal modern districts)' : 'Showing modern district overlay (click to hide)'}">
+            <span class="hud-btn-icon">${atlasState.hidePresentDay ? '🏛' : '🗺'}</span>
+            <span class="hud-btn-label">${atlasState.hidePresentDay ? esc(t('historicalOnly')) : esc(t('modernOverlay'))}</span>
+          </button>
           <button type="button" class="hud-drawer-btn ${atlasState.drawerOpen ? 'open' : ''}" id="hudDrawerBtn" aria-label="Toggle Dossier">
             <span class="hud-drawer-icon">❖</span>
             <span class="hud-drawer-text">${esc(t('dossier'))}</span>
@@ -689,43 +754,47 @@ function renderAtlas() {
   // 2. Paint Rivers
   paintRivers();
 
-  // 3. Paint Active Kingdoms (Realms)
+  // 3. Paint Active Kingdoms (Realms) & Four Pīṭhas
   paintRealms(y);
 
-  // 4. Paint Integrated Four Pīṭhas (if enabled and <= 1100)
-  paintPithas(y);
-
-  // 5. Paint Historical Spots & Places
+  // 4. Paint Historical Spots & Places
   paintSpots(y);
 
-  // 6. Paint Inscriptions (if enabled)
+  // 5. Paint Inscriptions (if enabled)
   paintInscriptions(y);
 
-  // 7. Update Timeline Deck Controls & Dynamic Narrative
+  // 6. Update Timeline Deck Controls & Dynamic Narrative
   updateTimelineDeck(y);
 
-  // 8. Update Right-Side Drawer
+  // 7. Update Right-Side Drawer
   updateDrawer(y);
 
-  // 9. Update Layer Pill Visibility (e.g. Pithas pill only for <= 1100)
-  const pithaPill = $('pithaPillBtn');
-  if (pithaPill) pithaPill.hidden = y > 1100;
-
-  // 10. Update URL hash query
+  // 8. Update URL hash query
   updateUrlQuery();
 }
 
 /* Base Districts, Neighboring Countries & Rivers */
 function paintBaseGeography() {
   const mbase = $('mbase');
-  if (!mbase || mbase.dataset.rendered) return;
+  if (!mbase) return;
 
   const b = mapGeo.b, a = mapGeo.a, nb = mapGeo.nb;
   const neighbours = Object.entries(nb.countries || {}).flatMap(([cname, rings]) => rings.map(r => `<path class="mcountry mcountry-${cname.toLowerCase()}" d="${ringToPath(r)}"><title>${esc(cname)}</title></path>`)).join('');
   const districts = Object.entries(a.districts || {}).flatMap(([did, d]) => d.rings.map(r => `<path class="mdist" data-did="${did}" d="${ringToPath(r)}"><title>${esc(d.name || did)}</title></path>`)).join('');
   const assamBorder = (b.assam?.rings || []).map(r => `<path class="mborder-assam" d="${ringToPath(r)}"/>`).join('');
 
-  mbase.innerHTML = `<g class="mcountries">${neighbours}</g><g class="mdistricts">${districts}</g><g class="massam-bounds">${assamBorder}</g>`;
+  // Subtle natural valley base contour for pure antique historical view
+  const valleyBase = (b.assam?.rings || []).map(r => `<path class="mvalley-fill" d="${ringToPath(r)}"/>`).join('');
+
+  mbase.innerHTML = `
+    <g class="mvalley-base">${valleyBase}</g>
+    <g class="mcountries">${neighbours}</g>
+    <g class="mdistricts">${districts}</g>
+    <g class="massam-bounds">${assamBorder}</g>
+  `;
+
+  const svg = $('atlasSvg');
+  if (svg) svg.classList.toggle('hide-present', !!atlasState.hidePresentDay);
   mbase.dataset.rendered = 'true';
 }
 
@@ -766,6 +835,92 @@ function paintRealms(y) {
     return;
   }
 
+  // 1. ANCIENT KĀMARŪPA ERA (350–1100 CE): Direct Four Pīṭha provinces inside Kāmarūpa
+  if (y <= 1100) {
+    const geo = getGeoRealms();
+    const pitRows = realms.map((r, i) => [geo[i], r]).filter(([g, r]) => g && r.id.startsWith('pitha-kakati-'));
+    const kamarupaActive = realms.find(r => r.id.startsWith('kamarupa-') && r.start <= y && y <= (r.end ?? r.start));
+    const narrative = getTimelineNarrative(y);
+    const dynastyLabel = narrative.dynasty || (kamarupaActive ? kamarupaActive.name : 'Kāmarūpa Kingdom');
+
+    // Compute shapes for each Pīṭha
+    const pithaShapes = pitRows.map(([g, r]) => {
+      const shp = computeRealmShape(g);
+      const key = r.id.split('-').pop();
+      return { g, r, key, shp, color: PITHA_COLORS[key] || '#64748b', info: PITHA_INFO[key] };
+    }).filter(p => p.shp && p.shp.length);
+
+    // Compute combined outer boundary of Kāmarūpa
+    const unionParts = pithaShapes.map(p => p.shp);
+    const combinedKamarupaShape = safe(() => fillHoles(pc.union(...unionParts)), []);
+
+    const selectedKey = atlasState.selectedPithaKey;
+
+    // SVG elements for Pīṭha provinces
+    const provincesSvg = pithaShapes.map(({ key, shp, color, info }) => {
+      const isSelected = selectedKey === key;
+      const outerRing = shp.map(poly => poly[0]).sort((a, b) => b.length - a.length)[0];
+      let lblSvg = '';
+      if (outerRing && outerRing.length > 3) {
+        const lons = outerRing.map(p => p[0]), lats = outerRing.map(p => p[1]);
+        const cx = (Math.min(...lons) + Math.max(...lons)) / 2;
+        const cy = (Math.min(...lats) + Math.max(...lats)) / 2;
+        const pName = lang === 'as' ? info.name_as : info.name;
+        const pSpan = lang === 'as' ? info.span_as : info.span;
+        lblSvg = `<g class="mpitha-label-box" pointer-events="none">
+          <text class="mpitha-lbl" x="${X(cx)}" y="${Y(cy) - 6}" text-anchor="middle" dominant-baseline="central">${esc(pName.toUpperCase())}</text>
+          <text class="mpitha-lbl-sub" x="${X(cx)}" y="${Y(cy) + 9}" text-anchor="middle" dominant-baseline="central">${esc(pSpan)}</text>
+        </g>`;
+      }
+
+      return `<g class="mpitha-group ${isSelected ? 'selected' : ''}" data-pitha="${key}" data-realm="kamarupa" style="--pc:${color}">
+        <path class="mpitha-poly" fill-rule="evenodd" d="${mpPath(shp)}">
+          <title>${esc(info.name)} · ${esc(t('kamarupaProvinces'))} (${esc(info.span)})</title>
+        </path>
+        ${lblSvg}
+      </g>`;
+    }).join('');
+
+    // River Dividing Frontier Lines
+    const a = mapGeo.a;
+    const boundaryRivers = [
+      { id: 'teesta-karatoya', label: 'Karatoyā River' },
+      { id: 'sonkosh', label: 'Sankosh River' },
+      { id: 'puthimari', label: 'Bornadi / Puthimari' },
+      { id: 'bharali', label: 'Bharali River' },
+      { id: 'dikrong', label: 'Dikkaravasini / Dikrang' }
+    ];
+    const riverLinesSvg = boundaryRivers.map(br => {
+      const rData = a && a.rivers ? a.rivers[br.id] : null;
+      if (!rData || !rData.pts) return '';
+      return `<path class="mpitha-divide-line" d="${lineToPath(rData.pts)}"><title>${esc(br.label)}</title></path>`;
+    }).join('');
+
+    // Unified Outer Imperial Border
+    const outerBorderSvg = combinedKamarupaShape.length ? `
+      <path class="kamarupa-outer-border" fill="none" fill-rule="evenodd" d="${mpPath(combinedKamarupaShape)}" pointer-events="none"/>
+    ` : '';
+
+    // Imperial Crown Banner across northern frontier
+    const crownBannerSvg = `
+      <g class="kamarupa-crown-banner" transform="translate(490, 68)" pointer-events="none">
+        <rect class="crown-banner-bg" x="-200" y="-14" width="400" height="28" rx="14"/>
+        <text class="crown-banner-text" x="0" y="1" text-anchor="middle" dominant-baseline="central">
+          👑 KĀMARŪPA KINGDOM · ${esc(dynastyLabel.toUpperCase())}
+        </text>
+      </g>
+    `;
+
+    container.innerHTML = `<g class="kamarupa-unified-realm">
+      ${provincesSvg}
+      ${riverLinesSvg}
+      ${outerBorderSvg}
+      ${crownBannerSvg}
+    </g>`;
+    return;
+  }
+
+  // 2. MEDIEVAL ERA (1100–1826 CE): Multiple kingdoms
   const geo = getGeoRealms();
   const act = geo.map((g, i) => [g, realms[i]]).filter(([g, r]) => r.start <= y && y <= (r.end ?? r.start));
   const drawn = act.filter(([g]) => g);
@@ -803,41 +958,10 @@ function paintRealms(y) {
   }).join('');
 }
 
-/* Integrated Four Pīṭhas */
+/* Integrated Four Pīṭhas (Rendered inside paintRealms) */
 function paintPithas(y) {
   const container = $('mpithas');
-  if (!container) return;
-
-  if (!atlasState.layers.pithas || y > 1100) {
-    container.innerHTML = '';
-    return;
-  }
-
-  const geo = getGeoRealms();
-  const pitRows = realms.map((r, i) => [geo[i], r]).filter(([g, r]) => g && r.id.startsWith('pitha-kakati-'));
-
-  container.innerHTML = pitRows.map(([g, r]) => {
-    const shp = computeRealmShape(g);
-    if (!shp || !shp.length) return '';
-    const key = r.id.split('-').pop(), color = PITHA_COLORS[key] || '#64748b';
-    const info = PITHA_INFO[key] || { name: r.name, span: r.boundary, zone: '' };
-
-    const outerRing = shp.map(poly => poly[0]).sort((a, b) => b.length - a.length)[0];
-    let lblSvg = '';
-    if (outerRing) {
-      const lons = outerRing.map(p => p[0]), lats = outerRing.map(p => p[1]);
-      const cx = (Math.min(...lons) + Math.max(...lons)) / 2;
-      const cy = (Math.min(...lats) + Math.max(...lats)) / 2;
-      lblSvg = `<text class="mpitha-lbl" x="${X(cx)}" y="${Y(cy)}" text-anchor="middle" dominant-baseline="central">${esc(lang === 'as' ? info.name_as : info.name)}</text>`;
-    }
-
-    return `<g class="mpitha-group" data-pitha="${key}" style="--pc:${color}">
-      <path class="mpitha-poly" fill-rule="evenodd" d="${mpPath(shp)}">
-        <title>${esc(info.name)}: ${esc(info.span)} (${esc(info.zone)})</title>
-      </path>
-      ${lblSvg}
-    </g>`;
-  }).join('');
+  if (container) container.innerHTML = '';
 }
 
 /* Spots & Places with Distinct Visual Hierarchy */
@@ -989,33 +1113,57 @@ function renderDrawerRealms(y, container) {
     ` : ''}
   </div>`;
 
-  // Integrated Four Pīṭhas Card if <= 1100
+  // Integrated Four Pīṭhas of Kāmarūpa (350–1100 CE)
   if (y <= 1100) {
+    const selectedKey = atlasState.selectedPithaKey || (narrative.capital === 'haruppeswara' || narrative.capital === 'durjaya' ? 'suvarna' : 'kama');
+    const selectedInfo = PITHA_INFO[selectedKey] || PITHA_INFO.kama;
+
     html += `<div class="dossier-pitha-section">
       <div class="pitha-section-header">
-        <h4>${esc(t('layerPithas'))}</h4>
-        <label class="switch-label">
-          <input type="checkbox" id="drawerPithaCheck" ${atlasState.layers.pithas ? 'checked' : ''}>
-          <span>${esc(atlasState.layers.pithas ? 'Active' : 'Off')}</span>
-        </label>
+        <h4>👑 ${esc(t('kamarupaProvinces'))}</h4>
       </div>
       <p class="pitha-intro">${esc(t('pithaNote'))}</p>
       <div class="pitha-quad-grid">
-        ${Object.entries(PITHA_INFO).map(([k, p]) => `
-          <div class="pitha-quad-item" style="--pc:${PITHA_COLORS[k]}">
+        ${Object.entries(PITHA_INFO).map(([k, p]) => {
+          const isSel = k === selectedKey;
+          return `<button type="button" class="pitha-card-interactive ${isSel ? 'selected' : ''}" data-pitha="${k}" style="--pc:${PITHA_COLORS[k]}">
             <span class="pitha-swatch"></span>
             <div>
-              <b>${esc(lang === 'as' ? p.name_as : p.name)}</b>
+              <strong>${esc(lang === 'as' ? p.name_as : p.name)}</strong>
               <small>${esc(lang === 'as' ? p.span_as : p.span)}</small>
             </div>
+          </button>`;
+        }).join('')}
+      </div>
+
+      <div class="pitha-detail-box" style="--pc:${PITHA_COLORS[selectedKey]}">
+        <div class="pitha-detail-header">
+          <h5>${esc(lang === 'as' ? selectedInfo.name_as : selectedInfo.name)} · ${esc(lang === 'as' ? selectedInfo.zone_as || selectedInfo.zone : selectedInfo.zone)}</h5>
+          <span class="pitha-span-badge">${esc(lang === 'as' ? selectedInfo.span_as : selectedInfo.span)}</span>
+        </div>
+        <p class="pitha-detail-desc">${esc(lang === 'as' ? selectedInfo.desc_as || selectedInfo.desc : selectedInfo.desc)}</p>
+
+        <div class="pitha-sites-group">
+          <h6>${esc(t('provinceShrines'))}</h6>
+          <div class="pitha-sites-list">
+            ${(selectedInfo.sites || []).map(sid => {
+              const p = placeById[sid] || Object.values(placeById).find(x => x.name.toLowerCase() === sid.toLowerCase());
+              if (!p) return '';
+              const pName = lang === 'as' && p.name_as ? p.name_as : p.name;
+              return `<button type="button" class="pitha-site-chip" data-pid="${p.id}" title="${esc(p.summary || p.desc || '')}">📍 ${esc(pName)}</button>`;
+            }).filter(Boolean).join('')}
           </div>
-        `).join('')}
+        </div>
+
+        <button type="button" class="pitha-fly-btn" data-pitha="${selectedKey}">
+          ${esc(t('flyToProvince'))}
+        </button>
       </div>
     </div>`;
   }
 
-  // Active Kingdom Cards
-  if (groups.length) {
+  // Active Medieval Kingdom Cards (After 1100 CE)
+  if (y > 1100 && groups.length) {
     html += `<div class="dossier-realms-list">
       <h4>${esc(t('layerRealms'))} (${groups.length})</h4>
       ${groups.map(parts => {
@@ -1056,17 +1204,38 @@ function renderDrawerRealms(y, container) {
     };
   });
 
-  // Bind Drawer Pīṭha Checkbox
-  const pithaCheck = $('drawerPithaCheck');
-  if (pithaCheck) {
-    pithaCheck.onchange = e => {
-      atlasState.layers.pithas = e.target.checked;
-      const pill = $('pithaPillBtn');
-      if (pill) pill.classList.toggle('active', atlasState.layers.pithas);
-      paintPithas(atlasState.year);
+  // Bind Pīṭha Cards in Drawer
+  container.querySelectorAll('.pitha-card-interactive').forEach(card => {
+    card.onclick = () => {
+      atlasState.selectedPithaKey = card.dataset.pitha;
+      paintRealms(atlasState.year);
       updateDrawer(atlasState.year);
     };
-  }
+  });
+
+  // Bind Pīṭha Fly Button
+  container.querySelectorAll('.pitha-fly-btn').forEach(btn => {
+    btn.onclick = () => {
+      const key = btn.dataset.pitha;
+      const info = PITHA_INFO[key];
+      if (info && info.center) {
+        flyTo(info.center[0], info.center[1], 3.2);
+      }
+    };
+  });
+
+  // Bind Pīṭha Site Chips
+  container.querySelectorAll('.pitha-site-chip').forEach(chip => {
+    chip.onclick = () => {
+      const pid = chip.dataset.pid;
+      if (pid && placeById[pid]) {
+        const p = placeById[pid];
+        atlasState.selectedPlaceId = p.id;
+        paintSpots(atlasState.year);
+        flyTo(p.geo[0], p.geo[1], 4.2);
+      }
+    };
+  });
 }
 
 function renderDrawerPlaces(y, container) {
@@ -1294,9 +1463,36 @@ function setYear(y) {
 
 function updateUrlQuery() {
   const q = { y: atlasState.year };
-  if (atlasState.layers.pithas) q.pithas = '1';
+  if (!atlasState.hidePresentDay) q.modern = '1';
   if (atlasState.layers.inscriptions) q.inscr = '1';
+  if (atlasState.selectedPithaKey) q.pitha = atlasState.selectedPithaKey;
   setQuery('/map', q);
+}
+
+function togglePresentDay() {
+  atlasState.hidePresentDay = !atlasState.hidePresentDay;
+  const svg = $('atlasSvg');
+  if (svg) svg.classList.toggle('hide-present', atlasState.hidePresentDay);
+
+  const pill = $('togglePresentPill');
+  if (pill) {
+    pill.classList.toggle('active', atlasState.hidePresentDay);
+    pill.title = atlasState.hidePresentDay ? t('showPresentDay') : t('hidePresentDay');
+    const labelSpan = pill.querySelector('span:last-child');
+    if (labelSpan) labelSpan.textContent = atlasState.hidePresentDay ? t('historicalOnly') : t('modernOverlay');
+  }
+
+  const hudBtn = $('hudPresentBtn');
+  if (hudBtn) {
+    hudBtn.classList.toggle('active', atlasState.hidePresentDay);
+    hudBtn.title = atlasState.hidePresentDay ? 'Showing antique historical view (click to reveal modern districts)' : 'Showing modern district overlay (click to hide)';
+    const icon = hudBtn.querySelector('.hud-btn-icon');
+    const label = hudBtn.querySelector('.hud-btn-label');
+    if (icon) icon.textContent = atlasState.hidePresentDay ? '🏛' : '🗺';
+    if (label) label.textContent = atlasState.hidePresentDay ? t('historicalOnly') : t('modernOverlay');
+  }
+
+  updateUrlQuery();
 }
 
 /* Global Event Listeners for Map, Deck, and Search */
@@ -1317,7 +1513,13 @@ document.addEventListener('click', e => {
     return;
   }
 
-  // 3. Layer Bar Pills
+  // 3. Toggle Present Day Buttons
+  if (e.target.closest('#togglePresentPill,#hudPresentBtn')) {
+    togglePresentDay();
+    return;
+  }
+
+  // 4. Layer Bar Pills
   const pill = e.target.closest('.atlas-pill');
   if (pill) {
     const layer = pill.dataset.layer;
@@ -1325,14 +1527,13 @@ document.addEventListener('click', e => {
       atlasState.layers[layer] = !atlasState.layers[layer];
       pill.classList.toggle('active', atlasState.layers[layer]);
       if (layer === 'realms') paintRealms(atlasState.year);
-      else if (layer === 'pithas') { paintPithas(atlasState.year); updateDrawer(atlasState.year); }
       else if (layer === 'inscriptions') { paintInscriptions(atlasState.year); updateDrawer(atlasState.year); }
       else paintSpots(atlasState.year);
     }
     return;
   }
 
-  // 4. Drawer Toggle Buttons
+  // 5. Drawer Toggle Buttons
   if (e.target.closest('#hudDrawerBtn,#drawerCloseBtn')) {
     atlasState.drawerOpen = !atlasState.drawerOpen;
     const drawer = $('atlasDrawer'), btn = $('hudDrawerBtn');
@@ -1341,7 +1542,7 @@ document.addEventListener('click', e => {
     return;
   }
 
-  // 5. Drawer Tabs
+  // 6. Drawer Tabs
   const dtab = e.target.closest('.dtab');
   if (dtab) {
     atlasState.drawerTab = dtab.dataset.dtab;
@@ -1350,13 +1551,13 @@ document.addEventListener('click', e => {
     return;
   }
 
-  // 6. Timeline Play / Pause
+  // 7. Timeline Play / Pause
   if (e.target.closest('#deckPlayBtn')) {
     togglePlayback();
     return;
   }
 
-  // 7. Step Buttons
+  // 8. Step Buttons
   if (e.target.closest('#deckStepBack')) {
     setYear(atlasState.year - 25);
     return;
@@ -1366,7 +1567,7 @@ document.addEventListener('click', e => {
     return;
   }
 
-  // 8. Zoom buttons
+  // 9. Zoom buttons
   if (e.target.closest('#mzin')) {
     const curW = atlasState.viewBox.w, curH = atlasState.viewBox.h;
     const newW = curW / 1.3, newH = curH / 1.3;
@@ -1390,7 +1591,7 @@ document.addEventListener('click', e => {
     return;
   }
 
-  // 9. Spot Click
+  // 10. Spot Click
   const spot = e.target.closest('.mspot');
   if (spot) {
     const pid = spot.dataset.pid;
@@ -1409,7 +1610,22 @@ document.addEventListener('click', e => {
     return;
   }
 
-  // 10. Realm Click
+  // 11. Pīṭha Click on Map
+  const pithaGrp = e.target.closest('.mpitha-group');
+  if (pithaGrp) {
+    const key = pithaGrp.dataset.pitha;
+    atlasState.selectedPithaKey = key;
+    atlasState.drawerOpen = true;
+    atlasState.drawerTab = 'realms';
+    document.querySelectorAll('.dtab').forEach(b => b.classList.toggle('active', b.dataset.dtab === 'realms'));
+    $('atlasDrawer')?.classList.add('open');
+    $('hudDrawerBtn')?.classList.add('open');
+    paintRealms(atlasState.year);
+    updateDrawer(atlasState.year);
+    return;
+  }
+
+  // 12. Medieval Realm Click
   const realmGrp = e.target.closest('.mrealm-group');
   if (realmGrp) {
     atlasState.drawerOpen = true;
@@ -1479,12 +1695,31 @@ document.addEventListener('mousemove', e => {
       tip.innerHTML = `
         <div class="tip-badge">${icon} ${esc(p.cat)}</div>
         <strong>${esc(lang === 'as' && p.name_as ? p.name_as : p.name)}</strong>
-        ${p.present ? `<small class="tip-sub">${esc(p.present)}</small>` : ''}
+        ${!atlasState.hidePresentDay && p.present ? `<small class="tip-sub">${esc(p.present)}</small>` : ''}
         <p class="tip-desc">${esc(p.summary || p.desc || '')}</p>
         <span class="tip-action">${esc(t('clickToFocus'))}</span>
       `;
+      return;
     }
   } else if (tip) {
+    const pithaGrp = e.target.closest('.mpitha-group');
+    if (pithaGrp) {
+      const key = pithaGrp.dataset.pitha;
+      const info = PITHA_INFO[key];
+      if (info) {
+        tip.hidden = false;
+        tip.style.left = `${e.clientX + 14}px`;
+        tip.style.top = `${e.clientY + 14}px`;
+        tip.innerHTML = `
+          <div class="tip-badge" style="background:${PITHA_COLORS[key]}25; color:${PITHA_COLORS[key]}">👑 ${esc(t('kamarupaProvinces'))}</div>
+          <strong style="color:${PITHA_COLORS[key]}">${esc(lang === 'as' ? info.name_as : info.name)}</strong>
+          <small class="tip-sub">${esc(lang === 'as' ? info.span_as : info.span)}</small>
+          <p class="tip-desc">${esc(lang === 'as' ? info.zone_as || info.zone : info.zone)}</p>
+          <span class="tip-action">${esc(t('clickToFocus'))}</span>
+        `;
+        return;
+      }
+    }
     tip.hidden = true;
   }
 
