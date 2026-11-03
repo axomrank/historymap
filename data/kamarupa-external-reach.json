@@ -1,0 +1,319 @@
+{
+  "sources": {
+    "nidhanpur": {
+      "title": "Nidhanpur plates · edition and translation",
+      "locator": "Epigraphia Indica XII, pp.65–79; opening camp formula and renewal of Bhutivarman’s grant",
+      "url": "https://library.bjp.org/jspui/bitstream/123456789/1910/2/epigraphia-indica-vol-12.pdf"
+    },
+    "dubi": {
+      "title": "D. C. Sircar · Dubi plates",
+      "locator": "Epigraphia Indica XXX, p.295 · differing interpretations of the Gauḍa campaign",
+      "url": "https://whatisindia.com/inscriptions/epigraphica_indica/vol30_1953-1954/sircar195.html"
+    },
+    "pashupati": {
+      "title": "Paśupati inscription of Jayadeva II",
+      "locator": "Verse 15; Nepalese Inscriptions, printed p.347; compare edition concordance no.139 / Gnoli LXXXI",
+      "url": "https://www.sanskrit.nic.in/DigitalBook/N/NepalesseInscriptions.pdf"
+    },
+    "pashupatiText": {
+      "title": "Paśupati inscription · text and edition concordance",
+      "locator": "Verse 15, lines 15–16; date readings vary in the editions",
+      "url": "https://indepigr.narod.ru/licchavi/content155.htm"
+    },
+    "gachtal": {
+      "title": "Gachtal plates · primary epigraphic edition",
+      "locator": "Epigraphia Indica XL, second fascicle, pp.71–72; compare verses 15 and 20",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Epigraphia_Indica_Vol_40_No._2_July_1973.pdf"
+    },
+    "sharma": {
+      "title": "M. M. Sharma · Inscriptions of Ancient Assam",
+      "locator": "1978: Nidhanpur discussion pp.54–56; Gachtal translation pp.214–215, vv.15,20",
+      "url": "../Inscriptions-of-Ancient-Assam-M-M-Sharma-1978.pdf"
+    },
+    "davaka": {
+      "title": "P. C. Choudhury · historical reconstruction",
+      "locator": "The History of Civilisation of the People of Assam, historical-geography discussion, printed p.363: Kalyanavarman and Mahendravarman",
+      "url": "https://eprints.soas.ac.uk/29600/1/10752572.pdf"
+    },
+    "alternate": {
+      "title": "Political Geography of Pragjyotisa-Kamarupa · historiographical comparison",
+      "locator": "Printed p.56: a different attribution of Davaka’s absorption to Balavarman",
+      "url": "https://mncbm.digitallibrary.co.in/bitstream/123456789/23/1/Anima%20Dutta.pdf"
+    },
+    "bargaon": {
+      "title": "Ratnapala grants · early edition",
+      "locator": "Hoernle, Journal of the Asiatic Society of Bengal LXVII, Part I (1898), Ratnapala grants; compare Sharma’s Bargaon edition",
+      "url": "https://pahar.in/pahar/Journals/Asiatic%20Society%20of%20Bengal%201788-1921/Journal%20of%20Asiatic%20Society%20of%20Bengal%201832-1923/1898%20Journal%20Asiatic%20Society%20of%20Bengal%20Vol%2067%20Part%201%20s.pdf"
+    }
+  },
+  "episodes": [
+    {
+      "id": "bhuti-chandrapuri",
+      "phase": "varman",
+      "ruler": "Bhutivarman",
+      "ruler_ids": [
+        "bhuti-varman"
+      ],
+      "date": "Sixth-century grant, renewed in the seventh century",
+      "date_start": 518,
+      "date_end": 650,
+      "type": "grant",
+      "label": "Land-grant authority",
+      "title": "Chandrapuri / Mayūraśālmala",
+      "territory": "Grant district traditionally associated with the Sylhet region",
+      "extent": "Authority to grant and renew land is recorded. The size and modern perimeter of the district are not established here.",
+      "evidence": "Bhaskaravarman’s Nidhanpur charter renews a grant attributed to Bhutivarman.",
+      "limit": "The map uses the Nidhanpur findspot as an orientation anchor, not the boundary of the donated land. This is administrative evidence, not a narrated conquest.",
+      "duration": "Earlier grant followed by renewal; continuous territorial control is not demonstrated by this alone.",
+      "sources": [
+        "nidhanpur",
+        "sharma"
+      ],
+      "map": [
+        {
+          "name": "Sylhet reference",
+          "lat": 24.805,
+          "lon": 92.155,
+          "kind": "point",
+          "precision": "Nidhanpur findspot reference, not grant-district limits"
+        }
+      ]
+    },
+    {
+      "id": "bhaskara-karnasuvarna",
+      "phase": "varman",
+      "ruler": "Bhaskaravarman",
+      "ruler_ids": [
+        "bhaskar-varman"
+      ],
+      "date": "Seventh century; campaign chronology disputed",
+      "date_start": 600,
+      "date_end": 650,
+      "type": "presence",
+      "label": "Victory-camp presence",
+      "title": "Karṇasuvarṇa, Gauḍa",
+      "territory": "Karṇasuvarṇa near modern Murshidabad, West Bengal",
+      "extent": "A victory camp at Karṇasuvarṇa is directly attested. Wider control of Gauḍa is inferred by historians, with disagreement about its date, duration and extent.",
+      "evidence": "The Nidhanpur grant’s opening places its issuer at a victory camp in Karṇasuvarṇa.",
+      "limit": "An attested camp does not supply the perimeter of an annexed province. Sircar’s discussion and Sharma’s reconstruction differ; neither permits an exact conquered-area polygon.",
+      "duration": "Duration of occupation or control is disputed.",
+      "sources": [
+        "nidhanpur",
+        "dubi",
+        "sharma"
+      ],
+      "map": [
+        {
+          "name": "Karṇasuvarṇa",
+          "lat": 23.04,
+          "lon": 88.19,
+          "kind": "point",
+          "precision": "Approximate modern locality reference, not camp excavations"
+        }
+      ]
+    },
+    {
+      "id": "harsa-eastern-regions",
+      "phase": "salastambha",
+      "ruler": "Harshadeva / Harshavarman",
+      "ruler_ids": [
+        "harshadeva-alias-harshavarman"
+      ],
+      "date": "Eighth century; ruler identification and inscription dating vary",
+      "date_start": 725,
+      "date_end": 745,
+      "type": "lordship",
+      "label": "Inscribed lordship claim",
+      "title": "Gauḍa · Oḍra · Kaliṅga · Kośala",
+      "territory": "Named eastern-Indian regions; three approximate regional references are mapped",
+      "extent": "The Paśupati inscription calls Harshadeva lord of these regions. The identification with Kamarupa’s ruler is the historical interpretation used here; permanent provincial administration is not established.",
+      "evidence": "Verse 15 identifies Rajyamati as Harshadeva’s daughter, associates her family with Bhagadatta, and names the regions in his title.",
+      "limit": "This is a royal eulogy in a Nepalese inscription. It gives no surveyed borders. Kośala is retained in the list without choosing an unverified modern location. Nepal is the inscription’s location and marriage connection, not a conquest.",
+      "duration": "Tenure and duration of any control are not specified.",
+      "sources": [
+        "pashupati",
+        "pashupatiText"
+      ],
+      "map": [
+        {
+          "name": "Gauḍa · claim",
+          "lat": 24,
+          "lon": 88.15,
+          "kind": "region",
+          "precision": "Illustrative Bengal orientation; region changed across time"
+        },
+        {
+          "name": "Oḍra · claim",
+          "lat": 20.5,
+          "lon": 85.8,
+          "kind": "region",
+          "precision": "Illustrative Odisha orientation, not a historical perimeter"
+        },
+        {
+          "name": "Kaliṅga · claim",
+          "lat": 18.8,
+          "lon": 84.4,
+          "kind": "region",
+          "precision": "Illustrative eastern-coast orientation, not a historical perimeter"
+        }
+      ],
+      "unmapped": [
+        "Kośala · modern identification and extent not fixed in this map"
+      ]
+    },
+    {
+      "id": "ratna-gauda",
+      "phase": "pala",
+      "ruler": "Ratnapala",
+      "ruler_ids": [
+        "ratna-pala"
+      ],
+      "date": "c.920–960 in the Gachtal-based reconstruction",
+      "date_start": 920,
+      "date_end": 960,
+      "type": "victory",
+      "label": "Victory / advance reported",
+      "title": "Gauḍa and the Ganges",
+      "territory": "Gauḍa; an advance to the Ganges is inferred from the victory verse",
+      "extent": "Gachtal verse 15 reports defeat of Rajyapala of Gauḍa and invokes the Ganges. Sircar reads this as an advance to its bank, without defining a lasting annexation.",
+      "evidence": "The account occurs retrospectively in Gopala’s Gachtal plates, not in a contemporary battle dispatch.",
+      "limit": "The regional anchor does not locate the battle or a precise Ganges crossing. No whole-Bengal annexation or area in km² is inferred.",
+      "duration": "No duration or annexed perimeter is stated.",
+      "sources": [
+        "gachtal",
+        "sharma"
+      ],
+      "map": [
+        {
+          "name": "Gauḍa / Ganges reach",
+          "lat": 24.7,
+          "lon": 88.1,
+          "kind": "region",
+          "precision": "Regional orientation only; exact battle and river-bank point unlocated"
+        }
+      ]
+    },
+    {
+      "id": "indra-vanga",
+      "phase": "pala",
+      "ruler": "Indrapala",
+      "ruler_ids": [
+        "indra-pala"
+      ],
+      "date": "c.960–990 in the Gachtal-based reconstruction",
+      "date_start": 960,
+      "date_end": 990,
+      "type": "victory",
+      "label": "Victory reported",
+      "title": "Vaṅga · Kalyanachandra",
+      "territory": "Vaṅga, broadly eastern Bengal",
+      "extent": "Gachtal verse 20 reports Indrapala defeating Kalyanachandra of Vaṅga in an encounter involving boats. It does not define land annexed after the encounter.",
+      "evidence": "Kalyanachandra is named as Srichandra’s son. Synchronisms inform Sircar’s revised Pala chronology.",
+      "limit": "The marker orients the reader within eastern Bengal; it is not a located battlefield. Defeating a ruler is not proof of acquiring all his dominions.",
+      "duration": "Occupation or lasting possession is not established.",
+      "sources": [
+        "gachtal",
+        "sharma"
+      ],
+      "map": [
+        {
+          "name": "Vaṅga · victory report",
+          "lat": 23.5,
+          "lon": 90.5,
+          "kind": "region",
+          "precision": "Approximate regional reference; battle location unknown"
+        }
+      ]
+    },
+    {
+      "id": "davaka-consolidation",
+      "phase": "varman",
+      "ruler": "Early Varman kings · attribution disputed",
+      "ruler_ids": [
+        "kalyan-varman",
+        "bala-varman"
+      ],
+      "date": "Fifth-century incorporation proposed by historians",
+      "date_start": 398,
+      "date_end": 446,
+      "type": "inference",
+      "label": "Later historical attribution",
+      "title": "Davaka · internal consolidation",
+      "territory": "Davaka, associated with the Kapili–Nagaon region",
+      "extent": "Its absorption into the expanding kingdom is reconstructed. Kalyanavarman is often credited; other scholarship credits Balavarman.",
+      "evidence": "This is a historical inference, not a surviving dated conquest charter naming the annexation.",
+      "limit": "It concerns consolidation within the later Kamarupa landscape, not a securely measured external province. Included in the ledger, not drawn as won territory.",
+      "duration": "Individual king and precise date unresolved.",
+      "sources": [
+        "davaka",
+        "alternate"
+      ],
+      "map": []
+    },
+    {
+      "id": "mahendra-east",
+      "phase": "varman",
+      "ruler": "Mahendravarman",
+      "ruler_ids": [
+        "mahendra-varman"
+      ],
+      "date": "Fifth century · traditional chronology",
+      "date_start": 470,
+      "date_end": 494,
+      "type": "inference",
+      "label": "Expansion attribution · unlocated",
+      "title": "Further eastern areas",
+      "territory": "No defensible named eastern endpoint in the sources checked",
+      "extent": "Choudhury attributes further eastern subjugation to Mahendravarman. That does not identify a mappable conquered district.",
+      "evidence": "A scholarly reconstruction rather than a located annexation record.",
+      "limit": "No polygon or endpoint is supplied. Horse-sacrifice claims are not converted into a map of conquered lands.",
+      "duration": "Not established.",
+      "sources": [
+        "davaka"
+      ],
+      "map": []
+    },
+    {
+      "id": "vanamala-grants",
+      "phase": "salastambha",
+      "ruler": "Vanamalavarman",
+      "ruler_ids": [
+        "vanamalavarmadeva"
+      ],
+      "date": "Ninth century",
+      "date_start": 832,
+      "date_end": 855,
+      "type": "grant",
+      "label": "Grant geography · identification debated",
+      "title": "Chandrapuri grant landscape",
+      "territory": "A named grant district; its modern identification and external extent are debated",
+      "extent": "Grant references support royal land authority. Reconstructions of a much larger Bengal domain depend on contested place identifications.",
+      "evidence": "Tezpur and related copper-plate grant geography, discussed in Sharma and later historical geography.",
+      "limit": "An external conquered province is not mapped from uncertain identifications.",
+      "duration": "Not determined.",
+      "sources": [
+        "sharma",
+        "alternate"
+      ],
+      "map": []
+    }
+  ],
+  "excluded": [
+    {
+      "subject": "Nepal",
+      "reason": "Rajyamati’s marriage and the location of the Paśupati record do not prove Nepal was conquered by Kamarupa."
+    },
+    {
+      "subject": "Kerala, Gurjara, Vahika, Tayika and the Deccan",
+      "reason": "Ratnapala’s royal praise and the reputation of Durjaya are not treated as geographically verified annexations."
+    },
+    {
+      "subject": "Exact total area or a continuous empire polygon",
+      "reason": "The records do not provide closed conquest boundaries or enough information for a defensible km² total."
+    },
+    {
+      "subject": "Conquests into Kamarupa by other rulers",
+      "reason": "Gauḍa, Chandra, Chalukya and later Bengal-Pala attacks are not counted as territory won by Kamarupa."
+    }
+  ]
+}

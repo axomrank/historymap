@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Assam history character sheets</title>
+<meta name="description" content="Character sheets for the people of Assam's history, from Pushyavarman to Tarun Gogoi, to use as reference for AI images, video and books.">
+<link rel="icon" href="favicon.svg">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="canonical" href="https://axomrank.github.io/Assam-History-Characters/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Assam history sheets">
+<meta property="og:title" content="Assam history character sheets">
+<meta property="og:description" content="Character sheets and scenes for the people of Assam's history, from Pushyavarman to Tarun Gogoi. For non-commercial use.">
+<meta property="og:url" content="https://axomrank.github.io/Assam-History-Characters/">
+<meta property="og:image" content="https://axomrank.github.io/Assam-History-Characters/assets/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Assam history character sheets">
+<meta name="twitter:description" content="Character sheets and scenes for the people of Assam's history, from Pushyavarman to Tarun Gogoi.">
+<meta name="twitter:image" content="https://axomrank.github.io/Assam-History-Characters/assets/og.jpg">
+<meta name="theme-color" content="#e9e1cc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16120d" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap">
+<link rel="stylesheet" href="assets/app.css?v=086a42607a">
+<link rel="stylesheet" href="assets/kamarupa-era.css?v=north-bengal-badge-20261101">
+<script defer src="data/site.js?v=2546dc73aa"></script>
+<script defer src="assets/polygon-clipping.umd.min.js"></script>
+<script defer src="assets/inscriptions-data.js"></script>
+<script defer src="assets/kamarupa-era.js?v=north-bengal-20261101"></script>
+<script defer src="data/kamarupa-external-reach.js"></script>
+<script defer src="assets/kamarupa-reach.js?v=manual-camera-20261101"></script>
+<script defer src="data/kamarupa-north-bengal.js"></script>
+<script defer src="assets/kamarupa-north-bengal.js?v=north-bengal-badge-20261101"></script>
+<script defer src="assets/app.js?v=b14aa2c4ae"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="#/" aria-label="Assam history character sheets, home"><span class="brand-mark" aria-hidden="true"></span><span id="brandName">Assam history sheets</span></a>
+  <nav id="nav" aria-label="Main"></nav>
+  <div class="tools">
+    <form id="searchForm" role="search" hidden><input type="search" id="hq" autocomplete="off" spellcheck="false" aria-label="Search"></form>
+    <button id="searchBtn" type="button" class="quiet" aria-label="Search" aria-expanded="false" aria-controls="searchForm"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4 21 21"/></svg></button>
+    <button id="langBtn" type="button" class="quiet" aria-label="Switch language">অসমীয়া</button>
+  </div>
+</header>
+<main id="main" tabindex="-1"></main>
+<footer class="foot">
+  <div class="weave" aria-hidden="true"></div>
+  <p id="footNote"></p>
+  <p id="footLic"></p>
+</footer>
+
+<dialog id="viewer" aria-label="Image viewer">
+  <div class="vbar">
+    <div class="vtitle"><strong id="vTitle"></strong><span id="vSub"></span></div>
+    <div class="vact">
+      <button type="button" id="vZoomOut" aria-label="Zoom out">−</button>
+      <button type="button" id="vZoomIn" aria-label="Zoom in">+</button>
+      <button type="button" id="vFit">Fit</button>
+      <a id="vDownload" class="btn" download>Download</a>
+      <button type="button" id="vClose">Close</button>
+    </div>
+  </div>
+  <div class="vstage" id="vStage"><img id="vImg" alt="" draggable="false"><div class="vph" id="vPh" hidden><span>Not painted yet</span></div></div>
+  <button type="button" class="vnav prev" id="vPrev" aria-label="Previous image">‹</button>
+  <button type="button" class="vnav next" id="vNext" aria-label="Next image">›</button>
+  <div class="vfoot" id="vFoot"></div>
+</dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ec">
+  <link rel="icon" href="data:,">
+  <title>The inscriptions of Kāmarūpa · Assam History</title>
+  <link rel="stylesheet" href="atlas-assets/atlas.css">
+  <script defer src="maps/atlas-geography.js"></script>
+  <script defer src="atlas-assets/inscriptions-data.js"></script>
+  <script defer src="atlas-assets/atlas.js"></script>
+</head>
+<body>
+<a class="skip" href="#records">Skip to inscription records</a>
+<header class="masthead">
+  <a class="wordmark" href="Inscriptions-Atlas.html" aria-label="Assam History inscription atlas home"><span class="seal" aria-hidden="true">অ</span><span>ASSAM HISTORY<small>THE PRIMARY SOURCE COLLECTION</small></span></a>
+  <nav aria-label="Atlas resources"><a href="Kamarupa-Explorer.html">Kāmarūpa map <span aria-hidden="true">↗</span></a><a href="Kamarupa-Inscriptions-Chronology.csv" download>Download catalogue <span aria-hidden="true">↗</span></a><button type="button" id="about-open">About the atlas <span aria-hidden="true">↗</span></button></nav>
+</header>
+<main>
+  <section class="intro" aria-labelledby="atlas-title">
+    <div><p class="eyebrow"><span></span> AN EPIGRAPHIC ATLAS</p><h1 id="atlas-title">The inscriptions of <em>Kāmarūpa.</em></h1><p class="lede">Royal grants, sacred images and words carved into stone.<br>Explore the written traces of early Assam and its wider connections.</p></div>
+    <dl class="stats" aria-label="Collection overview"><div><dt id="stat-records">—</dt><dd>records in the archive</dd></div><div><dt id="stat-mapped">—</dt><dd>with a map reference</dd></div><div><dt>350<span>–</span>1100</dt><dd>CE · principal study period</dd></div></dl>
+  </section>
+  <section class="explorer" aria-label="Explore inscriptions">
+    <aside class="catalogue">
+      <div class="catalogue-tools">
+        <div class="section-line"><h2>Explore the archive</h2><span id="result-count" aria-live="polite"></span></div>
+        <label class="search"><span aria-hidden="true">⌕</span><input id="query" type="search" placeholder="Search ruler, inscription or place…" aria-label="Search ruler, inscription or place"><kbd>/</kbd></label>
+        <div class="filters"><label>Material<select id="material"><option value="">All materials</option><option value="copper">Copper plates</option><option value="stone">Rock & stone</option><option value="image">Inscribed images</option><option value="seal">Seals</option><option value="bell">Copper bell</option></select></label><label>Location<select id="precision"><option value="">All references</option><option value="site">Published site points</option><option value="approximate">Nearby & regional</option><option value="user">User-supplied points</option><option value="unlocated">Without coordinates</option></select></label></div>
+        <div class="period-heading"><span>Date range <b id="period-label">350–1400 CE</b></span><button id="reset" type="button">Reset</button></div>
+        <div class="range-inputs"><label><span class="sr-only">From year</span><input id="year-from" type="number" min="300" max="1500" value="350" step="1"></label><span aria-hidden="true">—</span><label><span class="sr-only">To year</span><input id="year-to" type="number" min="300" max="1500" value="1400" step="1"></label><span>CE</span></div>
+        <label class="check"><input id="core-only" type="checkbox"><span>Only the 350–1100 CE catalogue</span></label>
+      </div>
+      <div id="records" class="record-list" tabindex="-1" aria-label="Inscription records"></div>
+      <div class="catalogue-foot"><span class="live-dot"></span><span id="catalogue-status">The archive is loading</span></div>
+    </aside>
+    <div class="map-panel">
+      <div class="map-top"><div class="map-tabs" role="group" aria-label="Map extent"><button type="button" id="extent-assam" aria-pressed="true">Assam & northeast</button><button type="button" id="extent-all" aria-pressed="false">All locations</button></div><span class="map-live" id="map-visible" aria-live="polite"></span></div>
+      <div class="map-stage" id="map-stage">
+        <svg id="atlas-map" aria-label="Interactive map of inscription reference locations" role="group"><defs><pattern id="map-grid" width="75" height="75" patternUnits="userSpaceOnUse"><path d="M75 0H0V75" fill="none" stroke="#c6c6b5" stroke-width="0.65" opacity=".35"/></pattern></defs><g id="map-land"></g><g id="map-districts"></g><g id="map-rivers"></g><g id="map-labels" aria-hidden="true"></g><g id="map-markers"></g></svg>
+        <div class="compass" aria-hidden="true"><b>N</b><svg width="23" height="40" viewBox="0 0 23 40"><path d="M11.5 2 20 31 11.5 25 3 31Z" fill="#24473f"/><path d="M11.5 2V25L3 31Z" fill="#b5c0ad"/></svg></div>
+        <div class="zoom-controls" role="group" aria-label="Map controls"><button id="zoom-in" type="button" aria-label="Zoom in">+</button><button id="zoom-out" type="button" aria-label="Zoom out">−</button><button id="fit-map" type="button" aria-label="Fit all filtered locations">⤢</button></div>
+        <div class="map-caption"><span class="map-caption-line"></span><span id="map-caption">BRAHMAPUTRA VALLEY & ITS NEIGHBOURS</span></div>
+        <div class="map-empty" id="map-empty" hidden>No mapped records match these filters.<br><button type="button" id="empty-reset">Reset filters</button></div>
+        <aside id="record-detail" class="detail" aria-label="Selected inscription" hidden></aside>
+      </div>
+      <div class="map-bottom"><div class="legend" aria-label="Material legend"><span><i class="copper"></i>Copper plates</span><span><i class="stone"></i>Rock & stone</span><span><i class="image"></i>Images</span><span><i class="seal-color"></i>Seals</span></div><p>Dashed rings indicate approximate references. Shared locations are grouped.</p></div>
+    </div>
+  </section>
+  <footer class="atlas-footer"><p><b>A place to begin, not a final word.</b> Points may mark a monument, a nearby town or a wider region. Open a record for its location evidence.</p><span>MODERN REFERENCE GEOGRAPHY · <a href="maps/README.md">MAP SOURCES & CREDITS ↗</a></span></footer>
+</main>
+<dialog id="about"><button class="dialog-close" id="about-close" aria-label="Close about dialog">×</button><p class="eyebrow">READING THE ATLAS</p><h2>Evidence, placed in context.</h2><p>This working catalogue brings together local inscriptions, outside references and later records. Dates and identifications remain qualified where the sources disagree.</p><h3>What does a point mean?</h3><p>A point can represent a published monument location, a user-supplied locality, a nearby landmark, or a broad regional reference. The number of decimal places is not evidence of survey accuracy. A town reference does not identify the original digging point or today's museum.</p><h3>Keep the unmapped records</h3><p>Records without a defensible location remain in the list. Select “Without coordinates” to find them. Uncertain date ranges overlap the chosen years; undated records stay visible unless the principal-period catalogue is selected.</p><h3>Source collection</h3><p>Each record links to its source and full summary where available. The catalogue is not certified exhaustive. Modern country and district shapes are geographical context, not historical borders.</p><p class="dialog-links"><a href="Audit-Notes-and-Collection-Status.txt">Read the audit</a><a href="Location-Column-Notes.txt">Location notes</a><a href="Kamarupa-Inscriptions-Chronology.csv" download>Download CSV</a></p><small>Map outlines: Natural Earth, public domain. Assam districts and rivers: copied local map collection; see map credits for source and licence details.</small></dialog>
+<noscript><p class="fatal">Enable JavaScript to explore the map, or open the chronology CSV directly.</p></noscript>
+</body>
+</html>

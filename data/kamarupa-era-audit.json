@@ -1,0 +1,81 @@
+{
+  "study_period": [
+    350,
+    1100
+  ],
+  "records": 38,
+  "mapped": 35,
+  "ruler_entries": 36,
+  "date_conflicts_detected_by_name_match": [
+    {
+      "person": "Bala Varman",
+      "ruler_catalogue": "398–422",
+      "record_id": "S11",
+      "inscription_catalogue": "Fifth regnal year of Balavarman III; late ninth century CE.",
+      "action": "Preserved as a dating conflict; no automatic reassignment."
+    },
+    {
+      "person": "Bala Varman",
+      "ruler_catalogue": "398–422",
+      "record_id": "S12",
+      "inscription_catalogue": "Eighth regnal year of Balavarman III; late ninth century CE.",
+      "action": "Preserved as a dating conflict; no automatic reassignment."
+    },
+    {
+      "person": "Bala Varman",
+      "ruler_catalogue": "398–422",
+      "record_id": "SA05",
+      "inscription_catalogue": "Thirteenth regnal year of Balavarman III; late ninth century CE.",
+      "action": "Preserved as a dating conflict; no automatic reassignment."
+    },
+    {
+      "person": "Ratna Pala",
+      "ruler_catalogue": "920–960",
+      "record_id": "B01",
+      "inscription_catalogue": "Eleventh century CE; twelfth regnal year of Ratnapala",
+      "action": "Preserved as a dating conflict; no automatic reassignment."
+    },
+    {
+      "person": "Ratna Pala",
+      "ruler_catalogue": "920–960",
+      "record_id": "S13",
+      "inscription_catalogue": "Twenty-fifth regnal year of Ratnapala; approximately 1035 CE in Sharma’s chronology.",
+      "action": "Preserved as a dating conflict; no automatic reassignment."
+    },
+    {
+      "person": "Ratna Pala",
+      "ruler_catalogue": "920–960",
+      "record_id": "S14",
+      "inscription_catalogue": "Twenty-sixth regnal year of Ratnapala; approximately 1036 CE as headed in this edition.",
+      "action": "Preserved as a dating conflict; no automatic reassignment."
+    },
+    {
+      "person": "Indra Pala",
+      "ruler_catalogue": "960–990",
+      "record_id": "S15",
+      "inscription_catalogue": "Eighth regnal year of Indrapala; approximately 1058 CE in Sharma’s chronology.",
+      "action": "Preserved as a dating conflict; no automatic reassignment."
+    },
+    {
+      "person": "Indra Pala",
+      "ruler_catalogue": "960–990",
+      "record_id": "S16",
+      "inscription_catalogue": "Twenty-first regnal year of Indrapala; approximately 1071 CE in Sharma’s chronology.",
+      "action": "Preserved as a dating conflict; no automatic reassignment."
+    }
+  ],
+  "is_exhaustive": false,
+  "boundary_method": "External-territory evidence references replace the inherited proposed-reach polygon in the early-era map. No conquered-area perimeter or km² total is asserted.",
+  "validation": "JavaScript syntax, serverless template rendering, coordinate preservation, phase coverage and source links checked. No browser used.",
+  "chronology_update": "Gachtal-based reconstruction used for Ratnapala (c.920–960) and Indrapala (c.960–990); older palaeographic estimates remain in the parent inscription CSV.",
+  "external_reach_research": "../Kamarupa-External-Territories-Research.md",
+  "external_reach_episodes": 8,
+  "external_reach_mapped_episodes": 5,
+  "external_reach_reference_symbols": 7,
+  "rulers_reviewed": 36,
+  "north_bengal_timeline_events": 9,
+  "north_bengal_name_policy": "Related regional traditions, not identical permanent boundaries or a verified universal alias",
+  "ownership_policy": "Dated evidence windows and disputed interpretations; no continuous ownership inferred",
+  "camera_policy": "No automatic camera calls for initialization, year/dynasty/ruler filters, layers, record selection or timeline events. Manual controls remain enabled.",
+  "north_bengal_sources": "../Ratnapitha-Pundravardhana-Research.md"
+}

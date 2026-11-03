@@ -1,0 +1,8 @@
+episode_id,ruler,dynasty,region_or_locality,latitude,longitude,evidence_class,coordinate_precision,geometry_meaning
+bhuti-chandrapuri,Bhutivarman,varman,Sylhet reference,24.805,92.155,Land-grant authority,"Nidhanpur findspot reference, not grant-district limits",Orientation symbol; not a conquest boundary or measured area
+bhaskara-karnasuvarna,Bhaskaravarman,varman,Karṇasuvarṇa,23.04,88.19,Victory-camp presence,"Approximate modern locality reference, not camp excavations",Orientation symbol; not a conquest boundary or measured area
+harsa-eastern-regions,Harshadeva / Harshavarman,salastambha,Gauḍa · claim,24,88.15,Inscribed lordship claim,Illustrative Bengal orientation; region changed across time,Orientation symbol; not a conquest boundary or measured area
+harsa-eastern-regions,Harshadeva / Harshavarman,salastambha,Oḍra · claim,20.5,85.8,Inscribed lordship claim,"Illustrative Odisha orientation, not a historical perimeter",Orientation symbol; not a conquest boundary or measured area
+harsa-eastern-regions,Harshadeva / Harshavarman,salastambha,Kaliṅga · claim,18.8,84.4,Inscribed lordship claim,"Illustrative eastern-coast orientation, not a historical perimeter",Orientation symbol; not a conquest boundary or measured area
+ratna-gauda,Ratnapala,pala,Gauḍa / Ganges reach,24.7,88.1,Victory / advance reported,Regional orientation only; exact battle and river-bank point unlocated,Orientation symbol; not a conquest boundary or measured area
+indra-vanga,Indrapala,pala,Vaṅga · victory report,23.5,90.5,Victory reported,Approximate regional reference; battle location unknown,Orientation symbol; not a conquest boundary or measured area
