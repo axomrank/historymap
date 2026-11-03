@@ -23716,49 +23716,6 @@
  ],
  "realms": [
   {
-   "id": "kamarupa-kalika",
-   "name": "Kamarupa in the Kalika Purana",
-   "kingdom": "kamarupa",
-   "period": "kamarupa",
-   "date_label": "sacred description, not a dated frontier (about the 10th to 11th century text)",
-   "summary": "A sacred description of Kamarupa as a triangular, hilly, river-filled land from the Karatoya to Dikkaravasini; it gives no north or south line.",
-   "boundary": "West: the Karatoya | East: Dikkaravasini, the Dikrong | Shape: triangular, 100 yojanas long and 30 broad, dark, filled with mountains and joined by a hundred rivers (Kalika Purana 53.77b-79a)",
-   "notes": "User identification, 2026-11-01. Dikkaravasini is the Dikrong, so the east edge is the Dikrong, not Sadiya. The text describes a sacred landscape (mahapitha), not a political frontier or a cadastral survey, and cannot be read back onto the Varman kingdom. The west edge follows the Teesta/Karatoya down to its junction with the Brahmaputra and then the Brahmaputra. Undated on the map: Kamarupa as a kingdom ended about 1100, and this text does not bring it back. The shape appears only as a remembered outline (the \"Kamarupa, remembered\" layer), not in the year-by-year kingdoms.",
-   "confidence": "low",
-   "places": [
-    "karatoya",
-    "teesta",
-    "dikrang",
-    "brahmaputra"
-   ],
-   "sources": [
-    "https://www.ebharatisampat.in/pdfs/ebharati-pdf-16877649972030-SaktaPithas-DCSarkar-1948%28MDD%29.pdf",
-    "https://en.wikipedia.org/wiki/Kamarupa"
-   ]
-  },
-  {
-   "id": "kamarupa-yogini",
-   "name": "Kamarupa in the Yogini Tantra",
-   "kingdom": "kamarupa",
-   "period": "kamarupa",
-   "date_label": "sacred description, not a dated frontier (late medieval text, about the 16th to 17th century)",
-   "summary": "The four-sided description of Kamarupa in the Yogini Tantra (Patala XI, vv. 16 to 18): Kanjagiri in the north, the Karatoya in the west, Diksu in the east, the Laksha and Brahmaputra confluence in the south.",
-   "boundary": "North: Kanjagiri (Kanchenjunga, proposed) | West: the Karatoya | East: Diksu, the Dikhow | South: the confluence of the Laksha (Shitalakshya) with the Brahmaputra",
-   "notes": "User identification, 2026-11-01. Diksu is the Dikhow, Dikkaravasini the Dikrong and Laksha the Shitalakshya. The Yogini Tantra is later than the Kalika Purana and borrows from it, so it is not evidence for the Varman kingdom. Kanchenjunga is a far north-western anchor, not a line along the valley; the south edge is a straight line at 24.2 N standing for the old Mymensingh-Dhaka confluence zone, which cannot be plotted on today's rivers. Undated on the map: Kamarupa as a kingdom ended about 1100, and this text does not bring it back. The shape appears only as a remembered outline (the \"Kamarupa, remembered\" layer), not in the year-by-year kingdoms.",
-   "confidence": "low",
-   "places": [
-    "kanchenjanga",
-    "karatoya",
-    "dikhou",
-    "laksha",
-    "brahmaputra"
-   ],
-   "sources": [
-    "https://www.ebharatisampat.in/pdfs/ebharati-pdf-16877649972030-SaktaPithas-DCSarkar-1948%28MDD%29.pdf",
-    "https://en.wikipedia.org/wiki/Kamarupa"
-   ]
-  },
-  {
    "id": "kamarupa-varman",
    "name": "Kamarupa under the Varmans: reach, not a boundary",
    "kingdom": "kamarupa",

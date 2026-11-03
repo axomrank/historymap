@@ -25,7 +25,6 @@ The kingdom shapes on the map page are built from `realm` rows of `data/assam_hi
 `lat:<deg>` or `lon:<deg>`; `a>b` means follow `a`, then `b` below its end (the Teesta/Karatoya, then the Brahmaputra). Land comes from the present Assam
 districts (less the hill districts and the Barak valley where they were not held), plus the north Bengal duars and Bangladesh for the western kingdoms.
 Rivers added from the user's `Assam Rivers.kml` (2026-10-31/11-01): Teesta/Karatoya and Sisi. Identifications and the reading of the boundary texts:
-`research/places/boundary-reports-2026-11-01.md` (local). Sacred-geography rows (`kamarupa-kalika`, `kamarupa-yogini`) describe texts, not political frontiers.
+`research/places/boundary-reports-2026-11-01.md` (local).
 
-The map also has a "Pithas" layer (off by default) with a scheme picker: realm rows with ids `pitha-<source>-<name>` and a source in `collection` describe the
-four sacred sectors of Kamarupa as each source gives them. They have no years, so the year slider ignores them. See `research/places/pithas-2026-11-01.md`.
+The four traditional river-bounded divisions of Kāmarūpa (Ratnapīṭha: Karatoyā to Sankosh; Kāmapīṭha: Sankosh to Bornadi; Suvarṇapīṭha: Bornadi to Bharali; Saumārapīṭha: Bharali to Dikrang) are integrated directly into the Kāmarūpa kingdom layer as an internal subdivision toggle rather than a disconnected separate layer.
