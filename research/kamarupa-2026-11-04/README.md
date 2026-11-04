@@ -2,6 +2,8 @@
 
 Research date: 4 November 2026. Scope: Kāmarūpa’s origins, expansion, western and southern connections, opposing campaigns, and the three attached teaching charts. The current map’s data and renderer were also inspected. Later Assam history is listed as a further research programme, not represented as already verified.
 
+**Subsequent map decision:** The user adopted the territorial sequence and requested that the Sankosh–Teesta/Karatoya Ratnapitha sector represent Paundravardhana. The live map now implements that interpretation through [16 explicit phases](../../data/paundravardhana-map-phases.csv), with approximate playback years and neutral gaps. This decision changes the map model, not the evidentiary assessments below. The correction backlog records the initial audit; the regional integration, camp caption correction and separation of campaign reach from owned-area calculations have since been implemented.
+
 The most defensible map will show **where authority is attested, what kind of authority it was, and how uncertain its date and extent are**. An inscription’s discovery site, the land it grants, its issuing camp, a royal victory, a marriage, and a permanent annexation must have different meanings on the map.
 
 ## Files

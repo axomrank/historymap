@@ -21,7 +21,7 @@
   const P = D.polities, NP = P.length;
   const stateArea = D.states.map(list => {
     const a = new Float64Array(NP);
-    list.forEach(si => { const sh = D.shapes[si]; a[D.territories[sh.t].p] += sh.a; });
+    list.forEach(si => { const sh = D.shapes[si], t = D.territories[sh.t]; if (t.style === 'core') a[t.p] += sh.a; });
     return a;
   });
   const areaAt = (p, y) => (y < S || y > E) ? 0 : stateArea[D.years[y - S]][p];
@@ -55,6 +55,7 @@
     <g id="gRivers">${D.base.rivers.map(r => `<path class="m-river" d="${r.d}" stroke-width="${[0.7, 1.3, 2.6][r.m]}" opacity="${[0.55, 0.8, 0.95][r.m]}"><title>${esc(r.n)}</title></path>`).join('')}</g>
     <g class="g-modern">${D.base.modern.map(m => `<path class="m-modern${m.assam ? ' assam' : ''}" d="${m.d}"/>`).join('')}
       ${D.base.towns.map(([n, x, y]) => `<g class="m-town"><circle cx="${x}" cy="${y}" r="1.8"/><text x="${x + 4}" y="${y + 3.5}">${esc(n)}</text></g>`).join('')}</g>
+    <path id="ratnaOutline" class="ratna-outline" d="${D.ratna.outline}"/>
     <g id="gLabels"></g><g id="gCaps"></g>`;
   // hatch patterns for "campaign reach" shapes
   $('defs').innerHTML = P.map((p, i) => `<pattern id="h${i}" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="${p.color}" fill-opacity=".18"/><line x1="0" y1="0" x2="0" y2="7" stroke="${p.color}" stroke-width="3"/></pattern>`).join('');
@@ -62,6 +63,10 @@
   const darker = hex => { const n = parseInt(hex.slice(1), 16); const f = c => Math.round(c * .62).toString(16).padStart(2, '0'); return '#' + f(n >> 16) + f((n >> 8) & 255) + f(n & 255); };
   let shown = new Map();
   function drawMap() {
+    $('ratnaOutline').style.display = year <= 1256 ? '' : 'none';
+    const regionalPhase = D.ratna.phases.find(r => year >= r.start && year <= r.end);
+    $('ratnaChip').hidden = !regionalPhase;
+    if (regionalPhase) $('ratnaChip').textContent = 'Ratnapitha · ' + regionalPhase.title + ' ↗';
     const list = D.states[D.years[year - S]];
     const g = $('gRealms'), next = new Map();
     list.forEach(si => {
@@ -180,6 +185,7 @@
   /* ---------- side panel ---------- */
   function status(i) {
     const p = P[i], a = areaAt(i, year);
+    if (p.id === 'ratna-uncertain') return 'Control unresolved in this interval';
     if (year === p.start) return '<em>Rises this year</em>';
     if (year === p.end && p.end < E) return '<em>Its last year</em>';
     const pct = p.max ? a / p.max : 0;
@@ -201,10 +207,10 @@
 
   function drawPanel() {
     const on = activeHere();
-    let h = `<h2>On the map in ${year}</h2>`;
+    let h = ratnaCard() + `<h2>On the map in ${year}</h2>`;
     h += on.length ? on.map(i => {
       const p = P[i], r = rulersAt(p);
-      return `<div class="pol${i === sel ? ' sel' : ''}" data-p="${i}"><span class="sw" style="background:${p.color}"></span><b>${esc(p.name)}</b><span class="st">${status(i)}${r.length ? `<br>Ruler: ${esc(r.join(', '))}` : ''}</span></div>`;
+      return `<div class="pol${i === sel ? ' sel' : ''}" data-p="${i}"><span class="sw" style="background:${p.color}"></span><b>${esc(p.name)}</b><span class="st">${status(i)}${r.length ? `<br>Catalogue ruler: ${esc(r.join(', '))}` : ''}</span></div>`;
     }).join('') : '<p class="empty">No mapped kingdom this year.</p>';
     if (sel >= 0) h += card(sel);
     const evs = D.events, here = evs.filter(e => e.y === year);
@@ -215,8 +221,26 @@
   }
   const evRow = (e, cls) => `<div class="ev${cls}" data-y="${e.y}"><span class="y">${e.y}</span><b>${esc(e.t)}</b>${cls ? `<span class="x">${esc(e.x)}</span>` : ''}</div>`;
 
+  function ratnaCard() {
+    const phases = D.ratna.phases, current = phases.findIndex(r => year >= r.start && year <= r.end);
+    if (current < 0) return '';
+    const r = phases[current], p = P[r.p];
+    return `<section class="ratna-card" aria-label="Paundravardhana regional sequence">
+      <h2>Paundravardhana / Ratnapitha</h2>
+      <p class="ratna-bounds">Sankosh ↔ Karatoya / Teesta</p>
+      <p class="ratna-phase"><span class="sw" style="background:${p.color}"></span><b>${esc(r.title)}</b></p>
+      <p><strong>${esc(r.date_label)}</strong> <span class="badge">${esc(r.certainty)}</span></p>
+      <p>${esc(r.note)}</p>
+      <div class="ratna-nav">${current > 0 ? `<button data-y="${phases[current - 1].start}">← Previous phase</button>` : ''}${current < phases.length - 1 ? `<button data-y="${phases[current + 1].start}">Next phase →</button>` : ''}</div>
+      <details><summary>Adopted map interpretation</summary><p>This map uses the river-bounded Ratnapitha sector as Paundravardhana, as requested. Years such as 550, 590, 640, 850, 940, 950, 980, 1075 and 1090 are approximate playback anchors. Colour is carried between those anchors as part of this reconstruction; it does not establish uninterrupted historical possession. North and south edges are schematic. The older catalogue of ruler reigns uses a different chronology in places; the regional episode dates above follow this adopted sequence.</p>
+      <p><a href="data/paundravardhana-map-phases.csv">Map phases CSV</a> · <a href="data/kamarupa-events-researched.csv">Research and sources</a></p>
+      <div class="ratna-jumps">${phases.map(s => `<button data-y="${s.start}" ${s.id === r.id ? 'aria-current="step"' : ''}>c.${s.start}: ${esc(s.title)}</button>`).join('')}</div></details>
+    </section>`;
+  }
+
   function card(i) {
     const p = P[i], a = areaAt(i, year);
+    if (p.id === 'ratna-uncertain') return `<div class="card"><h3>Control uncertain</h3><p>The neutral region marks an interval without a secure owner in the adopted sequence. Use the Paundravardhana controls above to follow the losses and recoveries.</p></div>`;
     const ts = D.territories.filter(t => P[t.p] === p && year >= t.s && year <= t.e);
     const r = rulersAt(p), caps = p.capitals.filter(c => year >= c[3] && year <= c[4]).map(c => c[0]);
     return `<div class="card">
@@ -227,7 +251,7 @@
         <dt>Greatest extent</dt><dd><a href="#" data-y="${p.peak}">${p.peak}</a> · about ${fmtKm(p.max)}</dd>
         ${a ? `<dt>In ${year}</dt><dd>about ${fmtKm(a)} (${Math.round(a / p.max * 100)}% of its peak)</dd>` : ''}
         ${caps.length ? `<dt>Capital</dt><dd>${esc(caps.join(', '))}</dd>` : ''}
-        ${r.length ? `<dt>Ruler</dt><dd>${esc(r.join(', '))}</dd>` : ''}
+      ${r.length ? `<dt>Catalogue ruler</dt><dd>${esc(r.join(', '))}</dd>` : ''}
       </dl>
       <div class="lab">How it began</div><p>${esc(p.rise)}</p>
       ${ts.map(t => `<div class="lab">In ${year}${t.label ? ': ' + esc(t.label) : ''}${t.style === 'reach' ? '<span class="badge">campaign reach</span>' : t.conf === 'low' || t.style === 'legend' ? '<span class="badge">border uncertain</span>' : ''}</div><p>${esc(t.note)}</p>`).join('')}
@@ -251,9 +275,12 @@
   const RH = 26;
   const band = i => {   // centred on the lane; thickness grows with the land held (square-root scale, shared by all)
     const p = P[i], pts = [];
-    for (let y = Math.max(S, p.start); y <= Math.min(E, p.end); y++) pts.push([y - S, Math.min(1, Math.sqrt(areaAt(i, y) / 100000))]);
-    const top = pts.map(([x, v], k) => `${k ? 'L' : 'M'}${x} ${(RH / 2 - Math.max(.1, v) * (RH / 2 - 1)).toFixed(2)}`).join('');
-    const bot = pts.reverse().map(([x, v]) => `L${x + 1} ${(RH / 2 + Math.max(.1, v) * (RH / 2 - 1)).toFixed(2)}`).join('');
+    for (let y = Math.max(S, p.start); y <= Math.min(E, p.end); y++) {
+      const present = D.states[D.years[y - S]].some(si => D.territories[D.shapes[si].t].p === i);
+      pts.push([y - S, Math.min(1, Math.sqrt(areaAt(i, y) / 100000)), present ? .1 : 0]);
+    }
+    const top = pts.map(([x, v, floor], k) => `${k ? 'L' : 'M'}${x} ${(RH / 2 - Math.max(floor, v) * (RH / 2 - 1)).toFixed(2)}`).join('');
+    const bot = pts.reverse().map(([x, v, floor]) => `L${x + 1} ${(RH / 2 + Math.max(floor, v) * (RH / 2 - 1)).toFixed(2)}`).join('');
     return `<path class="band" data-p="${i}" fill="${p.color}" d="${top}${bot}Z"><title>${esc(p.name)}, ${p.start}–${p.end >= E ? 'today' : p.end}</title></path>`;
   };
   rowsEl.innerHTML = lanes.map(l => {
@@ -345,6 +372,10 @@
   });
 
   $('modernToggle').addEventListener('change', e => svg.classList.toggle('hide-modern', !e.target.checked));
+  $('ratnaChip').addEventListener('click', () => {
+    $('panel').scrollTop = 0;
+    $('panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 
   fromHash();
   const y0 = year; year = -1; setYear(y0);

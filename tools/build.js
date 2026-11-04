@@ -32,6 +32,7 @@ const history = parseCSV(rd('data/assam_history.csv'));
 const polities = parseCSV(rd('data/polities.csv'));
 const territories = parseCSV(rd('data/territories.csv'));
 const events = parseCSV(rd('data/events.csv'));
+const ratnaPhases = parseCSV(rd('data/paundravardhana-map-phases.csv'));
 const A = JSON.parse(rd('data/maps/assam.json'));
 const NB = JSON.parse(rd('data/maps/neighbours.json'));
 const NE = JSON.parse(rd('data/maps/northeast.json'));
@@ -211,9 +212,21 @@ const linePath = pts => 'M' + dp(pts.map(([la, lo]) => [lo, la]), 0.004).map(([l
 
 /* ---------- territories ---------- */
 const polityIdx = Object.fromEntries(polities.map((p, i) => [p.id, i]));
+// Adopted regional interpretation: river-bounded sector, not the historical bhukti's full extent.
+const ratnaMP = limitsShape(['river:teesta-karatoya', 'river:sonkosh', 'lat:27.0', 'lat:25.46']);
+for (const phase of ratnaPhases) territories.push({
+  id: 'ratna-' + phase.id, polity: phase.polity, start: phase.start, end: phase.end,
+  shape: 'limits:river:teesta-karatoya|river:sonkosh|lat:27.0|lat:25.46',
+  z: '10', style: phase.certainty === 'unknown' ? 'legend' : 'core', confidence: 'low',
+  label: 'Paundravardhana / Ratnapitha', note: phase.date_label + ': ' + phase.note,
+});
 const T = territories.map((t, row) => {
   if (!(t.polity in polityIdx)) throw new Error('unknown polity ' + t.polity + ' in ' + t.id);
-  const mp = fillHoles(safe(() => pc.intersection(union(t.shape.split(' + ').map(s => termShape(s.trim()))), FRAME), []));
+  let mp = fillHoles(safe(() => pc.intersection(union(t.shape.split(' + ').map(s => termShape(s.trim()))), FRAME), []));
+  // Reserve the regional sector even when the current phase is unknown. Old broad
+  // Kamarupa and campaign polygons must not silently imply continuous possession.
+  if (!t.id.startsWith('ratna-') && +t.end >= 350 && +t.end <= 1256)
+    mp = safe(() => pc.difference(mp, ratnaMP), mp);
   if (!mp.length) console.warn('EMPTY shape:', t.id);
   return { ...t, start: +t.start, end: +t.end, pri: (+t.z || 0) * 1000 + row, mp };
 });
@@ -229,7 +242,7 @@ for (let y = START; y <= END; y++) {
   if (!stateKeys.has(key)) {
     const list = [];
     act.forEach((t, i) => {
-      const above = act.slice(i + 1).filter(u => u.mp.length && overl(t.bb, u.bb));
+      const above = act.slice(i + 1).filter(u => u.style !== 'reach' && u.mp.length && overl(t.bb, u.bb));
       const ck = t.id + '>' + above.map(u => u.id).join(',');
       if (!shapeCache.has(ck)) {
         let mp = t.mp;
@@ -279,8 +292,11 @@ const out = {
   base: { countries, rivers, modern, towns },
   polities: P,
   territories: T.map(t => ({ p: polityIdx[t.polity], s: t.start, e: t.end, label: t.label, note: t.note, conf: t.confidence, style: t.style })),
+  ratna: { outline: pathOf(ratnaMP), phases: ratnaPhases.map(r => ({ ...r, start: +r.start, end: +r.end, p: polityIdx[r.polity] })) },
   shapes, states, years,
-  events: events.map(e => ({ y: +e.year, p: polityIdx[e.polity] ?? -1, t: e.title, x: e.text })).sort((a, b) => a.y - b.y),
+  events: [...events.map(e => ({ y: +e.year, p: polityIdx[e.polity] ?? -1, t: e.title, x: e.text })),
+    ...ratnaPhases.filter(r => r.certainty !== 'unknown').map(r => ({ y: +r.start, p: polityIdx[r.polity], t: 'Paundravardhana: ' + r.title, x: r.date_label + '. ' + r.note }))]
+    .sort((a, b) => a.y - b.y),
 };
 const js = 'window.ATLAS=' + JSON.stringify(out) + ';\n';
 fs.writeFileSync(path.join(ROOT, 'data/atlas.js'), js);

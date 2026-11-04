@@ -103,6 +103,19 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .ev.now { background: color-mix(in srgb, var(--accent) 12%, transparent); }
 .ev .x { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
 .empty { color: var(--muted); font-size: 14px; }
+.ratna-outline { fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-dasharray: 7 3; pointer-events: none; }
+.ratna-chip { position: absolute; bottom: 12px; left: 12px; max-width: calc(100% - 24px); font-size: 12px; text-align: left; box-shadow: var(--shadow); }
+.ratna-card { border-bottom: 1px solid var(--line); margin-bottom: 14px; padding-bottom: 14px; }
+.ratna-card p { font-size: 13px; margin: 7px 0; }
+.ratna-card .ratna-bounds { color: var(--muted); margin-top: -3px; }
+.ratna-phase { display: flex; gap: 7px; align-items: baseline; }
+.ratna-phase .sw { width: 11px; height: 11px; border-radius: 3px; flex-shrink: 0; }
+.ratna-nav { display: flex; gap: 6px; margin: 10px 0; }
+.ratna-nav button, .ratna-jumps button { font-size: 12px; }
+.ratna-card summary { font-size: 12px; color: var(--accent); cursor: pointer; }
+.ratna-jumps { display: grid; gap: 5px; margin-top: 8px; }
+.ratna-jumps button { text-align: left; }
+.ratna-jumps [aria-current] { border-color: var(--accent); font-weight: 700; }
 
 /* timeline */
 .time { padding: 10px 16px 6px; }

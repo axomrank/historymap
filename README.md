@@ -44,7 +44,15 @@ The [Kamarupa research audit (4 November 2026)](research/kamarupa-2026-11-04/REA
 includes a [39-event, source-linked CSV](data/kamarupa-events-researched.csv), an audit of
 the supplied teaching charts, a historical gazetteer, and proposed map corrections.
 These research records preserve uncertain dates and distinguish campaigns, grants,
-and territorial control; they are not yet inputs to the live border animation.
+and territorial control. The adopted [Paundravardhana map phases](data/paundravardhana-map-phases.csv)
+now drive a separate region between the Sankosh and the project's Teesta/Karatoya line.
+The side panel provides previous/next phase controls, approximate dates and evidence qualifications.
+This user-adopted map interpretation uses Ratnapitha as Paundravardhana; it does not
+redefine the changing historical province in the research catalogue. Northern and
+southern cutoffs at 27°N and 25.46°N are schematic. Playback anchors and carried-forward
+possession are editorial assumptions. Unknown intervals use neutral shading.
+
+After rebuilding, run `node tools/check-ratna.js` to verify the regional transitions.
 
 ## Sources for the shapes
 
