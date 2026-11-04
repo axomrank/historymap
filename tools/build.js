@@ -262,8 +262,8 @@ for (const phase of ratnaPhases) territories.push({
 const T = territories.map((t, row) => {
   if (!(t.polity in polityIdx)) throw new Error('unknown polity ' + t.polity + ' in ' + t.id);
   let mp = fillHoles(safe(() => pc.intersection(union(t.shape.split(' + ').map(s => termShape(s.trim(), t.polity === 'ahom' && +t.start >= 1523))), FRAME), []));
-  // Local Koch Hajo / Mughal Kamrup layers are distinct from Bengal proper.
-  if (t.polity === 'koch-hajo' || (t.polity === 'mughal' && !t.id.startsWith('mughal-bengal-') && t.id !== 'mughal-1612')) {
+  // Bank-specific Ahom and local Koch Hajo / Mughal layers share the adopted Assam scope.
+  if (t.id.startsWith('ahom-frontier-') || t.polity === 'koch-hajo' || (t.polity === 'mughal' && !t.id.startsWith('mughal-bengal-') && t.id !== 'mughal-1612')) {
     const assamScope = pc.difference(fillHoles(pc.intersection(landNamed('assam'), union(Object.keys(A.districts).map(landNamed)))), landNamed('bangladesh'));
     mp = safe(() => pc.intersection(mp, assamScope), []);
   }

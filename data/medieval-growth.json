@@ -124,6 +124,21 @@
       "title": "V. A. Smith, Akbar the Great Mogul, Rajmahal campaign",
       "url": "https://tile.loc.gov/storage-services/service/gdc/gdclccn/18/00/26/77/18002677/18002677.pdf",
       "verification": "Indexed p.145 checked: Rajmahal, July 1576, and Daud’s defeat. Formal victory is not treated as immediate control of the eastern delta."
+    },
+    "ahom-gait-frontiers": {
+      "title": "Gait (1906), History of Assam, pp.104–116, 125–129, 146–148, 160–161",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/A_History_of_Assam_by_E._A._Gait.pdf",
+      "verification": "Public-domain PDF downloaded and relevant text read directly: Samdhara/tributary Darrang, November 1617 Pandu advance and failed Hajo attack, late-1630s campaigns and reverses, separate 1639 banks, 1658-context Guwahati capture, 1662 occupation, 1667 recovery and final 1682 settlement. Colonial synthesis is cross-checked; not all dates or channels are surveyed certainties."
+    },
+    "ahom-guwahati-variants": {
+      "title": "Netaji Subhas Open University, Indian history study material: Guwahati/Kamrup chronology",
+      "url": "https://www.wbnsou.ac.in/online_services/SLM_UGC_DEB/UG/SOSS/HHI/1st%20Year/GE-HI-21.pdf",
+      "verification": "Indexed passage checked: March 1659 Guwahati and March 1660 wider Kamrup. These variants qualify the 1658 annual display anchor."
+    },
+    "ahom-1667-kamrup": {
+      "title": "Kamrup district administration: Alaboi and Saraighat",
+      "url": "https://kamrup.assam.gov.in/index.php/about-us/battle-alaboi-and-saraighat",
+      "verification": "Official account checked: Lachit’s Guwahati recovery in 1667, followed by the later imperial counter-expedition."
     }
   },
   "phases": [
@@ -864,6 +879,216 @@
         "mughal-kamrup-nbu",
         "mughal-east-eaton"
       ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1537,
+      "end": 1562,
+      "date": "1537–1562",
+      "title": "Kolong-side inherited frontier",
+      "text": "This is the inherited reconstruction before the Koch war; the 1537 phase is a display convention following the 1536 campaigns.",
+      "northBank": "Bharali/central north-bank context",
+      "southBank": "Kolong after the 1536 Dimasa campaigns",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1563,
+      "end": 1580,
+      "date": "1563–1580",
+      "title": "Majuli settlement: Subansiri frontier",
+      "text": "The treaty’s north-bank cession does not permanently annex Majuli or the Ahom capital to Koch territory.",
+      "northBank": "Subansiri: Ahom east, Koch west",
+      "southBank": "Kolong-side interpretation retained",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1581,
+      "end": 1613,
+      "date": "1581–1613",
+      "title": "Before the Barnadi transition",
+      "text": "The inherited frontier is distinct from later Ahom presence and tributary reach farther west.",
+      "northBank": "Bharali-side core",
+      "southBank": "Kolong-side core",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1614,
+      "end": 1615,
+      "date": "1614–1615",
+      "title": "Koch Hajo collapse and frontier contact",
+      "text": "Political or military reach is shown separately from annexed core. The first round of war spans 1615–1616.",
+      "northBank": "Bharali core; reach toward Barnadi",
+      "southBank": "Kolong core; Kajali frontier-post context",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1616,
+      "end": 1616,
+      "date": "1616",
+      "title": "Samdhara and tributary Darrang",
+      "text": "Balinarayan/Dharmanarayan’s dependent Darrang layer carries Ahom political reach westward. It is not immediate direct annexation of all Kamrup.",
+      "northBank": "Darrang tributary reach to Barnadi",
+      "southBank": "Kajali post-based envelope",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1617,
+      "end": 1618,
+      "date": "1617–1618",
+      "title": "Pandu captured; Hajo attack fails",
+      "text": "Gait records November 1617 capture and fortification of Pandu, then a failed Hajo assault and retreat. This is an early Guwahati-region military milestone, not continuous whole-city annexation.",
+      "northBank": "Tributary Darrang; temporary Hajo-side advance",
+      "southBank": "Pandu advance from the Kajali-side base",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1619,
+      "end": 1635,
+      "date": "1619–1635",
+      "title": "Frontier warfare and dependent chiefs",
+      "text": "Temporary operations and local submissions do not establish one continuously administered western province.",
+      "northBank": "Barnadi-side tributary sphere",
+      "southBank": "Kajali frontier-post envelope",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1636,
+      "end": 1637,
+      "date": "1636–1637",
+      "title": "Hajo and wider western successes",
+      "text": "The reach layer records the broad advance; the subsequent Mughal counter-offensive prevents treating it as permanent annexation.",
+      "northBank": "Hajo/Goalpara campaign and local submissions",
+      "southBank": "Temporary western campaigning",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1638,
+      "end": 1638,
+      "date": "1638",
+      "title": "Mughal counter-offensive and Ahom reverses",
+      "text": "Exact positions changed during the 1637–1639 war. The annual rearward envelope is explicitly schematic; the next treaty is a separate event.",
+      "northBank": "Conservative Bharali-side rearward envelope",
+      "southBank": "Conservative Kolong-side rearward envelope",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1639,
+      "end": 1657,
+      "date": "1639–1657",
+      "title": "Asurar Ali: two different bank boundaries",
+      "text": "The 1639 terms must not be represented by one longitude through Kajali or Hajo. River and post alignments use modern reference geometry.",
+      "northBank": "Barnadi",
+      "southBank": "Asurar Ali",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1658,
+      "end": 1661,
+      "date": "1658–1661",
+      "title": "Guwahati and Lower Assam expansion",
+      "text": "The capture/consolidation window is 1658–1660: Gait places the advance in the 1658 succession context, while other accounts give Guwahati in 1659 and wider Kamrup in 1660. The map adopts 1658 as a qualified annual anchor.",
+      "northBank": "Manas core; farther-west reach to Sankosh",
+      "southBank": "Guwahati/Manas envelope",
+      "sources": [
+        "ahom-gait-frontiers",
+        "ahom-guwahati-variants"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1662,
+      "end": 1662,
+      "date": "1662",
+      "title": "Mir Jumla occupies Guwahati and Garhgaon",
+      "text": "Occupied Kamrup and the farther-eastern invasion are distinguished. The occupation of the capital is not a new permanent Mughal frontier.",
+      "northBank": "Bharali-side rearward envelope",
+      "southBank": "Kolong-side rearward envelope",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1663,
+      "end": 1666,
+      "date": "1663–1666",
+      "title": "Ghilajharighat retreat",
+      "text": "The reduced bank-specific position precedes Lachit’s recovery in 1667.",
+      "northBank": "Bharali",
+      "southBank": "Kolong",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1667,
+      "end": 1678,
+      "date": "1667–1678",
+      "title": "Lachit recovers Guwahati; Saraighat defends it",
+      "text": "The recovery appears in 1667 itself. Saraighat in 1671 is a defence of the recovered position, not the first capture of Guwahati.",
+      "northBank": "Manas",
+      "southBank": "Manas",
+      "sources": [
+        "ahom-gait-frontiers",
+        "ahom-1667-kamrup"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1679,
+      "end": 1681,
+      "date": "1679–1681",
+      "title": "Guwahati surrendered again",
+      "text": "The exact frontier beyond the documented forts is unresolved. The shape is a qualified rearward envelope, not a surveyed boundary.",
+      "northBank": "Barnadi-side rearward convention",
+      "southBank": "Kajali-post rearward convention",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1682,
+      "end": 1816,
+      "date": "1682–1816",
+      "title": "Final recovery and lasting Manas frontier",
+      "text": "Gadadhar Singha’s final recovery in 1682 fixes the durable western frontier. This is separate from the earlier 1667 recovery.",
+      "northBank": "Manas",
+      "southBank": "Manas",
+      "sources": [
+        "ahom-gait-frontiers"
+      ]
     }
   ],
   "spots": [
@@ -1260,6 +1485,94 @@
       "end": 1670,
       "date": "January 1666 conquest",
       "note": "Coastal conquest, not blanket direct annexation of the Chittagong Hill Tracts."
+    },
+    {
+      "id": "ahom-samdhara-1616",
+      "polity": "ahom",
+      "name": "Samdhara · 1616",
+      "lat": 26.62,
+      "lon": 92.88,
+      "start": 1615,
+      "end": 1616,
+      "date": "1615–1616 first war",
+      "note": "Modern regional fort/confluence reference; the victory is followed by tributary Darrang."
+    },
+    {
+      "id": "ahom-pandu-1617",
+      "polity": "ahom",
+      "name": "Pandu · temporary capture",
+      "lat": 26.1636,
+      "lon": 91.6806,
+      "start": 1617,
+      "end": 1618,
+      "date": "November 1617 advance in Gait",
+      "note": "Temporary capture and fortification before the failed Hajo assault. This does not establish permanent whole-city annexation."
+    },
+    {
+      "id": "ahom-hajo-1636",
+      "polity": "ahom",
+      "name": "Hajo · western campaign",
+      "lat": 26.25,
+      "lon": 91.53,
+      "start": 1636,
+      "end": 1637,
+      "date": "1636–1637 campaign window",
+      "note": "Temporary western success followed by Mughal counter-offensive."
+    },
+    {
+      "id": "ahom-guwahati-1658",
+      "polity": "ahom",
+      "name": "Guwahati · 1658–1660 window",
+      "lat": 26.18,
+      "lon": 91.75,
+      "start": 1658,
+      "end": 1661,
+      "date": "1658 annual anchor; variants 1659–1660",
+      "note": "Capture and wider consolidation are differently dated. Modern city reference; historical river channels and town banks differed."
+    },
+    {
+      "id": "mughal-guwahati-1662",
+      "polity": "mughal",
+      "name": "Guwahati · occupied 1662",
+      "lat": 26.18,
+      "lon": 91.75,
+      "start": 1662,
+      "end": 1662,
+      "date": "February 1662",
+      "note": "Mir Jumla occupies Guwahati before advancing to Garhgaon."
+    },
+    {
+      "id": "ahom-guwahati-1667",
+      "polity": "ahom",
+      "name": "Guwahati · recovered 1667",
+      "lat": 26.18,
+      "lon": 91.75,
+      "start": 1667,
+      "end": 1678,
+      "date": "1667 recovery; 1671 defence",
+      "note": "Lachit’s recovery precedes Saraighat. This is not the first Ahom military presence in the Guwahati region."
+    },
+    {
+      "id": "mughal-guwahati-1679",
+      "polity": "mughal",
+      "name": "Guwahati · surrendered 1679",
+      "lat": 26.18,
+      "lon": 91.75,
+      "start": 1679,
+      "end": 1681,
+      "date": "1679 surrender",
+      "note": "Mughal possession resumes during internal Ahom instability."
+    },
+    {
+      "id": "ahom-guwahati-1682",
+      "polity": "ahom",
+      "name": "Guwahati · final recovery 1682",
+      "lat": 26.18,
+      "lon": 91.75,
+      "start": 1682,
+      "end": 1690,
+      "date": "1682 final recovery",
+      "note": "Gadadhar Singha restores control; the lasting Manas frontier follows."
     }
   ],
   "routes": [

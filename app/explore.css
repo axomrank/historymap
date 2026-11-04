@@ -208,3 +208,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .sankardeva-chip { color: #c0392b; border-color: #c0392b; }
 
 .bhuyan-label { font-weight: 500; stroke-width: 2px; }
+
+.frontier-banks { display: grid; grid-template-columns: 78px 1fr; gap: 6px 9px; font-size: 13px; line-height: 1.4; }
+.frontier-banks dt { font-weight: 700; }
+.frontier-banks dd { margin: 0; }

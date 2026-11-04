@@ -98,8 +98,9 @@
     shown.forEach((el, si) => {
       const p = D.territories[D.shapes[si].t].p;
       el.classList.toggle('sel', p === sel);
+      const frontierView = sel >= 0 && year >= 1614 && year <= 1682 && ['mughal','ahom'].includes(P[sel].id);
       const conquestView = sel >= 0 && year >= 1612 && year <= 1616 && ['mughal','koch-hajo'].includes(P[sel].id);
-      el.classList.toggle('dim', sel >= 0 && p !== sel && !(conquestView && ['mughal','koch-hajo'].includes(P[p].id)));
+      el.classList.toggle('dim', sel >= 0 && p !== sel && !(conquestView && ['mughal','koch-hajo'].includes(P[p].id)) && !(frontierView && ['mughal','ahom'].includes(P[p].id)));
     });
     drawLabels(list);
   }
@@ -137,7 +138,7 @@
     $('gHistorySpots').innerHTML = year >= 1100 && year <= 1270 ? D.postPala.spots.filter(s => year >= s.start && year <= s.end).map(s =>
       `<g class="history-spot"><circle cx="${s.x}" cy="${s.y}" r="${3 * pithaScale}"/><text x="${s.x + 5 * pithaScale}" y="${s.y + (s.id === 'capital-north' ? 13 : -5) * pithaScale}" font-size="${9 * pithaScale}">${esc(s.name)}</text><title>${esc(s.kind + ': ' + s.note)}</title></g>`).join('') : '';
     drawSankardeva(pithaScale);
-    const show = p => sel < 0 || P[sel].id === p || (year >= 1612 && year <= 1616 && ['mughal','koch-hajo'].includes(P[sel].id) && ['mughal','koch-hajo'].includes(p));
+    const show = p => sel < 0 || P[sel].id === p || (year >= 1612 && year <= 1616 && ['mughal','koch-hajo'].includes(P[sel].id) && ['mughal','koch-hajo'].includes(p)) || (sel >= 0 && year >= 1614 && year <= 1682 && ['mughal','ahom'].includes(P[sel].id) && ['mughal','ahom'].includes(p));
     const routes = D.growth.routes.filter(r => year >= r.start && year <= r.end && show(r.polity));
     const migration = routes.find(r => r.progress);
     const fraction = migration ? Math.max(0, Math.min(1, (year - 1215) / 13)) : 1;
@@ -271,7 +272,7 @@
   $('zout').onclick = () => zoomAt(1.4);
   $('zfit').onclick = () => { setVB(vb.w < D.W * .99 ? full : home); drawLabels(D.states[D.years[year - S]]); };
   function focusGrowth(id) {
-    const bounds = id === 'mughal' ? [85.6, 93.1, 20.6, 27.4] : id === 'koch-hajo' ? [89.5, 92.9, 25.65, 27.35] : id === 'koch' ? (year < 1520 ? [89.7, 90.9, 26.2, 27.05] : year < 1527 ? [89.2, 91.3, 25.7, 27.15] : [88.1, 94.4, 25.3, 27.4]) : id === 'migration' || (id === 'ahom' && year <= 1228) ? [94.1, 98.65, 23.55, 28.05] : id === 'ahom' ? (year < 1282 ? [94.1, 96.45, 26.55, 28.0] : [93.0, 96.4, 26.2, 28.2]) : id === 'chutia' ? [93.1, 96.5, 26.6, 28.5] : id === 'bhuyan' ? [90.3, 94.3, 25.9, 27.5] : [88.1, 92.1, 25.3, 27.2];
+    const bounds = id === 'ahom-all' ? [89.5,96.3,24.9,28.6] : id === 'ahom' && year >= 1614 ? [89.5,93.4,25.4,27.8] : id === 'ahom' && year >= 1537 ? [91.4,96.3,25.7,28.2] : id === 'mughal' ? [85.6, 93.1, 20.6, 27.4] : id === 'koch-hajo' ? [89.5, 92.9, 25.65, 27.35] : id === 'koch' ? (year < 1520 ? [89.7, 90.9, 26.2, 27.05] : year < 1527 ? [89.2, 91.3, 25.7, 27.15] : [88.1, 94.4, 25.3, 27.4]) : id === 'migration' || (id === 'ahom' && year <= 1228) ? [94.1, 98.65, 23.55, 28.05] : id === 'ahom' ? (year < 1282 ? [94.1, 96.45, 26.55, 28.0] : [93.0, 96.4, 26.2, 28.2]) : id === 'chutia' ? [93.1, 96.5, 26.6, 28.5] : id === 'bhuyan' ? [90.3, 94.3, 25.9, 27.5] : [88.1, 92.1, 25.3, 27.2];
     const [x0, y0] = px(bounds[0], bounds[3]), [x1, y1] = px(bounds[1], bounds[2]);
     const ratio = svg.clientWidth / svg.clientHeight;
     const w = Math.max(x1 - x0, (y1 - y0) * ratio), h = w / ratio;
@@ -350,7 +351,7 @@
   const evRow = (e, cls) => `<div class="ev${cls}" data-y="${e.y}"><span class="y">${e.y}</span><b>${esc(e.t)}</b>${cls ? `<span class="x">${esc(e.x)}</span>` : ''}</div>`;
 
   function growthCard() {
-    if (year < 1187 || year > 1764) return '';
+    if (year < 1187 || year > 1816 || (year > 1764 && (sel < 0 || P[sel].id !== 'ahom'))) return '';
     const d = D.growth, ids = ['ahom', 'chutia', 'kamata', 'khen', 'bhuyan', 'koch', 'koch-hajo', 'mughal'];
     const focus = sel >= 0 && ids.includes(P[sel].id) ? P[sel].id : (year >= 1576 ? 'mughal' : year >= 1515 ? 'koch' : year >= 1215 && year <= 1281 ? 'ahom' : 'chutia');
     const stages = d.phases.filter(p => p.polity === focus), current = stages.find(p => year >= p.start && year <= p.end);
@@ -358,12 +359,13 @@
     return `<section class="growth-card"><h2>How the states took shape</h2>
       <div class="growth-tabs">${ids.map(id => `<button data-growth="${id}" aria-pressed="${id === focus}">${esc(P.find(p => p.id === id).short)}</button>`).join('')}</div>
       <button class="growth-focus" data-focus-growth="${focus}">${focus === 'ahom' && year < 1282 ? 'Focus on Sukaphaa’s journey ↗' : 'Focus on this region ↗'}</button>
+      ${focus === 'ahom' && year >= 1537 ? '<button class="growth-focus" data-focus-growth="ahom-all">Whole Ahom region ↗</button>' : ''}
       ${focus === 'mughal' ? '<button class="growth-focus" data-focus-growth="koch-hajo">Koch Hajo frontier ↗</button>' : ''}
       ${focus === 'ahom' && year >= 1215 && year <= 1267 ? '<button class="growth-focus full-journey" data-focus-growth="migration">Whole journey: Mong Mao → Myanmar → Assam ↗</button>' : ''}
-      ${current ? `<p class="post-date">${esc(current.date)}</p><h3>${esc(current.title)}</h3><p>${esc(current.text)}</p><p class="source-links">${sources}</p>` : `<p>No securely dated stage for this selection in ${year}. Choose a date below.</p>`}
+      ${current ? `<p class="post-date">${esc(current.date)}</p><h3>${esc(current.title)}</h3><p>${esc(current.text)}</p>${current.northBank ? `<dl class="frontier-banks"><dt>North bank</dt><dd>${esc(current.northBank)}</dd><dt>South bank</dt><dd>${esc(current.southBank)}</dd></dl>` : ''}<p class="source-links">${sources}</p>` : `<p>No securely dated stage for this selection in ${year}. Choose a date below.</p>`}
       <p class="pitha-note">Dashed trails connect reported stops; they are reconstructed corridors, not surveyed paths. Small patches locate early settlements; Bhuyan areas follow separate river-to-river sectors. Wider borders are approximate. Later evidence does not date an earlier conquest.</p>
       <details ${focus === 'ahom' && year <= 1253 ? 'open' : ''}><summary>${focus === 'ahom' ? 'Journey and expansion stages' : 'Dated evidence and changes'}</summary><div class="growth-steps">${stages.map(s => `<button data-growth-year="${s.start}" data-growth-polity="${s.polity}" ${s === current ? 'aria-current="step"' : ''}><span>${esc(s.date)}</span>${esc(s.title)}</button>`).join('')}</div></details>
-      <p class="source-links"><a href="research/medieval-growth-2026-11-04/README.md">Research notes</a> · <a href="data/medieval-growth-events.csv">Events CSV</a>${focus === 'koch' ? ' · <a href="research/koch-growth-2026-11-04/README.md">Koch research</a>' : ['mughal','koch-hajo'].includes(focus) ? ' · <a href="research/bengal-hajo-2026-11-04/README.md">Bengal and Koch Hajo research</a>' : ''}</p>
+      <p class="source-links"><a href="research/medieval-growth-2026-11-04/README.md">Research notes</a> · <a href="data/medieval-growth-events.csv">Events CSV</a>${focus === 'ahom' && year >= 1537 ? ' · <a href="research/ahom-bank-frontiers-2026-11-04/README.md">Ahom frontier research</a>' : focus === 'koch' ? ' · <a href="research/koch-growth-2026-11-04/README.md">Koch research</a>' : ['mughal','koch-hajo'].includes(focus) ? ' · <a href="research/bengal-hajo-2026-11-04/README.md">Bengal and Koch Hajo research</a>' : ''}</p>
     </section>`;
   }
 
@@ -427,7 +429,7 @@
     const focus = e.target.closest('[data-focus-growth]');
     if (focus) { focusGrowth(focus.dataset.focusGrowth); return; }
     const stage = e.target.closest('[data-growth-year]');
-    if (stage) { stop(); select(P.findIndex(p => p.id === stage.dataset.growthPolity)); setYear(+stage.dataset.growthYear); if (year >= 1215 && year < 1228) focusGrowth('migration'); if (['koch','mughal','koch-hajo'].includes(stage.dataset.growthPolity)) focusGrowth(stage.dataset.growthPolity === 'mughal' && year >= 1612 && year <= 1616 ? 'koch-hajo' : stage.dataset.growthPolity); $('panel').scrollTop = 0; return; }
+    if (stage) { stop(); select(P.findIndex(p => p.id === stage.dataset.growthPolity)); setYear(+stage.dataset.growthYear); if (year >= 1215 && year < 1228) focusGrowth('migration'); if (['koch','mughal','koch-hajo'].includes(stage.dataset.growthPolity) || (stage.dataset.growthPolity === 'ahom' && year >= 1537)) focusGrowth(stage.dataset.growthPolity === 'mughal' && year >= 1612 && year <= 1616 ? 'koch-hajo' : stage.dataset.growthPolity); $('panel').scrollTop = 0; return; }
     const group = e.target.closest('[data-growth]');
     if (group) { select(P.findIndex(p => p.id === group.dataset.growth)); return; }
     const y = e.target.closest('[data-y]'); if (y) { e.preventDefault(); stop(); setYear(+y.dataset.y); return; }
@@ -529,7 +531,8 @@
     setYear(year + 1);
     if (sel >= 0 && P[sel].id === 'koch' && D.growth.phases.some(p => p.polity === 'koch' && p.start === year)) focusGrowth('koch');
     const changed = changeYears.includes(year) || D.events.some(e => e.y === year);
-    const journey = (year >= 1449 && year <= 1568) || (sel >= 0 && ['mughal','koch-hajo'].includes(P[sel].id) && year >= 1576 && year <= 1666);
+    const frontierPlayback = sel >= 0 && P[sel].id === 'ahom' && year >= 1614 && year <= 1682;
+    const journey = frontierPlayback || (year >= 1449 && year <= 1568) || (sel >= 0 && ['mughal','koch-hajo'].includes(P[sel].id) && year >= 1576 && year <= 1666);
     playing = setTimeout(tick, journey ? Math.max(180, +$('speed').value * 8) : +$('speed').value * (changed ? 14 : 1) + (changed ? 250 : 0));
   }
   $('play').onclick = () => {
@@ -562,7 +565,7 @@
 
   fromHash();
   const y0 = year; year = -1; setYear(y0);
-  if (sel >= 0 && P[sel].id === 'ahom' && year >= 1215 && year <= 1281) focusGrowth('ahom');
+  if (sel >= 0 && P[sel].id === 'ahom' && ((year >= 1215 && year <= 1281) || (year >= 1537 && year <= 1816))) focusGrowth('ahom');
   if (sel >= 0 && ['mughal','koch-hajo'].includes(P[sel].id) && year >= 1576 && year <= 1764) focusGrowth(P[sel].id);
-  window.addEventListener('hashchange', () => { fromHash(); const y = year; year = -1; setYear(y); if (sel >= 0 && ['mughal','koch-hajo'].includes(P[sel].id) && year >= 1576 && year <= 1764) focusGrowth(P[sel].id); });
+  window.addEventListener('hashchange', () => { fromHash(); const y = year; year = -1; setYear(y); if (sel >= 0 && ['mughal','koch-hajo'].includes(P[sel].id) && year >= 1576 && year <= 1764) focusGrowth(P[sel].id); if (sel >= 0 && P[sel].id === 'ahom' && year >= 1537 && year <= 1816) focusGrowth('ahom'); });
 })();

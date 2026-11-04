@@ -86,3 +86,7 @@ The [Subansiri/Jaintia correction](research/subansiri-jaintia-2026-11-04/README.
 ## Bengal and the Mughal conquest of Koch Hajo
 
 The [researched Bengal/Koch Hajo revision](research/bengal-hajo-2026-11-04/README.md) removes Koch Behar from the displayed states, confines Koch Hajo’s mapped core to Assam, adds the 1576 → 1611–1612 → 1666 Bengal conquest sequence, and separates the 1612–1613 invasion/annexation from later resistance and reversal. Click **Bengal & Koch Hajo** for the expanded map. The notes distinguish modern geographic proxies from surveyed historical borders and exclude hill/princely regions from blanket annexation claims. Run `node tools/check-bengal-hajo.js` after rebuilding.
+
+## Ahom western frontiers and Guwahati
+
+The [bank-specific frontier research](research/ahom-bank-frontiers-2026-11-04/README.md) separates the 1614–1616 political/tributary reach toward Barnadi from direct control, temporary Pandu/Hajo campaigns, the two-bank 1639 treaty, and the Guwahati capture/recovery sequence through 1682. Ahom cards now show north- and south-bank summaries and qualified dates. Run `node tools/check-ahom-frontiers.js` after rebuilding.
