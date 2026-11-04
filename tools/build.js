@@ -33,6 +33,7 @@ const polities = parseCSV(rd('data/polities.csv'));
 const territories = parseCSV(rd('data/territories.csv'));
 const events = parseCSV(rd('data/events.csv'));
 const ratnaPhases = parseCSV(rd('data/paundravardhana-map-phases.csv'));
+const postPala = JSON.parse(rd('data/kamarupa-after-palas.json'));
 const A = JSON.parse(rd('data/maps/assam.json'));
 const NB = JSON.parse(rd('data/maps/neighbours.json'));
 const NE = JSON.parse(rd('data/maps/northeast.json'));
@@ -225,7 +226,7 @@ const T = territories.map((t, row) => {
   let mp = fillHoles(safe(() => pc.intersection(union(t.shape.split(' + ').map(s => termShape(s.trim()))), FRAME), []));
   // Reserve the regional sector even when the current phase is unknown. Old broad
   // Kamarupa and campaign polygons must not silently imply continuous possession.
-  if (!t.id.startsWith('ratna-') && +t.end >= 350 && +t.end <= 1256)
+  if (!t.id.startsWith('ratna-') && +t.end >= 350 && +t.end <= 1099)
     mp = safe(() => pc.difference(mp, ratnaMP), mp);
   if (!mp.length) console.warn('EMPTY shape:', t.id);
   return { ...t, start: +t.start, end: +t.end, pri: (+t.z || 0) * 1000 + row, mp };
@@ -293,6 +294,7 @@ const out = {
   polities: P,
   territories: T.map(t => ({ p: polityIdx[t.polity], s: t.start, e: t.end, label: t.label, note: t.note, conf: t.confidence, style: t.style })),
   ratna: { outline: pathOf(ratnaMP), phases: ratnaPhases.map(r => ({ ...r, start: +r.start, end: +r.end, p: polityIdx[r.polity] })) },
+  postPala: { ...postPala, spots: postPala.spots.map(s => ({ ...s, x: X(s.lon), y: Y(s.lat) })) },
   pithas: {
     rivers: [['teesta-karatoya', 'Teesta / Karatoya'], ['sonkosh', 'Sankosh'], ['puthimari', 'Rupahi*'], ['bharali', 'Bharali'], ['dikrong', 'Dikrong']].map(([id, name]) => ({ id, name, d: linePath(A.rivers[id].pts), label: A.rivers[id].pts[Math.floor(A.rivers[id].pts.length * .25)].map((v, i, a) => i === 0 ? X(a[1]) : Y(a[0])) })),
     labels: [['Paundravardhana / Ratnapitha', 26.35, 89.15], ['Kamapitha', 26.35, 90.65], ['Suvarnapitha', 26.55, 92.05], ['Saumarapitha', 26.93, 93.15]].map(([name, lat, lon]) => ({ name, x: X(lon), y: Y(lat) })),

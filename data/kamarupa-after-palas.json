@@ -1,0 +1,284 @@
+{
+  "start": 1100,
+  "end": 1270,
+  "title": "Kamarupa after the Palas",
+  "sources": {
+    "kamauli": {
+      "title": "Venis, Kamauli grant, EI II pp.347–358",
+      "url": "https://jainqq.org/pagetext/Epigraphia_Indica_Vol_02/032556/407",
+      "note": "Regnal year 4; CE conversions include 1123 and 1142. Original editor favoured 1142; appointment sequence firmer than absolute chronology."
+    },
+    "vallabha": {
+      "title": "Kielhorn, Assam plates of Vallabhadeva, EI V pp.181–188",
+      "url": "https://jainqq.org/booktext/Epigraphia_Indica_Vol_05/032559",
+      "note": "Saka 1107, conventionally 1185; editor allows 1184/1185. Genealogy is not a dated reign list; father gives the command for the donation."
+    },
+    "kanai": {
+      "title": "IGNCA, Assam Rock Art Report 2015, Kanai Barasi",
+      "url": "https://ignca.gov.in/rockart_2015/Rockart_AssamReport2015.pdf",
+      "note": "1206 inscription locality; no securely named defender in the inscription."
+    },
+    "bakhtiyar": {
+      "title": "Banglapedia, Bakhtiyar Khalji",
+      "url": "https://en.banglapedia.org/index.php/Bakhtiyar_Khalji",
+      "note": "Disastrous Tibet expedition and return in 1206; no exact local battle route inferred."
+    },
+    "iwaz": {
+      "title": "Banglapedia, Iwaz Khalji",
+      "url": "https://en.banglapedia.org/index.php?title=Iwaz_Khalji",
+      "note": "Campaign and tribute context; Iwaz ruled 1212–1227, so do not date his death to 1228."
+    },
+    "gachtal": {
+      "title": "Assam Directorate of Archaeology, Gachtal site",
+      "url": "https://archaeology.assam.gov.in/information-services/detail/list-of-protected-archaeological-sites-and-monuments",
+      "note": "Official inventory confirms a 13th-century inscription; precise 1227 reading and Visvasundara identification taken from scholarship, not independently re-collated."
+    },
+    "gachtal-study": {
+      "title": "Madan-Kamdev historical study, chapter 2 p.50",
+      "url": "https://www.wisdomlib.org/uploads/ocr/essays/madan/11-chapter-2.pdf",
+      "note": "Discusses Gachtal Saka 1149/1227, Visvasundara, restoration and proposed Prithu identification."
+    },
+    "ambari-location": {
+      "title": "ASI Guwahati Circle, Ambari excavation",
+      "url": "https://www.asiguwahaticircle.gov.in/excavation8.html",
+      "note": "Official coordinates 26°11′8″N,91°45′21″E; archaeological locality, not the located Yogihati establishment."
+    },
+    "ambari-date": {
+      "title": "Anima Dutta, Political Geography of Pragjyotisa-Kamarupa p.143",
+      "url": "https://mncbm.digitallibrary.co.in/bitstream/123456789/23/1/Anima%20Dutta.pdf",
+      "note": "Ambari inscription, Saka 1154/1232, Samudrapala. A Pala-suffix does not prove descent from Jayapala."
+    },
+    "prithu": {
+      "title": "N.K. Bhattasali, New Lights on the History of Assam (1946)",
+      "url": "https://aryanculture.org/records/2863",
+      "note": "Prithu identification debated; consulted catalogue summary and contrasted scholarship; full primary text not freshly collated."
+    },
+    "sandhya": {
+      "title": "N.N. Acharyya, History of Medieval Assam (1966)",
+      "url": "https://pahar.in/pahar/Books%20and%20Articles/Indian%20Subcontinent/1966%20The%20History%20of%20Medieval%20Assam%20from%20the%2013th%20to%20the%2017th%20century%20by%20Acharya%20s.pdf",
+      "note": "Medieval transition context; compare Sarkar 1992 pp.39–41: Sandhya c.1250–1270, capital move not exactly dated."
+    },
+    "sandhya-dating": {
+      "title": "North Bengal University historical-geography thesis, chapter 1",
+      "url": "https://ir.nbu.ac.in/bitstream/123456789/1502/5/05_chapter_01.pdf",
+      "note": "Discusses the capital shift around 1260; older campaign dates differ. Do not make 1257 the certain moving day."
+    },
+    "rajpat": {
+      "title": "ASI Kolkata, Rajpat excavation report, Site Location",
+      "url": "https://www.asikolkata.in/Publications_files/excavation_rajpat-98-2k.pdf",
+      "note": "Rajpat at 26°09′N,89°21′12″E. Archaeological identification does not date Sandhya’s move."
+    },
+    "kanai-gps": {
+      "title": "Ancient Asia 15 (2024), petroglyph locality table",
+      "url": "https://ancient-asia-journal.com/upload/1/volume/Vol.%2015%20%282024%29/PDF/3_Jiangampou.pdf",
+      "note": "Kanai Boroshi Bowa 26°12′36.5″N,91°44′31.4″E. Rock-art site coordinate; not exact battle location."
+    }
+  },
+  "episodes": [
+    {
+      "id": "transition",
+      "start": 1100,
+      "end": 1125,
+      "date": "Early 12th century; approximate",
+      "title": "Pala succession and Bengal intervention",
+      "who": "Jayapala’s last years; Ramapala; Tingyadeva",
+      "text": "The end of the local Pala line and the extent of Bengal intervention are unsettled. Tingyadeva appears in the later Kamauli account as the ruler whose disaffection prompted replacement. Do not treat c.1110–1126 as dated epigraphic reign bounds.",
+      "sources": [
+        "kamauli"
+      ]
+    },
+    {
+      "id": "vaidya",
+      "start": 1126,
+      "end": 1149,
+      "date": "First half of 12th century; regnal year 4",
+      "title": "Vaidyadeva’s appointment and grant",
+      "who": "Vaidyadeva, appointed by Kumarapala of Bengal",
+      "text": "Kamauli records his replacement of Tingyadeva and a grant from Hamsakonci. It locates Kamarupa-mandala within Pragjyotisa-bhukti. Absolute dating is disputed:1123 and 1142 occur in scholarship. Hamsakonci is unlocated here; Kamauli near Varanasi is the discovery place, not his Assam capital.",
+      "sources": [
+        "kamauli"
+      ]
+    },
+    {
+      "id": "lunar-ancestors",
+      "start": 1150,
+      "end": 1183,
+      "date": "12th century; individual reigns undated",
+      "title": "Rulers known through Vallabhadeva’s genealogy",
+      "who": "Bhaskara → Rayarideva-Trailokyasimha → Udayakarna-Nihsankasimha",
+      "text": "This is an ancestral sequence in a later record, not proof of three consecutively dated reigns across all Kamarupa. Relations to Vaidyadeva and the exact extent of their domains remain uncertain.",
+      "sources": [
+        "vallabha"
+      ]
+    },
+    {
+      "id": "vallabha",
+      "start": 1184,
+      "end": 1199,
+      "date": "Saka 1107; conventionally 1185",
+      "title": "Vallabhadeva’s charitable endowment",
+      "who": "Vallabhadeva-Srivallabha; his father Udayakarna",
+      "text": "The Assam plates record a food-distribution establishment near a Siva temple east of Kirtipur in Hapyacha-mandala, endowed at his father’s command. The editor permits 1184/1185. These places are not securely identified; a Tezpur find region is not a kingdom boundary.",
+      "sources": [
+        "vallabha"
+      ]
+    },
+    {
+      "id": "bakhtiyar",
+      "start": 1200,
+      "end": 1225,
+      "date": "1206 campaign; ruler’s name uncertain",
+      "title": "Bakhtiyar Khalji’s failed expedition and return",
+      "who": "Unnamed Kamarupa ruler(s); Prithu identification disputed",
+      "text": "The Tibet expedition ended in a disastrous retreat. Kanai-Barashi-Bowa commemorates destruction of the invading Turks but does not name the defender. Prithu/Britu in Persian narratives has disputed identification, including an Awadh interpretation; no 1187–1228 reign or Bhitargarh capital is treated as established.",
+      "sources": [
+        "kanai",
+        "bakhtiyar",
+        "prithu"
+      ]
+    },
+    {
+      "id": "visvasundara",
+      "start": 1226,
+      "end": 1231,
+      "date": "c.1226–1227 campaigns; c.1227 stone record",
+      "title": "Iwaz’s pressure and the Gachtal evidence",
+      "who": "Visvasundaradeva attested in scholarship; unnamed regional rulers",
+      "text": "Iwaz’s eastern campaigns and tribute claims belong to this context. Gachtal’s stone record is read as Saka 1149/1227 and associated with Visvasundara and temple repairs. Equating him with Prithu is disputed. Iwaz’s death is conventionally 1227, not 1228. Succession and any brief Delhi-imposed tributary arrangement remain uncertain.",
+      "sources": [
+        "iwaz",
+        "gachtal",
+        "gachtal-study"
+      ]
+    },
+    {
+      "id": "samudrapala",
+      "start": 1232,
+      "end": 1249,
+      "date": "Samudrapala attested 1232; subsequent reign unknown",
+      "title": "Samudrapala at Ambari",
+      "who": "Samudrapala; succession after him unknown",
+      "text": "The Ambari inscription supplies a 1232 attestation, not a c.1100 reign. It mentions a royal-associated sattra at Yogihati. The king’s genealogy, accession, end of reign and full territory are not established. This display window is not an 18-year reign.",
+      "sources": [
+        "ambari-date",
+        "ambari-location"
+      ]
+    },
+    {
+      "id": "sandhya",
+      "start": 1250,
+      "end": 1256,
+      "date": "Sandhya c.1250–1270; reconstructed",
+      "title": "Sandhya and the western reorganisation",
+      "who": "Sandhya, conventionally the Rai of Kamrup",
+      "text": "Historians associate Sandhya with Kamarupanagara and the transition to Kamata. His accession and earlier genealogy are uncertain; do not extend his reign backward to 1229 as a settled fact.",
+      "sources": [
+        "sandhya",
+        "sandhya-dating"
+      ]
+    },
+    {
+      "id": "yuzbak",
+      "start": 1257,
+      "end": 1270,
+      "date": "1257 invasion; capital shift probably later",
+      "title": "Yuzbak defeated; transition toward Kamata",
+      "who": "Sandhya; Malik Ikhtiyaruddin Yuzbak",
+      "text": "Yuzbak’s 1257 invasion ended in defeat and death during the retreat. The victory is attributed to Sandhya in the historical reconstruction. The move from Kamarupanagara to Kamatapur is usually placed after this, around 1260; it is not a securely dated same-day consequence.",
+      "sources": [
+        "sandhya",
+        "sandhya-dating",
+        "rajpat"
+      ]
+    }
+  ],
+  "spots": [
+    {
+      "id": "capital-north",
+      "name": "Kamarupanagara · North Guwahati",
+      "lat": 26.195,
+      "lon": 91.732,
+      "start": 1100,
+      "end": 1257,
+      "kind": "Capital identification",
+      "note": "Traditional regional identification. Exact medieval palace and urban perimeter are not established.",
+      "sources": [
+        "sandhya"
+      ]
+    },
+    {
+      "id": "vallabha-tezpur",
+      "name": "Tezpur · Vallabhadeva plates",
+      "lat": 26.6338,
+      "lon": 92.7926,
+      "start": 1150,
+      "end": 1200,
+      "kind": "Reported find region",
+      "note": "General Tezpur reference, not an exact findspot or proven capital. Kirtipur and Hapyacha of the charter remain unlocated.",
+      "sources": [
+        "vallabha"
+      ]
+    },
+    {
+      "id": "kanai-1206",
+      "name": "Kanai-Barashi-Bowa · 1206",
+      "lat": 26.21013888888889,
+      "lon": 91.74205555555555,
+      "start": 1200,
+      "end": 1225,
+      "kind": "Inscription site",
+      "note": "Contemporary commemoration of the destruction of invading Turks. The rock does not name Prithu; its location does not identify the precise battlefield.",
+      "sources": [
+        "kanai",
+        "kanai-gps"
+      ]
+    },
+    {
+      "id": "gachtal-1227",
+      "name": "Gachtal · c.1227",
+      "lat": 26.120015,
+      "lon": 92.846318,
+      "start": 1226,
+      "end": 1231,
+      "kind": "Inscription site · approximate point",
+      "note": "Catalogue reference coordinate near Dabaka. Visvasundara and temple repair are discussed in scholarship; identification with Prithu is disputed. This is a stone record, distinct from Gopala’s earlier copper plates.",
+      "sources": [
+        "gachtal",
+        "gachtal-study"
+      ]
+    },
+    {
+      "id": "ambari-1232",
+      "name": "Ambari · Samudrapala, 1232",
+      "lat": 26.185555555555556,
+      "lon": 91.75583333333333,
+      "start": 1232,
+      "end": 1249,
+      "kind": "Inscription find locality",
+      "note": "Saka 1154/1232 attestation of Samudrapala. The royal-linked Yogihati sattra mentioned in the record is not securely located here; this is not a modern Sankaradeva sattra.",
+      "sources": [
+        "ambari-location",
+        "ambari-date"
+      ]
+    },
+    {
+      "id": "kamata-capital",
+      "name": "Kamatapur · Gosanimari/Rajpat",
+      "lat": 26.15,
+      "lon": 89.35333333333332,
+      "start": 1257,
+      "end": 1270,
+      "kind": "Capital identification",
+      "note": "ASI locality coordinate. Capital shift is associated with Sandhya, probably after 1257 and around 1260; exact year unknown. Existing border switch at 1257 is a display convention.",
+      "sources": [
+        "rajpat",
+        "sandhya-dating"
+      ]
+    }
+  ],
+  "unlocated": [
+    "Hamsakonci: Vaidyadeva’s issuing headquarters; exact site not established.",
+    "Kirtipur / Hapyacha-mandala: Vallabhadeva’s endowment locality; exact site not established.",
+    "Bhitargarh: do not show as Prithu’s certain capital."
+  ]
+}

@@ -108,6 +108,13 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .pitha-river-label { fill: #e13b36; font-weight: 600; paint-order: stroke; stroke: var(--land); stroke-width: 2px; pointer-events: none; }
 .pitha-era .realm:not(.reach) { stroke: none; }
 .pitha-note { color: var(--muted); }
+.post-pala-card { border-bottom: 1px solid var(--line); padding-bottom: 14px; margin-bottom: 14px; }
+.post-pala-card h3 { font: 600 17px Georgia, serif; margin: 8px 0; }
+.post-pala-card p, .post-pala-card summary { font-size: 13px; }
+.post-pala-card details { margin: 9px 0; }
+.post-date, .source-links { color: var(--muted); font-size: 12px !important; }
+.history-spot circle { fill: #347e99; stroke: var(--panel); stroke-width: 1.5; }
+.history-spot text { fill: var(--ink); paint-order: stroke; stroke: var(--land); stroke-width: 2px; }
 .ratna-chip { position: absolute; bottom: 12px; left: 12px; max-width: calc(100% - 24px); font-size: 12px; text-align: left; box-shadow: var(--shadow); }
 .ratna-card { border-bottom: 1px solid var(--line); margin-bottom: 14px; padding-bottom: 14px; }
 .ratna-card p { font-size: 13px; margin: 7px 0; }

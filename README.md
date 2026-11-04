@@ -46,6 +46,9 @@ the supplied teaching charts, a historical gazetteer, and proposed map correctio
 These research records preserve uncertain dates and distinguish campaigns, grants,
 and territorial control. The adopted [Paundravardhana map phases](data/paundravardhana-map-phases.csv)
 now drive a separate region between the Sankosh and the project's Teesta/Karatoya line.
+This ancient pitha display ends before 1100. The [post-Pala research revision](research/kamarupa-after-palas-2026-11-04/README.md)
+provides a separate 1100–1270 evidence panel, source-linked rulers and events, and
+inscription/capital markers without pitha divisions or red river boundaries.
 The side panel provides previous/next phase controls, approximate dates and evidence qualifications.
 This user-adopted map interpretation uses Ratnapitha as Paundravardhana; it does not
 redefine the changing historical province in the research catalogue. Northern and

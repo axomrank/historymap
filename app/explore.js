@@ -56,15 +56,15 @@
     <g class="g-modern">${D.base.modern.map(m => `<path class="m-modern${m.assam ? ' assam' : ''}" d="${m.d}"/>`).join('')}
       ${D.base.towns.map(([n, x, y]) => `<g class="m-town"><circle cx="${x}" cy="${y}" r="1.8"/><text x="${x + 4}" y="${y + 3.5}">${esc(n)}</text></g>`).join('')}</g>
     <g id="pithaRivers">${D.pithas.rivers.map(r => `<path class="pitha-boundary" d="${r.d}"><title>${esc(r.name === 'Rupahi*' ? D.pithas.note : r.name)}</title></path>`).join('')}</g>
-    <g id="gLabels"></g><g id="gPithaLabels"></g><g id="gCaps"></g>`;
+    <g id="gLabels"></g><g id="gPithaLabels"></g><g id="gCaps"></g><g id="gHistorySpots"></g>`;
   // hatch patterns for "campaign reach" shapes
   $('defs').innerHTML = P.map((p, i) => `<pattern id="h${i}" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="${p.color}" fill-opacity=".18"/><line x1="0" y1="0" x2="0" y2="7" stroke="${p.color}" stroke-width="3"/></pattern>`).join('');
 
   const darker = hex => { const n = parseInt(hex.slice(1), 16); const f = c => Math.round(c * .62).toString(16).padStart(2, '0'); return '#' + f(n >> 16) + f((n >> 8) & 255) + f(n & 255); };
   let shown = new Map();
   function drawMap() {
-    $('pithaRivers').style.display = year <= 1256 ? '' : 'none';
-    svg.classList.toggle('pitha-era', year <= 1256);
+    $('pithaRivers').style.display = year < 1100 ? '' : 'none';
+    svg.classList.toggle('pitha-era', year < 1100);
     const regionalPhase = D.ratna.phases.find(r => year >= r.start && year <= r.end);
     $('ratnaChip').hidden = !regionalPhase;
     if (regionalPhase) $('ratnaChip').textContent = 'Ratnapitha · ' + regionalPhase.title + ' ↗';
@@ -112,13 +112,15 @@
       out.push(`<text class="lbl" x="${sh.l[0]}" y="${sh.l[1] - (lines.length - 1) * fs * .55}" font-size="${fs.toFixed(1)}">${lines.map((ln, i) => `<tspan x="${sh.l[0]}" dy="${i ? fs * 1.1 : fs * .35}">${esc(ln)}</tspan>`).join('')}</text>`);
     });
     $('gLabels').innerHTML = out.join('');
-    $('gPithaLabels').innerHTML = year <= 1256 ?
+    $('gPithaLabels').innerHTML = year < 1100 ?
       D.pithas.labels.map((p, i) => `<text class="pitha-label" x="${p.x}" y="${p.y}" font-size="${(i === 0 ? 6 : 8) * pithaScale}">${i === 0 ? `<tspan x="${p.x}">Paundravardhana</tspan><tspan x="${p.x}" dy="${8 * pithaScale}">/ Ratnapitha</tspan>` : `<tspan x="${p.x}">${esc(p.name.replace('pitha', ''))}</tspan><tspan x="${p.x}" dy="${9 * pithaScale}">pitha</tspan>`}</text>`).join('') +
       D.pithas.rivers.map(r => `<text class="pitha-river-label" x="${r.label[0] + 4 * pithaScale}" y="${r.label[1]}" font-size="${7 * pithaScale}">${esc(r.name)}</text>`).join('') : '';
     // capitals of polities on the map this year
     const on = new Set(list.map(si => D.territories[D.shapes[si].t].p));
-    $('gCaps').innerHTML = [...on].flatMap(pi => P[pi].capitals.filter(c => year >= c[3] && year <= c[4]).map(c =>
+    $('gCaps').innerHTML = [...on].filter(pi => !(year >= 1100 && year <= 1270 && ['late-kamarupa', 'kamata'].includes(P[pi].id))).flatMap(pi => P[pi].capitals.filter(c => year >= c[3] && year <= c[4]).map(c =>
       `<g class="cap"><circle cx="${c[1]}" cy="${c[2]}" r="${4.5 * Math.max(k, .5)}" fill="${darker(P[pi].color)}"/><text x="${c[1] + 7 * Math.max(k, .5)}" y="${c[2] - 5 * Math.max(k, .5)}" font-size="${(11 * Math.max(k, .55)).toFixed(1)}">★ ${esc(c[0])}</text></g>`)).join('');
+    $('gHistorySpots').innerHTML = year >= 1100 && year <= 1270 ? D.postPala.spots.filter(s => year >= s.start && year <= s.end).map(s =>
+      `<g class="history-spot"><circle cx="${s.x}" cy="${s.y}" r="${3 * pithaScale}"/><text x="${s.x + 5 * pithaScale}" y="${s.y + (s.id === 'capital-north' ? 13 : -5) * pithaScale}" font-size="${9 * pithaScale}">${esc(s.name)}</text><title>${esc(s.kind + ': ' + s.note)}</title></g>`).join('') : '';
   }
   const shortName = n => n.replace(/^Kamarupa: /, 'Kamarupa · ').replace(/ \(Konbaung\)/, '').replace(/ \(independent India\)/, '');
   function wrap(s, w) {
@@ -191,6 +193,7 @@
   /* ---------- side panel ---------- */
   function status(i) {
     const p = P[i], a = areaAt(i, year);
+    if (p.id === 'late-kamarupa') return 'Several regional powers; boundaries uncertain';
     if (p.id === 'ratna-uncertain') return 'Control unresolved in this interval';
     if (year === p.start) return '<em>Rises this year</em>';
     if (year === p.end && p.end < E) return '<em>Its last year</em>';
@@ -213,7 +216,7 @@
 
   function drawPanel() {
     const on = activeHere();
-    let h = ratnaCard() + `<h2>On the map in ${year}</h2>`;
+    let h = ratnaCard() + postPalaCard() + `<h2>On the map in ${year}</h2>`;
     h += on.length ? on.map(i => {
       const p = P[i], r = rulersAt(p);
       return `<div class="pol${i === sel ? ' sel' : ''}" data-p="${i}"><span class="sw" style="background:${p.color}"></span><b>${esc(p.name)}</b><span class="st">${status(i)}${r.length ? `<br>Catalogue ruler: ${esc(r.join(', '))}` : ''}</span></div>`;
@@ -245,8 +248,24 @@
     </section>`;
   }
 
+  function postPalaCard() {
+    if (year < 1100 || year > 1270) return '';
+    const d = D.postPala, e = d.episodes.find(r => year >= r.start && year <= r.end);
+    const links = ids => ids.map(id => `<a href="${esc(d.sources[id].url)}" target="_blank" rel="noopener">${esc(d.sources[id].title)}</a>`).join(' · ');
+    return `<section class="post-pala-card"><h2>Kamarupa after the Palas</h2>
+      <p class="post-date">${esc(e.date)}</p><h3>${esc(e.title)}</h3>
+      <p><strong>Rulers / named figures:</strong> ${esc(e.who)}</p><p>${esc(e.text)}</p>
+      <p class="source-links">${links(e.sources)}</p>
+      <p class="pitha-note">Dates above distinguish attestation from reign. Display windows are context, not continuous rule. The shaded realm is a schematic successor region; precise political borders are unknown.</p>
+      <h2>Places on this map</h2>${d.spots.filter(s => year >= s.start && year <= s.end).map(s => `<details><summary>${esc(s.name)}</summary><p>${esc(s.kind)}. ${esc(s.note)}</p><p class="source-links">${links(s.sources)}</p></details>`).join('')}
+      <details><summary>Unlocated and disputed places</summary>${d.unlocated.map(s => `<p>${esc(s)}</p>`).join('')}</details>
+      <details><summary>Rulers and events, 1100–1270</summary><div class="ratna-jumps">${d.episodes.map(s => `<button data-y="${s.start}">${esc(s.date)}: ${esc(s.title)}</button>`).join('')}</div></details>
+    </section>`;
+  }
+
   function card(i) {
     const p = P[i], a = areaAt(i, year);
+    if (p.id === 'late-kamarupa') return `<div class="card"><h3>Kamarupa successor polities</h3><p>This outline gives geographic context for several rulers and regional powers, rather than a measured kingdom under one dynasty. The evidence panel above distinguishes known inscriptions, approximate reigns and disputed identifications.</p></div>`;
     if (p.id === 'ratna-uncertain') return `<div class="card"><h3>Control uncertain</h3><p>The neutral region marks an interval without a secure owner in the adopted sequence. Use the Paundravardhana controls above to follow the losses and recoveries.</p></div>`;
     const ts = D.territories.filter(t => P[t.p] === p && year >= t.s && year <= t.e);
     const r = rulersAt(p), caps = p.capitals.filter(c => year >= c[3] && year <= c[4]).map(c => c[0]);
