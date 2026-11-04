@@ -82,3 +82,7 @@ The [Koch research revision](research/koch-growth-2026-11-04/README.md) starts w
 The [main-stem and chronology revision](research/mainstem-chronology-2026-11-04/README.md) joins Siang–Dihang–Brahmaputra into one river, removes the premature 1523 Kachari retreat, separates 1526–1531 campaigning from the approximate 1532 border stage, and marks the Koch presence at Majuli and Garhgaon in 1563. Run `node tools/check-mainstem-chronology.js` after rebuilding.
 
 The [Subansiri/Jaintia correction](research/subansiri-jaintia-2026-11-04/README.md) uses Subansiri as the shared north-bank Koch–Ahom frontier for the 1563–1580 treaty phase and confines the adopted Jaintia hill-region display to eastern Meghalaya, excluding Assam. Run `node tools/check-treaty-jaintia.js` after rebuilding.
+
+## Bengal and the Mughal conquest of Koch Hajo
+
+The [researched Bengal/Koch Hajo revision](research/bengal-hajo-2026-11-04/README.md) removes Koch Behar from the displayed states, confines Koch Hajo’s mapped core to Assam, adds the 1576 → 1611–1612 → 1666 Bengal conquest sequence, and separates the 1612–1613 invasion/annexation from later resistance and reversal. Click **Bengal & Koch Hajo** for the expanded map. The notes distinguish modern geographic proxies from surveyed historical borders and exclude hill/princely regions from blanket annexation claims. Run `node tools/check-bengal-hajo.js` after rebuilding.

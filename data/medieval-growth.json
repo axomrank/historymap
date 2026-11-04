@@ -99,6 +99,31 @@
       "title": "Treaty of Majuli: Nath (1989), p.58; Sarkar (1992), p.80, as cited in the treaty summary",
       "url": "https://en.wikipedia.org/wiki/Treaty_of_Majuli",
       "verification": "User-supplied treaty summary read: north-bank cession west of Subansiri, Koch overlordship, hostages and indemnity. Bibliographic citations identified; original book pages were not directly inspected in this revision."
+    },
+    "mughal-bengal-karim": {
+      "title": "Abdul Karim, Banglapedia: Islam Khan Chisti",
+      "url": "https://en.banglapedia.org/index.php/Islam_Khan_Chisti",
+      "verification": "Article read: uneven earlier control, Dhaka in 1610, Bhati submissions in 1611, remaining Afghan/Sylhet resistance, and Kamrup campaign."
+    },
+    "mughal-east-eaton": {
+      "title": "Richard M. Eaton (1993), The Rise of Mughal Power",
+      "url": "https://publishing.cdlib.org/ucpressebooks/public/book/the-rise-of-islam-and-the-bengal-frontier-1204-1760.html",
+      "verification": "Publisher-hosted study read, especially the conquest and resistance passages: Dhubri siege, Parikshit, 1613 administration, and 1614–1615 revolts. It sometimes uses Kuch Bihar broadly; those passages do not justify painting the separate western successor state as directly annexed."
+    },
+    "mughal-kamrup-nbu": {
+      "title": "University of North Bengal, western Assam formation, pp.94–96",
+      "url": "https://ir.nbu.ac.in/bitstreams/83784646-b244-41b6-bd40-f5095c135918/download",
+      "verification": "PDF text read: eastern Koch core Sankosh–Barnadi and 1613 conquest. Source date differences are retained as a 1612–1613 campaign window."
+    },
+    "mughal-chittagong": {
+      "title": "Jadunath Sarkar, History of Aurangzib III, Chittagong campaign",
+      "url": "https://library.bjp.org/jspui/bitstream/123456789/678/1/History%20Aurangzib%20Vol-%203.pdf",
+      "verification": "Indexed campaign passage checked: capture of Chittagong in January 1666. Full volume not downloaded in this revision."
+    },
+    "mughal-rajmahal": {
+      "title": "V. A. Smith, Akbar the Great Mogul, Rajmahal campaign",
+      "url": "https://tile.loc.gov/storage-services/service/gdc/gdclccn/18/00/26/77/18002677/18002677.pdf",
+      "verification": "Indexed p.145 checked: Rajmahal, July 1576, and Daud’s defeat. Formal victory is not treated as immediate control of the eastern delta."
     }
   },
   "phases": [
@@ -668,6 +693,177 @@
         "koch-campaigns",
         "majuli-treaty"
       ]
+    },
+    {
+      "polity": "mughal",
+      "start": 1576,
+      "end": 1579,
+      "date": "1576–1579",
+      "title": "Rajmahal: formal conquest, incomplete control",
+      "text": "Western provincial context appears; the eastern chiefs and coast remain outside settled imperial control. Intermediate region outlines are approximate modern geographic proxies.",
+      "sources": [
+        "mughal-rajmahal"
+      ]
+    },
+    {
+      "polity": "mughal",
+      "start": 1580,
+      "end": 1586,
+      "date": "1580–1586",
+      "title": "Rebellion and uneven western control",
+      "text": "Hatching marks contested authority. The regional envelope is not a recovered annual frontier. Intermediate region outlines are approximate modern geographic proxies.",
+      "sources": [
+        "mughal-east-eaton"
+      ]
+    },
+    {
+      "polity": "mughal",
+      "start": 1587,
+      "end": 1607,
+      "date": "1587–1607",
+      "title": "Western consolidation; eastern resistance persists",
+      "text": "The eastern regional resistance layer remains distinct. Intermediate region outlines are approximate modern geographic proxies.",
+      "sources": [
+        "mughal-bengal-karim"
+      ]
+    },
+    {
+      "polity": "mughal",
+      "start": 1608,
+      "end": 1610,
+      "date": "1608–1610",
+      "title": "Eastern campaign and the Dhaka base",
+      "text": "Advance is hatched; Dhaka becomes the provincial base in 1610. Intermediate region outlines are approximate modern geographic proxies.",
+      "sources": [
+        "mughal-bengal-karim"
+      ]
+    },
+    {
+      "polity": "mughal",
+      "start": 1611,
+      "end": 1611,
+      "date": "1611",
+      "title": "Bhati and delta submissions",
+      "text": "The delta stage expands while Sylhet’s Afghan resistance remains separate. Intermediate region outlines are approximate modern geographic proxies.",
+      "sources": [
+        "mughal-bengal-karim"
+      ]
+    },
+    {
+      "polity": "mughal",
+      "start": 1612,
+      "end": 1612,
+      "date": "1612",
+      "title": "Sylhet consolidation; western Koch Hajo invasion",
+      "text": "The Bengal stage expands; a hatched western-Assam sector represents the opening of the 1612–1613 campaign. Intermediate region outlines are approximate modern geographic proxies.",
+      "sources": [
+        "mughal-bengal-karim",
+        "mughal-kamrup-nbu"
+      ]
+    },
+    {
+      "polity": "mughal",
+      "start": 1613,
+      "end": 1613,
+      "date": "1613",
+      "title": "Koch Hajo annexed; Kamrup administration",
+      "text": "The Koch Hajo core passes to Mughal administration. Intermediate region outlines are approximate modern geographic proxies.",
+      "sources": [
+        "mughal-kamrup-nbu",
+        "mughal-east-eaton"
+      ]
+    },
+    {
+      "polity": "mughal",
+      "start": 1614,
+      "end": 1614,
+      "date": "1614",
+      "title": "Kamrup resistance and reconsolidation",
+      "text": "Post-conquest hatching marks resistance, not a restored unified kingdom. Intermediate region outlines are approximate modern geographic proxies.",
+      "sources": [
+        "mughal-east-eaton"
+      ]
+    },
+    {
+      "polity": "mughal",
+      "start": 1615,
+      "end": 1616,
+      "date": "1615–1616",
+      "title": "Eastern invasion checked by the Ahoms",
+      "text": "Eastward reach is temporary; the next stage removes it. Darrang’s Ahom-protected succession differs from annexed western Kamrup. Intermediate region outlines are approximate modern geographic proxies.",
+      "sources": [
+        "gait",
+        "mughal-east-eaton"
+      ]
+    },
+    {
+      "polity": "mughal",
+      "start": 1617,
+      "end": 1665,
+      "date": "1617–1665",
+      "title": "Bengal and Kamrup; Chittagong still outside",
+      "text": "The eastern coastal addition has not yet occurred. Later Assam wars remain separately dated on the map. Intermediate region outlines are approximate modern geographic proxies.",
+      "sources": [
+        "mughal-bengal-karim"
+      ]
+    },
+    {
+      "polity": "mughal",
+      "start": 1666,
+      "end": 1716,
+      "date": "1666–1716",
+      "title": "Chittagong joins Mughal Bengal",
+      "text": "The coastal proxy is added; hill tracts and northern principalities are excluded from direct-rule shading. Intermediate region outlines are approximate modern geographic proxies.",
+      "sources": [
+        "mughal-chittagong"
+      ]
+    },
+    {
+      "polity": "mughal",
+      "start": 1717,
+      "end": 1764,
+      "date": "1717–1764",
+      "title": "Bengal’s autonomous nawabs",
+      "text": "Nominal Mughal sovereignty differs from direct control from Delhi. The Diwani transition follows in 1765. Intermediate region outlines are approximate modern geographic proxies.",
+      "sources": [
+        "mughal-east-eaton"
+      ]
+    },
+    {
+      "polity": "koch-hajo",
+      "start": 1581,
+      "end": 1608,
+      "date": "1581–1608",
+      "title": "Koch Hajo: the Assam core",
+      "text": "Core and eastern dependencies are distinguished; the modern Bangladesh extension is removed.",
+      "sources": [
+        "mughal-kamrup-nbu",
+        "mughal-east-eaton"
+      ]
+    },
+    {
+      "polity": "koch-hajo",
+      "start": 1609,
+      "end": 1611,
+      "date": "1609–1611",
+      "title": "Pressure from Mughal Bengal",
+      "text": "Koch Bihar’s submission does not automatically annex Koch Hajo. Parikshit continues to resist.",
+      "sources": [
+        "mughal-kamrup-nbu",
+        "mughal-east-eaton"
+      ]
+    },
+    {
+      "polity": "koch-hajo",
+      "start": 1612,
+      "end": 1612,
+      "date": "1612",
+      "title": "Western invasion during the 1612–1613 campaign",
+      "text": "The Dhubri-side campaign overlay shows advance before the annexation stage; no precise monthly frontier is invented.",
+      "sources": [
+        "mughal-kamrup-nbu",
+        "mughal-east-eaton"
+      ]
     }
   ],
   "spots": [
@@ -1020,6 +1216,50 @@
       "date": "1563 campaign",
       "note": "Koch forces occupied the Ahom capital; occupation and Ahom tribute are not equivalent to permanent annexation. The marker uses the existing approximate capital reference.",
       "dy": 18
+    },
+    {
+      "id": "mughal-dhubri-invasion",
+      "polity": "mughal",
+      "name": "Dhubri · siege",
+      "lat": 26.02,
+      "lon": 89.97,
+      "start": 1612,
+      "end": 1613,
+      "date": "1612–1613 campaign; sources differ on annual dating",
+      "note": "Western fortress/siege stage before the advance into Kamrup. Modern town reference, not a surveyed camp."
+    },
+    {
+      "id": "mughal-hajo-annexation",
+      "polity": "mughal",
+      "name": "Hajo · annexed Kamrup",
+      "lat": 26.248,
+      "lon": 91.525,
+      "start": 1613,
+      "end": 1615,
+      "date": "1613 annexation, followed by resistance",
+      "note": "Regional administrative reference, not a claim that all resistance ended in 1613."
+    },
+    {
+      "id": "mughal-dhaka-base",
+      "polity": "mughal",
+      "name": "Dhaka · base from 1610",
+      "lat": 23.8103,
+      "lon": 90.4125,
+      "start": 1610,
+      "end": 1613,
+      "date": "1610 provincial base",
+      "note": "Modern city reference."
+    },
+    {
+      "id": "mughal-chittagong-capture",
+      "polity": "mughal",
+      "name": "Chittagong · 1666",
+      "lat": 22.3569,
+      "lon": 91.7832,
+      "start": 1666,
+      "end": 1670,
+      "date": "January 1666 conquest",
+      "note": "Coastal conquest, not blanket direct annexation of the Chittagong Hill Tracts."
     }
   ],
   "routes": [

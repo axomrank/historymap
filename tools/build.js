@@ -35,6 +35,7 @@ const events = parseCSV(rd('data/events.csv'));
 const ratnaPhases = parseCSV(rd('data/paundravardhana-map-phases.csv'));
 const postPala = JSON.parse(rd('data/kamarupa-after-palas.json'));
 const growth = JSON.parse(rd('data/medieval-growth.json'));
+const BENGAL = JSON.parse(rd('data/maps/bengal-districts.json'));
 const sankardeva = JSON.parse(rd('data/sankardeva-routes.json'));
 const A = JSON.parse(rd('data/maps/assam.json'));
 const NB = JSON.parse(rd('data/maps/neighbours.json'));
@@ -49,7 +50,7 @@ for (const r of parseCSV(rd('data/extra-places.csv'))) placeById[r.id] = { name:
 
 /* ---------- projection (equirectangular, scaled at 26°N) ---------- */
 // Include the Mong Mao / western Yunnan origin of the 1215–1228 journey.
-const lat0 = 22.0, lat1 = 29.5, lon0 = 87.8, lon1 = 98.7, W = 1200;
+const lat0 = 20.5, lat1 = 29.5, lon0 = 85.6, lon1 = 98.7, W = 1200;
 const kCos = Math.cos(26 * Math.PI / 180);
 const H = Math.round(W * (lat1 - lat0) / ((lon1 - lon0) * kCos));
 const X = lon => +((lon - lon0) / (lon1 - lon0) * W).toFixed(1);
@@ -82,7 +83,10 @@ const landCache = {};
 function landNamed(name) {
   if (landCache[name]) return landCache[name];
   let mp;
-  if (A.districts[name]) mp = ringsMP(A.districts[name].rings);
+  if (BENGAL.groups[name]) mp = union(BENGAL.groups[name].map(landNamed));
+  else if (name.startsWith('wb-') && BENGAL.westBengal[name.slice(3)]) mp = ringsMP(BENGAL.westBengal[name.slice(3)].rings);
+  else if (name.startsWith('bd-') && BENGAL.bangladesh[name.slice(3)]) mp = pc.intersection(ringsMP(BENGAL.bangladesh[name.slice(3)].rings), ringsMP(NB.countries.Bangladesh));
+  else if (A.districts[name]) mp = ringsMP(A.districts[name].rings);
   else if (name === 'valley') mp = union(Object.entries(A.districts).filter(([id]) => !HILLS.includes(id) && !BARAK.includes(id)).map(([id]) => landNamed(id)));
   else if (NE.regions[name]) mp = ringsMP(NE.regions[name].rings);
   else if (name === 'bangladesh') mp = ringsMP(NB.countries.Bangladesh);
@@ -258,6 +262,11 @@ for (const phase of ratnaPhases) territories.push({
 const T = territories.map((t, row) => {
   if (!(t.polity in polityIdx)) throw new Error('unknown polity ' + t.polity + ' in ' + t.id);
   let mp = fillHoles(safe(() => pc.intersection(union(t.shape.split(' + ').map(s => termShape(s.trim(), t.polity === 'ahom' && +t.start >= 1523))), FRAME), []));
+  // Local Koch Hajo / Mughal Kamrup layers are distinct from Bengal proper.
+  if (t.polity === 'koch-hajo' || (t.polity === 'mughal' && !t.id.startsWith('mughal-bengal-') && t.id !== 'mughal-1612')) {
+    const assamScope = pc.difference(fillHoles(pc.intersection(landNamed('assam'), union(Object.keys(A.districts).map(landNamed)))), landNamed('bangladesh'));
+    mp = safe(() => pc.intersection(mp, assamScope), []);
+  }
   // User-adopted plain/hill convention for the eastern successor kingdoms.
   // Restrict only the eastern sector, retaining western historical acquisitions.
   if (['ahom', 'chutia'].includes(t.polity)) {
@@ -320,6 +329,7 @@ const P = polities.map(p => {
 const clipFrame = rings => safe(() => pc.intersection(union(rings.filter(r => r.length > 2).map(toPC)), [[[[lon0 - 4, lat0 - 3], [lon1 + 4, lat0 - 3], [lon1 + 4, lat1 + 3], [lon0 - 4, lat1 + 3], [lon0 - 4, lat0 - 3]]]]), []);
 // whole-country outlines for the background (the neighbours file only holds a cut-out piece of India)
 const G = (() => { const w = {}; new Function('window', rd('data/maps/atlas-geography.js'))(w); return w.ATLAS_GEOGRAPHY; })();
+const westBengalOutline = union(Object.keys(BENGAL.westBengal).map(id => landNamed('wb-' + id)));
 const countries = G.countries.map(c => ({ name: c.name, d: pathOf(clipFrame(c.rings)) })).filter(c => c.d);
 const MAJOR = ['brahmaputra', 'siang', 'teesta-karatoya', 'manas', 'sonkosh', 'subansiri', 'dikhou', 'kapili', 'bharali', 'dhansiri-south', 'lohit', 'dibang', 'dihing', 'barak'];
 // One interactive main-stem feature: the regional names do not split the river.
@@ -332,9 +342,10 @@ const rivers = Object.entries(A.rivers).filter(([id]) => !['siang','dihang'].inc
   ...(id === 'brahmaputra' ? { aliases: ['Siang','Dihang','Brahmaputra'], note: mainstemBridge.note } : {}),
 }));
 const modern = [
+  { n: 'West Bengal (modern reference)', d: pathOf(westBengalOutline), assam: false },
   ...Object.entries(NE.regions).filter(([id]) => id !== 'sylhet').map(([id, r]) => ({ n: r.name, d: pathOf(fillHoles(ringsMP(r.rings))), assam: id === 'assam' })),
 ];
-const towns = ['guwahati', 'dibrugarh', 'tezpur', 'silchar', 'shillong', 'kohima', 'imphal', 'dhubri', 'sylhet', 'jorhat', 'sivasagar', 'cooch-behar', 'dhaka']
+const towns = ['guwahati', 'dibrugarh', 'tezpur', 'silchar', 'shillong', 'kohima', 'imphal', 'dhubri', 'sylhet', 'jorhat', 'sivasagar', 'dhaka']
   .map(id => placeById[id] && [placeById[id].name, X(placeById[id].geo[1]), Y(placeById[id].geo[0])]).filter(Boolean);
 
 const out = {
