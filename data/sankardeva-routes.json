@@ -7,8 +7,9 @@
       "start": 1449,
       "end": 1568,
       "kind": "locality",
-      "note": "Traditional birthplace candidate near Mairabari, present-day Morigaon: 26.241989, 92.103426. The Alipukhuri–Patekibori Than is mapped at this location. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Traditional birthplace candidate near Mairabari, present-day Morigaon: 26.241989, 92.103426. The Alipukhuri–Patekibori Than is mapped at this location.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-1"
     },
     {
       "name": "Bordowa / Batadrava Than",
@@ -17,8 +18,9 @@
       "start": 1449,
       "end": 1568,
       "kind": "locality",
-      "note": "Another commonly identified birthplace and the site of his early religious activities: 26.410700, 92.551600. There is a historical disagreement over the precise birthplace; do not merge this pin with Patekibari. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Another commonly identified birthplace and the site of his early religious activities: 26.410700, 92.551600. There is a historical disagreement over the precise birthplace; do not merge this pin with Patekibari.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-2"
     },
     {
       "name": "Bordowa Than / first Namghar (c. 1468–1509)",
@@ -27,8 +29,9 @@
       "start": 1468,
       "end": 1568,
       "kind": "locality",
-      "note": "26.410700, 92.551600. The present Than is the practical map reference for this historical centre. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "26.410700, 92.551600. The present Than is the practical map reference for this historical centre.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-3"
     },
     {
       "name": "Jagannath Puri, Odisha",
@@ -37,8 +40,9 @@
       "start": 1481,
       "end": 1493,
       "kind": "pilgrimage",
-      "note": "Jagannath Temple: 19.804720, 85.818330. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Jagannath Temple: 19.804720, 85.818330.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-4"
     },
     {
       "name": "Gaya, Bihar",
@@ -47,8 +51,9 @@
       "start": 1481,
       "end": 1493,
       "kind": "pilgrimage",
-      "note": "Vishnupad Temple: 24.777330, 85.009350. Reported in some pilgrimage biographies. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Vishnupad Temple: 24.777330, 85.009350. Reported in some pilgrimage biographies.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-5"
     },
     {
       "name": "Ayodhya, Uttar Pradesh",
@@ -57,8 +62,9 @@
       "start": 1481,
       "end": 1493,
       "kind": "pilgrimage",
-      "note": "Ram Janmabhoomi area: 26.793900, 82.196570. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Ram Janmabhoomi area: 26.793900, 82.196570.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-6"
     },
     {
       "name": "Mathura, Uttar Pradesh",
@@ -67,8 +73,9 @@
       "start": 1481,
       "end": 1493,
       "kind": "pilgrimage",
-      "note": "Krishna Janmasthan area: 27.504748, 77.669754. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Krishna Janmasthan area: 27.504748, 77.669754.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-7"
     },
     {
       "name": "Vrindavan, Uttar Pradesh",
@@ -77,8 +84,9 @@
       "start": 1481,
       "end": 1493,
       "kind": "pilgrimage",
-      "note": "Banke Bihari Temple area: 27.579800, 77.690500. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Banke Bihari Temple area: 27.579800, 77.690500.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-8"
     },
     {
       "name": "Prayag / Allahabad, Uttar Pradesh",
@@ -87,8 +95,9 @@
       "start": 1481,
       "end": 1493,
       "kind": "pilgrimage",
-      "note": "Triveni Sangam: 25.422230, 81.892330. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Triveni Sangam: 25.422230, 81.892330.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-9"
     },
     {
       "name": "Kashi / Varanasi, Uttar Pradesh",
@@ -97,8 +106,9 @@
       "start": 1481,
       "end": 1493,
       "kind": "pilgrimage",
-      "note": "Kashi Vishwanath Temple: 25.310800, 83.010600. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Kashi Vishwanath Temple: 25.310800, 83.010600.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-10"
     },
     {
       "name": "Badrikashram / Badrinath, Uttarakhand",
@@ -107,8 +117,9 @@
       "start": 1481,
       "end": 1493,
       "kind": "pilgrimage",
-      "note": "Badrinath Temple: 30.744700, 79.491200. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Badrinath Temple: 30.744700, 79.491200. Supplied correction: Badrikashram is associated with the first Borgeet; the composition year is not established.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-11"
     },
     {
       "name": "Dwarka, Gujarat",
@@ -117,8 +128,9 @@
       "start": 1481,
       "end": 1493,
       "kind": "pilgrimage",
-      "note": "Dwarkadhish Temple: 22.237900, 68.967600. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Dwarkadhish Temple: 22.237900, 68.967600.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-12"
     },
     {
       "name": "Rameswaram, Tamil Nadu",
@@ -127,8 +139,9 @@
       "start": 1481,
       "end": 1493,
       "kind": "pilgrimage",
-      "note": "Ramanathaswamy Temple: 9.288070, 79.317370. Included in some pilgrimage accounts, but not every itinerary records it. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Ramanathaswamy Temple: 9.288070, 79.317370. Included in some pilgrimage accounts, but not every itinerary records it.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-13"
     },
     {
       "name": "Sitakunda, Chittagong, Bangladesh",
@@ -137,8 +150,9 @@
       "start": 1481,
       "end": 1493,
       "kind": "pilgrimage",
-      "note": "Town-centre approximation: 22.618040, 91.658660. Reported in some accounts; the precise stop is not established. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Town-centre approximation: 22.618040, 91.658660. Reported in some accounts; the precise stop is not established.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-14"
     },
     {
       "name": "Rowta (c. 1516)",
@@ -147,8 +161,9 @@
       "start": 1516,
       "end": 1568,
       "kind": "locality",
-      "note": "Modern Rowta village, Udalguri: 26.712510, 92.206460. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Modern Rowta village, Udalguri: 26.712510, 92.206460.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-15"
     },
     {
       "name": "Gangmou (c. 1517)",
@@ -157,8 +172,9 @@
       "start": 1517,
       "end": 1568,
       "kind": "locality",
-      "note": "Gangmou, Behali region, Biswanath: 26.763750, 93.327650. This is an approximate locality coordinate from a field-study record. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Gangmou, Behali region, Biswanath: 26.763750, 93.327650. This is an approximate locality coordinate from a field-study record.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-16"
     },
     {
       "name": "Bhalukaguri",
@@ -167,8 +183,9 @@
       "start": 1522,
       "end": 1568,
       "kind": "locality",
-      "note": "Listed in the Majuli-side migration account. A possible modern village match in the Bihpuria area is approximately 26.992400, 94.011000; treat this as a tentative waypoint, not a verified historic site. ",
-      "chronology": "Undated stop in the c.1522 migration context; tentative coordinate."
+      "note": "Listed in the Majuli-side migration account. A possible modern village match in the Bihpuria area is approximately 26.992400, 94.011000; treat this as a tentative waypoint, not a verified historic site.",
+      "chronology": "Undated stop in the c.1522 migration context; tentative coordinate.",
+      "id": "sankardeva-17"
     },
     {
       "name": "Dhuwahat-Belaguri (c. 1522 onwards)",
@@ -177,8 +194,9 @@
       "start": 1522,
       "end": 1568,
       "kind": "locality",
-      "note": "Present-day Sri Sri Dhuwahata Belguri Than, at Napamua Gaon, Jengraimukh, Majuli. Approximate Jengraimukh-area reference: 27.037800, 94.234600. This is a locality proxy, not a surveyed coordinate for the original historical settlement; the original site was affected by river erosion. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Present-day Sri Sri Dhuwahata Belguri Than, at Napamua Gaon, Jengraimukh, Majuli. Approximate Jengraimukh-area reference: 27.037800, 94.234600. This is a locality proxy, not a surveyed coordinate for the original historical settlement; the original site was affected by river erosion.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-18"
     },
     {
       "name": "Sunpora / Palengdi (c. 1541)",
@@ -187,8 +205,9 @@
       "start": 1541,
       "end": 1568,
       "kind": "locality",
-      "note": "Identified in an academic account as Palengdi, now part of Barpeta town near Barpeta Bil. Approximate Barpeta-town reference: 26.330421, 91.004055; this is not an exact Sunpora pin. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Identified in an academic account as Palengdi, now part of Barpeta town near Barpeta Bil. Approximate Barpeta-town reference: 26.330421, 91.004055; this is not an exact Sunpora pin.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-19"
     },
     {
       "name": "Chunpora / Chinpara Bhethi (c. 1541)",
@@ -197,8 +216,9 @@
       "start": 1541,
       "end": 1568,
       "kind": "locality",
-      "note": "Sacred landing place east of Palangdihati, Barpeta: 26.325552, 91.013510. This is one of the better-supported locations in the migration route. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Sacred landing place east of Palangdihati, Barpeta: 26.325552, 91.013510. This is one of the better-supported locations in the migration route.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-20"
     },
     {
       "name": "Baradi",
@@ -207,8 +227,9 @@
       "start": 1541,
       "end": 1568,
       "kind": "locality",
-      "note": "A temporary settlement mentioned in the academic migration account, east of Barpeta town. Approximate Satra/locality reference: 26.328500, 91.050230. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "A temporary settlement mentioned in the academic migration account, east of Barpeta town. Approximate Satra/locality reference: 26.328500, 91.050230.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-21"
     },
     {
       "name": "Ganakpara / Ganakkuchi",
@@ -217,8 +238,9 @@
       "start": 1541,
       "end": 1568,
       "kind": "locality",
-      "note": "Ganak Kuchi locality, Barpeta: 26.318260, 91.037070. The present Ganakkuchi Satra was founded by Madhavdev on land purchased by Sankardev; this is an associated religious site, not necessarily Sankardev's residence. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Ganak Kuchi locality, Barpeta: 26.318260, 91.037070. The present Ganakkuchi Satra was founded by Madhavdev on land purchased by Sankardev; this is an associated religious site, not necessarily Sankardev's residence.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-22"
     },
     {
       "name": "Patbausi (c. 1542 onwards)",
@@ -227,8 +249,9 @@
       "start": 1542,
       "end": 1568,
       "kind": "locality",
-      "note": "Patbausi Satra, Barpeta: 26.296753, 91.030441. This is a mapped point at the Satra itself. The Barpeta district administration records his 18-year association with the Satra. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Patbausi Satra, Barpeta: 26.296753, 91.030441. This is a mapped point at the Satra itself. The Barpeta district administration records his 18-year association with the Satra.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-23"
     },
     {
       "name": "Barnagar (c. 1542–1543)",
@@ -237,8 +260,9 @@
       "start": 1542,
       "end": 1568,
       "kind": "locality",
-      "note": "Approximate Barnagar locality reference, Barpeta district: 26.508800, 90.913200. Associated with his meeting with King Naranarayana; the exact historical meeting location is not identified. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Approximate Barnagar locality reference, Barpeta district: 26.508800, 90.913200. Associated with his meeting with King Naranarayana; the exact historical meeting location is not identified.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-24"
     },
     {
       "name": "Puri (1550–1551)",
@@ -247,8 +271,9 @@
       "start": 1550,
       "end": 1551,
       "kind": "pilgrimage",
-      "note": "Jagannath Temple: 19.804720, 85.818330. This is the reported second pilgrimage destination. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Jagannath Temple: 19.804720, 85.818330. This is the reported second pilgrimage destination.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-25"
     },
     {
       "name": "Koch Behar (1552 onwards)",
@@ -257,8 +282,9 @@
       "start": 1552,
       "end": 1568,
       "kind": "locality",
-      "note": "Approximate Cooch Behar town centre: 26.322400, 89.459200. Associated with the court of King Naranarayana and Chilarai. The present Rajbari is not the exact 16th-century court building. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Approximate Cooch Behar town centre: 26.322400, 89.459200. Associated with the court of King Naranarayana and Chilarai. The present Rajbari is not the exact 16th-century court building.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-26"
     },
     {
       "name": "Bheladanga (final period)",
@@ -267,8 +293,9 @@
       "start": 1560,
       "end": 1568,
       "kind": "locality",
-      "note": "Modern Bheladanga village reference: 26.309483, 89.430622. The historical Satra area is associated with the royal land grant, but this village-centre pin should not be mistaken for the exact medieval residence. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Modern Bheladanga village reference: 26.309483, 89.430622. The historical Satra area is associated with the royal land grant, but this village-centre pin should not be mistaken for the exact medieval residence.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-27"
     },
     {
       "name": "Madhupur Satra (1568)",
@@ -277,8 +304,9 @@
       "start": 1568,
       "end": 1568,
       "kind": "locality",
-      "note": "Present Madhupur Satra, Cooch Behar: 26.363537, 89.378220. Traditionally associated with his final days and passing. ",
-      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+      "note": "Present Madhupur Satra, Cooch Behar: 26.363537, 89.378220. Traditionally associated with his final days and passing.",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified.",
+      "id": "sankardeva-28"
     },
     {
       "name": "Singari",
@@ -288,7 +316,8 @@
       "end": 1568,
       "kind": "supplied identification",
       "note": "Coordinate supplied in the final additions. Historical identification and date approximate; independently unverified.",
-      "chronology": "Display anchor only"
+      "chronology": "Display anchor only",
+      "id": "sankardeva-29"
     },
     {
       "name": "Mahendra Kandali’s Tol",
@@ -298,7 +327,8 @@
       "end": 1568,
       "kind": "supplied identification",
       "note": "Coordinate supplied in the final additions. Historical identification and date approximate; independently unverified.",
-      "chronology": "Display anchor only"
+      "chronology": "Display anchor only",
+      "id": "sankardeva-30"
     },
     {
       "name": "Kapalabari",
@@ -308,7 +338,8 @@
       "end": 1568,
       "kind": "supplied identification",
       "note": "Coordinate supplied in the final additions. Historical identification and date approximate; independently unverified.",
-      "chronology": "Display anchor only"
+      "chronology": "Display anchor only",
+      "id": "sankardeva-31"
     },
     {
       "name": "Kumarkuchi",
@@ -318,7 +349,8 @@
       "end": 1568,
       "kind": "supplied identification",
       "note": "Coordinate supplied in the final additions. Historical identification and date approximate; independently unverified.",
-      "chronology": "Display anchor only"
+      "chronology": "Display anchor only",
+      "id": "sankardeva-32"
     }
   ],
   "unlocated": [
@@ -333,5 +365,182 @@
     "https://barpetasatra.org/about-srimanta-sankardeva/srimanta-sankardev/",
     "https://bordowathan.co.in/about-sankardev.php",
     "https://ir.nbu.ac.in/server/api/core/bitstreams/62cbea07-e5b2-4f22-af24-853b820a4749/content"
-  ]
+  ],
+  "routes": [
+    {
+      "id": "early-life",
+      "label": "Early life · illustrative movement between associated sites",
+      "anchors": [
+        {
+          "point": "sankardeva-2",
+          "year": 1449
+        },
+        {
+          "point": "sankardeva-30",
+          "year": 1461
+        },
+        {
+          "point": "sankardeva-3",
+          "year": 1468
+        }
+      ]
+    },
+    {
+      "id": "first-pilgrimage",
+      "label": "First pilgrimage · illustrative order and annual pacing, not dated visits",
+      "anchors": [
+        {
+          "point": "sankardeva-3",
+          "year": 1481
+        },
+        {
+          "point": "sankardeva-4",
+          "year": 1482.0
+        },
+        {
+          "point": "sankardeva-5",
+          "year": 1483.0
+        },
+        {
+          "point": "sankardeva-6",
+          "year": 1484.0
+        },
+        {
+          "point": "sankardeva-7",
+          "year": 1485.0
+        },
+        {
+          "point": "sankardeva-8",
+          "year": 1486.0
+        },
+        {
+          "point": "sankardeva-9",
+          "year": 1487.0
+        },
+        {
+          "point": "sankardeva-10",
+          "year": 1488.0
+        },
+        {
+          "point": "sankardeva-11",
+          "year": 1489.0
+        },
+        {
+          "point": "sankardeva-12",
+          "year": 1490.0
+        },
+        {
+          "point": "sankardeva-13",
+          "year": 1491.0
+        },
+        {
+          "point": "sankardeva-14",
+          "year": 1492.0
+        },
+        {
+          "point": "sankardeva-3",
+          "year": 1493
+        }
+      ]
+    },
+    {
+      "id": "migration",
+      "label": "Assam and Koch migration · approximate chronology; schematic connections",
+      "anchors": [
+        {
+          "point": "sankardeva-3",
+          "year": 1509
+        },
+        {
+          "point": "sankardeva-29",
+          "year": 1516
+        },
+        {
+          "point": "sankardeva-15",
+          "year": 1516.5
+        },
+        {
+          "point": "sankardeva-16",
+          "year": 1517
+        },
+        {
+          "point": "sankardeva-17",
+          "year": 1521.5
+        },
+        {
+          "point": "sankardeva-18",
+          "year": 1522
+        },
+        {
+          "point": "sankardeva-31",
+          "year": 1540
+        },
+        {
+          "point": "sankardeva-19",
+          "year": 1541
+        },
+        {
+          "point": "sankardeva-20",
+          "year": 1541.2
+        },
+        {
+          "point": "sankardeva-21",
+          "year": 1541.4
+        },
+        {
+          "point": "sankardeva-32",
+          "year": 1541.6
+        },
+        {
+          "point": "sankardeva-23",
+          "year": 1542
+        },
+        {
+          "point": "sankardeva-24",
+          "year": 1543
+        }
+      ]
+    },
+    {
+      "id": "second-pilgrimage",
+      "label": "Second pilgrimage · illustrative outward and return pacing",
+      "anchors": [
+        {
+          "point": "sankardeva-23",
+          "year": 1550
+        },
+        {
+          "point": "sankardeva-25",
+          "year": 1551
+        },
+        {
+          "point": "sankardeva-23",
+          "year": 1551.5
+        }
+      ]
+    },
+    {
+      "id": "final-years",
+      "label": "Koch region and final years · approximate display anchors",
+      "anchors": [
+        {
+          "point": "sankardeva-23",
+          "year": 1551.5
+        },
+        {
+          "point": "sankardeva-26",
+          "year": 1552
+        },
+        {
+          "point": "sankardeva-27",
+          "year": 1560
+        },
+        {
+          "point": "sankardeva-28",
+          "year": 1568
+        }
+      ]
+    }
+  ],
+  "animationNote": "Dashed routes are schematic. Individual pilgrimage visit years and order are unknown; their sequence and annual pacing are illustrative. Migration dates are approximate; fractional anchors only order stops within one display year. Birthplace candidates remain separate evidence pins. Ganakkuchi is an associated site, not an asserted residence. Unlocated places remain unpinned."
 }

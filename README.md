@@ -62,3 +62,11 @@ After rebuilding, run `node tools/check-ratna.js` to verify the regional transit
 - North-east Indian states: [DataMeet Community Maps](https://github.com/datameet/maps), States/Admin2 (CC BY 4.0 / ODbL).
 - Sylhet division: [geoBoundaries](https://www.geoboundaries.org/) gbOpen BGD ADM1 (CC BY 4.0).
 - Countries and rivers: see `data/maps/README.md` (Natural Earth, DataMeet, the project's KMZ files).
+
+## Sankardeva’s journeys
+
+Click **Sankardeva’s path** in the main atlas to play from 1449, with a growing red trail and a moving position marker on the shared year controls. The **All pilgrimage locations** view uses the same route model and automatically shows India during pilgrimage windows. Scrub either timeline forward or backward to reveal the route for that year.
+
+`data/sankardeva-routes.json` holds the supplied qualified pins and explicit animation anchors; the CSV exports the pins. Annual pilgrimage order/pacing and connections between approximate migration dates are illustrative, not documented itineraries. The two birthplace candidates remain separate; unlocated sites remain unpinned. Supplied corrections include Singari, Mahendra Kandali’s Tol, Kapalabari, Kumarkuchi, and the Badrikashram association with the first Borgeet.
+
+After editing the JSON, rebuild with `node tools/build.js` and run `node tools/check-sankardeva.js`. Both pages share `app/sankardeva-journey.js`; the main atlas embeds the same data in `data/atlas.js`.

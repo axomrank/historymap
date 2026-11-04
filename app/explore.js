@@ -58,7 +58,7 @@
       ${D.base.towns.map(([n, x, y]) => `<g class="m-town"><circle cx="${x}" cy="${y}" r="1.8"/><text x="${x + 4}" y="${y + 3.5}">${esc(n)}</text></g>`).join('')}</g>
     <g id="pithaRivers">${D.pithas.rivers.map(r => `<path class="pitha-boundary" d="${r.d}"><title>${esc(r.name === 'Rupahi*' ? D.pithas.note : r.name)}</title></path>`).join('')}</g>
     <g id="gLabels"></g><g id="gPithaLabels"></g><g id="gCaps"></g><g id="gHistorySpots"></g>
-    <g id="gJourney"></g>
+    <g id="gJourney"></g><g id="gSankardeva"></g>
     <g id="gRiverHits">${D.base.rivers.map((r, i) => `<path class="river-hit" data-river="${i}" d="${r.d}" tabindex="0" role="button" aria-label="River: ${esc(r.n)}"><title>${esc(r.n)}</title></path>`).join('')}</g>`;
   // hatch patterns for "campaign reach" shapes
   $('defs').innerHTML = P.map((p, i) => `<pattern id="h${i}" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="${p.color}" fill-opacity=".18"/><line x1="0" y1="0" x2="0" y2="7" stroke="${p.color}" stroke-width="3"/></pattern>`).join('');
@@ -70,6 +70,8 @@
   function drawMap() {
     $('journeyChip').textContent = year < 1228 ? `1215–1228 · travelling · ${year} · illustrative pacing ↗` : '1215–1228 · Mong Mao → Patkai · reconstructed ↗';
     $('journeyChip').hidden = !(year >= 1215 && year <= 1267 && (sel < 0 || P[sel].id === 'ahom'));
+    $('sankardevaChip').hidden = year < 1449 || year > 1568;
+    $('sankardevaChip').textContent = `Sankardeva · ${year} · approximate journey ↗`;
     $('pithaRivers').style.display = year < 1100 ? '' : 'none';
     svg.classList.toggle('pitha-era', year < 1100);
     const regionalPhase = D.ratna.phases.find(r => year >= r.start && year <= r.end);
@@ -128,6 +130,7 @@
       `<g class="cap"><circle cx="${c[1]}" cy="${c[2]}" r="${4.5 * Math.max(k, .5)}" fill="${darker(P[pi].color)}"/><text x="${c[1] + 7 * Math.max(k, .5)}" y="${c[2] - 5 * Math.max(k, .5)}" font-size="${(11 * Math.max(k, .55)).toFixed(1)}">★ ${esc(c[0])}</text></g>`)).join('');
     $('gHistorySpots').innerHTML = year >= 1100 && year <= 1270 ? D.postPala.spots.filter(s => year >= s.start && year <= s.end).map(s =>
       `<g class="history-spot"><circle cx="${s.x}" cy="${s.y}" r="${3 * pithaScale}"/><text x="${s.x + 5 * pithaScale}" y="${s.y + (s.id === 'capital-north' ? 13 : -5) * pithaScale}" font-size="${9 * pithaScale}">${esc(s.name)}</text><title>${esc(s.kind + ': ' + s.note)}</title></g>`).join('') : '';
+    drawSankardeva(pithaScale);
     const show = p => sel < 0 || P[sel].id === p;
     const routes = D.growth.routes.filter(r => year >= r.start && year <= r.end && show(r.polity));
     const migration = routes.find(r => r.progress);
@@ -150,6 +153,22 @@
       return `<g class="journey-spot" data-spot="${esc(s.id)}" tabindex="0" role="button" aria-label="${esc(s.name + ': ' + s.date)}"><circle cx="${s.x}" cy="${s.y}" r="${3.5 * pithaScale}" fill="${color}"/><text x="${s.x + (s.dx || 6) * pithaScale}" y="${s.y + (s.dy || -7) * pithaScale}" font-size="${(s.fontSize || 9) * pithaScale}" ${s.anchor ? `text-anchor="${s.anchor}"` : ''}>${esc(s.name)}</text><title>${esc(s.date + ' · ' + s.note)}</title></g>`;
     }).join('');
   }
+  function drawSankardeva(scale) {
+    const g = $('gSankardeva');
+    if (year < 1449 || year > 1568) { g.innerHTML = ''; return; }
+    const state = SankardevaJourney.at(D.sankardeva, year);
+    const local = state.routes.filter(r => !r.id.includes('pilgrimage'));
+    g.innerHTML = local.filter(r => r.trail.length > 1).map(r =>
+      `<path class="journey-route sankardeva-route" data-sankardeva-route="${r.id}" d="M${r.trail.map(([lat, lon]) => px(lon, lat).join(' ')).join('L')}"><title>${esc(r.label)}</title></path>`).join('') +
+      state.points.filter(p => p.kind !== 'pilgrimage' && !p.name.startsWith('Bordowa Than')).map(p => {
+        const [x,y] = px(p.lon,p.lat);
+        return `<g class="journey-spot" data-sankardeva-pin="${p.id}" tabindex="0" role="button" aria-label="${esc(p.name)}"><circle cx="${x}" cy="${y}" r="${3.5*scale}" fill="#c0392b"/><title>${esc(p.name + ' · ' + p.note)}</title></g>`;
+      }).join('');
+    if (state.current && !state.current.id.includes('pilgrimage')) {
+      const [lat,lon] = state.current.head, [x,y] = px(lon,lat);
+      g.innerHTML += `<circle class="sankardeva-head" cx="${x}" cy="${y}" r="${6*scale}"><title>Sankardeva · ${year} · illustrative position</title></circle>`;
+    }
+  }
   const shortName = n => n.replace(/^Kamarupa: /, 'Kamarupa · ').replace(/ \(Konbaung\)/, '').replace(/ \(independent India\)/, '');
   function wrap(s, w) {
     const words = s.split(' '), lines = [''];
@@ -168,6 +187,12 @@
     tip.style.top = Math.max(4, Math.min(cy - r.top + 14, r.height - tip.offsetHeight - 6)) + 'px';
   }
   function featureTip(target, cx, cy) {
+    const sankardevaPin = target.closest('[data-sankardeva-pin]');
+    if (sankardevaPin) {
+      const p = D.sankardeva.points.find(p => p.id === sankardevaPin.dataset.sankardevaPin);
+      placeTip(`<b>${esc(p.name)}</b><br>${esc(p.note)}<br>${esc(p.chronology)}`, cx, cy);
+      return true;
+    }
     const river = target.closest('[data-river]'), spot = target.closest('[data-spot]');
     if (river) {
       const r = D.base.rivers[+river.dataset.river];
@@ -216,7 +241,7 @@
   svg.addEventListener('focusout', () => { if (!pinnedTip) hideTip(); });
   svg.addEventListener('keydown', e => {
     if (e.key === 'Escape') hideTip();
-    if (['Enter', ' '].includes(e.key) && e.target.matches('[data-river], [data-spot]')) {
+    if (['Enter', ' '].includes(e.key) && e.target.matches('[data-river], [data-spot], [data-sankardeva-pin]')) {
       e.preventDefault(); const r = e.target.getBoundingClientRect();
       featureTip(e.target, r.left + r.width / 2, r.top + r.height / 2); pinnedTip = true;
     }
@@ -496,7 +521,8 @@
     if (year >= E) { stop(); return; }
     setYear(year + 1);
     const changed = changeYears.includes(year) || D.events.some(e => e.y === year);
-    playing = setTimeout(tick, +$('speed').value * (changed ? 14 : 1) + (changed ? 250 : 0));
+    const journey = year >= 1449 && year <= 1568;
+    playing = setTimeout(tick, journey ? Math.max(180, +$('speed').value * 8) : +$('speed').value * (changed ? 14 : 1) + (changed ? 250 : 0));
   }
   $('play').onclick = () => {
     if (playing) { stop(); return; }
@@ -521,6 +547,8 @@
     $('panel').scrollTop = 0;
     $('panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+  $('sankardevaStart').onclick = () => { stop(); select(-1); setYear(1449); focusGrowth('bhuyan'); $('play').click(); };
+  $('sankardevaChip').onclick = () => { location.href = `sankardeva.html#y=${year}`; };
   $('journeyChip').addEventListener('click', () => { select(P.findIndex(p => p.id === 'ahom')); focusGrowth('migration'); });
 
   fromHash();
