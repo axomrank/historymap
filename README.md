@@ -70,3 +70,7 @@ Click **Sankardeva’s path** in the main atlas to play from 1449, with a growin
 `data/sankardeva-routes.json` holds the supplied qualified pins and explicit animation anchors; the CSV exports the pins. Annual pilgrimage order/pacing and connections between approximate migration dates are illustrative, not documented itineraries. The two birthplace candidates remain separate; unlocated sites remain unpinned. Supplied corrections include Singari, Mahendra Kandali’s Tol, Kapalabari, Kumarkuchi, and the Badrikashram association with the first Borgeet.
 
 After editing the JSON, rebuild with `node tools/build.js` and run `node tools/check-sankardeva.js`. Both pages share `app/sankardeva-journey.js`; the main atlas embeds the same data in `data/atlas.js`.
+
+## River-frontier revision
+
+The [4 November river-frontier revision](research/river-frontiers-2026-11-04/README.md) replaces early Ahom/Chutia and Ahom/Dimasa sketch edges with shared Dehing and Dikhou geometry, replaces Bhuyan circles with separate river-bounded sectors, and applies the requested six-district Dimasa maximum envelope. Its historical and river-identification qualifications are recorded in the notes and map cards. Run `node tools/check-frontiers.js` after rebuilding.

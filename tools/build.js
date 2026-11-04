@@ -133,7 +133,10 @@ function curveAt(l, ax, v) {
 function riverMask(spec, axis, high) {
   const id = spec?.startsWith('river:') && !spec.includes('>') ? spec.slice(6) : null;
   if (!id || !A.rivers[id]) return null;
-  let pts = A.rivers[id].pts.map(([lat, lon]) => [lon, lat]);
+  // The Bangladesh-to-Bay tail doubles back in longitude; it cannot bound an Assam north/south bank.
+  // Use the same Assam reach as curveAt, preserving every stored vertex on that reach.
+  const reach = id === 'brahmaputra' && axis === 1 ? A.rivers[id].pts.filter(([lat]) => lat >= 25.6) : A.rivers[id].pts;
+  let pts = reach.map(([lat, lon]) => [lon, lat]);
   const along = axis === 0 ? 1 : 0;
   if (pts[0][along] > pts.at(-1)[along]) pts.reverse();
   const lo = axis === 0 ? lat0 - 8 : lon0 - 8, hi = axis === 0 ? lat1 + 8 : lon1 + 8;
@@ -162,7 +165,7 @@ function limitsShape([ws, es, ns, ss]) {
   const wm = riverMask(ws, 0, true), em = riverMask(es, 0, false);
   const nm = riverMask(ns, 1, false), sm = riverMask(ss, 1, true);
   const vertical = wm || em ? [wm || close([...west, [lon1 + 8, 30], [lon1 + 8, 21.5]]), em || close([[lon0 - 8, 21.5], [lon0 - 8, 30], ...east])] : [region];
-  const horizontal = nm || sm ? [nm || close([...north, [98.4, 15], [87, 15]]), sm || close([...south, [98.4, 38], [87, 38]])] : [band];
+  const horizontal = nm || sm ? [nm || close([...north, [87, 15], [98.4, 15]]), sm || close([...south, [98.4, 38], [87, 38]])] : [band];
   return safe(() => fillHoles(pc.intersection(limitLand(plain), ...vertical, ...horizontal)), []);
 }
 

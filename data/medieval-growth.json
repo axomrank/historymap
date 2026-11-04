@@ -175,7 +175,7 @@
       "end": 1281,
       "date": "During Suteuphaa’s reign, 1268–1281",
       "title": "Toward the Dikhou–Namdang tract",
-      "text": "Suteuphaa’s reign is associated with gaining land from the Kacharis in the Dikhou–Namdang tract. The exact acquisition year is unknown: 1268 starts the display window, not a dated conquest. This small western addition precedes a long period of consolidation.",
+      "text": "Suteuphaa’s reign is associated with gaining land from the Kacharis in the Dikhou–Namdang tract. The exact acquisition year is unknown: 1268 starts the display window, not a dated conquest. This small western addition precedes a long period of consolidation. The adopted river-frontier display uses Dikhou and Dehing for the core, replacing the earlier hand-drawn outline; it does not map an additional west-of-Dikhou claim.",
       "sources": [
         "ignou",
         "gait"
@@ -460,7 +460,7 @@
       "end": 1329,
       "date": "13th–early 14th century · poorly dated",
       "title": "Regional chiefs, not a single Bhuyan kingdom",
-      "text": "Bhuyan is a category of landed chiefs, not one dynasty or a permanently united set of twelve. A few open locality patches indicate a central-valley setting only. Dates, membership and boundaries are uncertain; this early interval does not establish the later Chandivara lineage at these precise sites.",
+      "text": "Bhuyan is a category of landed chiefs, not one dynasty or a permanently united set of twelve. Separate Bharali–Borgang and Buroi–Dikrong river sectors show the adopted central-valley setting. Dates, membership and boundaries are uncertain; this early interval does not establish the later Chandivara lineage at these precise sites. River-bounded sectors are an adopted approximate reconstruction, not mapped estates of specific chiefs. The Barnadi side uses the existing qualified Puthimari/Bornadi reference trace.",
       "sources": [
         "nbu",
         "gait"
@@ -472,7 +472,7 @@
       "end": 1448,
       "date": "14th century · approximate sequence",
       "title": "Chandivara and the Barnadi region",
-      "text": "Charit traditions associate Chandivara’s group with Langamaguri / Lengamaguri near the Barnadi. Exact date and site are unresolved. A north-Guwahati/Barnadi-area patch is a regional locator, while separate central-valley chiefs retain their own localities.",
+      "text": "Charit traditions associate Chandivara’s group with Langamaguri / Lengamaguri near the Barnadi. Exact date and site are unresolved. A Barnadi–north Dhansiri river sector replaces the round locator; separate Bharali–Borgang and Buroi–Dikrong sectors remain. River-bounded sectors are an adopted approximate reconstruction, not mapped estates of specific chiefs. The Barnadi side uses the existing qualified Puthimari/Bornadi reference trace.",
       "sources": [
         "nbu"
       ]
@@ -483,7 +483,7 @@
       "end": 1497,
       "date": "1449 and the 15th century",
       "title": "Bardowa: the Shiromani Bhuyan lineage",
-      "text": "Sankardeva was born into a Bhuyan family at Bardowa in 1449. This adds a securely associated south-bank centre; it is not the year the Bhuyans conquered Bardowa. The patches represent distinct seats, not a unified country across both banks.",
+      "text": "Sankardeva was born into a Bhuyan family at Bardowa in 1449. This adds a securely associated south-bank centre; it is not the year the Bhuyans conquered Bardowa. The whole Kolong–Brahmaputra sector represents the associated south-bank region, alongside separate north-bank river sectors. River-bounded sectors are an adopted approximate reconstruction, not mapped estates of specific chiefs. The Barnadi side uses the existing qualified Puthimari/Bornadi reference trace.",
       "sources": [
         "nagaon",
         "nbu"
@@ -495,7 +495,7 @@
       "end": 1504,
       "date": "After the 1498 Kamata conquest",
       "title": "Sultanate pressure and local resistance",
-      "text": "The Bengal conquest displaced the Khen monarchy. The extent and duration of the garrisons varied; local chiefs remained important. The western resistance stage is separated from the older central-valley seats.",
+      "text": "The Bengal conquest displaced the Khen monarchy. The extent and duration of the garrisons varied; local chiefs remained important. The western resistance stage is separated from the older central-valley seats. River-bounded sectors are an adopted approximate reconstruction, not mapped estates of specific chiefs. The Barnadi side uses the existing qualified Puthimari/Bornadi reference trace.",
       "sources": [
         "gait"
       ]
@@ -506,7 +506,7 @@
       "end": 1514,
       "date": "Early 16th century · c.1505 anchor",
       "title": "Local recovery after Bengal’s withdrawal",
-      "text": "Independent chiefs re-emerged after the Bengal garrisons lost control. The c.1505 change is an approximate display anchor, not proof of a single Harupnarayan state extending from Sankosh to Subansiri.",
+      "text": "Independent chiefs re-emerged after the Bengal garrisons lost control. The c.1505 change is an approximate display anchor, not proof of a single Harupnarayan state extending from Sankosh to Subansiri. River-bounded sectors are an adopted approximate reconstruction, not mapped estates of specific chiefs. The Barnadi side uses the existing qualified Puthimari/Bornadi reference trace.",
       "sources": [
         "gait"
       ]
@@ -517,7 +517,7 @@
       "end": 1529,
       "date": "c.1515–1530",
       "title": "Koch advance in the west; Ahom pressure in the east",
-      "text": "Biswa Singha subdued western chiefs over a sequence of campaigns, while Ahom expansion reduced eastern autonomy. The patches contract in stages; neither all chiefs nor both banks fell in one year.",
+      "text": "Biswa Singha subdued western chiefs over a sequence of campaigns, while Ahom expansion reduced eastern autonomy. The river sectors contract in stages; neither all chiefs nor both banks fell in one year. River-bounded sectors are an adopted approximate reconstruction, not mapped estates of specific chiefs. The Barnadi side uses the existing qualified Puthimari/Bornadi reference trace.",
       "sources": [
         "gait"
       ]
@@ -528,7 +528,7 @@
       "end": 1536,
       "date": "1530s and later",
       "title": "Chiefly independence declines; offices persist",
-      "text": "Regional Bhuyan seats were progressively subordinated by larger states. This map ends the independent-locality layer in the 1530s, not every Bhuyan family or office. Local and district histories also record later Bhuyan authority and resistance.",
+      "text": "Regional Bhuyan seats were progressively subordinated by larger states. This map ends the independent-chiefdom layer in the 1530s, not every Bhuyan family or office. Local and district histories also record later Bhuyan authority and resistance. River-bounded sectors are an adopted approximate reconstruction, not mapped estates of specific chiefs. The Barnadi side uses the existing qualified Puthimari/Bornadi reference trace.",
       "sources": [
         "nagaon",
         "gait"
@@ -1903,5 +1903,31 @@
       ],
       "note": "1253 conventional capital establishment: approximate overland connection to Charaideo."
     }
-  ]
+  ],
+  "boundaryRevision": {
+    "date": "2026-11-04",
+    "note": "Adopted river-frontier and chiefdom-sector display; see research/river-frontiers-2026-11-04/README.md.",
+    "rivers": [
+      "dihing",
+      "dikhou",
+      "brahmaputra",
+      "kolong",
+      "bharali",
+      "borgang",
+      "buroi",
+      "dikrong",
+      "puthimari",
+      "dhansiri"
+    ],
+    "kachariPeakDistricts": [
+      "dima-hasao",
+      "karbi-anglong",
+      "west-karbi-anglong",
+      "cachar",
+      "hailakandi",
+      "karimganj"
+    ],
+    "peakAnchor": 1275,
+    "laterHillBarakAnchor": 1745
+  }
 }

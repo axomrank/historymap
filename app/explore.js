@@ -303,7 +303,7 @@
     const p = P[i], a = areaAt(i, year);
     if (p.id === 'late-kamarupa') return 'Several regional powers; boundaries uncertain';
     if (p.id === 'ratna-uncertain') return 'Control unresolved in this interval';
-    if (p.id === 'bhuyan') return 'Separate chiefdoms; locality patches, not one state';
+    if (p.id === 'bhuyan') return 'Separate river-bounded chiefdom sectors';
     if (p.id === 'chutia' && year < 1392) return 'Early centre reconstructed; frontiers unknown';
     if (p.id === 'ahom' && year < 1253) return 'Migration and settlement patches';
     if (year === p.start) return '<em>Rises this year</em>';
@@ -354,7 +354,7 @@
       <button class="growth-focus" data-focus-growth="${focus}">${focus === 'ahom' && year < 1282 ? 'Focus on Sukaphaa’s journey ↗' : 'Focus on this region ↗'}</button>
       ${focus === 'ahom' && year >= 1215 && year <= 1267 ? '<button class="growth-focus full-journey" data-focus-growth="migration">Whole journey: Mong Mao → Myanmar → Assam ↗</button>' : ''}
       ${current ? `<p class="post-date">${esc(current.date)}</p><h3>${esc(current.title)}</h3><p>${esc(current.text)}</p><p class="source-links">${sources}</p>` : `<p>No securely dated stage for this selection in ${year}. Choose a date below.</p>`}
-      <p class="pitha-note">Dashed trails connect reported stops; they are reconstructed corridors, not surveyed paths. Small patches locate settlements or chiefdoms; their size is symbolic. Wider borders are approximate. Later evidence does not date an earlier conquest.</p>
+      <p class="pitha-note">Dashed trails connect reported stops; they are reconstructed corridors, not surveyed paths. Small patches locate early settlements; Bhuyan areas follow separate river-to-river sectors. Wider borders are approximate. Later evidence does not date an earlier conquest.</p>
       <details ${focus === 'ahom' && year <= 1253 ? 'open' : ''}><summary>${focus === 'ahom' ? 'Journey and expansion stages' : 'Dated evidence and changes'}</summary><div class="growth-steps">${stages.map(s => `<button data-growth-year="${s.start}" data-growth-polity="${s.polity}" ${s === current ? 'aria-current="step"' : ''}><span>${esc(s.date)}</span>${esc(s.title)}</button>`).join('')}</div></details>
       <p class="source-links"><a href="research/medieval-growth-2026-11-04/README.md">Research notes</a> · <a href="data/medieval-growth-events.csv">Events CSV</a></p>
     </section>`;
@@ -402,10 +402,10 @@
     const r = rulersAt(p), caps = p.capitals.filter(c => year >= c[3] && year <= c[4]).map(c => c[0]);
     return `<div class="card">
       <button class="back" data-p="-1">✕ Close</button>
-      <h3>${esc(p.name)}</h3><div class="as" lang="as">${esc(p.name_as)}</div>
+      <h3>${esc(p.name)}</h3>${p.id === 'dimasa' && ((year >= 1275 && year <= 1522) || (year >= 1745 && year <= 1831)) ? '<p class="pitha-note">Adopted maximum extent includes Dima Hasao, both Karbi Anglong districts, and Cachar, Hailakandi and Karimganj. The combined modern-district envelope is approximate; simultaneous control across every district is not independently verified.</p>' : ''}<div class="as" lang="as">${esc(p.name_as)}</div>
       <dl>
         <dt>Lasted</dt><dd>${p.start} – ${p.end >= E ? 'today' : p.end} (${p.end - p.start + 1} years)</dd>
-        ${p.id === 'bhuyan' || (p.id === 'ahom' && year < 1253) || (p.id === 'chutia' && year < 1392) ? '<dt>Map type</dt><dd>Locality reconstruction; patch areas do not measure possessions</dd>' : `<dt>Largest mapped footprint</dt><dd><a href="#" data-y="${p.peak}">${p.peak}</a> · about ${fmtKm(p.max)}</dd>`}
+        ${p.id === 'bhuyan' ? '<dt>Map type</dt><dd>Separate river-bounded chiefdom sectors; approximate extents</dd>' : (p.id === 'ahom' && year < 1253) || (p.id === 'chutia' && year < 1392) ? '<dt>Map type</dt><dd>Locality reconstruction; patch areas do not measure possessions</dd>' : `<dt>Largest mapped footprint</dt><dd><a href="#" data-y="${p.peak}">${p.peak}</a> · about ${fmtKm(p.max)}</dd>`}
         ${a ? `<dt>In ${year}</dt><dd>about ${fmtKm(a)} (${Math.round(a / p.max * 100)}% of its peak)</dd>` : ''}
         ${caps.length ? `<dt>Capital</dt><dd>${esc(caps.join(', '))}</dd>` : ''}
       ${r.length ? `<dt>Catalogue ruler</dt><dd>${esc(r.join(', '))}</dd>` : ''}

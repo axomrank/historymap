@@ -41,9 +41,9 @@ for (const y of [1250, 1330, 1449, 1505, 1515, 1523, 1530]) {
   const a = pieces('bhuyan', y);
   assert.ok(a.length);
   assert.ok(a.every(s => s.territory.style === 'legend'));
-  assert.ok(area('bhuyan', y) < 2500, 'No single continuous Bhuyan kingdom');
+  assert.ok(a.every(s => s.territory.id.startsWith('bhuyan-')), 'Retain separate chiefdom sectors');
 }
-assert.ok((pieces('bhuyan', 1449).map(s => s.d).join('').match(/M/g) || []).length >= 3);
+assert.equal(pieces('bhuyan', 1449).length, 4, 'Four separately drawn river-bounded chiefdom sectors');
 assert.equal(D.growth.routes.length, 7);
 const migration = D.growth.routes.find(r => r.id === 'mong-mao-pangsau');
 assert.equal(migration.start, 1215);
@@ -77,7 +77,7 @@ for (let y = D.start; y <= D.end; y++) for (const si of D.states[D.years[y - D.s
   assert.ok(D.shapes[si].a > 0 && D.shapes[si].d.startsWith('M'));
   const t = D.territories[D.shapes[si].t]; assert.ok(t.s <= y && y <= t.e);
 }
-console.log(`PASS: ${D.growth.phases.length} researched stages, migration/capital chronology, settlement symbols, long consolidation, 1512–24 reversals, Khen progression, separate Bhuyan seats, ${D.base.rivers.length} named rivers and all annual joins.`);
+console.log(`PASS: ${D.growth.phases.length} researched stages, migration/capital chronology, settlement symbols, long consolidation, 1512–24 reversals, Khen progression, separate Bhuyan river sectors, ${D.base.rivers.length} named rivers and all annual joins.`);
 assert.equal(migration.progress.start,1215);
 assert.equal(migration.progress.arrival,1228);
 const rawMap=JSON.parse(fs.readFileSync(path.join(__dirname,'../data/maps/assam.json'),'utf8'));
