@@ -221,6 +221,10 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .realm.affiliated { fill-opacity: .75; }
 .realm.affiliated.context { fill-opacity: .2; }
 .realm.affiliated.dim { fill-opacity: .25; }
+.realm.country { fill-opacity: .25; stroke-opacity: .45; }
+.realm.union-territory { stroke-dasharray: 7 3; vector-effect: non-scaling-stroke; }
+.map-change { position: absolute; left: 10px; right: 55px; top: 76px; width: fit-content; max-width: calc(100% - 65px); padding: 6px 9px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; font-size: 12px; line-height: 1.4; box-shadow: var(--shadow); pointer-events: none; }
+.map-change[hidden] { display: none; }
 .colonial-legend { position: absolute; left: 10px; bottom: 10px; max-width: calc(100% - 20px); display: flex; flex-wrap: wrap; gap: 5px 12px; padding: 7px 9px; border-radius: 7px; background: var(--panel); box-shadow: var(--shadow); font-size: 11px; color: var(--muted); pointer-events: none; }
 .colonial-legend[hidden] { display: none; }
 .colonial-legend span { display: flex; align-items: center; gap: 5px; }
@@ -229,6 +233,8 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .colonial-legend .legend-british { background: #e57f8c; border-color: #a7505c; }
 .colonial-legend .legend-protected { border: 1px dashed #a7505c; background: repeating-linear-gradient(135deg, #e57f8c 0 3px, transparent 3px 7px); }
 .colonial-legend .legend-india { background: #f08a24; border-color: #a45a15; }
+.colonial-legend .legend-states { background: linear-gradient(90deg,#f08a24 0 25%,#799a55 25% 50%,#7c78ac 50% 75%,#6e9c95 75%); border-color: #685a40; }
+.colonial-legend .legend-ut { background: repeating-linear-gradient(0deg,#f08a24 0 2px,#c4b3db 2px 7px); border-style: dashed; }
 .colonial-legend .legend-accession { border: 1px dashed #a45a15; background: repeating-linear-gradient(135deg, #f08a24 0 3px, transparent 3px 7px); }
 .colonial-legend span[hidden] { display: none; }
 .authority-note { color: var(--accent); }
@@ -268,4 +274,4 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .colonial-overview span, .colonial-steps span { display: block; color: var(--muted); font-size: 11px; margin-top: 3px; }
 .colonial-steps [aria-current] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--panel)); font-weight: 700; }
 .colonial-card summary { cursor: pointer; font-size: 13px; color: var(--accent); }
-@media (max-width: 860px) { .colonial-legend { font-size: 9px; gap: 3px 8px; padding: 5px 7px; } }
+@media (max-width: 860px) { .colonial-legend { font-size: 9px; gap: 3px 8px; padding: 5px 7px; } .map-change { top: 64px; font-size: 10px; padding: 4px 6px; } }

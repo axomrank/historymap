@@ -351,7 +351,7 @@ const modern = [
   { n: 'West Bengal (modern reference)', d: pathOf(westBengalOutline), assam: false },
   ...Object.entries(NE.regions).filter(([id]) => id !== 'sylhet').map(([id, r]) => ({ n: r.name, d: pathOf(fillHoles(ringsMP(r.rings))), assam: id === 'assam' })),
 ];
-const towns = ['guwahati', 'dibrugarh', 'tezpur', 'silchar', 'shillong', 'kohima', 'imphal', 'dhubri', 'sylhet', 'jorhat', 'sivasagar', 'dhaka']
+const towns = ['guwahati', 'dibrugarh', 'tezpur', 'silchar', 'shillong', 'kohima', 'imphal', 'dhubri', 'jorhat', 'sivasagar', 'dhaka']
   .map(id => placeById[id] && [placeById[id].name, X(placeById[id].geo[1]), Y(placeById[id].geo[0])]).filter(Boolean);
 
 const out = {

@@ -100,3 +100,7 @@ The [researched Bengal/Koch Hajo revision](research/bengal-hajo-2026-11-04/READM
 ## Ahom western frontiers and Guwahati
 
 The [bank-specific frontier research](research/ahom-bank-frontiers-2026-11-04/README.md) separates the 1614–1616 political/tributary reach toward Barnadi from direct control, temporary Pandu/Hajo campaigns, the two-bank 1639 treaty, and the Guwahati capture/recovery sequence through 1682. Ahom cards now show north- and south-bank summaries and qualified dates. Run `node tools/check-ahom-frontiers.js` after rebuilding.
+
+## Visible statehood and Bangladesh context
+
+The default **States & territories** map uses distinct colours for Indian states and a horizontal pattern for Union Territories. The **Political affiliation** selector restores the common India fill. A map banner shows milestones for the selected year or region. Modern views use a subdued whole-country Bangladesh reference instead of a separate Sylhet patch or permanent Sylhet city label; historical Sylhet layers before 1947 remain. The East Pakistan country outline is explicitly a modern geographic proxy. Run `node tools/check-map-appearance.js` to verify these display rules alongside the historical checks.

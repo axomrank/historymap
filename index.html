@@ -6,7 +6,7 @@
 <title>Assam Through Time</title>
 <meta name="description" content="Explore every year of Assam's history from 350 CE to today: how kingdoms rose, reached their height and gave way to the next.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="app/explore.css?v=statehood-20261104-14">
+<link rel="stylesheet" href="app/explore.css?v=state-colours-20261104-15">
 </head>
 <body>
 <header class="top">
@@ -23,10 +23,11 @@
       <button id="zfit" aria-label="Show whole map">⤢</button>
     </div>
     <div id="tip" class="tip" role="status" aria-live="polite" hidden></div>
+    <div id="mapChange" class="map-change" hidden aria-live="polite"></div>
     <button id="ratnaChip" class="ratna-chip" aria-label="Show Paundravardhana phase details"></button>
     <button id="journeyChip" class="journey-chip" hidden>1215–1228 · Mong Mao → Patkai · reconstructed ↗</button>
     <button id="sankardevaChip" class="journey-chip sankardeva-chip" hidden></button>
-    <div id="colonialLegend" class="colonial-legend" hidden><span id="legendBritish"><i class="legend-british"></i> Direct British administration</span><span id="legendProtected"><i class="legend-protected"></i> British protection / paramountcy</span><span id="legendIndia" hidden><i class="legend-india"></i> India · state / central administration</span><span id="legendAccession" hidden><i class="legend-accession"></i> Accession to India · internal government retained</span><span id="legendIndianProtection" hidden><i class="legend-accession"></i> Indian protectorate · Sikkim</span><span><i class="legend-context"></i> Regional context; extent approximate</span></div>
+    <div id="colonialLegend" class="colonial-legend" hidden><span id="legendBritish"><i class="legend-british"></i> Direct British administration</span><span id="legendProtected"><i class="legend-protected"></i> British protection / paramountcy</span><span id="legendIndia" hidden><i id="legendIndiaSwatch" class="legend-india"></i><span id="legendIndiaText">India · state / central administration</span></span><span id="legendUT" hidden><i class="legend-ut"></i> Indian Union Territory</span><span id="legendAccession" hidden><i class="legend-accession"></i> Accession to India · internal government retained</span><span id="legendIndianProtection" hidden><i class="legend-accession"></i> Indian protectorate · Sikkim</span><span><i class="legend-context"></i> Regional context; extent approximate</span></div>
     <div class="yearbig" aria-hidden="true"><span id="yearBig"></span><small id="eraBig"></small></div>
   </section>
 
@@ -43,6 +44,7 @@
       <button id="yplus" aria-label="One year forward">+</button>
     </div>
     <button id="next" title="Next change on the map (Page Down)">change ▶</button>
+    <select id="colourMode" aria-label="Map colours"><option value="states" selected>States & territories</option><option value="affiliation">Political affiliation</option></select>
     <select id="speed" aria-label="Playback speed">
       <option value="140">Slow</option>
       <option value="45" selected>Normal</option>
@@ -58,8 +60,9 @@
   <p class="hint">Bands track approximate mapped territory; thin traces and locality patches indicate uncertain centres, not measured possessions. Tap a river to see its name. Click or drag anywhere on the bands to travel in time.</p>
 </section>
 
-<script src="data/atlas.js?v=statehood-20261104-14"></script>
+<script src="data/atlas.js?v=state-colours-20261104-15"></script>
 <script src="app/sankardeva-journey.js?v=5"></script>
-<script src="app/explore.js?v=statehood-20261104-14"></script>
+<script src="app/map-appearance.js?v=state-colours-20261104-15"></script>
+<script src="app/explore.js?v=state-colours-20261104-15"></script>
 </body>
 </html>
