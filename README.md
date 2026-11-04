@@ -57,6 +57,14 @@ possession are editorial assumptions. Unknown intervals use neutral shading.
 
 After rebuilding, run `node tools/check-ratna.js` to verify the regional transitions.
 
+## British expansion, Matak and Northeast states
+
+Click **British expansion & states** to see regional acquisition/status dates on the map. Choose Upper Assam/Matak, Cachar, Khasi–Jaintia–Garo, Naga Hills, Lushai Hills, Manipur, Tripura, frontier tracts, or provincial/state changes. Each region has source-linked stages, previous/next controls and map markers. URLs preserve the region, for example `#y=1833&c=matak`.
+
+The [colonial stage revision](research/colonial-stages-2026-11-04/README.md) separates Matak’s 1805 autonomy, 1833 exclusion from Purandar’s restoration, 1839 direct Company management and the 1842 incorporation proclamation. It adds staged hill expansion, princely Manipur, and 1963/1970/1972/1987 status changes. Dotted regions are qualified geographic contexts; dashed princely outlines are distinct from direct British administration. Annual maps show the position after the named year’s transition. Source-linked phases are in `data/colonial-stages.json`; run `node tools/check-colonial.js` after rebuilding.
+
+The [Manipur/Tripura affiliation correction](research/colonial-stages-2026-11-04/manipur-tripura-affiliation-correction.md) makes the political relationship visible as well as the local identity: British pink hatching for protection/paramountcy, orange hatching for accession to India in 1947, and solid Indian orange following the transfer of administration on 15 October 1949. Part C status from 1950, Union Territory status and 1972 statehood are separate dated stages. Both remain selectable as regions without appearing outside India in modern views.
+
 ## Sources for the shapes
 
 - North-east Indian states: [DataMeet Community Maps](https://github.com/datameet/maps), States/Admin2 (CC BY 4.0 / ODbL).

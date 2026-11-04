@@ -31,14 +31,18 @@
     p.max = best; p.peak = by;
   });
   const changeYears = [];
-  const evidenceYears = new Set(D.growth.phases.map(p => p.start));
+  const evidenceYears = new Set([...D.growth.phases, ...D.colonial.phases].map(p => p.start));
   for (let y = S + 1; y <= E; y++) if (D.years[y - S] !== D.years[y - S - 1] || evidenceYears.has(y)) changeYears.push(y);
 
   /* ---------- state ---------- */
-  let year = S, sel = -1, playing = null;
+  let year = S, sel = -1, playing = null, colonialGroup = '';
   const fromHash = () => {
     const m = /y=(\d{3,4})/.exec(location.hash); if (m) year = clamp(+m[1]);
     const p = /k=([\w-]+)/.exec(location.hash); if (p) sel = P.findIndex(x => x.id === p[1]);
+    // Preserve older shared links to the formerly grouped successor states.
+    if (p?.[1] === 'ne-states') sel = P.findIndex(x => x.id === 'nagaland');
+    const c = /(?:^#|&)c=([\w-]+)/.exec(location.hash);
+    colonialGroup = c && (c[1] === 'overview' || D.colonial.groups.some(g => g.id === c[1])) ? c[1] : '';
   };
   const clamp = y => Math.max(S, Math.min(E, Math.round(y)));
 
@@ -59,15 +63,22 @@
     <g id="pithaRivers">${D.pithas.rivers.map(r => `<path class="pitha-boundary" d="${r.d}"><title>${esc(r.name === 'Rupahi*' ? D.pithas.note : r.name)}</title></path>`).join('')}</g>
     <g id="gLabels"></g><g id="gPithaLabels"></g><g id="gCaps"></g><g id="gHistorySpots"></g>
     <g id="gJourney"></g><g id="gSankardeva"></g>
-    <g id="gRiverHits">${D.base.rivers.map((r, i) => `<path class="river-hit" data-river="${i}" d="${r.d}" tabindex="0" role="button" aria-label="River: ${esc(r.n)}"><title>${esc(r.n)}</title></path>`).join('')}</g>`;
+    <g id="gRiverHits">${D.base.rivers.map((r, i) => `<path class="river-hit" data-river="${i}" d="${r.d}" tabindex="0" role="button" aria-label="River: ${esc(r.n)}"><title>${esc(r.n)}</title></path>`).join('')}</g><g id="gColonialSpots"></g>`;
   // hatch patterns for "campaign reach" shapes
   $('defs').innerHTML = P.map((p, i) => `<pattern id="h${i}" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="${p.color}" fill-opacity=".18"/><line x1="0" y1="0" x2="0" y2="7" stroke="${p.color}" stroke-width="3"/></pattern>`).join('');
+  // A local state's identity can coexist with British paramountcy or Indian membership.
+  $('defs').innerHTML += Object.entries(D.colonial.authorities).filter(([,a]) => a.pattern).flatMap(([id,a]) => P.map((p,i) => `<pattern id="authority-${id}-${i}" data-authority-pattern="true" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="${p.color}" fill-opacity=".2"/><line x1="0" y1="0" x2="0" y2="8" stroke="${a.color}" stroke-width="3.5"/></pattern>`)).join('');
   $('defs').innerHTML += '<marker id="journeyArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#c0392b"/></marker>';
   $('defs').innerHTML += '<marker id="migrationArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#d9a34b"/></marker>';
 
   const darker = hex => { const n = parseInt(hex.slice(1), 16); const f = c => Math.round(c * .62).toString(16).padStart(2, '0'); return '#' + f(n >> 16) + f((n >> 8) & 255) + f(n & 255); };
   let shown = new Map();
   function drawMap() {
+    $('colonialLegend').hidden = year < 1805;
+    $('legendBritish').hidden = year >= 1947;
+    $('legendProtected').hidden = year >= 1947;
+    $('legendIndia').hidden = year < 1947;
+    $('legendAccession').hidden = year < 1947 || year > 1948;
     $('journeyChip').textContent = year < 1228 ? `1215–1228 · travelling · ${year} · illustrative pacing ↗` : '1215–1228 · Mong Mao → Patkai · reconstructed ↗';
     $('journeyChip').hidden = !(year >= 1215 && year <= 1267 && (sel < 0 || P[sel].id === 'ahom'));
     $('sankardevaChip').hidden = year < 1449 || year > 1568;
@@ -85,10 +96,12 @@
         const sh = D.shapes[si], t = D.territories[sh.t], p = P[t.p];
         el = document.createElementNS(NS, 'path');
         el.setAttribute('d', sh.d);
-        el.setAttribute('class', 'realm enter' + (t.style === 'reach' ? ' reach' : '') + (t.conf === 'low' || t.style === 'legend' ? ' unsure' : ''));
-        el.setAttribute('fill', t.style === 'reach' ? `url(#h${t.p})` : p.color);
+        const authority = D.colonial.authorities[t.authority];
+        el.setAttribute('class', 'realm enter' + (authority ? ' affiliated' : '') + (t.style === 'reach' ? ' reach' : '') + (t.style === 'context' ? ' context' : '') + (t.style === 'protected' ? ' protected' : '') + (t.conf === 'low' || t.style === 'legend' ? ' unsure' : ''));
+        el.setAttribute('fill', authority ? (authority.pattern ? `url(#authority-${t.authority}-${t.p})` : authority.color) : t.style === 'reach' ? `url(#h${t.p})` : p.color);
         el.setAttribute('stroke', darker(p.color));
         el.dataset.si = si;
+        el.dataset.authority = t.authority;
       }
       next.set(si, el);
     });
@@ -100,7 +113,8 @@
       el.classList.toggle('sel', p === sel);
       const frontierView = sel >= 0 && year >= 1614 && year <= 1682 && ['mughal','ahom'].includes(P[sel].id);
       const conquestView = sel >= 0 && year >= 1612 && year <= 1616 && ['mughal','koch-hajo'].includes(P[sel].id);
-      el.classList.toggle('dim', sel >= 0 && p !== sel && !(conquestView && ['mughal','koch-hajo'].includes(P[p].id)) && !(frontierView && ['mughal','ahom'].includes(P[p].id)));
+      const colonialView = year >= 1805 && (colonialGroup || (sel >= 0 && ['british','matak','sadiya-local'].includes(P[sel].id)));
+      el.classList.toggle('dim', sel >= 0 && p !== sel && !colonialView && !(conquestView && ['mughal','koch-hajo'].includes(P[p].id)) && !(frontierView && ['mughal','ahom'].includes(P[p].id)));
     });
     drawLabels(list);
   }
@@ -108,6 +122,15 @@
   function drawLabels(list) {
     const k = vb.w / D.W;                       // 1 = fully zoomed out
     const pithaScale = 1 / Math.min(svg.clientWidth / vb.w, svg.clientHeight / vb.h);
+    svg.querySelectorAll('[data-authority-pattern]').forEach(p => p.setAttribute('patternTransform', `rotate(45) scale(${pithaScale})`));
+    // Keep modern reference labels readable when a colonial region is zoomed in.
+    svg.querySelectorAll('.m-town').forEach((el, i) => {
+      const town = D.base.towns[i], scale = year >= 1805 ? pithaScale : 1;
+      const text = el.querySelector('text'), circle = el.querySelector('circle');
+      text.style.fontSize = `${(year >= 1805 ? 8 : 10) * scale}px`;
+      text.setAttribute('x', town[1] + 4 * scale); text.setAttribute('y', town[2] + 3.5 * scale);
+      circle.setAttribute('r', 1.8 * scale);
+    });
     const seen = new Set(), out = [];
     // biggest piece of each polity gets the label (or the territory's own label, e.g. "Nagaland")
     [...list].sort((a, b) => D.shapes[b].a - D.shapes[a].a).forEach(si => {
@@ -125,7 +148,9 @@
       const fs = Math.min(22, Math.max(10, r * .5)) * Math.max(k, .45);
       if (r / k < 9) return;                 // too small at this zoom
       const lines = wrap(name, Math.max(8, Math.round(r * 2.2 / (fs * .55))));
-      out.push(`<text class="lbl" x="${sh.l[0]}" y="${sh.l[1] - (lines.length - 1) * fs * .55}" font-size="${fs.toFixed(1)}">${lines.map((ln, i) => `<tspan x="${sh.l[0]}" dy="${i ? fs * 1.1 : fs * .35}">${esc(ln)}</tspan>`).join('')}</text>`);
+      const labelSize = year >= 1805 ? Math.min(fs, 13 * pithaScale) : fs;
+      const labelLines = year >= 1805 ? wrap(name, Math.max(11, Math.round(r * 2.2 / (labelSize * .55)))) : lines;
+      out.push(`<text class="lbl" x="${sh.l[0]}" y="${sh.l[1] - (labelLines.length - 1) * labelSize * .55}" font-size="${labelSize.toFixed(1)}">${labelLines.map((ln, i) => `<tspan x="${sh.l[0]}" dy="${i ? labelSize * 1.1 : labelSize * .35}">${esc(ln)}</tspan>`).join('')}</text>`);
     });
     $('gLabels').innerHTML = out.join('');
     $('gPithaLabels').innerHTML = year < 1100 ?
@@ -134,10 +159,11 @@
     // capitals of polities on the map this year
     const on = new Set(list.map(si => D.territories[D.shapes[si].t].p));
     $('gCaps').innerHTML = [...on].filter(pi => !(year >= 1100 && year <= 1270 && ['late-kamarupa', 'kamata'].includes(P[pi].id))).flatMap(pi => P[pi].capitals.filter(c => year >= c[3] && year <= c[4]).map(c =>
-      `<g class="cap"><circle cx="${c[1]}" cy="${c[2]}" r="${4.5 * (P[pi].id === 'koch' ? pithaScale : Math.max(k, .5))}" fill="${darker(P[pi].color)}"/><text x="${c[1] + 7 * (P[pi].id === 'koch' ? pithaScale : Math.max(k, .5))}" y="${c[2] - 5 * (P[pi].id === 'koch' ? pithaScale : Math.max(k, .5))}" font-size="${(11 * (P[pi].id === 'koch' ? pithaScale : Math.max(k, .55))).toFixed(1)}">★ ${esc(c[0])}</text></g>`)).join('');
+      `<g class="cap"><circle cx="${c[1]}" cy="${c[2]}" r="${4.5 * (year >= 1805 || P[pi].id === 'koch' ? pithaScale : Math.max(k, .5))}" fill="${darker(P[pi].color)}"/><text x="${c[1] + 7 * (year >= 1805 || P[pi].id === 'koch' ? pithaScale : Math.max(k, .5))}" y="${c[2] - 5 * (year >= 1805 || P[pi].id === 'koch' ? pithaScale : Math.max(k, .5))}" style="font-size:${(11 * (year >= 1805 || P[pi].id === 'koch' ? pithaScale : Math.max(k, .55))).toFixed(1)}px">★ ${esc(c[0])}</text></g>`)).join('');
     $('gHistorySpots').innerHTML = year >= 1100 && year <= 1270 ? D.postPala.spots.filter(s => year >= s.start && year <= s.end).map(s =>
       `<g class="history-spot"><circle cx="${s.x}" cy="${s.y}" r="${3 * pithaScale}"/><text x="${s.x + 5 * pithaScale}" y="${s.y + (s.id === 'capital-north' ? 13 : -5) * pithaScale}" font-size="${9 * pithaScale}">${esc(s.name)}</text><title>${esc(s.kind + ': ' + s.note)}</title></g>`).join('') : '';
     drawSankardeva(pithaScale);
+    drawColonialSpots(pithaScale);
     const show = p => sel < 0 || P[sel].id === p || (year >= 1612 && year <= 1616 && ['mughal','koch-hajo'].includes(P[sel].id) && ['mughal','koch-hajo'].includes(p)) || (sel >= 0 && year >= 1614 && year <= 1682 && ['mughal','ahom'].includes(P[sel].id) && ['mughal','ahom'].includes(p));
     const routes = D.growth.routes.filter(r => year >= r.start && year <= r.end && show(r.polity));
     const migration = routes.find(r => r.progress);
@@ -159,6 +185,14 @@
       const color = s.color || P.find(p => p.id === s.polity).color;
       return `<g class="journey-spot" data-spot="${esc(s.id)}" tabindex="0" role="button" aria-label="${esc(s.name + ': ' + s.date)}"><circle cx="${s.x}" cy="${s.y}" r="${3.5 * pithaScale}" fill="${color}"/>${s.hideLabel ? '' : `<text x="${s.x + (s.dx || 6) * pithaScale}" y="${s.y + (s.dy || -7) * pithaScale}" font-size="${(s.fontSize || 9) * pithaScale}" ${s.anchor ? `text-anchor="${s.anchor}"` : ''}>${esc(s.name)}</text>`}<title>${esc(s.date + ' · ' + s.note)}</title></g>`;
     }).join('');
+  }
+  function currentColonialGroup() {
+    return colonialGroup || (sel >= 0 && D.colonial.groups.find(g => g.polities.includes(P[sel].id))?.id) || 'overview';
+  }
+  function drawColonialSpots(scale) {
+    const group = currentColonialGroup();
+    const spots = D.colonial.spots.filter(s => year >= s.start && year <= s.end && (group === 'overview' || group === 'province' || s.group === group));
+    $('gColonialSpots').innerHTML = spots.map(s => `<g class="colonial-spot" data-colonial-spot="${esc(s.id)}" tabindex="0" role="button" aria-label="${esc(s.name)}"><circle cx="${s.x}" cy="${s.y}" r="${4 * scale}"/>${group === 'matak' ? '' : `<text x="${s.x + 6 * scale}" y="${s.y - 7 * scale}" font-size="${10 * scale}">${esc(s.name)}</text>`}<title>${esc(s.note)}</title></g>`).join('');
   }
   function drawSankardeva(scale) {
     const g = $('gSankardeva');
@@ -194,6 +228,12 @@
     tip.style.top = Math.max(4, Math.min(cy - r.top + 14, r.height - tip.offsetHeight - 6)) + 'px';
   }
   function featureTip(target, cx, cy) {
+    const colonialSpot = target.closest('[data-colonial-spot]');
+    if (colonialSpot) {
+      const s = D.colonial.spots.find(s => s.id === colonialSpot.dataset.colonialSpot);
+      placeTip(`<b>${esc(s.name)}</b><br>${esc(s.note)}`, cx, cy);
+      return true;
+    }
     const sankardevaPin = target.closest('[data-sankardeva-pin]');
     if (sankardevaPin) {
       const p = D.sankardeva.points.find(p => p.id === sankardevaPin.dataset.sankardevaPin);
@@ -227,7 +267,8 @@
     const el = e.target.closest('.realm');
     if (!el || dragging) { tip.hidden = true; return; }
     const t = D.territories[D.shapes[+el.dataset.si].t], p = P[t.p];
-    tip.innerHTML = `<b>${esc(t.label && t.label !== p.name ? `${p.name}: ${t.label}` : p.name)}</b><br>${p.start}–${p.end >= E ? 'today' : p.end}${t.style === 'reach' ? '<br><i>campaign reach, not a border</i>' : t.conf === 'low' ? '<br><i>border uncertain</i>' : ''}`;
+    const affiliation = D.colonial.authorities[t.authority];
+    tip.innerHTML = `<b>${esc(t.label && t.label !== p.name ? `${p.name}: ${t.label}` : p.name)}</b><br>${p.start}–${p.end >= E ? 'today' : p.end}${affiliation ? `<br><strong>${esc(affiliation.label)}</strong>` : ''}${t.style === 'context' ? '<br><i>Regional context; exact extent unresolved</i>' : t.style === 'protected' && !affiliation ? '<br><i>Protected / princely rule</i>' : t.style === 'reach' ? '<br><i>campaign reach, not a border</i>' : t.conf === 'low' ? '<br><i>border uncertain</i>' : ''}`;
     const r = svg.parentNode.getBoundingClientRect();
     tip.style.left = Math.min(e.clientX - r.left + 14, r.width - 250) + 'px';
     tip.style.top = (e.clientY - r.top + 14) + 'px';
@@ -236,6 +277,11 @@
   svg.addEventListener('pointerleave', () => { if (!pinnedTip) hideTip(); });
   svg.addEventListener('click', e => {
     if (moved) return;
+    const marker = e.target.closest('[data-colonial-spot]');
+    if (marker) {
+      const s = D.colonial.spots.find(s => s.id === marker.dataset.colonialSpot);
+      colonialGroup = s.group; drawMap(); drawPanel(); saveHash(); revealColonialPanel(true); return;
+    }
     if (featureTip(e.target, e.clientX, e.clientY)) { pinnedTip = true; return; }
     hideTip();
     const el = e.target.closest('.realm');
@@ -248,6 +294,9 @@
   svg.addEventListener('focusout', () => { if (!pinnedTip) hideTip(); });
   svg.addEventListener('keydown', e => {
     if (e.key === 'Escape') hideTip();
+    if (['Enter', ' '].includes(e.key) && e.target.closest('[data-colonial-spot]')) {
+      e.preventDefault(); e.target.closest('[data-colonial-spot]').dispatchEvent(new MouseEvent('click', { bubbles: true })); return;
+    }
     if (['Enter', ' '].includes(e.key) && e.target.matches('[data-river], [data-spot], [data-sankardeva-pin]')) {
       e.preventDefault(); const r = e.target.getBoundingClientRect();
       featureTip(e.target, r.left + r.width / 2, r.top + r.height / 2); pinnedTip = true;
@@ -279,6 +328,19 @@
     setVB({ x: (x0 + x1 - w) / 2, y: (y0 + y1 - h) / 2, w, h });
     drawLabels(D.states[D.years[year - S]]);
   }
+  function focusColonial(group) {
+    const bounds = D.colonial.groups.find(g => g.id === group)?.bounds || [88,97.3,21.8,29.5];
+    const [x0,y0] = px(bounds[0],bounds[3]), [x1,y1] = px(bounds[1],bounds[2]);
+    const ratio = svg.clientWidth / svg.clientHeight, w = Math.max(x1-x0,(y1-y0)*ratio), h = w/ratio;
+    setVB({ x:(x0+x1-w)/2, y:(y0+y1-h)/2, w,h });
+    drawLabels(D.states[D.years[year-S]]);
+  }
+  function revealColonialPanel(scrollOnMobile = false) {
+    document.body.classList.remove('panel-collapsed');
+    $('panel').scrollTop = 0;
+    if (scrollOnMobile && innerWidth <= 860) $('panel').scrollIntoView({ block: 'start' });
+  }
+  function revealColonialMap() { if (innerWidth <= 860) svg.scrollIntoView({ block: 'start' }); }
   let dragging = null, moved = false;
   const pts = new Map();
   svg.addEventListener('pointerdown', e => {
@@ -308,6 +370,12 @@
   /* ---------- side panel ---------- */
   function status(i) {
     const p = P[i], a = areaAt(i, year);
+    if (year >= 1805 && p.id === 'matak') return 'Autonomous local rule · direct Company management in 1839';
+    if (year >= 1825 && p.id === 'sadiya-local') return 'Local jurisdiction and British political presence';
+    if (year >= 1805 && p.id === 'british') return 'See the separate regional acquisition dates above';
+    const cg = year >= 1805 && D.colonial.groups.find(g => g.polities.includes(p.id));
+    const cp = cg && D.colonial.phases.find(s => s.group === cg.id && year >= s.start && year <= s.end);
+    if (cp) return esc(cp.title);
     if (p.id === 'late-kamarupa') return 'Several regional powers; boundaries uncertain';
     if (p.id === 'ratna-uncertain') return 'Control unresolved in this interval';
     if (p.id === 'bhuyan') return 'Separate river-bounded chiefdom sectors';
@@ -336,10 +404,11 @@
 
   function drawPanel() {
     const on = activeHere();
-    let h = growthCard() + ratnaCard() + postPalaCard() + `<h2>On the map in ${year}</h2>`;
+    let h = colonialCard() + growthCard() + ratnaCard() + postPalaCard() + `<h2>On the map in ${year}</h2>`;
     h += on.length ? on.map(i => {
       const p = P[i], r = rulersAt(p);
-      return `<div class="pol${i === sel ? ' sel' : ''}" data-p="${i}"><span class="sw" style="background:${p.color}"></span><b>${esc(p.name)}</b><span class="st">${status(i)}${r.length ? `<br>Catalogue ruler: ${esc(r.join(', '))}` : ''}</span></div>`;
+      const affiliation = D.colonial.authorities[D.territories.find(t => t.p === i && t.s <= year && t.e >= year && t.authority)?.authority];
+      return `<div class="pol${i === sel ? ' sel' : ''}" data-p="${i}"><span class="sw" style="background:${affiliation?.color || p.color}"></span><b>${esc(p.name)}</b><span class="st">${affiliation ? `<strong>${esc(affiliation.label)}</strong><br>` : ''}${status(i)}${r.length ? `<br>Catalogue ruler: ${esc(r.join(', '))}` : ''}</span></div>`;
     }).join('') : '<p class="empty">No mapped kingdom this year.</p>';
     if (sel >= 0) h += card(sel);
     const evs = D.events, here = evs.filter(e => e.y === year);
@@ -350,7 +419,25 @@
   }
   const evRow = (e, cls) => `<div class="ev${cls}" data-y="${e.y}"><span class="y">${e.y}</span><b>${esc(e.t)}</b>${cls ? `<span class="x">${esc(e.x)}</span>` : ''}</div>`;
 
+  function colonialCard() {
+    if (year < 1805 && !(year >= 1765 && colonialGroup)) return '';
+    const d = D.colonial, group = currentColonialGroup();
+    const stages = d.phases.filter(s => group === 'overview' || s.group === group).sort((a,b) => a.start-b.start);
+    const current = group === 'overview' ? null : stages.find(s => year >= s.start && year <= s.end);
+    const prev = stages.filter(s => s.start < year).at(-1), next = stages.find(s => s.start > year);
+    const links = ids => ids.map(id => `<a href="${esc(d.sources[id].url)}" target="_blank" rel="noopener">${esc(d.sources[id].title)}</a>`).join(' · ');
+    return `<section class="colonial-card" aria-label="British expansion and state changes"><h2>British expansion & state changes</h2>
+      <label class="colonial-picker">Follow a region<select id="colonialRegion"><option value="overview" ${group === 'overview' ? 'selected' : ''}>All Northeast regions</option>${d.groups.map(g => `<option value="${g.id}" ${group === g.id ? 'selected' : ''}>${esc(g.name)}</option>`).join('')}</select></label>
+      <div class="colonial-actions"><button data-colonial-focus="${group}">Show region on map ↗</button><button data-colonial-jump="matak" data-year="1805">Matak: 1805 → 1839</button></div>
+      ${current ? `<p class="post-date">${esc(current.date)}</p><h3>${esc(current.title)}</h3><p>${esc(current.text)}</p><p class="source-links">${links(current.sources)}</p>` : group === 'overview' ? `<p>Select a region or a dated marker to follow its changes.</p><div class="colonial-overview">${d.groups.map(g => { const p = d.phases.find(s => s.group === g.id && year >= s.start && year <= s.end); return `<button data-colonial-group="${g.id}"><b>${esc(g.name)}</b><span>${p ? `${esc(p.date)} · ${esc(p.title)}` : 'Choose a dated stage'}</span></button>`; }).join('')}</div>` : '<p>Choose a dated stage below; no phase is assigned before the first documented display stage.</p>'}
+      <div class="ratna-nav">${prev ? `<button data-colonial-year="${prev.start}">← Previous stage</button>` : ''}${next ? `<button data-colonial-year="${next.start}">Next stage →</button>` : ''}</div>
+      <p class="pitha-note">Annual views show the position after that year’s change. Dotted regions locate approximate administrative contexts; they do not claim uniform control across today’s states.</p>
+      <details ${group === 'matak' ? 'open' : ''}><summary>Dates to show on the map</summary><div class="colonial-steps">${stages.map(s => `<button data-colonial-jump="${s.group}" data-year="${s.start}" ${s === current ? 'aria-current="step"' : ''}><span>${esc(s.date)}</span>${esc(s.title)}</button>`).join('')}</div></details>
+    </section>`;
+  }
+
   function growthCard() {
+    if (year >= 1805 || (year >= 1765 && colonialGroup)) return '';
     if (year < 1187 || year > 1816 || (year > 1764 && (sel < 0 || P[sel].id !== 'ahom'))) return '';
     const d = D.growth, ids = ['ahom', 'chutia', 'kamata', 'khen', 'bhuyan', 'koch', 'koch-hajo', 'mughal'];
     const focus = sel >= 0 && ids.includes(P[sel].id) ? P[sel].id : (year >= 1576 ? 'mughal' : year >= 1515 ? 'koch' : year >= 1215 && year <= 1281 ? 'ahom' : 'chutia');
@@ -404,6 +491,10 @@
 
   function card(i) {
     const p = P[i], a = areaAt(i, year);
+    if ((year >= 1805 && D.colonial.groups.some(g => g.polities.includes(p.id))) || (year >= 1825 && p.id === 'sadiya-local')) {
+      const ts = D.territories.filter(t => t.p === i && year >= t.s && year <= t.e);
+      return `<div class="card"><button class="back" data-p="-1">✕ Close</button><h3>${esc(p.name)}</h3>${ts.length ? ts.map(t => `<div class="lab">${esc(t.label || `In ${year}`)}</div>${D.colonial.authorities[t.authority] ? `<p class="authority-note"><strong>Political affiliation: ${esc(D.colonial.authorities[t.authority].label)}</strong></p>` : ''}<p>${esc(t.note)}</p>`).join('') : '<p>No territory assigned to this polity in the selected year.</p>'}<details><summary>Background</summary><p>${esc(p.rise)}</p><p>${esc(p.fall)}</p></details></div>`;
+    }
     if (p.id === 'ahom' && year >= 1215 && year < 1228) return '<div class="card"><h3>Sukaphaa’s migrating party</h3><p>The gold dashed trail advances through the reconstructed 1215–1228 journey. Annual pacing is illustrative. Intermediate stop dates and the exact track are unresolved. The Ahom territorial sequence begins in 1228; this trail does not mark an Ahom kingdom in Myanmar.</p></div>';
     if (p.id === 'late-kamarupa') return `<div class="card"><h3>Kamarupa successor polities</h3><p>This outline gives geographic context for several rulers and regional powers, rather than a measured kingdom under one dynasty. The evidence panel above distinguishes known inscriptions, approximate reigns and disputed identifications.</p></div>`;
     if (p.id === 'ratna-uncertain') return `<div class="card"><h3>Control uncertain</h3><p>The neutral region marks an interval without a secure owner in the adopted sequence. Use the Paundravardhana controls above to follow the losses and recoveries.</p></div>`;
@@ -426,6 +517,17 @@
     </div>`;
   }
   $('panel').addEventListener('click', e => {
+    const jump = e.target.closest('[data-colonial-jump]'), cy = e.target.closest('[data-colonial-year]');
+    if (jump || cy) {
+      e.preventDefault(); stop();
+      if (jump) colonialGroup = jump.dataset.colonialJump;
+      sel = -1; setYear(+(jump ? jump.dataset.year : cy.dataset.colonialYear));
+      drawMap(); drawPanel(); focusColonial(currentColonialGroup()); saveHash(); revealColonialPanel(); revealColonialMap(); return;
+    }
+    const cg = e.target.closest('[data-colonial-group]');
+    if (cg) { colonialGroup = cg.dataset.colonialGroup; sel = -1; drawMap(); drawPanel(); focusColonial(colonialGroup); saveHash(); revealColonialPanel(); revealColonialMap(); return; }
+    const cf = e.target.closest('[data-colonial-focus]');
+    if (cf) { focusColonial(cf.dataset.colonialFocus); revealColonialMap(); return; }
     const focus = e.target.closest('[data-focus-growth]');
     if (focus) { focusGrowth(focus.dataset.focusGrowth); return; }
     const stage = e.target.closest('[data-growth-year]');
@@ -434,6 +536,11 @@
     if (group) { select(P.findIndex(p => p.id === group.dataset.growth)); return; }
     const y = e.target.closest('[data-y]'); if (y) { e.preventDefault(); stop(); setYear(+y.dataset.y); return; }
     const pp = e.target.closest('[data-p]'); if (pp) select(+pp.dataset.p === sel ? -1 : +pp.dataset.p);
+  });
+  $('panel').addEventListener('change', e => {
+    if (e.target.id !== 'colonialRegion') return;
+    colonialGroup = e.target.value; sel = -1; drawMap(); drawPanel(); focusColonial(colonialGroup); saveHash(); revealColonialPanel();
+    $('colonialRegion').focus({ preventScroll: true }); revealColonialMap();
   });
 
   function select(i) {
@@ -494,7 +601,11 @@
   });
   chart.addEventListener('pointermove', e => { if (scrub) setYear(yearFromX(e.clientX)); });
   chart.addEventListener('pointerup', () => { scrub = false; });
-  window.addEventListener('resize', () => { placeNames(); drawRowsState(); });
+  window.addEventListener('resize', () => {
+    placeNames(); drawRowsState();
+    if (year >= 1765 && colonialGroup) focusColonial(colonialGroup);
+    else drawLabels(D.states[D.years[year-S]]);
+  });
   placeNames();
 
   /* ---------- controls ---------- */
@@ -509,7 +620,7 @@
     drawMap(); drawPanel(); drawRowsState(); saveHash();
   }
   let hashT = 0;
-  const saveHash = () => { clearTimeout(hashT); hashT = setTimeout(() => history.replaceState(null, '', `#y=${year}${sel >= 0 ? '&k=' + P[sel].id : ''}`), 250); };
+  const saveHash = () => { clearTimeout(hashT); hashT = setTimeout(() => history.replaceState(null, '', `#y=${year}${sel >= 0 ? '&k=' + P[sel].id : ''}${colonialGroup ? '&c=' + colonialGroup : ''}`), 250); };
 
   const stepChange = dir => {
     stop();
@@ -559,6 +670,7 @@
     $('panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
   $('bengalStart').onclick = () => { stop(); setYear(1576); select(P.findIndex(p => p.id === 'mughal')); focusGrowth('mughal'); };
+  $('colonialStart').onclick = () => { stop(); colonialGroup = 'overview'; sel = -1; setYear(1826); drawMap(); drawPanel(); focusColonial('overview'); saveHash(); revealColonialPanel(true); };
   $('sankardevaStart').onclick = () => { stop(); select(-1); setYear(1449); focusGrowth('bhuyan'); $('play').click(); };
   $('sankardevaChip').onclick = () => { location.href = `sankardeva.html#y=${year}`; };
   $('journeyChip').addEventListener('click', () => { select(P.findIndex(p => p.id === 'ahom')); focusGrowth('migration'); });
@@ -567,5 +679,6 @@
   const y0 = year; year = -1; setYear(y0);
   if (sel >= 0 && P[sel].id === 'ahom' && ((year >= 1215 && year <= 1281) || (year >= 1537 && year <= 1816))) focusGrowth('ahom');
   if (sel >= 0 && ['mughal','koch-hajo'].includes(P[sel].id) && year >= 1576 && year <= 1764) focusGrowth(P[sel].id);
-  window.addEventListener('hashchange', () => { fromHash(); const y = year; year = -1; setYear(y); if (sel >= 0 && ['mughal','koch-hajo'].includes(P[sel].id) && year >= 1576 && year <= 1764) focusGrowth(P[sel].id); if (sel >= 0 && P[sel].id === 'ahom' && year >= 1537 && year <= 1816) focusGrowth('ahom'); });
+  if (year >= 1765 && colonialGroup) focusColonial(colonialGroup);
+  window.addEventListener('hashchange', () => { fromHash(); const y = year; year = -1; setYear(y); if (year >= 1765 && colonialGroup) focusColonial(colonialGroup); else if (sel >= 0 && ['mughal','koch-hajo'].includes(P[sel].id) && year >= 1576 && year <= 1764) focusGrowth(P[sel].id); else if (sel >= 0 && P[sel].id === 'ahom' && year >= 1537 && year <= 1816) focusGrowth('ahom'); });
 })();

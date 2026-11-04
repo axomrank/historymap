@@ -40,6 +40,8 @@ const sankardeva = JSON.parse(rd('data/sankardeva-routes.json'));
 const A = JSON.parse(rd('data/maps/assam.json'));
 const NB = JSON.parse(rd('data/maps/neighbours.json'));
 const NE = JSON.parse(rd('data/maps/northeast.json'));
+const colonial = JSON.parse(rd('data/colonial-stages.json'));
+const CR = JSON.parse(rd('data/maps/colonial-regions.json'));
 
 const realmById = {}, placeById = {};
 for (const r of history) {
@@ -84,6 +86,9 @@ function landNamed(name) {
   if (landCache[name]) return landCache[name];
   let mp;
   if (BENGAL.groups[name]) mp = union(BENGAL.groups[name].map(landNamed));
+  else if (CR.groups[name]) mp = union(CR.groups[name].map(id => landNamed('ref-' + id)));
+  else if (name.startsWith('ref-') && CR.districts[name.slice(4)]) mp = ringsMP(CR.districts[name.slice(4)].rings);
+  else if (name === 'matak-country') mp = limitsShape(['lon:90', 'place:sadiya', 'river:brahmaputra', 'river:dihing']);
   else if (name.startsWith('wb-') && BENGAL.westBengal[name.slice(3)]) mp = ringsMP(BENGAL.westBengal[name.slice(3)].rings);
   else if (name.startsWith('bd-') && BENGAL.bangladesh[name.slice(3)]) mp = pc.intersection(ringsMP(BENGAL.bangladesh[name.slice(3)].rings), ringsMP(NB.countries.Bangladesh));
   else if (A.districts[name]) mp = ringsMP(A.districts[name].rings);
@@ -293,7 +298,8 @@ for (let y = START; y <= END; y++) {
   if (!stateKeys.has(key)) {
     const list = [];
     act.forEach((t, i) => {
-      const above = act.slice(i + 1).filter(u => u.style !== 'reach' && u.mp.length && overl(t.bb, u.bb));
+      // Regional context locates an administration without asserting exclusive control.
+      const above = act.slice(i + 1).filter(u => !['reach', 'context'].includes(u.style) && u.mp.length && overl(t.bb, u.bb));
       const ck = t.id + '>' + above.map(u => u.id).join(',');
       if (!shapeCache.has(ck)) {
         let mp = t.mp;
@@ -352,10 +358,13 @@ const out = {
   built: new Date().toISOString().slice(0, 10), start: START, end: END, W, H, proj: { lat0, lat1, lon0, lon1 },
   base: { countries, rivers, modern, towns, ridges: Object.entries(A.ridges || {}).map(([name, pts]) => ({ name, d: linePath(pts) })) },
   polities: P,
-  territories: T.map(t => ({ id: t.id, p: polityIdx[t.polity], s: t.start, e: t.end, label: t.label, note: t.note, conf: t.confidence, style: t.style })),
+  territories: T.map(t => ({ id: t.id, p: polityIdx[t.polity], s: t.start, e: t.end, label: t.label, note: t.note, conf: t.confidence, style: t.style, authority: t.authority || '' })),
   ratna: { outline: pathOf(ratnaMP), phases: ratnaPhases.map(r => ({ ...r, start: +r.start, end: +r.end, p: polityIdx[r.polity] })) },
   postPala: { ...postPala, spots: postPala.spots.map(s => ({ ...s, x: X(s.lon), y: Y(s.lat) })) },
   sankardeva,
+  colonial: { ...colonial,
+    spots: colonial.spots.map(s => ({ ...s, x: X(s.lon), y: Y(s.lat) })),
+  },
   growth: { ...growth,
     spots: growth.spots.map(s => ({ ...s, x: X(s.lon), y: Y(s.lat) })),
     routes: growth.routes.map(r => ({ ...r, d: r.riverPaths ? r.riverPaths.map(linePath).join('') : linePath(r.points) })),

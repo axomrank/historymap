@@ -212,3 +212,41 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .frontier-banks { display: grid; grid-template-columns: 78px 1fr; gap: 6px 9px; font-size: 13px; line-height: 1.4; }
 .frontier-banks dt { font-weight: 700; }
 .frontier-banks dd { margin: 0; }
+
+/* Colonial stages distinguish local/princely rule and regional reference extents. */
+.realm.context { fill-opacity: .14; stroke-dasharray: 2 5; stroke-width: 1.5; }
+.realm.context:hover, .realm.context.sel { fill-opacity: .3; }
+.realm.protected { fill-opacity: .42; stroke-dasharray: 8 3; stroke-width: 1.5; }
+.realm.context, .realm.protected { vector-effect: non-scaling-stroke; }
+.realm.affiliated { fill-opacity: .75; }
+.realm.affiliated.context { fill-opacity: .2; }
+.realm.affiliated.dim { fill-opacity: .25; }
+.colonial-legend { position: absolute; left: 10px; bottom: 10px; max-width: calc(100% - 20px); display: flex; flex-wrap: wrap; gap: 5px 12px; padding: 7px 9px; border-radius: 7px; background: var(--panel); box-shadow: var(--shadow); font-size: 11px; color: var(--muted); pointer-events: none; }
+.colonial-legend[hidden] { display: none; }
+.colonial-legend span { display: flex; align-items: center; gap: 5px; }
+.colonial-legend i { display: inline-block; width: 17px; height: 10px; border: 1px solid var(--accent); background: color-mix(in srgb, var(--accent) 30%, transparent); }
+.colonial-legend .legend-context { border-style: dotted; background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.colonial-legend .legend-british { background: #e57f8c; border-color: #a7505c; }
+.colonial-legend .legend-protected { border: 1px dashed #a7505c; background: repeating-linear-gradient(135deg, #e57f8c 0 3px, transparent 3px 7px); }
+.colonial-legend .legend-india { background: #f08a24; border-color: #a45a15; }
+.colonial-legend .legend-accession { border: 1px dashed #a45a15; background: repeating-linear-gradient(135deg, #f08a24 0 3px, transparent 3px 7px); }
+.colonial-legend span[hidden] { display: none; }
+.authority-note { color: var(--accent); }
+.colonial-spot { cursor: pointer; }
+.colonial-spot circle { fill: var(--accent); stroke: var(--panel); stroke-width: 1.5; }
+.colonial-spot text { fill: var(--ink); paint-order: stroke; stroke: var(--land); stroke-width: 3px; font-weight: 600; }
+.colonial-spot:focus { outline: none; }
+.colonial-spot:focus circle { stroke: var(--ink); stroke-width: 3; }
+.colonial-card { border-bottom: 1px solid var(--line); padding-bottom: 14px; margin-bottom: 14px; }
+.colonial-card h3 { font: 600 19px/1.25 Georgia, serif; margin: 8px 0; }
+.colonial-card p { font-size: 13px; line-height: 1.5; }
+.colonial-picker { display: grid; gap: 5px; font-size: 12px; color: var(--muted); }
+.colonial-picker select { width: 100%; min-width: 0; font-size: 13px; }
+.colonial-actions { display: flex; flex-wrap: wrap; gap: 6px; margin: 9px 0; }
+.colonial-actions button, .colonial-card .ratna-nav button { font-size: 12px; }
+.colonial-overview, .colonial-steps { display: grid; gap: 5px; margin: 8px 0; }
+.colonial-overview button, .colonial-steps button { text-align: left; font-size: 12px; }
+.colonial-overview span, .colonial-steps span { display: block; color: var(--muted); font-size: 11px; margin-top: 3px; }
+.colonial-steps [aria-current] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--panel)); font-weight: 700; }
+.colonial-card summary { cursor: pointer; font-size: 13px; color: var(--accent); }
+@media (max-width: 860px) { .colonial-legend { font-size: 9px; gap: 3px 8px; padding: 5px 7px; } }
