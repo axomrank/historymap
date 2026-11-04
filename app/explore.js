@@ -38,7 +38,7 @@
   let year = S, sel = -1, playing = null, colonialGroup = '';
   const fromHash = () => {
     const m = /y=(\d{3,4})/.exec(location.hash); if (m) year = clamp(+m[1]);
-    const p = /k=([\w-]+)/.exec(location.hash); if (p) sel = P.findIndex(x => x.id === p[1]);
+    const p = /k=([\w-]+)/.exec(location.hash); sel = p ? P.findIndex(x => x.id === p[1]) : -1;
     // Preserve older shared links to the formerly grouped successor states.
     if (p?.[1] === 'ne-states') sel = P.findIndex(x => x.id === 'nagaland');
     const c = /(?:^#|&)c=([\w-]+)/.exec(location.hash);
@@ -74,11 +74,13 @@
   const darker = hex => { const n = parseInt(hex.slice(1), 16); const f = c => Math.round(c * .62).toString(16).padStart(2, '0'); return '#' + f(n >> 16) + f((n >> 8) & 255) + f(n & 255); };
   let shown = new Map();
   function drawMap() {
+    document.body.classList.toggle('statehood-mode', currentColonialGroup() === 'statehood' && year >= 1947);
     $('colonialLegend').hidden = year < 1805;
     $('legendBritish').hidden = year >= 1947;
     $('legendProtected').hidden = year >= 1947;
     $('legendIndia').hidden = year < 1947;
     $('legendAccession').hidden = year < 1947 || year > 1948;
+    $('legendIndianProtection').hidden = year < 1950 || year >= 1975;
     $('journeyChip').textContent = year < 1228 ? `1215–1228 · travelling · ${year} · illustrative pacing ↗` : '1215–1228 · Mong Mao → Patkai · reconstructed ↗';
     $('journeyChip').hidden = !(year >= 1215 && year <= 1267 && (sel < 0 || P[sel].id === 'ahom'));
     $('sankardevaChip').hidden = year < 1449 || year > 1568;
@@ -335,6 +337,10 @@
     setVB({ x:(x0+x1-w)/2, y:(y0+y1-h)/2, w,h });
     drawLabels(D.states[D.years[year-S]]);
   }
+  function focusActiveColonial() {
+    const selected = sel >= 0 && D.colonial.statehood.find(s => s.id === P[sel].id);
+    focusColonial(colonialGroup === 'statehood' && selected ? selected.group : colonialGroup);
+  }
   function revealColonialPanel(scrollOnMobile = false) {
     document.body.classList.remove('panel-collapsed');
     $('panel').scrollTop = 0;
@@ -373,6 +379,7 @@
     if (year >= 1805 && p.id === 'matak') return 'Autonomous local rule · direct Company management in 1839';
     if (year >= 1825 && p.id === 'sadiya-local') return 'Local jurisdiction and British political presence';
     if (year >= 1805 && p.id === 'british') return 'See the separate regional acquisition dates above';
+    if (p.id === 'assam-state') return year < 1950 ? 'Indian province · constitutional statehood on 26 January 1950' : 'Indian state since 26 January 1950';
     const cg = year >= 1805 && D.colonial.groups.find(g => g.polities.includes(p.id));
     const cp = cg && D.colonial.phases.find(s => s.group === cg.id && year >= s.start && year <= s.end);
     if (cp) return esc(cp.title);
@@ -419,6 +426,20 @@
   }
   const evRow = (e, cls) => `<div class="ev${cls}" data-y="${e.y}"><span class="y">${e.y}</span><b>${esc(e.t)}</b>${cls ? `<span class="x">${esc(e.x)}</span>` : ''}</div>`;
 
+  function statehoodDate(iso) {
+    const [y,m,d] = iso.split('-').map(Number);
+    return `${d} ${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][m-1]} ${y}`;
+  }
+  function statehoodGuide() {
+    const d = D.colonial;
+    const dateButton = (s,date,label) => `<button data-statehood-year="${+date.slice(0,4)}" data-statehood-state="${s.id}" aria-label="${esc(s.name + ': ' + label + ', ' + statehoodDate(date))}">${esc(statehoodDate(date))}<small>${esc(label)}</small></button>`;
+    return `<section class="statehood-guide" aria-label="Separation and statehood dates for eight Northeastern states">
+      <p><strong>Separation and full statehood are different events.</strong> Manipur, Tripura and Sikkim were not carved out of Assam.</p>
+      <table><caption>Present-day eight-state Northeast</caption><thead><tr><th scope="col">State / origin</th><th scope="col">Separation / earlier steps</th><th scope="col">Full statehood</th></tr></thead><tbody>${d.statehood.map(s => `<tr data-statehood-row="${s.id}" class="${sel >= 0 && P[sel].id === s.id ? 'selected' : ''}"><th scope="row">${esc(s.name)}<small>${esc(s.parent)}</small></th><td>${s.separation ? dateButton(s,s.separation,['mizoram','arunachal'].includes(s.id) ? 'Left Assam as UT' : 'Left Assam') : `<span>${s.id === 'assam-state' ? 'Continued from province' : 'Not from Assam'}</span>`}${s.milestones.filter(m => m.date !== s.statehood && m.date !== s.separation).map(m => dateButton(s,m.date,m.label)).join('')}</td><td>${dateButton(s,s.statehood,'Statehood')}<details><summary>Details & sources</summary><p>${esc(s.note)}</p>${s.sources.map(id => `<a href="${esc(d.sources[id].url)}" target="_blank" rel="noopener">${esc(d.sources[id].title)}</a>`).join('')}</details></td></tr>`).join('')}</tbody></table>
+      <p class="pitha-note">Tap a date to show that state and year on the map. Administrative units inside Assam, separate Union Territories and full states are shown as different stages.</p>
+    </section>`;
+  }
+
   function colonialCard() {
     if (year < 1805 && !(year >= 1765 && colonialGroup)) return '';
     const d = D.colonial, group = currentColonialGroup();
@@ -426,9 +447,10 @@
     const current = group === 'overview' ? null : stages.find(s => year >= s.start && year <= s.end);
     const prev = stages.filter(s => s.start < year).at(-1), next = stages.find(s => s.start > year);
     const links = ids => ids.map(id => `<a href="${esc(d.sources[id].url)}" target="_blank" rel="noopener">${esc(d.sources[id].title)}</a>`).join(' · ');
-    return `<section class="colonial-card" aria-label="British expansion and state changes"><h2>British expansion & state changes</h2>
+    return `<section class="colonial-card" aria-label="British expansion and state changes"><h2>${group === 'statehood' ? 'Separation & statehood' : 'British expansion & state changes'}</h2>
       <label class="colonial-picker">Follow a region<select id="colonialRegion"><option value="overview" ${group === 'overview' ? 'selected' : ''}>All Northeast regions</option>${d.groups.map(g => `<option value="${g.id}" ${group === g.id ? 'selected' : ''}>${esc(g.name)}</option>`).join('')}</select></label>
-      <div class="colonial-actions"><button data-colonial-focus="${group}">Show region on map ↗</button><button data-colonial-jump="matak" data-year="1805">Matak: 1805 → 1839</button></div>
+      <div class="colonial-actions"><button data-colonial-focus="${group}">${group === 'statehood' ? 'Show all eight states ↗' : 'Show region on map ↗'}</button>${group === 'statehood' ? '' : '<button data-colonial-jump="matak" data-year="1805">Matak: 1805 → 1839</button>'}</div>
+      ${group === 'statehood' ? statehoodGuide() : ''}
       ${current ? `<p class="post-date">${esc(current.date)}</p><h3>${esc(current.title)}</h3><p>${esc(current.text)}</p><p class="source-links">${links(current.sources)}</p>` : group === 'overview' ? `<p>Select a region or a dated marker to follow its changes.</p><div class="colonial-overview">${d.groups.map(g => { const p = d.phases.find(s => s.group === g.id && year >= s.start && year <= s.end); return `<button data-colonial-group="${g.id}"><b>${esc(g.name)}</b><span>${p ? `${esc(p.date)} · ${esc(p.title)}` : 'Choose a dated stage'}</span></button>`; }).join('')}</div>` : '<p>Choose a dated stage below; no phase is assigned before the first documented display stage.</p>'}
       <div class="ratna-nav">${prev ? `<button data-colonial-year="${prev.start}">← Previous stage</button>` : ''}${next ? `<button data-colonial-year="${next.start}">Next stage →</button>` : ''}</div>
       <p class="pitha-note">Annual views show the position after that year’s change. Dotted regions locate approximate administrative contexts; they do not claim uniform control across today’s states.</p>
@@ -517,6 +539,13 @@
     </div>`;
   }
   $('panel').addEventListener('click', e => {
+    const statehood = e.target.closest('[data-statehood-year]');
+    if (statehood) {
+      e.preventDefault(); stop(); colonialGroup = 'statehood';
+      sel = P.findIndex(p => p.id === statehood.dataset.statehoodState);
+      setYear(+statehood.dataset.statehoodYear); drawMap(); drawPanel(); drawRowsState();
+      focusActiveColonial(); saveHash(); revealColonialPanel(); revealColonialMap(); return;
+    }
     const jump = e.target.closest('[data-colonial-jump]'), cy = e.target.closest('[data-colonial-year]');
     if (jump || cy) {
       e.preventDefault(); stop();
@@ -603,7 +632,7 @@
   chart.addEventListener('pointerup', () => { scrub = false; });
   window.addEventListener('resize', () => {
     placeNames(); drawRowsState();
-    if (year >= 1765 && colonialGroup) focusColonial(colonialGroup);
+    if (year >= 1765 && colonialGroup) focusActiveColonial();
     else drawLabels(D.states[D.years[year-S]]);
   });
   placeNames();
@@ -671,6 +700,7 @@
   });
   $('bengalStart').onclick = () => { stop(); setYear(1576); select(P.findIndex(p => p.id === 'mughal')); focusGrowth('mughal'); };
   $('colonialStart').onclick = () => { stop(); colonialGroup = 'overview'; sel = -1; setYear(1826); drawMap(); drawPanel(); focusColonial('overview'); saveHash(); revealColonialPanel(true); };
+  $('statehoodStart').onclick = () => { stop(); colonialGroup = 'statehood'; sel = -1; setYear(year < 1947 ? 1963 : year); drawMap(); drawPanel(); focusColonial('statehood'); saveHash(); revealColonialPanel(true); };
   $('sankardevaStart').onclick = () => { stop(); select(-1); setYear(1449); focusGrowth('bhuyan'); $('play').click(); };
   $('sankardevaChip').onclick = () => { location.href = `sankardeva.html#y=${year}`; };
   $('journeyChip').addEventListener('click', () => { select(P.findIndex(p => p.id === 'ahom')); focusGrowth('migration'); });
@@ -679,6 +709,6 @@
   const y0 = year; year = -1; setYear(y0);
   if (sel >= 0 && P[sel].id === 'ahom' && ((year >= 1215 && year <= 1281) || (year >= 1537 && year <= 1816))) focusGrowth('ahom');
   if (sel >= 0 && ['mughal','koch-hajo'].includes(P[sel].id) && year >= 1576 && year <= 1764) focusGrowth(P[sel].id);
-  if (year >= 1765 && colonialGroup) focusColonial(colonialGroup);
-  window.addEventListener('hashchange', () => { fromHash(); const y = year; year = -1; setYear(y); if (year >= 1765 && colonialGroup) focusColonial(colonialGroup); else if (sel >= 0 && ['mughal','koch-hajo'].includes(P[sel].id) && year >= 1576 && year <= 1764) focusGrowth(P[sel].id); else if (sel >= 0 && P[sel].id === 'ahom' && year >= 1537 && year <= 1816) focusGrowth('ahom'); });
+  if (year >= 1765 && colonialGroup) focusActiveColonial();
+  window.addEventListener('hashchange', () => { fromHash(); const y = year; year = -1; setYear(y); if (year >= 1765 && colonialGroup) focusActiveColonial(); else if (sel >= 0 && ['mughal','koch-hajo'].includes(P[sel].id) && year >= 1576 && year <= 1764) focusGrowth(P[sel].id); else if (sel >= 0 && P[sel].id === 'ahom' && year >= 1537 && year <= 1816) focusGrowth('ahom'); });
 })();

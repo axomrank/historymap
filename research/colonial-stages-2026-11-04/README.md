@@ -21,7 +21,7 @@ The 1667, 1679 and 1682 Guwahati recovery stages from the existing bank-frontier
 
 ## Geometry and annual conventions
 
-`data/colonial-stages.json` contains 74 source-linked regional phases and 21 map-marker records after the [Manipur/Tripura affiliation correction](manipur-tripura-affiliation-correction.md). Its sources record verification status and links. The module extends, rather than replaces, the older CSV-based annual atlas.
+`data/colonial-stages.json` contains 85 source-linked regional phases, 31 map-marker records and an eight-state separation/statehood comparison after the [Manipur/Tripura affiliation correction](manipur-tripura-affiliation-correction.md) and [statehood guide](statehood-guide.md). Its sources record verification status and links. The module extends, rather than replaces, the older CSV-based annual atlas.
 
 Annual maps show the **position after that year’s named change**. Thus Purandar’s restored territory ends with the 1837 annual frame, and the 1838 frame is directly British. Matak is separately coloured through 1838 and directly British in the 1839 frame. The 1842 proclamation changes the explanation/formal status without another invented conquest polygon.
 

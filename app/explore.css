@@ -232,6 +232,25 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .colonial-legend .legend-accession { border: 1px dashed #a45a15; background: repeating-linear-gradient(135deg, #f08a24 0 3px, transparent 3px 7px); }
 .colonial-legend span[hidden] { display: none; }
 .authority-note { color: var(--accent); }
+.statehood-guide table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 11px; line-height: 1.4; }
+.statehood-guide caption { text-align: left; font-weight: 700; margin: 8px 0; font-size: 13px; }
+.statehood-guide th, .statehood-guide td { text-align: left; vertical-align: top; padding: 7px 4px; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.statehood-guide th { width: 33%; }
+.statehood-guide thead th { color: var(--muted); font-size: 10px; }
+.statehood-guide th small { display: block; font-weight: 400; color: var(--muted); margin-top: 5px; }
+.statehood-guide td button { width: 100%; padding: 5px 3px; margin: 0 0 5px; font-size: 11px; line-height: 1.35; text-align: left; }
+.statehood-guide td button small { display: block; font-size: 9px; color: var(--muted); }
+.statehood-guide td details { font-size: 10px; }
+.statehood-guide td summary { font-size: 10px; }
+.statehood-guide td p { font-size: 11px; }
+.statehood-guide td a { display: block; margin: 6px 0; color: var(--accent); }
+.statehood-guide tr.selected { background: color-mix(in srgb, var(--accent) 9%, var(--panel)); }
+@media (min-width: 861px) {
+  .statehood-mode .layout { grid-template-columns: minmax(0, 1fr) minmax(360px, 480px); }
+  .statehood-mode.panel-collapsed .layout { grid-template-columns: 1fr; }
+  .statehood-guide table, .statehood-guide td button { font-size: 12px; }
+  .statehood-guide thead th, .statehood-guide th small, .statehood-guide td button small { font-size: 11px; }
+}
 .colonial-spot { cursor: pointer; }
 .colonial-spot circle { fill: var(--accent); stroke: var(--panel); stroke-width: 1.5; }
 .colonial-spot text { fill: var(--ink); paint-order: stroke; stroke: var(--land); stroke-width: 3px; font-weight: 600; }

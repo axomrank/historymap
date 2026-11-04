@@ -65,6 +65,8 @@ The [colonial stage revision](research/colonial-stages-2026-11-04/README.md) sep
 
 The [Manipur/Tripura affiliation correction](research/colonial-stages-2026-11-04/manipur-tripura-affiliation-correction.md) makes the political relationship visible as well as the local identity: British pink hatching for protection/paramountcy, orange hatching for accession to India in 1947, and solid Indian orange following the transfer of administration on 15 October 1949. Part C status from 1950, Union Territory status and 1972 statehood are separate dated stages. Both remain selectable as regions without appearing outside India in modern views.
 
+Click **Separation & statehood** for the [researched eight-state guide](research/colonial-stages-2026-11-04/statehood-guide.md). It distinguishes leaving Assam, autonomy/special administration, Union Territory status and full statehood. The NHTA remains constitutionally within Assam until Nagaland’s statehood in 1963; Meghalaya’s autonomy starts in 1970 and separation in 1972. Sikkim, Manipur and Tripura are explicitly not described as states carved out of Assam. Each date focuses the corresponding state on the map; shared links use `#y=1963&c=statehood`. Sikkim’s 1950 protectorate and 1975 statehood are now mapped. Run `node tools/check-statehood.js` after rebuilding.
+
 ## Sources for the shapes
 
 - North-east Indian states: [DataMeet Community Maps](https://github.com/datameet/maps), States/Admin2 (CC BY 4.0 / ODbL).
