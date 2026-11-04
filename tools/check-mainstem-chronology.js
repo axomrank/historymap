@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
-const w={};new Function('window',fs.readFileSync('data/atlas.js','utf8'))(w);const D=w.ATLAS;
+const w={};new Function('window',fs.readFileSync('data/generated/atlas.js','utf8'))(w);const D=w.ATLAS;
 const A=require('../data/maps/assam.json');const bridge=require('../data/maps/brahmaputra-mainstem.json');
 const stem=D.base.rivers.find(r=>r.id==='brahmaputra');
 assert(stem&&stem.m===2);assert.deepEqual(stem.aliases,['Siang','Dihang','Brahmaputra']);

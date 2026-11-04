@@ -1,0 +1,7 @@
+# Local previews, automation state and generated review artifacts
+node_modules/
+.playwright-cli/
+output/
+.claude/
+__pycache__/
+*.pyc

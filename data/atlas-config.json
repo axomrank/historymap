@@ -1,0 +1,42 @@
+{
+  "start": 350,
+  "end": 2026,
+  "eras": [
+    [
+      350,
+      1099,
+      "Ancient Kamarupa"
+    ],
+    [
+      1100,
+      1227,
+      "Kamarupa breaks apart"
+    ],
+    [
+      1228,
+      1514,
+      "Ahom, Chutia, Dimasa and Kamata"
+    ],
+    [
+      1515,
+      1681,
+      "Koch, Ahom and Mughal wars"
+    ],
+    [
+      1682,
+      1825,
+      "The Ahom kingdom at its height and fall"
+    ],
+    [
+      1826,
+      1946,
+      "British Assam"
+    ],
+    [
+      1947,
+      2026,
+      "Independent India"
+    ]
+  ],
+  "dataVersion": "2026-11-04"
+}

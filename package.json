@@ -1,0 +1,14 @@
+{
+  "name": "assam-through-time",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Source-driven static historical atlas",
+  "scripts": {
+    "validate": "node tools/validate/data.js",
+    "build": "npm run validate && node tools/build.js",
+    "check": "node tools/check-all.js",
+    "verify": "npm run build && npm run check",
+    "preview": "python3 -m http.server 8000"
+  },
+  "engines": { "node": ">=18" }
+}

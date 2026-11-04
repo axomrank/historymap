@@ -44,7 +44,7 @@ The locality patches have intentionally symbolic radii; neither their areas nor 
 
 The route data records latitude/longitude before projection. Research stages, map symbols, source access limitations and uncertainty are stored in the JSON; a companion CSV lists every stage and its source IDs. Automated checks cover early settlement size, delayed Charaideo capital, later growth, the1513/1520/1522 reversal, separate Habung acquisition, changing Khen stages, disjoint Bhuyan patches, valid sources and all annual map joins. Browser checks cover named river interaction and representative stage navigation.
 
-Files: [stage CSV](../../data/medieval-growth-events.csv), [map and research data](../../data/medieval-growth.json), [source register](sources.csv), [coordinate register](places.csv).
+Files: [stage CSV](../../data/features/growth/medieval-growth-events.csv), [map and research data](../../data/features/growth/medieval-growth.json), [source register](sources.csv), [coordinate register](places.csv).
 
 
 ## Added: Mong Mao–Myanmar migration corridor, 1215–1228

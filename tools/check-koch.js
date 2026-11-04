@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
-const w={};new Function('window',fs.readFileSync('data/atlas.js','utf8'))(w);const D=w.ATLAS;
+const w={};new Function('window',fs.readFileSync('data/generated/atlas.js','utf8'))(w);const D=w.ATLAS;
 const pieces=y=>D.states[D.years[y-D.start]].map(i=>D.shapes[i]).filter(s=>D.polities[D.territories[s.t].p].id==='koch');
 const core=y=>pieces(y).filter(s=>D.territories[s.t].style==='core').reduce((a,s)=>a+s.a,0);
 const reach=y=>pieces(y).filter(s=>D.territories[s.t].style==='reach');

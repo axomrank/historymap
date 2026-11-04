@@ -2,7 +2,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const {paint} = require('../app/map-appearance.js');
-const w={};new Function('window',fs.readFileSync('data/atlas.js','utf8'))(w);
+const w={};new Function('window',fs.readFileSync('data/generated/atlas.js','utf8'))(w);
 const D=w.ATLAS;
 const active=y=>D.states[D.years[y-D.start]].map(si=>D.territories[D.shapes[si].t]);
 const view=(id,y,mode='states')=>{const t=active(y).find(t=>D.polities[t.p].id===id);assert(t,`${id} missing in ${y}`);return paint(D.polities[t.p],t,y,mode,D.colonial.authorities,D.colonial.statehood);};
@@ -23,8 +23,8 @@ assert(!D.base.towns.some(t=>/sylhet/i.test(t[0])),'No permanent Sylhet city lab
 for(const y of [1947,1971,2026]) {
  assert(!active(y).some(t=>/sylhet/i.test(t.label)),'No separate modern Sylhet territory');
  const id=y<1971?'pakistan':'bangladesh';assert(view(id,y).country);
- const csv=fs.readFileSync('data/territories.csv','utf8').split('\n').find(l=>l.startsWith(id==='pakistan'?'pakistan-1947,':'bangladesh-1971,'));
+ const csv=fs.readFileSync('data/source/territories.csv','utf8').split('\n').find(l=>l.startsWith(id==='pakistan'?'pakistan-1947,':'bangladesh-1971,'));
  assert(csv.includes('land:bangladesh'),'Use whole country context');
 }
-assert(fs.readFileSync('data/territories.csv','utf8').includes('british-1914,british,1914,1946,"land:assam,sylhet"'),'Preserve historically relevant Sylhet context');
+assert(fs.readFileSync('data/source/territories.csv','utf8').includes('british-1914,british,1914,1946,"land:assam,sylhet"'),'Preserve historically relevant Sylhet context');
 console.log('PASS: distinct state colours, UT-to-state changes, affiliation mode, autonomy and protectorate statuses, modern Bangladesh without separate Sylhet.');

@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const path = require('node:path');
 const ctx = { window: {} };
-vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../data/atlas.js'), 'utf8'), ctx);
+vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../data/generated/atlas.js'), 'utf8'), ctx);
 const D = ctx.window.ATLAS;
 const pieces = (id, y) => D.states[D.years[y - D.start]].map(si => ({ ...D.shapes[si], territory: D.territories[D.shapes[si].t] })).filter(s => D.polities[s.territory.p].id === id);
 const area = (id, y, core = false) => pieces(id, y).filter(s => !core || s.territory.style === 'core').reduce((a, s) => a + s.a, 0);

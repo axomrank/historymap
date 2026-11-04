@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const path = require('node:path');
 const context = { window: {} };
-vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../data/atlas.js'), 'utf8'), context);
+vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../data/generated/atlas.js'), 'utf8'), context);
 const D = context.window.ATLAS;
 const phases = D.ratna.phases;
 assert.equal(phases.length, 14);

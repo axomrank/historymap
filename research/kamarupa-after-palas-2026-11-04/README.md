@@ -1,6 +1,6 @@
 # Kamarupa after the Palas: evidence audit
 
-Research and map revision: 4 November 2026. Covers the early twelfth century to the Kamata transition around 1257–1260. [Events CSV](events.csv), [source register](sources.csv), and [live map data](../../data/kamarupa-after-palas.json).
+Research and map revision: 4 November 2026. Covers the early twelfth century to the Kamata transition around 1257–1260. [Events CSV](events.csv), [source register](sources.csv), and [live map data](../../data/features/kamarupa/kamarupa-after-palas.json).
 
 The existing catalogue supplied exact-looking reigns for undated rulers and placed Samudrapala around 1100. This revision replaces that certainty with dated attestations and clearly identified historical reconstructions. Display windows in the JSON and events CSV determine when the explanatory context is shown; they are **not individual reigns or ownership intervals**.
 

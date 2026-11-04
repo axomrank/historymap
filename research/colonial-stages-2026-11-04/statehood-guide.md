@@ -24,7 +24,7 @@ Researched and implemented 4 November 2026. The guide covers the eight states in
 - [Lok Sabha answer, 1 April 1970](https://eparlib.sansad.in/bitstream/123456789/2090328/1/04_X_01-04-1970_p64_p64_u4751.pdf) identifies Sikkim as an Indian protectorate and dates the treaty to 5 December 1950. [Official Statehood Day account](https://www.pib.gov.in/PressReleasePage.aspx?PRID=1924577&lang=2&reg=48) gives 16 May 1975. This guide uses the officially observed statehood/admission date, not a referendum or parliamentary-passage date.
 - Assam’s constitutional-state date follows the [Constitution’s commencement and First Schedule](https://legislative.gov.in/constitution-of-india/); it does not erase the earlier history of Assam province.
 
-Primary statutory indexed passages were used to resolve the 1957/1963 distinction where historical summaries compress administrative and constitutional change. Source records and verification notes are embedded in `data/colonial-stages.json`.
+Primary statutory indexed passages were used to resolve the 1957/1963 distinction where historical summaries compress administrative and constitutional change. Source records and verification notes are embedded in `data/features/colonial/colonial-stages.json`.
 
 ## Changes to the site
 

@@ -2,7 +2,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const w = {};
-new Function('window', fs.readFileSync('data/atlas.js', 'utf8'))(w);
+new Function('window', fs.readFileSync('data/generated/atlas.js', 'utf8'))(w);
 const D = w.ATLAS;
 const pieces = y => D.states[D.years[y - D.start]].map(i => ({ ...D.shapes[i], t: D.territories[D.shapes[i].t] }));
 const has = (id, y) => pieces(y).some(s => s.t.id === id);

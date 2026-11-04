@@ -1,0 +1,6 @@
+{
+  "colonial": { "file": "data/features/colonial/colonial-stages.json", "collections": ["groups", "phases", "spots", "statehood"] },
+  "growth": { "file": "data/features/growth/medieval-growth.json", "collections": ["phases", "spots", "routes"] },
+  "postPala": { "file": "data/features/kamarupa/kamarupa-after-palas.json", "collections": ["episodes", "spots"] },
+  "sankardeva": { "file": "data/features/sankardeva/sankardeva-routes.json", "collections": ["points", "routes"] }
+}

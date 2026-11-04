@@ -1,0 +1,423 @@
+{
+  "colonial": {
+    "gait": {
+      "title": "Gait, A History of Assam, pp. 286–314",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/A_History_of_Assam_by_E._A._Gait.pdf",
+      "verification": "Local full-text passages read: Matak agreements and survival, Purandar restoration, 1838 removal, 1839 direct management, 1842 proclamation and hill expansion. Colonial narrative; its evaluative language is not adopted."
+    },
+    "yandabo": {
+      "title": "Yandabo, Article 2",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Treaty_of_Yandabo.pdf",
+      "verification": "Treaty transcription checked; renunciation and recognition are distinct from surveyed annexation boundaries."
+    },
+    "matak": {
+      "title": "Tinsukia Census Handbook: Matak",
+      "url": "https://censusindia.gov.in/nada/index.php/catalog/244/download/626/DH_2011_1810_PART_A_DCHB_TINSUKIA.pdf",
+      "verification": "Indexed passage checked for succession and direct annexation in 1839."
+    },
+    "khasi": {
+      "title": "Khasi Hills Council: historical background",
+      "url": "https://khadc.nic.in/archive/historical_background.html",
+      "verification": "Page read; distinguishes local states and ceded station sites from blanket annexation."
+    },
+    "garo": {
+      "title": "Meghalaya government: Garo Hills history",
+      "url": "https://meghalaya.gov.in/index.php/node/34290",
+      "verification": "Official historical overview gives 1873 annexation; read with Gait’s 1869 district and 1872–1873 campaign sequence."
+    },
+    "mizo": {
+      "title": "Mizoram Land Revenue: 1895 / 1898",
+      "url": "https://eram.mizoram.gov.in/pages/about-us",
+      "verification": "Page read; proclamation 6 September 1895 (Gazette 7 September), district under Assam 1 April 1898, UT/statehood dates."
+    },
+    "lunglei": {
+      "title": "Lunglei: 1889 post and 1891 administration",
+      "url": "https://lunglei.nic.in/history/",
+      "verification": "Full official page read."
+    },
+    "manipur": {
+      "title": "IGNCA: Manipur",
+      "url": "https://ignca.gov.in/divisionss/janapada-sampada/northeastern-regional-centre/introduction-manipur/",
+      "verification": "Official indexed statement confirms princely-state relationship after 1891."
+    },
+    "merger": {
+      "title": "MPSC: 1949 central administration",
+      "url": "https://mpscmanipur.gov.in/historical-perspective.html",
+      "verification": "Official indexed history checked for merger effective 15 October 1949."
+    },
+    "kabaw": {
+      "title": "NEHU: Manipur treaty collection",
+      "url": "https://dspace.nehu.ac.in/items/72a2d767-d1e8-4cf0-8163-638bdb27f3d3",
+      "verification": "Catalogue read: identifies separate 1834 boundary and compensation agreements. Exact Kabaw geometry and agreement clauses are not reconstructed here."
+    },
+    "province": {
+      "title": "British Library: Assam administration reports",
+      "url": "https://searcharchives.bl.uk/catalog/037-000121754",
+      "verification": "Catalogue administrative history read for 1874, 1905 and 1912."
+    },
+    "bengal1905": {
+      "title": "Hansard, 8 August 1905: transferred divisions",
+      "url": "https://hansard.parliament.uk/commons/1905-08-08/debates/664f2c49-bab4-47e5-9a36-6cc18db836d4/ProposedPartitionOfBengal",
+      "verification": "Contemporary official reply checked: Dacca and Chittagong divisions; Rajshahi except Darjeeling; Malda."
+    },
+    "naga": {
+      "title": "Nagaland Census 1971: district / NHTA",
+      "url": "https://censusindia.gov.in/nada/index.php/catalog/30432/download/33613/46794_1971_GPT.pdf",
+      "verification": "Indexed historical account checked for 1866 and 1957."
+    },
+    "nagastate": {
+      "title": "Nagaland Information Commission: statehood",
+      "url": "https://nlsic.nagaland.gov.in/index.php/2020/02/27/nagaland-legislative-assembly/",
+      "verification": "Official account checked for 1 December 1963."
+    },
+    "arunachal": {
+      "title": "APPSC: frontier / constitutional history",
+      "url": "https://appsc.gov.in/Index/history",
+      "verification": "Official history checked; separates central responsibility, Governor’s role and UT/statehood."
+    },
+    "meghalaya": {
+      "title": "Meghalaya: autonomy and statehood",
+      "url": "https://meghalaya.gov.in/index.php/about",
+      "verification": "Official account checked: 2 April 1970 and 21 January 1972."
+    },
+    "reorganisation": {
+      "title": "India Code: 1971 Reorganisation Act",
+      "url": "https://www.indiacode.nic.in/indiacode/handle/123456789/1534?view_type=browse",
+      "verification": "Official act title and enforcement date checked; effective 21 January 1972."
+    },
+    "partition": {
+      "title": "MEA: Sylhet award records",
+      "url": "https://www.mea.gov.in/Images/pdf/India-Pakistan-std.pdf",
+      "verification": "Indexed award/interpretation entries identified. Modern Sylhet division remains a qualified proxy; award geometry not reconstructed."
+    },
+    "cachar": {
+      "title": "Census reconstruction: Cachar / Tularam",
+      "url": "https://censusindia.gov.in/nada/index.php/catalog/31760/download/34941/41060_1961_REP.pdf",
+      "verification": "Indexed passages checked for 1834 arrangement, 1854 territory and Matak survival."
+    },
+    "jaintia": {
+      "title": "Meghalaya historical administrative records",
+      "url": "https://meglaw.gov.in/archive/Sl_No_36.pdf",
+      "verification": "Indexed passage checked for orders dated 30 March 1835."
+    },
+    "tripura": {
+      "title": "Tripura government: historical overview",
+      "url": "https://sepahijala.nic.in/history/",
+      "verification": "Official indexed history checked for separate princely state and 1949/1956 integration sequence."
+    },
+    "state1987": {
+      "title": "Mizoram / Arunachal statehood, 20 February 1987",
+      "url": "https://rajbhavan.mizoram.gov.in/raj-bhavan-mizoram-hosts-a-celebration-of-the-foundation-day-of-mizoram-and-arunachal-pradesh/",
+      "verification": "Official account checked for statehood date; 1972 effective date follows the Reorganisation Act."
+    },
+    "tripura-ncert": {
+      "title": "NCERT: Tripura protectorate, 1809",
+      "url": "https://n20.ncert.org.in/pdf/publication/otherpublications/tinei101.pdf",
+      "verification": "Search-indexed NCERT passage checked: earlier British intervention, protectorate in 1809, recognition in 1838, and 1905 supervision. Full PDF fetch returned 502; the exact protectorate instrument was not inspected."
+    },
+    "tripura-north": {
+      "title": "North Tripura: Political Agent, accession and merger",
+      "url": "https://northtripura.nic.in/history/",
+      "verification": "Official full page read: agent in 1871; accession 13 August 1947; merger agreement 9 September 1949; administration transferred 15 October. The compressed 1761 statement is not used to annex all modern Tripura."
+    },
+    "manipur-police": {
+      "title": "Manipur Police: 1891 and 1949 administration",
+      "url": "https://manipurpolice.gov.in/?page_id=4",
+      "verification": "Official indexed passages checked: takeover on 27 April 1891, end of paramountcy in 1947 and integration in October 1949."
+    },
+    "manipur-accession": {
+      "title": "Lok Sabha, 7 August 2024: Manipur accession date",
+      "url": "https://eparlib.sansad.in/bitstream/123456789/2981289/1/lsd_18_II_07-08-2024.pdf",
+      "verification": "Indexed parliamentary speech checked, printed p. 723: 11 August 1947 instrument and defence subject. The speech corroborates the date; it is not a facsimile of the instrument."
+    },
+    "manipur-whitepaper": {
+      "title": "1950 White Paper: Manipur merger, Article I",
+      "url": "https://en.wikisource.org/wiki/White_Paper_on_Indian_States_(1950)/Part_5/Centrally_Merged_States/Manipur",
+      "verification": "Government White Paper transcription read: agreement signed 21 September 1949; transfer of administration 15 October 1949. Signature and effective date are distinct."
+    },
+    "tripura-whitepaper": {
+      "title": "1950 White Paper: Tripura merger, Article I",
+      "url": "https://en.wikisource.org/wiki/White_Paper_on_Indian_States_(1950)/Part_5/Centrally_Merged_States/Tripura",
+      "verification": "Government White Paper transcription read: agreement signed 9 September 1949; transfer of administration 15 October 1949."
+    },
+    "paramountcy-debate": {
+      "title": "Hansard, 22 June 1891: Manipur political relations",
+      "url": "https://api.parliament.uk/historic-hansard/lords/1891/jun/22/manipur",
+      "verification": "Contemporary official debate checked for recognition in 1826 and British claims of suzerainty. Distinguishes earlier political relations from the 1891 military settlement."
+    },
+    "constitution-original": {
+      "title": "Constitution of India: original First Schedule",
+      "url": "https://legislative.gov.in/constitution-of-india/",
+      "verification": "Constitutional classification: Manipur and Tripura are Part C states under the Constitution from 26 January 1950; distinct from the 1949 transfer of administration."
+    },
+    "nhta-act": {
+      "title": "1957 Naga Hills–Tuensang Area Act, section 2",
+      "url": "https://www.indiacode.nic.in/bitstream/123456789/1417/3/a1957-42.pdf",
+      "verification": "Official indexed statutory text checked: new administrative unit IN the State of Assam, effective 1 December 1957. This is not full separation from Assam."
+    },
+    "nagaland-act": {
+      "title": "1962 State of Nagaland Act, section 3",
+      "url": "https://www.indiacode.nic.in/bitstream/123456789/1384/1/196227.pdf",
+      "verification": "Official indexed section 3 read: on the appointed day, NHTA ceases to form part of Assam. Statehood appointed day corroborated by Nagaland government: 1 December 1963."
+    },
+    "mizo-state-act": {
+      "title": "State of Mizoram Act, appointed day",
+      "url": "https://www.indiacode.nic.in/bitstream/123456789/1869/1/198634.pdf",
+      "verification": "Official indexed act commencement note checked: 20 February 1987; the Act was enacted in 1986."
+    },
+    "arunachal-state-act": {
+      "title": "State of Arunachal Pradesh Act, 1986",
+      "url": "https://www.indiacode.nic.in/bitstream/123456789/1878/1/198669.pdf",
+      "verification": "Official Act and APPSC history identify Union Territory to state transition; appointed day corroborated as 20 February 1987."
+    },
+    "meghalaya-autonomy": {
+      "title": "1971 Census: Meghalaya autonomy and statehood",
+      "url": "https://censusindia.gov.in/nada/index.php/catalog/30689/download/33870/47363_1971_GEN.pdf",
+      "verification": "Official indexed jurisdiction passage read: autonomous state within Assam 2 April 1970; full state 21 January 1972, with Shillong exceptions."
+    },
+    "sikkim-treaty": {
+      "title": "Lok Sabha, 1 April 1970: Sikkim protectorate treaty",
+      "url": "https://eparlib.sansad.in/bitstream/123456789/2090328/1/04_X_01-04-1970_p64_p64_u4751.pdf",
+      "verification": "Indexed official answer checked: Sikkim is a protectorate of India; treaty signed 5 December 1950. Protectorate is not full Indian statehood."
+    },
+    "sikkim-state": {
+      "title": "PIB / Sikkim government: Statehood Day, 16 May 1975",
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1924577&lang=2&reg=48",
+      "verification": "Official indexed statehood account checked: former kingdom became India’s 22nd state on 16 May 1975. Date used is the officially celebrated statehood/admission date; not a referendum or legislative-passage date."
+    },
+    "constitution-statehood": {
+      "title": "Constitution of India: commencement and First Schedule",
+      "url": "https://legislative.gov.in/constitution-of-india/",
+      "verification": "Assam is a constitutional state from 26 January 1950, continuing the earlier province. Manipur/Tripura Part C and later UT/statehood transitions are distinct."
+    },
+    "ut-1956": {
+      "title": "Manipur Public Service Commission: central administration / UT",
+      "url": "https://mpscmanipur.gov.in/historical-perspective.html",
+      "verification": "Official institutional history checked for central administration through 31 October 1956; Union Territory phase begins 1 November 1956. Read with the constitutional reorganisation of Part C states."
+    },
+    "sikkim-government": {
+      "title": "Government of Sikkim: 50 years of statehood",
+      "url": "https://50yearsofstatehood.sikkim.gov.in/",
+      "verification": "Official statehood site checked for separate kingdom and admission as the 22nd state in 1975."
+    }
+  },
+  "growth": {
+    "gait": {
+      "title": "Gait (1906), A History of Assam, chs. III–V",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/A_History_of_Assam_by_E._A._Gait.pdf",
+      "verification": "Full public-domain text read; especially pp. 74–76, 84–90. Chronicle synthesis; colonial interpretations require caution."
+    },
+    "gu": {
+      "title": "Gauhati University, History of Assam 1228–1826, Unit 2",
+      "url": "https://gucdoe.in/sites/default/files/206%20HISTORY%20OF%20ASSAM%281228-1826%29.pdf",
+      "verification": "Search-indexed passages verified; direct PDF currently returns 404. Conventional migration chronology and consolidation."
+    },
+    "ignou": {
+      "title": "IGNOU, Unit 11: State Formation in the Northeast",
+      "url": "https://egyankosh.ac.in/bitstream/123456789/84180/3/Unit-11.pdf",
+      "verification": "Search-indexed passage verified: Suteuphaa and the Namdang frontier; download unavailable."
+    },
+    "nbu": {
+      "title": "NBU research, State in the Making: the Kamata-Koches, pp. 57–58, 68",
+      "url": "https://ir.nbu.ac.in/bitstreams/15fe8ad7-cbf9-4fa3-b50a-0e05c40ae1a8/download",
+      "verification": "Full chapter downloaded/read. Research synthesis with references; early reigns and local traditions remain approximate."
+    },
+    "neog": {
+      "title": "Neog (1977), epigraphic study, pp. 813–820",
+      "url": "https://www.jstor.org/stable/41691751",
+      "verification": "Bibliographic record and quoted inscription readings cross-checked through secondary citations; full article inaccessible in this session. Not a claim of direct plate inspection."
+    },
+    "landgrants": {
+      "title": "NBU epigraphic research, land measures, p.177",
+      "url": "https://ir.nbu.ac.in/server/api/core/bitstreams/dd3842dd-f379-4933-8bec-f7b995e5fe62/content",
+      "verification": "Indexed research passage independently verifies the 1392 Dhenukhana and 1401 Ghilamara grants."
+    },
+    "gazetteer": {
+      "title": "Arunachal Pradesh State Gazetteer: Tamreswari inscription",
+      "url": "https://arunachalpradesh.gov.in/images/Gazetteer/state-gazetteer.pdf",
+      "verification": "Official gazetteer indexed inscription account: Mukta-dharmanarayana, Saka 1364/1442, temple enclosure wall."
+    },
+    "shin": {
+      "title": "Shin (2020), Chutiya and Dimasa genealogical claims",
+      "url": "https://journals.sagepub.com/doi/10.1177/0019464619894134",
+      "verification": "Publisher record and scholarly quotations consulted; full text restricted. Discusses limits of founding genealogies."
+    },
+    "nagaon": {
+      "title": "Census of India, Nagaon District Handbook, history",
+      "url": "https://censusindia.gov.in/nada/index.php/catalog/237/download/598/DH_2011_1806_PART_B_DCHB_NAGAON.pdf",
+      "verification": "Official indexed passage: Sankardeva born into a Bhuyan family at Bardowa, 1449; local legends are not treated as dated conquests."
+    },
+    "unesco": {
+      "title": "UNESCO: Charaideo and the Tai-Ahom first capital",
+      "url": "https://whc.unesco.org/en/list/1711/",
+      "verification": "Official description read: 13th-century migration and Charaideo first capital; does not independently specify every stop/date."
+    },
+    "migration-report": {
+      "title": "SITA Assam report, India–Southeast Asia connections, p.191",
+      "url": "https://sita.assam.gov.in/sites/default/files/swf_utility_folder/departments/sita_medhassu_in_oid_4/portlet/level_1/files/final_report-north_east_indias_connection_with_south_east_asia_the_historical_and_civilizational_link.pdf",
+      "verification": "Indexed official report passage checked: Mong Mao, Hukawng, Patkai–Hukawng–Mogaung corridor. Direct download returned 404 in this session; it supports the broad corridor, not a surveyed track."
+    },
+    "migration-phukan": {
+      "title": "Comprehensive History of Assam II, Tai-Ahom chapter: migration itinerary",
+      "url": "https://www.scribd.com/document/914496064/The-Comprehensive-History-of-Assam-2-H-K-Barpujari-Editor-2-2-2003-Publication-Board-Assam-Fb354ba6bb80809dc5c1275e48f7bb6f-Anna-s",
+      "verification": "Search-indexed book passage checked: 1215 Mong Mao departure; Wieng Maw opposite Myitkyina, Irrawaddy crossing, Soi-Ke, Mogaung, Nong Yang and Khamjang. Full volume not obtained; old muang identifications and detailed track remain unresolved."
+    },
+    "migration-tai": {
+      "title": "Indian Journal of Tai Studies (2018): migration accounts",
+      "url": "https://taistudiesmoranhat.org/webdocs/Indian%20Journal%20of%20Tai%20Studies2018PDF/Indian%20Journal%20of%20Tai%20Studies%202018%20Final1.pdf",
+      "verification": "Indexed journal passage checked: Mong Mao 1215, Upper Myanmar/Hukawng and Patkai. It proposes Wing Men may be Bhamo, differing from the Wieng Maw/Myitkyina identification; download returned 403. Bhamo is not pinned as an established Sukaphaa stop."
+    },
+    "migration-nath": {
+      "title": "Nath & Tripathi (2024), Ancient Asia 15, p.84",
+      "url": "https://www.arfjournals.com/image/catalog/Journals%20Papers/AAJ/2024/4_Sauradeep.pdf",
+      "verification": "Open research article read: migration background places departure in 1215 and passage through Mong-Kwang and Patkai. It does not establish every bend or camp; its research focus is weapons."
+    },
+    "migration-coordinates": {
+      "title": "GeoNames / modern locality references for Upper Myanmar",
+      "url": "https://www.geonames.org/1307741/myitkyina.html",
+      "verification": "Modern geographic placement only. Myitkyina/Waingmaw and Mogaung points cross-checked against current locality catalogues; coordinates do not establish medieval camp locations."
+    },
+    "koch-foundation": {
+      "title": "University of North Bengal, Koch foundation research, printed pp.58–62",
+      "url": "https://ir.nbu.ac.in/server/api/core/bitstreams/a6791edc-d3e6-49d0-a83d-2ab4dc27f98d/content",
+      "verification": "PDF text read, especially pp.58–62. Small inherited chiefdom, sequential campaigns, c.1515–1527 alternative chronology, capital traditions and mature borders; no year-specific intermediate boundary maps."
+    },
+    "koch-campaigns": {
+      "title": "University of North Bengal, Naranarayan and state formation, chapter II",
+      "url": "https://ir.nbu.ac.in/server/api/core/bitstreams/4761b814-9600-4b41-8532-358adf761c63/content",
+      "verification": "Indexed excerpts checked; direct download timed out. Distinguishes tribute from annexation and discusses eastern wars and reverses."
+    },
+    "koch-acharyya": {
+      "title": "N. N. Acharyya, History of Medieval Assam (1966), Koch chapter, p.189 onward",
+      "url": "https://pahar.in/pahar/Books%20and%20Articles/Indian%20Subcontinent/1966%20The%20History%20of%20Medieval%20Assam%20from%20the%2013th%20to%20the%2017th%20century%20by%20Acharya%20s.pdf",
+      "verification": "Indexed p.189 checked: Chikna/Khuntaghat and successive neighbouring-chief campaigns. Direct download returned 403."
+    },
+    "kachari-campaigns": {
+      "title": "Acharyya, History of Medieval Assam, Kachari chapter, pp.219 onward",
+      "url": "https://pahar.in/pahar/Books%20and%20Articles/Indian%20Subcontinent/1966%20The%20History%20of%20Medieval%20Assam%20from%20the%2013th%20to%20the%2017th%20century%20by%20Acharya%20s.pdf",
+      "verification": "Indexed text checked: December 1526 Dhansiri campaign and 1531 Marangi fighting; full direct scan remains inaccessible. 1532 is retained only as an approximate settled-map stage, not the first clash."
+    },
+    "majuli-treaty": {
+      "title": "Treaty of Majuli: Nath (1989), p.58; Sarkar (1992), p.80, as cited in the treaty summary",
+      "url": "https://en.wikipedia.org/wiki/Treaty_of_Majuli",
+      "verification": "User-supplied treaty summary read: north-bank cession west of Subansiri, Koch overlordship, hostages and indemnity. Bibliographic citations identified; original book pages were not directly inspected in this revision."
+    },
+    "mughal-bengal-karim": {
+      "title": "Abdul Karim, Banglapedia: Islam Khan Chisti",
+      "url": "https://en.banglapedia.org/index.php/Islam_Khan_Chisti",
+      "verification": "Article read: uneven earlier control, Dhaka in 1610, Bhati submissions in 1611, remaining Afghan/Sylhet resistance, and Kamrup campaign."
+    },
+    "mughal-east-eaton": {
+      "title": "Richard M. Eaton (1993), The Rise of Mughal Power",
+      "url": "https://publishing.cdlib.org/ucpressebooks/public/book/the-rise-of-islam-and-the-bengal-frontier-1204-1760.html",
+      "verification": "Publisher-hosted study read, especially the conquest and resistance passages: Dhubri siege, Parikshit, 1613 administration, and 1614–1615 revolts. It sometimes uses Kuch Bihar broadly; those passages do not justify painting the separate western successor state as directly annexed."
+    },
+    "mughal-kamrup-nbu": {
+      "title": "University of North Bengal, western Assam formation, pp.94–96",
+      "url": "https://ir.nbu.ac.in/bitstreams/83784646-b244-41b6-bd40-f5095c135918/download",
+      "verification": "PDF text read: eastern Koch core Sankosh–Barnadi and 1613 conquest. Source date differences are retained as a 1612–1613 campaign window."
+    },
+    "mughal-chittagong": {
+      "title": "Jadunath Sarkar, History of Aurangzib III, Chittagong campaign",
+      "url": "https://library.bjp.org/jspui/bitstream/123456789/678/1/History%20Aurangzib%20Vol-%203.pdf",
+      "verification": "Indexed campaign passage checked: capture of Chittagong in January 1666. Full volume not downloaded in this revision."
+    },
+    "mughal-rajmahal": {
+      "title": "V. A. Smith, Akbar the Great Mogul, Rajmahal campaign",
+      "url": "https://tile.loc.gov/storage-services/service/gdc/gdclccn/18/00/26/77/18002677/18002677.pdf",
+      "verification": "Indexed p.145 checked: Rajmahal, July 1576, and Daud’s defeat. Formal victory is not treated as immediate control of the eastern delta."
+    },
+    "ahom-gait-frontiers": {
+      "title": "Gait (1906), History of Assam, pp.104–116, 125–129, 146–148, 160–161",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/A_History_of_Assam_by_E._A._Gait.pdf",
+      "verification": "Public-domain PDF downloaded and relevant text read directly: Samdhara/tributary Darrang, November 1617 Pandu advance and failed Hajo attack, late-1630s campaigns and reverses, separate 1639 banks, 1658-context Guwahati capture, 1662 occupation, 1667 recovery and final 1682 settlement. Colonial synthesis is cross-checked; not all dates or channels are surveyed certainties."
+    },
+    "ahom-guwahati-variants": {
+      "title": "Netaji Subhas Open University, Indian history study material: Guwahati/Kamrup chronology",
+      "url": "https://www.wbnsou.ac.in/online_services/SLM_UGC_DEB/UG/SOSS/HHI/1st%20Year/GE-HI-21.pdf",
+      "verification": "Indexed passage checked: March 1659 Guwahati and March 1660 wider Kamrup. These variants qualify the 1658 annual display anchor."
+    },
+    "ahom-1667-kamrup": {
+      "title": "Kamrup district administration: Alaboi and Saraighat",
+      "url": "https://kamrup.assam.gov.in/index.php/about-us/battle-alaboi-and-saraighat",
+      "verification": "Official account checked: Lachit’s Guwahati recovery in 1667, followed by the later imperial counter-expedition."
+    }
+  },
+  "postPala": {
+    "kamauli": {
+      "title": "Venis, Kamauli grant, EI II pp.347–358",
+      "url": "https://jainqq.org/pagetext/Epigraphia_Indica_Vol_02/032556/407",
+      "note": "Regnal year 4; CE conversions include 1123 and 1142. Original editor favoured 1142; appointment sequence firmer than absolute chronology."
+    },
+    "vallabha": {
+      "title": "Kielhorn, Assam plates of Vallabhadeva, EI V pp.181–188",
+      "url": "https://jainqq.org/booktext/Epigraphia_Indica_Vol_05/032559",
+      "note": "Saka 1107, conventionally 1185; editor allows 1184/1185. Genealogy is not a dated reign list; father gives the command for the donation."
+    },
+    "kanai": {
+      "title": "IGNCA, Assam Rock Art Report 2015, Kanai Barasi",
+      "url": "https://ignca.gov.in/rockart_2015/Rockart_AssamReport2015.pdf",
+      "note": "1206 inscription locality; no securely named defender in the inscription."
+    },
+    "bakhtiyar": {
+      "title": "Banglapedia, Bakhtiyar Khalji",
+      "url": "https://en.banglapedia.org/index.php/Bakhtiyar_Khalji",
+      "note": "Disastrous Tibet expedition and return in 1206; no exact local battle route inferred."
+    },
+    "iwaz": {
+      "title": "Banglapedia, Iwaz Khalji",
+      "url": "https://en.banglapedia.org/index.php?title=Iwaz_Khalji",
+      "note": "Campaign and tribute context; Iwaz ruled 1212–1227, so do not date his death to 1228."
+    },
+    "gachtal": {
+      "title": "Assam Directorate of Archaeology, Gachtal site",
+      "url": "https://archaeology.assam.gov.in/information-services/detail/list-of-protected-archaeological-sites-and-monuments",
+      "note": "Official inventory confirms a 13th-century inscription; precise 1227 reading and Visvasundara identification taken from scholarship, not independently re-collated."
+    },
+    "gachtal-study": {
+      "title": "Madan-Kamdev historical study, chapter 2 p.50",
+      "url": "https://www.wisdomlib.org/uploads/ocr/essays/madan/11-chapter-2.pdf",
+      "note": "Discusses Gachtal Saka 1149/1227, Visvasundara, restoration and proposed Prithu identification."
+    },
+    "ambari-location": {
+      "title": "ASI Guwahati Circle, Ambari excavation",
+      "url": "https://www.asiguwahaticircle.gov.in/excavation8.html",
+      "note": "Official coordinates 26°11′8″N,91°45′21″E; archaeological locality, not the located Yogihati establishment."
+    },
+    "ambari-date": {
+      "title": "Anima Dutta, Political Geography of Pragjyotisa-Kamarupa p.143",
+      "url": "https://mncbm.digitallibrary.co.in/bitstream/123456789/23/1/Anima%20Dutta.pdf",
+      "note": "Ambari inscription, Saka 1154/1232, Samudrapala. A Pala-suffix does not prove descent from Jayapala."
+    },
+    "prithu": {
+      "title": "N.K. Bhattasali, New Lights on the History of Assam (1946)",
+      "url": "https://aryanculture.org/records/2863",
+      "note": "Prithu identification debated; consulted catalogue summary and contrasted scholarship; full primary text not freshly collated."
+    },
+    "sandhya": {
+      "title": "N.N. Acharyya, History of Medieval Assam (1966)",
+      "url": "https://pahar.in/pahar/Books%20and%20Articles/Indian%20Subcontinent/1966%20The%20History%20of%20Medieval%20Assam%20from%20the%2013th%20to%20the%2017th%20century%20by%20Acharya%20s.pdf",
+      "note": "Medieval transition context; compare Sarkar 1992 pp.39–41: Sandhya c.1250–1270, capital move not exactly dated."
+    },
+    "sandhya-dating": {
+      "title": "North Bengal University historical-geography thesis, chapter 1",
+      "url": "https://ir.nbu.ac.in/bitstream/123456789/1502/5/05_chapter_01.pdf",
+      "note": "Discusses the capital shift around 1260; older campaign dates differ. Do not make 1257 the certain moving day."
+    },
+    "rajpat": {
+      "title": "ASI Kolkata, Rajpat excavation report, Site Location",
+      "url": "https://www.asikolkata.in/Publications_files/excavation_rajpat-98-2k.pdf",
+      "note": "Rajpat at 26°09′N,89°21′12″E. Archaeological identification does not date Sandhya’s move."
+    },
+    "kanai-gps": {
+      "title": "Ancient Asia 15 (2024), petroglyph locality table",
+      "url": "https://ancient-asia-journal.com/upload/1/volume/Vol.%2015%20%282024%29/PDF/3_Jiangampou.pdf",
+      "note": "Kanai Boroshi Bowa 26°12′36.5″N,91°44′31.4″E. Rock-art site coordinate; not exact battle location."
+    }
+  },
+  "sankardeva": [
+    "https://barpetasatra.org/about-srimanta-sankardeva/srimanta-sankardev/",
+    "https://bordowathan.co.in/about-sankardev.php",
+    "https://ir.nbu.ac.in/server/api/core/bitstreams/62cbea07-e5b2-4f22-af24-853b820a4749/content"
+  ]
+}

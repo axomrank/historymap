@@ -2,7 +2,7 @@
 
 Research date: 4 November 2026. Scope: Kāmarūpa’s origins, expansion, western and southern connections, opposing campaigns, and the three attached teaching charts. The current map’s data and renderer were also inspected. Later Assam history is listed as a further research programme, not represented as already verified.
 
-**Subsequent map decisions:** The adopted Sankosh–Teesta/Karatoya Ratnapitha sector represents Paundravardhana in the ancient map, through [14 explicit phases ending in 1099](../../data/paundravardhana-map-phases.csv). A [separate post-Pala research revision](../kamarupa-after-palas-2026-11-04/README.md) now covers 1100–1270 without pitha divisions. These map decisions do not change the evidentiary assessments below. The correction backlog records the initial audit; the regional integration, camp caption correction and separation of campaign reach from owned-area calculations have since been implemented.
+**Subsequent map decisions:** The adopted Sankosh–Teesta/Karatoya Ratnapitha sector represents Paundravardhana in the ancient map, through [14 explicit phases ending in 1099](../../data/features/kamarupa/paundravardhana-map-phases.csv). A [separate post-Pala research revision](../kamarupa-after-palas-2026-11-04/README.md) now covers 1100–1270 without pitha divisions. These map decisions do not change the evidentiary assessments below. The correction backlog records the initial audit; the regional integration, camp caption correction and separation of campaign reach from owned-area calculations have since been implemented.
 
 The most defensible map will show **where authority is attested, what kind of authority it was, and how uncertain its date and extent are**. An inscription’s discovery site, the land it grants, its issuing camp, a royal victory, a marriage, and a permanent annexation must have different meanings on the map.
 
@@ -10,7 +10,7 @@ The most defensible map will show **where authority is attested, what kind of au
 
 | File | Contents |
 |---|---|
-| [kamarupa-events-researched.csv](../../data/kamarupa-events-researched.csv) | 39 records, including proposed gains, defeats, recoveries, grants, campaigns and open questions |
+| [kamarupa-events-researched.csv](../../data/research/kamarupa-events-researched.csv) | 39 records, including proposed gains, defeats, recoveries, grants, campaigns and open questions |
 | [sources.csv](sources.csv) | 32 sources, page/passage locators, access status and limitations |
 | [historical-places.csv](historical-places.csv) | 30 places, regions and river identifications; coordinates supplied only where newly checked |
 | [attachment-claim-audit.csv](attachment-claim-audit.csv) | 34 checks on the photographs and related recovery claim |

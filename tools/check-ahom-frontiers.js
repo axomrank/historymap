@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const pc=require('./lib/polygon-clipping.umd.min.js');
-const w={};new Function('window',fs.readFileSync('data/atlas.js','utf8'))(w);const D=w.ATLAS;
+const w={};new Function('window',fs.readFileSync('data/generated/atlas.js','utf8'))(w);const D=w.ATLAS;
 const xy=([lat,lon])=>[+((lon-D.proj.lon0)/(D.proj.lon1-D.proj.lon0)*D.W).toFixed(1),+((D.proj.lat1-lat)/(D.proj.lat1-D.proj.lat0)*D.H).toFixed(1)];
 function signed(r){return r.slice(1).reduce((s,p,i)=>s+r[i][0]*p[1]-p[0]*r[i][1],0)/2;}
 function polygons(d){

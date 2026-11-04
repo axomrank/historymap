@@ -1,0 +1,6 @@
+{
+  "polities": {"file":"data/source/polities.csv", "required":["id","name","color","lane"], "unique":"id", "numbers":["lane"]},
+  "territories": {"file":"data/source/territories.csv", "required":["id","polity","start","end","shape","z","style","confidence"], "unique":"id", "numbers":["start","end","z"], "references":{"polity":"polities"}, "enums":{"style":["core","reach","legend","context","protected"],"confidence":["high","medium","low"]}},
+  "events": {"file":"data/source/events.csv", "required":["year","title","text"], "numbers":["year"], "references":{"polity":"polities"}},
+  "places": {"file":"data/source/extra-places.csv", "required":["id","name","lat","lon"], "unique":"id", "numbers":["lat","lon"]}
+}

@@ -1,8 +1,10 @@
 /* Sankardeva's journeys: the same route model as the main historical atlas. */
 Promise.all([
-  fetch('data/sankardeva-routes.json?v=5').then(r => { if (!r.ok) throw new Error('Route data unavailable'); return r.json(); }),
-  fetch('data/pilgrimage-countries.json').then(r => { if (!r.ok) throw new Error('Map outlines unavailable'); return r.json(); })
-]).then(([D, countries]) => {
+  fetch('data/features/sankardeva/sankardeva-routes.json?v=5').then(r => { if (!r.ok) throw new Error('Route data unavailable'); return r.json(); }),
+  fetch('data/source/sources.json').then(r => { if (!r.ok) throw new Error('Sources unavailable'); return r.json(); }),
+  fetch('data/maps/pilgrimage-countries.json').then(r => { if (!r.ok) throw new Error('Map outlines unavailable'); return r.json(); })
+]).then(([records, sources, countries]) => {
+  const D = AtlasDatasets.hydrate(records, sources);
   const $ = id => document.getElementById(id);
   const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const clamp = v => Math.max(1449, Math.min(1568, Math.round(Number(v) || 1449)));

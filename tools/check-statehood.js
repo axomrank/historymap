@@ -2,7 +2,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const w = {};
-new Function('window',fs.readFileSync('data/atlas.js','utf8'))(w);
+new Function('window',fs.readFileSync('data/generated/atlas.js','utf8'))(w);
 const D = w.ATLAS;
 const expected = {
   'assam-state':['1950-01-26',null],

@@ -1,0 +1,22 @@
+// Contracts that protect contributors from malformed input and broken shared links.
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const vm = require('node:vm');
+const { parseCSV } = require('./lib/csv');
+const { hydrate } = require('../app/core/datasets');
+assert.deepEqual(parseCSV('\uFEFFid,text\r\na,"first, second\nwith ""quotes"""\r\n', { strict: true }), [{ id: 'a', text: 'first, second\nwith "quotes"' }]);
+for (const text of ['id,id\na,b\n', 'id,text\na,b,c\n', 'id,text\na\n', 'id,text\na,"unfinished', 'id,text\n', 'id,text\na,b\"c\n', 'id,text\na,\"b\"trailing\n']) assert.throws(() => parseCSV(text, { strict: true }));
+assert.throws(() => hydrate({ sourceSet: 'missing' }, {}), /Unknown source set/);
+const ctx = { window: {}, URLSearchParams };
+vm.runInNewContext(fs.readFileSync('app/core/navigation.js', 'utf8'), ctx);
+const nav = ctx.window.createAtlasNavigation({ start: 350, end: 2026, polities: [{ id: 'ahom' }, { id: 'nagaland' }], colonial: { groups: [{ id: 'statehood' }] } });
+assert.equal(nav.read('#y=9999&k=ne-states&c=statehood&m=affiliation').year, 2026);
+assert.equal(nav.read('#k=ne-states').sel, 1);
+assert.equal(nav.read('#y=abc&k=unknown&c=bad', 1671).year, 1671);
+assert.equal(nav.read('#c=bad').colonialGroup, '');
+const link = '#y=1671&k=ahom&c=statehood&m=affiliation';
+assert.equal(nav.hash(nav.read(link)), link);
+const D = {}; new Function('window', fs.readFileSync('data/generated/atlas.js', 'utf8'))(D);
+assert.equal(D.ATLAS.eras[0][0], D.ATLAS.start);
+assert.equal(D.ATLAS.eras.at(-1)[1], D.ATLAS.end);
+console.log('PASS: strict CSV, citation hydration, shared-link compatibility, year bounds and configured era coverage.');

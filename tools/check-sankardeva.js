@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const { at } = require('../app/sankardeva-journey');
-const d = require('../data/sankardeva-routes.json');
+const d = require('../app/core/datasets').hydrate(require('../data/features/sankardeva/sankardeva-routes.json'), require('../data/source/sources.json'));
 const find = n => d.points.find(p => p.name.startsWith(n));
 assert.equal(new Set(d.points.map(p => p.id)).size, d.points.length);
 for (const r of d.routes) {
@@ -28,6 +28,6 @@ assert(at(d,1551).points.includes(find('Puri (')));
 assert.deepEqual(at(d,1568).current.head,[find('Madhupur').lat,find('Madhupur').lon]);
 assert.notDeepEqual([find('Alipukhuri').lat,find('Alipukhuri').lon],[find('Bordowa /').lat,find('Bordowa /').lon]);
 at(d,1568); assert.deepEqual(at(d,1510),at(d,1510)); // Model has no accumulated playback state.
-const w={};new Function('window',fs.readFileSync('data/atlas.js','utf8'))(w);
+const w={};new Function('window',fs.readFileSync('data/generated/atlas.js','utf8'))(w);
 assert.deepEqual(w.ATLAS.sankardeva,d);
 console.log('PASS: all 120 years, progressive routes, pilgrimage windows, supplied waypoints, separate birthplaces, Madhupur endpoint and built atlas parity.');

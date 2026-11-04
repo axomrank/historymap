@@ -28,7 +28,7 @@ The annual atlas shows the position after the named year’s transition. It does
 - **Manipur accession date:** [Lok Sabha proceedings, 7 August 2024, printed p. 723](https://eparlib.sansad.in/bitstream/123456789/2981289/1/lsd_18_II_07-08-2024.pdf) corroborate the 11 August 1947 instrument and the defence subject. This is later parliamentary corroboration; the original instrument facsimile was not inspected for this correction.
 - **Transfers of administration:** the Government of India’s 1950 White Paper reproduces the [Manipur agreement, Article I](https://en.wikisource.org/wiki/White_Paper_on_Indian_States_(1950)/Part_5/Centrally_Merged_States/Manipur) and [Tripura agreement, Article I](https://en.wikisource.org/wiki/White_Paper_on_Indian_States_(1950)/Part_5/Centrally_Merged_States/Tripura). These transcriptions were read and establish the October effective date separately from signature. They document the governmental acts; they do not resolve historical debates over consent or legitimacy.
 
-The authorities and verification notes are also in `data/colonial-stages.json`.
+The authorities and verification notes are also in `data/features/colonial/colonial-stages.json`.
 
 ## Assam and India are separate questions
 

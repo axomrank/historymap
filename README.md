@@ -3,11 +3,26 @@
 One page to explore Assam's history year by year, from 350 CE to today: how each kingdom
 began, grew to its greatest extent and gave way to the next.
 
-Open `index.html` through any static server (the map data is a plain script, so double-clicking
-the file also works in most browsers):
+Open `index.html` through any static server (required for the standalone journey page to fetch its datasets):
 
 ```bash
 python3 -m http.server 8000
+```
+
+## Contributing and editing
+
+Start with [the architecture](docs/architecture.md), [dataset map](data/README.md),
+[data editing guide](docs/data-guide.md), and [feature guide](docs/adding-a-feature.md).
+AI contributors should read [AGENTS.md](AGENTS.md).
+
+Core editable tables live in `data/source/`; the compiled atlas lives in
+`data/generated/atlas.js`. Feature inputs live in `data/features/`, shared citations in `data/source/sources.json`,
+and earlier assets in `data/research/` and `data/legacy/`.
+Node.js 18+ is required for the following commands; no package installation is needed.
+
+```bash
+npm run verify   # validate, rebuild, and run all regression checks
+npm run preview  # open http://localhost:8000
 ```
 
 ## Using it
@@ -24,16 +39,16 @@ python3 -m http.server 8000
 
 ## Data
 
-Edit the CSV files and rebuild with `node tools/build.js`, which writes `data/atlas.js`
+Edit the CSV files and rebuild with `node tools/build.js`, which writes `data/generated/atlas.js`
 (a map for every year 350–2026; identical years share one map).
 
 | File | What it holds |
 |---|---|
-| `data/polities.csv` | Kingdoms and states: name (English and Assamese), colour, timeline lane, capitals by year, how each began and ended |
-| `data/territories.csv` | The land each one held, period by period. `shape` is built from `realm:<id>` (a boundary row of `assam_history.csv`), `limits:W\|E\|N\|S` (rivers, places, lat/lon lines), `land:<districts or states>` or `poly:lat lon;…`, joined by ` + `. Where two overlap, the higher `z` (then the later row) wins. `confidence` and `style` (`core`, `reach`, `legend`) set how it is drawn |
-| `data/events.csv` | Turning points from 350 to 2024 |
-| `data/extra-places.csv` | Places not in `assam_history.csv` (Shillong, Dispur, Dhaka) |
-| `data/assam_history.csv` | The earlier research catalogue: periods, people, places, events and realm boundaries. Rulers and places are read from it |
+| `data/source/polities.csv` | Kingdoms and states: name (English and Assamese), colour, timeline lane, capitals by year, how each began and ended |
+| `data/source/territories.csv` | The land each one held, period by period. `shape` is built from `realm:<id>` (a boundary row of `assam_history.csv`), `limits:W\|E\|N\|S` (rivers, places, lat/lon lines), `land:<districts or states>` or `poly:lat lon;…`, joined by ` + `. Where two overlap, the higher `z` (then the later row) wins. `confidence` and `style` (`core`, `reach`, `legend`) set how it is drawn |
+| `data/source/events.csv` | Turning points from 350 to 2024 |
+| `data/source/extra-places.csv` | Places not in `assam_history.csv` (Shillong, Dispur, Dhaka) |
+| `data/source/assam_history.csv` | The earlier research catalogue: periods, people, places, events and realm boundaries. Rulers and places are read from it |
 | `data/maps/` | Reference geography (see `data/maps/README.md`); `northeast.json` (north-east states and Sylhet division) is made by `tools/make_northeast.py` |
 | other `data/` files | Kamarupa inscription catalogue and reach studies, kept from the earlier atlas |
 
@@ -41,10 +56,10 @@ Borders before the British period are reconstructions from the boundary texts no
 they show roughly where a kingdom held power, not surveyed frontiers.
 
 The [Kamarupa research audit (4 November 2026)](research/kamarupa-2026-11-04/README.md)
-includes a [39-event, source-linked CSV](data/kamarupa-events-researched.csv), an audit of
+includes a [39-event, source-linked CSV](data/research/kamarupa-events-researched.csv), an audit of
 the supplied teaching charts, a historical gazetteer, and proposed map corrections.
 These research records preserve uncertain dates and distinguish campaigns, grants,
-and territorial control. The adopted [Paundravardhana map phases](data/paundravardhana-map-phases.csv)
+and territorial control. The adopted [Paundravardhana map phases](data/features/kamarupa/paundravardhana-map-phases.csv)
 now drive a separate region between the Sankosh and the project's Teesta/Karatoya line.
 This ancient pitha display ends before 1100. The [post-Pala research revision](research/kamarupa-after-palas-2026-11-04/README.md)
 provides a separate 1100–1270 evidence panel, source-linked rulers and events, and
@@ -61,7 +76,7 @@ After rebuilding, run `node tools/check-ratna.js` to verify the regional transit
 
 Click **British expansion & states** to see regional acquisition/status dates on the map. Choose Upper Assam/Matak, Cachar, Khasi–Jaintia–Garo, Naga Hills, Lushai Hills, Manipur, Tripura, frontier tracts, or provincial/state changes. Each region has source-linked stages, previous/next controls and map markers. URLs preserve the region, for example `#y=1833&c=matak`.
 
-The [colonial stage revision](research/colonial-stages-2026-11-04/README.md) separates Matak’s 1805 autonomy, 1833 exclusion from Purandar’s restoration, 1839 direct Company management and the 1842 incorporation proclamation. It adds staged hill expansion, princely Manipur, and 1963/1970/1972/1987 status changes. Dotted regions are qualified geographic contexts; dashed princely outlines are distinct from direct British administration. Annual maps show the position after the named year’s transition. Source-linked phases are in `data/colonial-stages.json`; run `node tools/check-colonial.js` after rebuilding.
+The [colonial stage revision](research/colonial-stages-2026-11-04/README.md) separates Matak’s 1805 autonomy, 1833 exclusion from Purandar’s restoration, 1839 direct Company management and the 1842 incorporation proclamation. It adds staged hill expansion, princely Manipur, and 1963/1970/1972/1987 status changes. Dotted regions are qualified geographic contexts; dashed princely outlines are distinct from direct British administration. Annual maps show the position after the named year’s transition. Source-linked phases are in `data/features/colonial/colonial-stages.json`; run `node tools/check-colonial.js` after rebuilding.
 
 The [Manipur/Tripura affiliation correction](research/colonial-stages-2026-11-04/manipur-tripura-affiliation-correction.md) makes the political relationship visible as well as the local identity: British pink hatching for protection/paramountcy, orange hatching for accession to India in 1947, and solid Indian orange following the transfer of administration on 15 October 1949. Part C status from 1950, Union Territory status and 1972 statehood are separate dated stages. Both remain selectable as regions without appearing outside India in modern views.
 
@@ -77,9 +92,9 @@ Click **Separation & statehood** for the [researched eight-state guide](research
 
 Click **Sankardeva’s path** in the main atlas to play from 1449, with a growing red trail and a moving position marker on the shared year controls. The **All pilgrimage locations** view uses the same route model and automatically shows India during pilgrimage windows. Scrub either timeline forward or backward to reveal the route for that year.
 
-`data/sankardeva-routes.json` holds the supplied qualified pins and explicit animation anchors; the CSV exports the pins. Annual pilgrimage order/pacing and connections between approximate migration dates are illustrative, not documented itineraries. The two birthplace candidates remain separate; unlocated sites remain unpinned. Supplied corrections include Singari, Mahendra Kandali’s Tol, Kapalabari, Kumarkuchi, and the Badrikashram association with the first Borgeet.
+`data/features/sankardeva/sankardeva-routes.json` holds the supplied qualified pins and explicit animation anchors; the CSV exports the pins. Annual pilgrimage order/pacing and connections between approximate migration dates are illustrative, not documented itineraries. The two birthplace candidates remain separate; unlocated sites remain unpinned. Supplied corrections include Singari, Mahendra Kandali’s Tol, Kapalabari, Kumarkuchi, and the Badrikashram association with the first Borgeet.
 
-After editing the JSON, rebuild with `node tools/build.js` and run `node tools/check-sankardeva.js`. Both pages share `app/sankardeva-journey.js`; the main atlas embeds the same data in `data/atlas.js`.
+After editing the JSON, rebuild with `node tools/build.js` and run `node tools/check-sankardeva.js`. Both pages share `app/sankardeva-journey.js`; the main atlas embeds the same data in `data/generated/atlas.js`.
 
 ## River-frontier revision
 

@@ -361,11 +361,6 @@
     "Kagajkuta Ghat"
   ],
   "note": "Adopted supplied chronology. Conflicting accounts exist, especially Gangmou/Dhuwahat dating. Pilgrimage sites are displayed within the journey window without assigning individual arrival years. Modern pins locate regions/sites, not exact medieval buildings. Badrikashram is associated with the first Borgeet in the supplied correction; no composition year assigned.",
-  "sources": [
-    "https://barpetasatra.org/about-srimanta-sankardeva/srimanta-sankardev/",
-    "https://bordowathan.co.in/about-sankardev.php",
-    "https://ir.nbu.ac.in/server/api/core/bitstreams/62cbea07-e5b2-4f22-af24-853b820a4749/content"
-  ],
   "routes": [
     {
       "id": "early-life",
@@ -542,5 +537,6 @@
       ]
     }
   ],
-  "animationNote": "Dashed routes are schematic. Individual pilgrimage visit years and order are unknown; their sequence and annual pacing are illustrative. Migration dates are approximate; fractional anchors only order stops within one display year. Birthplace candidates remain separate evidence pins. Ganakkuchi is an associated site, not an asserted residence. Unlocated places remain unpinned."
+  "animationNote": "Dashed routes are schematic. Individual pilgrimage visit years and order are unknown; their sequence and annual pacing are illustrative. Migration dates are approximate; fractional anchors only order stops within one display year. Birthplace candidates remain separate evidence pins. Ganakkuchi is an associated site, not an asserted residence. Unlocated places remain unpinned.",
+  "sourceSet": "sankardeva"
 }

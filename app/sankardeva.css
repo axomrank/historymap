@@ -1,0 +1,95 @@
+body {
+  margin:0;
+  background:#f4efe4;
+  color:#292820;
+  font:15px system-ui;
+}
+header,nav {
+  padding:12px 20px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+h1 {
+  font:25px Georgia;
+  margin:0 auto 0 0;
+}
+button,input,select {
+  font:inherit;
+  padding:7px;
+}
+main {
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:15px;
+  padding:0 20px;
+}
+svg {
+  width:100%;
+  height:65vh;
+  background:#dfe8ea;
+  border-radius:10px;
+}
+aside {
+  max-height:65vh;
+  overflow:auto;
+  background:#fffdf8;
+  padding:15px;
+}
+p {
+  line-height:1.5;
+}
+.stop {
+  border-bottom:1px solid #ddd;
+  padding:10px 0;
+}
+.note {
+  font-size:12px;
+  color:#655;
+}
+.land {
+  fill:#e5dfcf;
+  stroke:#bcb5a5;
+  stroke-width:.6;
+}
+.pin {
+  fill:#9c3d24;
+  stroke:white;
+  stroke-width:1.5;
+}
+.pilgrim {
+  fill:#487fa1;
+}
+text {
+  font:11px system-ui;
+  paint-order:stroke;
+  stroke:#f4efe4;
+  stroke-width:3;
+  fill:#292820;
+}
+.route {
+  fill:none;
+  stroke:#b52f1d;
+  stroke-width:3;
+  stroke-dasharray:8 5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  filter:drop-shadow(0 1px 2px #fff);
+  pointer-events:none;
+}
+.route-head {
+  fill:#e54b2d;
+  stroke:#fff;
+  stroke-width:3;
+  filter:drop-shadow(0 1px 3px #333);
+  pointer-events:none;
+}
+@media(max-width:800px) {
+  main {
+    grid-template-columns:1fr;
+  }
+  svg {
+    height:55vh;
+  }
+}

@@ -21,7 +21,7 @@ The 1667, 1679 and 1682 Guwahati recovery stages from the existing bank-frontier
 
 ## Geometry and annual conventions
 
-`data/colonial-stages.json` contains 85 source-linked regional phases, 31 map-marker records and an eight-state separation/statehood comparison after the [Manipur/Tripura affiliation correction](manipur-tripura-affiliation-correction.md) and [statehood guide](statehood-guide.md). Its sources record verification status and links. The module extends, rather than replaces, the older CSV-based annual atlas.
+`data/features/colonial/colonial-stages.json` contains 85 source-linked regional phases, 31 map-marker records and an eight-state separation/statehood comparison after the [Manipur/Tripura affiliation correction](manipur-tripura-affiliation-correction.md) and [statehood guide](statehood-guide.md). Its sources record verification status and links. The module extends, rather than replaces, the older CSV-based annual atlas.
 
 Annual maps show the **position after that year’s named change**. Thus Purandar’s restored territory ends with the 1837 annual frame, and the 1838 frame is directly British. Matak is separately coloured through 1838 and directly British in the 1839 frame. The 1842 proclamation changes the explanation/formal status without another invented conquest polygon.
 
@@ -39,7 +39,7 @@ The 1805 display starts for some neighbouring contexts are not foundation or ann
 
 ## Sources and validation
 
-The source register is embedded in `data/colonial-stages.json`. Gait’s public-domain text was read locally, especially printed pp. 286–292 and 303–314. His colonial judgements are not adopted. Government/institutional sources substantiate the Mizoram proclamation and merger, Khasi distinctions, Garo sequence, modern statehood dates and the Manipur relationship. Hansard’s 8 August 1905 reply names the divisions transferred into Eastern Bengal and Assam. Catalogue-only sources are identified as such and do not establish precise geometry.
+The source register is embedded in `data/features/colonial/colonial-stages.json`. Gait’s public-domain text was read locally, especially printed pp. 286–292 and 303–314. His colonial judgements are not adopted. Government/institutional sources substantiate the Mizoram proclamation and merger, Khasi distinctions, Garo sequence, modern statehood dates and the Manipur relationship. Hansard’s 8 August 1905 reply names the divisions transferred into Eastern Bengal and Assam. Catalogue-only sources are identified as such and do not establish precise geometry.
 
 Reference geography: [DataMeet Census 2011 districts](https://github.com/datameet/maps/tree/master/Districts/Census_2011), CC BY 4.0 / ODbL, with provenance stored in the reference JSON. Other modern geography retains the attribution in `data/maps/README.md`.
 
