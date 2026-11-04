@@ -206,3 +206,5 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .sankardeva-route { stroke: #c0392b; stroke-width: 3; stroke-dasharray: 7 4; }
 .sankardeva-head { fill: #e54b2d; stroke: #fff; stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: none; }
 .sankardeva-chip { color: #c0392b; border-color: #c0392b; }
+
+.bhuyan-label { font-weight: 500; stroke-width: 2px; }

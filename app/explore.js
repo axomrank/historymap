@@ -112,8 +112,13 @@
       const sh = D.shapes[si], t = D.territories[sh.t], p = P[t.p];
       if (t.label === 'Paundravardhana / Ratnapitha') return;
       if (!sh.l) return;
-      const name = t.label || shortName(p.name), key = t.p + '|' + name;
+      const name = t.label || shortName(p.name), key = p.id === 'bhuyan' ? t.id : t.p + '|' + name;
       if (seen.has(key)) return; seen.add(key);
+      if (p.id === 'bhuyan') {
+        const fs = 8 * pithaScale;
+        out.push(`<text class="lbl bhuyan-label" aria-label="Bhuyan Confedaracy" x="${sh.l[0]}" y="${sh.l[1] - fs * .55}" font-size="${fs}"><tspan x="${sh.l[0]}">Bhuyan </tspan><tspan x="${sh.l[0]}" dy="${fs * 1.15}">Confedaracy</tspan></text>`);
+        return;
+      }
       const r = sh.l[2];
       const fs = Math.min(22, Math.max(10, r * .5)) * Math.max(k, .45);
       if (r / k < 9) return;                 // too small at this zoom
@@ -127,7 +132,7 @@
     // capitals of polities on the map this year
     const on = new Set(list.map(si => D.territories[D.shapes[si].t].p));
     $('gCaps').innerHTML = [...on].filter(pi => !(year >= 1100 && year <= 1270 && ['late-kamarupa', 'kamata'].includes(P[pi].id))).flatMap(pi => P[pi].capitals.filter(c => year >= c[3] && year <= c[4]).map(c =>
-      `<g class="cap"><circle cx="${c[1]}" cy="${c[2]}" r="${4.5 * Math.max(k, .5)}" fill="${darker(P[pi].color)}"/><text x="${c[1] + 7 * Math.max(k, .5)}" y="${c[2] - 5 * Math.max(k, .5)}" font-size="${(11 * Math.max(k, .55)).toFixed(1)}">★ ${esc(c[0])}</text></g>`)).join('');
+      `<g class="cap"><circle cx="${c[1]}" cy="${c[2]}" r="${4.5 * (P[pi].id === 'koch' ? pithaScale : Math.max(k, .5))}" fill="${darker(P[pi].color)}"/><text x="${c[1] + 7 * (P[pi].id === 'koch' ? pithaScale : Math.max(k, .5))}" y="${c[2] - 5 * (P[pi].id === 'koch' ? pithaScale : Math.max(k, .5))}" font-size="${(11 * (P[pi].id === 'koch' ? pithaScale : Math.max(k, .55))).toFixed(1)}">★ ${esc(c[0])}</text></g>`)).join('');
     $('gHistorySpots').innerHTML = year >= 1100 && year <= 1270 ? D.postPala.spots.filter(s => year >= s.start && year <= s.end).map(s =>
       `<g class="history-spot"><circle cx="${s.x}" cy="${s.y}" r="${3 * pithaScale}"/><text x="${s.x + 5 * pithaScale}" y="${s.y + (s.id === 'capital-north' ? 13 : -5) * pithaScale}" font-size="${9 * pithaScale}">${esc(s.name)}</text><title>${esc(s.kind + ': ' + s.note)}</title></g>`).join('') : '';
     drawSankardeva(pithaScale);
@@ -150,7 +155,7 @@
     };
     $('gJourney').innerHTML = routes.map(r => `<path class="journey-route${r.kind === 'reconstruction' ? ' migration-route' : ''}" data-route="${esc(r.id)}" d="${travelled(r)}" stroke="${r.color || P.find(p => p.id === r.polity).color}" marker-end="url(#${r.kind === 'reconstruction' ? 'migrationArrow' : 'journeyArrow'})" ${r.id === 'dihing-excursion' ? 'marker-start="url(#journeyArrow)"' : ''}><title>${esc(r.note)}</title></path>`).join('') + spots.map(s => {
       const color = s.color || P.find(p => p.id === s.polity).color;
-      return `<g class="journey-spot" data-spot="${esc(s.id)}" tabindex="0" role="button" aria-label="${esc(s.name + ': ' + s.date)}"><circle cx="${s.x}" cy="${s.y}" r="${3.5 * pithaScale}" fill="${color}"/><text x="${s.x + (s.dx || 6) * pithaScale}" y="${s.y + (s.dy || -7) * pithaScale}" font-size="${(s.fontSize || 9) * pithaScale}" ${s.anchor ? `text-anchor="${s.anchor}"` : ''}>${esc(s.name)}</text><title>${esc(s.date + ' · ' + s.note)}</title></g>`;
+      return `<g class="journey-spot" data-spot="${esc(s.id)}" tabindex="0" role="button" aria-label="${esc(s.name + ': ' + s.date)}"><circle cx="${s.x}" cy="${s.y}" r="${3.5 * pithaScale}" fill="${color}"/>${s.hideLabel ? '' : `<text x="${s.x + (s.dx || 6) * pithaScale}" y="${s.y + (s.dy || -7) * pithaScale}" font-size="${(s.fontSize || 9) * pithaScale}" ${s.anchor ? `text-anchor="${s.anchor}"` : ''}>${esc(s.name)}</text>`}<title>${esc(s.date + ' · ' + s.note)}</title></g>`;
     }).join('');
   }
   function drawSankardeva(scale) {
@@ -265,7 +270,7 @@
   $('zout').onclick = () => zoomAt(1.4);
   $('zfit').onclick = () => { setVB(vb.w < D.W * .99 ? full : home); drawLabels(D.states[D.years[year - S]]); };
   function focusGrowth(id) {
-    const bounds = id === 'migration' || (id === 'ahom' && year <= 1228) ? [94.1, 98.65, 23.55, 28.05] : id === 'ahom' ? (year < 1282 ? [94.1, 96.45, 26.55, 28.0] : [93.0, 96.4, 26.2, 28.2]) : id === 'chutia' ? [93.1, 96.5, 26.6, 28.5] : id === 'bhuyan' ? [90.3, 94.3, 25.9, 27.5] : [88.1, 92.1, 25.3, 27.2];
+    const bounds = id === 'koch' ? (year < 1520 ? [89.7, 90.9, 26.2, 27.05] : year < 1527 ? [89.2, 91.3, 25.7, 27.15] : [88.1, 94.4, 25.3, 27.4]) : id === 'migration' || (id === 'ahom' && year <= 1228) ? [94.1, 98.65, 23.55, 28.05] : id === 'ahom' ? (year < 1282 ? [94.1, 96.45, 26.55, 28.0] : [93.0, 96.4, 26.2, 28.2]) : id === 'chutia' ? [93.1, 96.5, 26.6, 28.5] : id === 'bhuyan' ? [90.3, 94.3, 25.9, 27.5] : [88.1, 92.1, 25.3, 27.2];
     const [x0, y0] = px(bounds[0], bounds[3]), [x1, y1] = px(bounds[1], bounds[2]);
     const ratio = svg.clientWidth / svg.clientHeight;
     const w = Math.max(x1 - x0, (y1 - y0) * ratio), h = w / ratio;
@@ -344,9 +349,9 @@
   const evRow = (e, cls) => `<div class="ev${cls}" data-y="${e.y}"><span class="y">${e.y}</span><b>${esc(e.t)}</b>${cls ? `<span class="x">${esc(e.x)}</span>` : ''}</div>`;
 
   function growthCard() {
-    if (year < 1187 || year > 1536) return '';
-    const d = D.growth, ids = ['ahom', 'chutia', 'kamata', 'khen', 'bhuyan'];
-    const focus = sel >= 0 && ids.includes(P[sel].id) ? P[sel].id : (year >= 1215 && year <= 1281 ? 'ahom' : 'chutia');
+    if (year < 1187 || year > 1580) return '';
+    const d = D.growth, ids = ['ahom', 'chutia', 'kamata', 'khen', 'bhuyan', 'koch'];
+    const focus = sel >= 0 && ids.includes(P[sel].id) ? P[sel].id : (year >= 1515 ? 'koch' : year >= 1215 && year <= 1281 ? 'ahom' : 'chutia');
     const stages = d.phases.filter(p => p.polity === focus), current = stages.find(p => year >= p.start && year <= p.end);
     const sources = current ? current.sources.map(id => `<a href="${esc(d.sources[id].url)}" target="_blank" rel="noopener">${esc(d.sources[id].title)}</a>`).join(' · ') : '';
     return `<section class="growth-card"><h2>How the states took shape</h2>
@@ -356,7 +361,7 @@
       ${current ? `<p class="post-date">${esc(current.date)}</p><h3>${esc(current.title)}</h3><p>${esc(current.text)}</p><p class="source-links">${sources}</p>` : `<p>No securely dated stage for this selection in ${year}. Choose a date below.</p>`}
       <p class="pitha-note">Dashed trails connect reported stops; they are reconstructed corridors, not surveyed paths. Small patches locate early settlements; Bhuyan areas follow separate river-to-river sectors. Wider borders are approximate. Later evidence does not date an earlier conquest.</p>
       <details ${focus === 'ahom' && year <= 1253 ? 'open' : ''}><summary>${focus === 'ahom' ? 'Journey and expansion stages' : 'Dated evidence and changes'}</summary><div class="growth-steps">${stages.map(s => `<button data-growth-year="${s.start}" data-growth-polity="${s.polity}" ${s === current ? 'aria-current="step"' : ''}><span>${esc(s.date)}</span>${esc(s.title)}</button>`).join('')}</div></details>
-      <p class="source-links"><a href="research/medieval-growth-2026-11-04/README.md">Research notes</a> · <a href="data/medieval-growth-events.csv">Events CSV</a></p>
+      <p class="source-links"><a href="research/medieval-growth-2026-11-04/README.md">Research notes</a> · <a href="data/medieval-growth-events.csv">Events CSV</a>${focus === 'koch' ? ' · <a href="research/koch-growth-2026-11-04/README.md">Koch research</a>' : ''}</p>
     </section>`;
   }
 
@@ -420,7 +425,7 @@
     const focus = e.target.closest('[data-focus-growth]');
     if (focus) { focusGrowth(focus.dataset.focusGrowth); return; }
     const stage = e.target.closest('[data-growth-year]');
-    if (stage) { stop(); select(P.findIndex(p => p.id === stage.dataset.growthPolity)); setYear(+stage.dataset.growthYear); if (year >= 1215 && year < 1228) focusGrowth('migration'); $('panel').scrollTop = 0; return; }
+    if (stage) { stop(); select(P.findIndex(p => p.id === stage.dataset.growthPolity)); setYear(+stage.dataset.growthYear); if (year >= 1215 && year < 1228) focusGrowth('migration'); if (stage.dataset.growthPolity === 'koch') focusGrowth('koch'); $('panel').scrollTop = 0; return; }
     const group = e.target.closest('[data-growth]');
     if (group) { select(P.findIndex(p => p.id === group.dataset.growth)); return; }
     const y = e.target.closest('[data-y]'); if (y) { e.preventDefault(); stop(); setYear(+y.dataset.y); return; }
@@ -520,6 +525,7 @@
   function tick() {
     if (year >= E) { stop(); return; }
     setYear(year + 1);
+    if (sel >= 0 && P[sel].id === 'koch' && D.growth.phases.some(p => p.polity === 'koch' && p.start === year)) focusGrowth('koch');
     const changed = changeYears.includes(year) || D.events.some(e => e.y === year);
     const journey = year >= 1449 && year <= 1568;
     playing = setTimeout(tick, journey ? Math.max(180, +$('speed').value * 8) : +$('speed').value * (changed ? 14 : 1) + (changed ? 250 : 0));

@@ -74,6 +74,21 @@
       "title": "GeoNames / modern locality references for Upper Myanmar",
       "url": "https://www.geonames.org/1307741/myitkyina.html",
       "verification": "Modern geographic placement only. Myitkyina/Waingmaw and Mogaung points cross-checked against current locality catalogues; coordinates do not establish medieval camp locations."
+    },
+    "koch-foundation": {
+      "title": "University of North Bengal, Koch foundation research, printed pp.58–62",
+      "url": "https://ir.nbu.ac.in/server/api/core/bitstreams/a6791edc-d3e6-49d0-a83d-2ab4dc27f98d/content",
+      "verification": "PDF text read, especially pp.58–62. Small inherited chiefdom, sequential campaigns, c.1515–1527 alternative chronology, capital traditions and mature borders; no year-specific intermediate boundary maps."
+    },
+    "koch-campaigns": {
+      "title": "University of North Bengal, Naranarayan and state formation, chapter II",
+      "url": "https://ir.nbu.ac.in/server/api/core/bitstreams/4761b814-9600-4b41-8532-358adf761c63/content",
+      "verification": "Indexed excerpts checked; direct download timed out. Distinguishes tribute from annexation and discusses eastern wars and reverses."
+    },
+    "koch-acharyya": {
+      "title": "N. N. Acharyya, History of Medieval Assam (1966), Koch chapter, p.189 onward",
+      "url": "https://pahar.in/pahar/Books%20and%20Articles/Indian%20Subcontinent/1966%20The%20History%20of%20Medieval%20Assam%20from%20the%2013th%20to%20the%2017th%20century%20by%20Acharya%20s.pdf",
+      "verification": "Indexed p.189 checked: Chikna/Khuntaghat and successive neighbouring-chief campaigns. Direct download returned 403."
     }
   },
   "phases": [
@@ -533,6 +548,114 @@
         "nagaon",
         "gait"
       ]
+    },
+    {
+      "polity": "koch",
+      "start": 1515,
+      "end": 1519,
+      "date": "c.1515–1519 · approximate display stage",
+      "title": "Chikna: a small foothill beginning",
+      "text": "The initial map shows a small regional foothill base. An exact founding border is unknown. Intermediate outlines and early stage years are approximate reconstructions.",
+      "sources": [
+        "koch-foundation",
+        "koch-acharyya"
+      ]
+    },
+    {
+      "polity": "koch",
+      "start": 1520,
+      "end": 1526,
+      "date": "c.1520–1526 · approximate display stage",
+      "title": "Consolidating neighbouring chiefdoms",
+      "text": "Nearby-chief campaigns are represented by an approximate plains enlargement. This date is an editorial anchor. Intermediate outlines and early stage years are approximate reconstructions.",
+      "sources": [
+        "koch-foundation",
+        "koch-acharyya"
+      ]
+    },
+    {
+      "polity": "koch",
+      "start": 1527,
+      "end": 1532,
+      "date": "c.1527–1532 · approximate display stage",
+      "title": "Western Kamata and the Duars",
+      "text": "The western envelope expands. Capitals are associated with movement toward the plains, but transfer dates are unresolved. Intermediate outlines and early stage years are approximate reconstructions.",
+      "sources": [
+        "koch-foundation",
+        "koch-acharyya"
+      ]
+    },
+    {
+      "polity": "koch",
+      "start": 1533,
+      "end": 1539,
+      "date": "c.1533–1539 · approximate display stage",
+      "title": "Biswa Singha’s later domain",
+      "text": "The later reign uses a mature western domain. Ahom contact after the Turbak war is distinct from early founding. Intermediate outlines and early stage years are approximate reconstructions.",
+      "sources": [
+        "koch-foundation",
+        "koch-acharyya"
+      ]
+    },
+    {
+      "polity": "koch",
+      "start": 1540,
+      "end": 1545,
+      "date": "c.1540–1545",
+      "title": "Naranarayan inherits the core",
+      "text": "Accession inherits the core; it does not create the later eastern conquests. Intermediate outlines and early stage years are approximate reconstructions.",
+      "sources": [
+        "gait",
+        "koch-campaigns"
+      ]
+    },
+    {
+      "polity": "koch",
+      "start": 1546,
+      "end": 1547,
+      "date": "c.1546–1547",
+      "title": "First eastern advance, then Pichala",
+      "text": "An eastern campaigning zone appears separately from the western core. Intermediate outlines and early stage years are approximate reconstructions.",
+      "sources": [
+        "gait",
+        "koch-campaigns"
+      ]
+    },
+    {
+      "polity": "koch",
+      "start": 1548,
+      "end": 1561,
+      "date": "c.1548–1561",
+      "title": "Withdrawal and preparation",
+      "text": "The eastern campaign fails; the map removes its hatching after Pichala rather than retaining the advance as permanent rule. Intermediate outlines and early stage years are approximate reconstructions.",
+      "sources": [
+        "gait",
+        "koch-campaigns"
+      ]
+    },
+    {
+      "polity": "koch",
+      "start": 1562,
+      "end": 1562,
+      "date": "1562",
+      "title": "Chilarai’s renewed eastern campaign",
+      "text": "Chilarai renews the eastern invasion. Wartime hatching is distinct from core territory. Intermediate outlines and early stage years are approximate reconstructions.",
+      "sources": [
+        "gait",
+        "koch-campaigns"
+      ]
+    },
+    {
+      "polity": "koch",
+      "start": 1563,
+      "end": 1580,
+      "date": "c.1563–1580",
+      "title": "Majuli settlement and contested overlordship",
+      "text": "The Majuli settlement enlarges the displayed domain; tribute is not annexation. Later resistance limits effective control. Intermediate outlines and early stage years are approximate reconstructions.",
+      "sources": [
+        "gait",
+        "koch-campaigns"
+      ]
     }
   ],
   "spots": [
@@ -831,7 +954,8 @@
       "end": 1497,
       "date": "14th-century charit tradition",
       "note": "Exact settlement not fixed; broad regional locator.",
-      "dy": 0
+      "dy": 0,
+      "hideLabel": true
     },
     {
       "id": "bardowa",
@@ -843,7 +967,8 @@
       "end": 1529,
       "date": "1449: Sankardeva’s birth",
       "note": "A Bhuyan lineage centre, not a newly conquered province.",
-      "dy": 0
+      "dy": 0,
+      "hideLabel": true
     },
     {
       "id": "northbank-chiefs",
@@ -855,7 +980,8 @@
       "end": 1536,
       "date": "13th–16th-century context, varying local chiefs",
       "note": "Symbolic regional locator; not one capital or fixed confederacy.",
-      "dy": 0
+      "dy": 0,
+      "hideLabel": true
     }
   ],
   "routes": [

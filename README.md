@@ -74,3 +74,7 @@ After editing the JSON, rebuild with `node tools/build.js` and run `node tools/c
 ## River-frontier revision
 
 The [4 November river-frontier revision](research/river-frontiers-2026-11-04/README.md) replaces early Ahom/Chutia and Ahom/Dimasa sketch edges with shared Dehing and Dikhou geometry, replaces Bhuyan circles with separate river-bounded sectors, and applies the requested six-district Dimasa maximum envelope. Its historical and river-identification qualifications are recorded in the notes and map cards. Run `node tools/check-frontiers.js` after rebuilding.
+
+## Koch formation and expansion
+
+The [Koch research revision](research/koch-growth-2026-11-04/README.md) starts with a small Chikna foothill region and provides nine formation, enlargement, setback and treaty stages from 1515–1580. Temporary campaign reach is hatched separately from core territory. Early intermediate dates and outlines are explicitly approximate. The map uses small “Bhuyan Confedaracy” labels for the river sectors. Run `node tools/check-koch.js` after rebuilding.

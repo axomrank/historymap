@@ -67,7 +67,7 @@ for (const p of D.growth.phases) {
   assert.ok(p.start <= p.end);
   for (const id of p.sources) assert.ok(D.growth.sources[id]);
 }
-for (const id of ['ahom', 'chutia', 'kamata', 'khen', 'bhuyan']) {
+for (const id of ['ahom', 'chutia', 'kamata', 'khen', 'bhuyan', 'koch']) {
   const stages = D.growth.phases.filter(p => p.polity === id);
   for (let i = 1; i < stages.length; i++) assert.equal(stages[i].start, stages[i - 1].end + 1, `Gap or overlap in ${id}`);
 }
