@@ -44,7 +44,23 @@ for (const y of [1250, 1330, 1449, 1505, 1515, 1523, 1530]) {
   assert.ok(area('bhuyan', y) < 2500, 'No single continuous Bhuyan kingdom');
 }
 assert.ok((pieces('bhuyan', 1449).map(s => s.d).join('').match(/M/g) || []).length >= 3);
-assert.equal(D.growth.routes.length, 6);
+assert.equal(D.growth.routes.length, 7);
+const migration = D.growth.routes.find(r => r.id === 'mong-mao-pangsau');
+assert.equal(migration.start, 1215);
+assert.equal(migration.kind, 'reconstruction');
+assert.equal(D.polities.find(p => p.id === 'ahom').start, 1228, 'Migration must not backdate the Ahom polity');
+assert.equal(pieces('ahom', 1215).length, 0, 'No Ahom possession in Myanmar in 1215');
+assert.ok(migration.points.length >= 25, 'Use a winding corridor rather than one straight segment');
+assert.equal(migration.points[0][0], 24.018);
+assert.equal(migration.points[0][1], 97.856);
+assert.equal(migration.points.at(-1)[0], 27.2476);
+assert.equal(migration.points.at(-1)[1], 96.156);
+assert.equal(JSON.stringify(migration.points.at(-1)), JSON.stringify(D.growth.routes.find(r => r.id === 'patkai-namrup').points[0]), 'Migration must join the Namrup trail at the same pass');
+for (const [lat, lon] of migration.points) {
+  assert.ok(lat >= D.proj.lat0 && lat <= D.proj.lat1 && lon >= D.proj.lon0 && lon <= D.proj.lon1, 'Entire migration must fit within the atlas frame');
+}
+assert.ok(D.growth.phases.some(p => p.polity === 'ahom' && p.start === 1215 && p.end === 1227));
+for (const r of D.growth.routes) for (const id of r.sources || []) assert.ok(D.growth.sources[id]);
 assert.ok(D.growth.routes.every(r => r.end === 1267 && r.d.startsWith('M')));
 assert.ok(!D.growth.spots.some(s => /abhaypur/i.test(s.id)), 'Unlocated Abhaypur must not receive a false exact pin');
 for (const p of D.growth.phases) {

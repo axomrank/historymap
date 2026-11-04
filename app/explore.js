@@ -63,10 +63,12 @@
   // hatch patterns for "campaign reach" shapes
   $('defs').innerHTML = P.map((p, i) => `<pattern id="h${i}" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="${p.color}" fill-opacity=".18"/><line x1="0" y1="0" x2="0" y2="7" stroke="${p.color}" stroke-width="3"/></pattern>`).join('');
   $('defs').innerHTML += '<marker id="journeyArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#c0392b"/></marker>';
+  $('defs').innerHTML += '<marker id="migrationArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#d9a34b"/></marker>';
 
   const darker = hex => { const n = parseInt(hex.slice(1), 16); const f = c => Math.round(c * .62).toString(16).padStart(2, '0'); return '#' + f(n >> 16) + f((n >> 8) & 255) + f(n & 255); };
   let shown = new Map();
   function drawMap() {
+    $('journeyChip').hidden = !(year >= 1215 && year <= 1267 && (sel < 0 || P[sel].id === 'ahom'));
     $('pithaRivers').style.display = year < 1100 ? '' : 'none';
     svg.classList.toggle('pitha-era', year < 1100);
     const regionalPhase = D.ratna.phases.find(r => year >= r.start && year <= r.end);
@@ -128,9 +130,9 @@
     const show = p => sel < 0 || P[sel].id === p;
     const routes = D.growth.routes.filter(r => year >= r.start && year <= r.end && show(r.polity));
     const spots = D.growth.spots.filter(s => year >= s.start && year <= s.end && show(s.polity));
-    $('gJourney').innerHTML = routes.map(r => `<path class="journey-route" d="${r.d}" stroke="${P.find(p => p.id === r.polity).color}" marker-end="url(#journeyArrow)" ${r.id === 'dihing-excursion' ? 'marker-start="url(#journeyArrow)"' : ''}><title>${esc(r.note)}</title></path>`).join('') + spots.map(s => {
-      const color = P.find(p => p.id === s.polity).color;
-      return `<g class="journey-spot" data-spot="${esc(s.id)}" tabindex="0" role="button" aria-label="${esc(s.name + ': ' + s.date)}"><circle cx="${s.x}" cy="${s.y}" r="${3.5 * pithaScale}" fill="${color}"/><text x="${s.x + 6 * pithaScale}" y="${s.y + (s.dy || -7) * pithaScale}" font-size="${9 * pithaScale}">${esc(s.name)}</text><title>${esc(s.date + ' · ' + s.note)}</title></g>`;
+    $('gJourney').innerHTML = routes.map(r => `<path class="journey-route${r.kind === 'reconstruction' ? ' migration-route' : ''}" data-route="${esc(r.id)}" d="${r.d}" stroke="${r.color || P.find(p => p.id === r.polity).color}" marker-end="url(#${r.kind === 'reconstruction' ? 'migrationArrow' : 'journeyArrow'})" ${r.id === 'dihing-excursion' ? 'marker-start="url(#journeyArrow)"' : ''}><title>${esc(r.note)}</title></path>`).join('') + spots.map(s => {
+      const color = s.color || P.find(p => p.id === s.polity).color;
+      return `<g class="journey-spot" data-spot="${esc(s.id)}" tabindex="0" role="button" aria-label="${esc(s.name + ': ' + s.date)}"><circle cx="${s.x}" cy="${s.y}" r="${3.5 * pithaScale}" fill="${color}"/><text x="${s.x + (s.dx || 6) * pithaScale}" y="${s.y + (s.dy || -7) * pithaScale}" font-size="${(s.fontSize || 9) * pithaScale}" ${s.anchor ? `text-anchor="${s.anchor}"` : ''}>${esc(s.name)}</text><title>${esc(s.date + ' · ' + s.note)}</title></g>`;
     }).join('');
   }
   const shortName = n => n.replace(/^Kamarupa: /, 'Kamarupa · ').replace(/ \(Konbaung\)/, '').replace(/ \(independent India\)/, '');
@@ -207,14 +209,14 @@
 
   /* pan and zoom */
   const setVB = v => {
-    const w = Math.max(D.W / 8, Math.min(D.W, v.w)), h = w * v.h / v.w;
+    const w = Math.max(D.W / 8, Math.min(D.W * 2, v.w)), h = w * v.h / v.w;
     vb = { w, h, x: Math.max(-w * .3, Math.min(D.W - w * .7, v.x)), y: Math.max(-h * .3, Math.min(D.H - h * .7, v.y)) };
     svg.setAttribute('viewBox', `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
   };
   const svgPt = (cx, cy) => { const r = svg.getBoundingClientRect(), s = Math.max(vb.w / r.width, vb.h / r.height); return { x: vb.x + (cx - r.left - (r.width - vb.w / s) / 2) * s, y: vb.y + (cy - r.top - (r.height - vb.h / s) / 2) * s }; };
   const zoomAt = (f, cx, cy) => {
     const p = cx == null ? { x: vb.x + vb.w / 2, y: vb.y + vb.h / 2 } : svgPt(cx, cy);
-    const w = Math.max(D.W / 8, Math.min(D.W, vb.w * f)), h = w * vb.h / vb.w;
+    const w = Math.max(D.W / 8, Math.min(D.W * 2, vb.w * f)), h = w * vb.h / vb.w;
     setVB({ w, h, x: p.x - (p.x - vb.x) * w / vb.w, y: p.y - (p.y - vb.y) * h / vb.h });
     drawLabels(D.states[D.years[year - S]]);
   };
@@ -223,7 +225,7 @@
   $('zout').onclick = () => zoomAt(1.4);
   $('zfit').onclick = () => { setVB(vb.w < D.W * .99 ? full : home); drawLabels(D.states[D.years[year - S]]); };
   function focusGrowth(id) {
-    const bounds = id === 'ahom' ? (year < 1282 ? [94.1, 96.45, 26.55, 28.0] : [93.0, 96.4, 26.2, 28.2]) : id === 'chutia' ? [93.1, 96.5, 26.6, 28.5] : id === 'bhuyan' ? [90.3, 94.3, 25.9, 27.5] : [88.1, 92.1, 25.3, 27.2];
+    const bounds = id === 'migration' || (id === 'ahom' && year <= 1228) ? [94.1, 98.65, 23.55, 28.05] : id === 'ahom' ? (year < 1282 ? [94.1, 96.45, 26.55, 28.0] : [93.0, 96.4, 26.2, 28.2]) : id === 'chutia' ? [93.1, 96.5, 26.6, 28.5] : id === 'bhuyan' ? [90.3, 94.3, 25.9, 27.5] : [88.1, 92.1, 25.3, 27.2];
     const [x0, y0] = px(bounds[0], bounds[3]), [x1, y1] = px(bounds[1], bounds[2]);
     const ratio = svg.clientWidth / svg.clientHeight;
     const w = Math.max(x1 - x0, (y1 - y0) * ratio), h = w / ratio;
@@ -304,12 +306,13 @@
   function growthCard() {
     if (year < 1187 || year > 1536) return '';
     const d = D.growth, ids = ['ahom', 'chutia', 'kamata', 'khen', 'bhuyan'];
-    const focus = sel >= 0 && ids.includes(P[sel].id) ? P[sel].id : (year >= 1228 && year <= 1281 ? 'ahom' : 'chutia');
+    const focus = sel >= 0 && ids.includes(P[sel].id) ? P[sel].id : (year >= 1215 && year <= 1281 ? 'ahom' : 'chutia');
     const stages = d.phases.filter(p => p.polity === focus), current = stages.find(p => year >= p.start && year <= p.end);
     const sources = current ? current.sources.map(id => `<a href="${esc(d.sources[id].url)}" target="_blank" rel="noopener">${esc(d.sources[id].title)}</a>`).join(' · ') : '';
     return `<section class="growth-card"><h2>How the states took shape</h2>
       <div class="growth-tabs">${ids.map(id => `<button data-growth="${id}" aria-pressed="${id === focus}">${esc(P.find(p => p.id === id).short)}</button>`).join('')}</div>
       <button class="growth-focus" data-focus-growth="${focus}">${focus === 'ahom' && year < 1282 ? 'Focus on Sukaphaa’s journey ↗' : 'Focus on this region ↗'}</button>
+      ${focus === 'ahom' && year >= 1215 && year <= 1267 ? '<button class="growth-focus full-journey" data-focus-growth="migration">Whole journey: Mong Mao → Myanmar → Assam ↗</button>' : ''}
       ${current ? `<p class="post-date">${esc(current.date)}</p><h3>${esc(current.title)}</h3><p>${esc(current.text)}</p><p class="source-links">${sources}</p>` : `<p>No securely dated stage for this selection in ${year}. Choose a date below.</p>`}
       <p class="pitha-note">Dashed trails connect reported stops; they are reconstructed corridors, not surveyed paths. Small patches locate settlements or chiefdoms; their size is symbolic. Wider borders are approximate. Later evidence does not date an earlier conquest.</p>
       <details ${focus === 'ahom' && year <= 1253 ? 'open' : ''}><summary>${focus === 'ahom' ? 'Journey and expansion stages' : 'Dated evidence and changes'}</summary><div class="growth-steps">${stages.map(s => `<button data-growth-year="${s.start}" data-growth-polity="${s.polity}" ${s === current ? 'aria-current="step"' : ''}><span>${esc(s.date)}</span>${esc(s.title)}</button>`).join('')}</div></details>
@@ -352,6 +355,7 @@
 
   function card(i) {
     const p = P[i], a = areaAt(i, year);
+    if (p.id === 'ahom' && year >= 1215 && year < 1228) return '<div class="card"><h3>Sukaphaa’s migrating party</h3><p>The gold dashed trail previews the reconstructed 1215–1228 journey. Intermediate stop dates and the exact track are unresolved. The Ahom territorial sequence begins in 1228; this trail does not mark an Ahom kingdom in Myanmar.</p></div>';
     if (p.id === 'late-kamarupa') return `<div class="card"><h3>Kamarupa successor polities</h3><p>This outline gives geographic context for several rulers and regional powers, rather than a measured kingdom under one dynasty. The evidence panel above distinguishes known inscriptions, approximate reigns and disputed identifications.</p></div>`;
     if (p.id === 'ratna-uncertain') return `<div class="card"><h3>Control uncertain</h3><p>The neutral region marks an interval without a secure owner in the adopted sequence. Use the Paundravardhana controls above to follow the losses and recoveries.</p></div>`;
     const ts = D.territories.filter(t => P[t.p] === p && year >= t.s && year <= t.e);
@@ -376,7 +380,7 @@
     const focus = e.target.closest('[data-focus-growth]');
     if (focus) { focusGrowth(focus.dataset.focusGrowth); return; }
     const stage = e.target.closest('[data-growth-year]');
-    if (stage) { stop(); select(P.findIndex(p => p.id === stage.dataset.growthPolity)); setYear(+stage.dataset.growthYear); return; }
+    if (stage) { stop(); select(P.findIndex(p => p.id === stage.dataset.growthPolity)); setYear(+stage.dataset.growthYear); if (year >= 1215 && year < 1228) focusGrowth('migration'); $('panel').scrollTop = 0; return; }
     const group = e.target.closest('[data-growth]');
     if (group) { select(P.findIndex(p => p.id === group.dataset.growth)); return; }
     const y = e.target.closest('[data-y]'); if (y) { e.preventDefault(); stop(); setYear(+y.dataset.y); return; }
@@ -500,9 +504,10 @@
     $('panel').scrollTop = 0;
     $('panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+  $('journeyChip').addEventListener('click', () => { select(P.findIndex(p => p.id === 'ahom')); focusGrowth('migration'); });
 
   fromHash();
   const y0 = year; year = -1; setYear(y0);
-  if (sel >= 0 && P[sel].id === 'ahom' && year >= 1228 && year <= 1281) focusGrowth('ahom');
+  if (sel >= 0 && P[sel].id === 'ahom' && year >= 1215 && year <= 1281) focusGrowth('ahom');
   window.addEventListener('hashchange', () => { fromHash(); const y = year; year = -1; setYear(y); });
 })();

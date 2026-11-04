@@ -1,21 +1,26 @@
-id,polity,name,lat,lon,start,end,date,note,dy
-pangsau,ahom,Patkai / Pangsau ≈,27.2476,96.156,1228,1267,1228 · conventional pass identification,Approximate overland crossing corridor; exact medieval track unverified.,0
-namrup,ahom,Namrup · 1228,27.1836,95.3469,1228,1267,1228,Modern locality used for the arrival-region marker.,17
-tipam,ahom,Tipam · c.1230,27.2723,95.4018,1230,1267,Before 1236,Locality identification approximate; the upstream Dihing camp is not exactly located.,0
-habung-camp,ahom,Habung · 1240,27.3415,94.5009,1240,1252,1240–1244,Dhakuakhana-area identification; wider historical tract and settlement site uncertain.,0
-dikhoumukh,ahom,Dikhou mouth · 1244,27.001,94.429,1244,1267,1244,River-mouth corridor; modern course is not the medieval channel.,0
-ligiri,ahom,Ligirigaon ≈ · 1244,26.94,94.71,1244,1252,1244,"Nazira vicinity, not an excavated or fixed historical camp.",17
-simalu,ahom,Simaluguri ≈ · 1246,26.911,94.758,1246,1252,1246,Modern vicinity; historical site and river channels uncertain.,30
-charaideo-growth,ahom,Charaideo · 1253,26.941175,94.87635,1253,1281,1253 conventional; variants 1251–1252,First enduring capital; modern archaeological location.,0
-namdang-west,ahom,Dikhou–Namdang tract ≈,26.95,94.52,1268,1281,Acquired during 1268–1281,Regional locator; exact acquisition year unknown.,20
-habung-annex,ahom,Habung · 1512,27.3415,94.5009,1512,1519,1512 annexation,"Symbolic regional patch, separate from Sadiya.",0
-habung-recovery,ahom,Habung · control uncertain,27.3415,94.5009,1520,1522,1520–1522,Wartime ownership is not securely fixed for the whole tract.,0
-sadiya-chutia,chutia,Sadhayapura / Sadiya ≈,27.83,95.67,1187,1522,Early foundation unknown; inscriptions late 14th century onward,Regional centre; the precise medieval capital footprint is not fixed.,0
-habung-grant,chutia,Dhenukhana / Habung ≈,27.3415,94.5009,1392,1511,1392 grant; 1428 Habung authority,"Regional locator, not an exact charter findspot.",17
-ghilamara,chutia,Ghilamara · 1401,27.32,94.32,1401,1511,1401 grant,"Modern vicinity; land grant attests authority, not an acquisition date.",0
-tamreswari,chutia,Tamreswari / Paya ≈,27.89,95.81,1442,1522,1442 inscription,Temple region east of Sadiya; approximate point.,-21
-kamatapur-growth,kamata,Kamatapur / Gosanimari,26.15,89.3533,1257,1439,"Capital shift after 1257, often c.1260",Gosanimari ruins locate Kamatapur; exact shift date disputed.,0
-khen-cap,khen,Kamatapur / Gosanimari,26.15,89.3533,1440,1497,"Khen period, conventionally c.1440–1498",Fortified capital; staged envelopes are reconstructed.,0
-langamaguri,bhuyan,Langamaguri / Barnadi region ≈,26.32,91.76,1330,1497,14th-century charit tradition,Exact settlement not fixed; broad regional locator.,0
-bardowa,bhuyan,Bardowa / Batadrava,26.408,92.556,1449,1529,1449: Sankardeva’s birth,"A Bhuyan lineage centre, not a newly conquered province.",0
-northbank-chiefs,bhuyan,North-bank chiefdoms ≈,26.79,93.1,1250,1536,"13th–16th-century context, varying local chiefs",Symbolic regional locator; not one capital or fixed confederacy.,0
+id,polity,name,lat,lon,start,end,date,note,dx,dy,anchor,color,fontSize
+mong-mao-origin,ahom,Mong Mao ≈ · 1215,24.018,97.856,1215,1267,1215 · conventional departure,"Regional locator near modern Ruili / the Shweli valley, western Yunnan. Not an exact palace or departure point. Some chronicle traditions instead associate departure with Mong Mit in 1227.",-8,17,end,#d9a34b,10
+waingmaw-corridor,ahom,Waingmaw / Myitkyina ≈,25.3508,97.4428,1215,1267,Between 1215 and 1228 · exact year unknown,Modern regional reference for the Wieng Maw identification and upper Irrawaddy crossing in the Comprehensive History account. Crossing point and stop date uncertain.,8,18,,#d9a34b,10
+mogaung-corridor,ahom,Mogaung / Mong Kwang ≈,25.3014,96.9417,1215,1267,Between 1215 and 1228 · exact year unknown,Mong Kwang/Mogaung is named in migration accounts. Modern town used to locate the region; no year or exact medieval camp assigned.,-8,-11,end,#d9a34b,10
+hukawng-corridor,ahom,Hukawng valley ≈ · Myanmar,26.38,96.57,1215,1267,Between 1215 and 1228 · exact year unknown,Broad valley locator within the documented regional corridor; the winding line does not trace a particular historic road.,9,-10,,#d9a34b,10
+nong-yang-corridor,ahom,Nong Yang / Khamjang ≈,27.2192,96.1439,1215,1267,Near the end of the 1215–1228 journey,Traditional lake/Khamjang association near Pangsau. Uses the modern Nong Yang lake identification; historical camp perimeter and date remain uncertain.,10,18,,#d9a34b,10
+pangsau,ahom,Pangsau / Patkai · 1228 ≈,27.2476,96.156,1215,1267,1228 · conventional pass identification,Approximate overland crossing corridor; exact medieval track unverified.,-7,-10,end,,
+namrup,ahom,Namrup · 1228,27.1836,95.3469,1228,1267,1228,Modern locality used for the arrival-region marker.,-7,18,end,,
+tipam,ahom,Tipam · c.1230,27.2723,95.4018,1230,1267,Before 1236,Locality identification approximate; the upstream Dihing camp is not exactly located.,,0,,,
+habung-camp,ahom,Habung · 1240,27.3415,94.5009,1240,1252,1240–1244,Dhakuakhana-area identification; wider historical tract and settlement site uncertain.,,0,,,
+dikhoumukh,ahom,Dikhou mouth · 1244,27.001,94.429,1244,1267,1244,River-mouth corridor; modern course is not the medieval channel.,,0,,,
+ligiri,ahom,Ligirigaon ≈ · 1244,26.94,94.71,1244,1252,1244,"Nazira vicinity, not an excavated or fixed historical camp.",,17,,,
+simalu,ahom,Simaluguri ≈ · 1246,26.911,94.758,1246,1252,1246,Modern vicinity; historical site and river channels uncertain.,,30,,,
+charaideo-growth,ahom,Charaideo · 1253,26.941175,94.87635,1253,1281,1253 conventional; variants 1251–1252,First enduring capital; modern archaeological location.,,0,,,
+namdang-west,ahom,Dikhou–Namdang tract ≈,26.95,94.52,1268,1281,Acquired during 1268–1281,Regional locator; exact acquisition year unknown.,,20,,,
+habung-annex,ahom,Habung · 1512,27.3415,94.5009,1512,1519,1512 annexation,"Symbolic regional patch, separate from Sadiya.",,0,,,
+habung-recovery,ahom,Habung · control uncertain,27.3415,94.5009,1520,1522,1520–1522,Wartime ownership is not securely fixed for the whole tract.,,0,,,
+sadiya-chutia,chutia,Sadhayapura / Sadiya ≈,27.83,95.67,1187,1522,Early foundation unknown; inscriptions late 14th century onward,Regional centre; the precise medieval capital footprint is not fixed.,,0,,,
+habung-grant,chutia,Dhenukhana / Habung ≈,27.3415,94.5009,1392,1511,1392 grant; 1428 Habung authority,"Regional locator, not an exact charter findspot.",,17,,,
+ghilamara,chutia,Ghilamara · 1401,27.32,94.32,1401,1511,1401 grant,"Modern vicinity; land grant attests authority, not an acquisition date.",,0,,,
+tamreswari,chutia,Tamreswari / Paya ≈,27.89,95.81,1442,1522,1442 inscription,Temple region east of Sadiya; approximate point.,,-21,,,
+kamatapur-growth,kamata,Kamatapur / Gosanimari,26.15,89.3533,1257,1439,"Capital shift after 1257, often c.1260",Gosanimari ruins locate Kamatapur; exact shift date disputed.,,0,,,
+khen-cap,khen,Kamatapur / Gosanimari,26.15,89.3533,1440,1497,"Khen period, conventionally c.1440–1498",Fortified capital; staged envelopes are reconstructed.,,0,,,
+langamaguri,bhuyan,Langamaguri / Barnadi region ≈,26.32,91.76,1330,1497,14th-century charit tradition,Exact settlement not fixed; broad regional locator.,,0,,,
+bardowa,bhuyan,Bardowa / Batadrava,26.408,92.556,1449,1529,1449: Sankardeva’s birth,"A Bhuyan lineage centre, not a newly conquered province.",,0,,,
+northbank-chiefs,bhuyan,North-bank chiefdoms ≈,26.79,93.1,1250,1536,"13th–16th-century context, varying local chiefs",Symbolic regional locator; not one capital or fixed confederacy.,,0,,,

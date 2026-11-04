@@ -47,7 +47,8 @@ for (const r of history) {
 for (const r of parseCSV(rd('data/extra-places.csv'))) placeById[r.id] = { name: r.name, geo: [+r.lat, +r.lon] };
 
 /* ---------- projection (equirectangular, scaled at 26°N) ---------- */
-const lat0 = 22.0, lat1 = 29.5, lon0 = 87.8, lon1 = 97.4, W = 1200;
+// Include the Mong Mao / western Yunnan origin of the 1215–1228 journey.
+const lat0 = 22.0, lat1 = 29.5, lon0 = 87.8, lon1 = 98.7, W = 1200;
 const kCos = Math.cos(26 * Math.PI / 180);
 const H = Math.round(W * (lat1 - lat0) / ((lon1 - lon0) * kCos));
 const X = lon => +((lon - lon0) / (lon1 - lon0) * W).toFixed(1);

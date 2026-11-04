@@ -64,6 +64,9 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .river-hit { fill: none; stroke: transparent; stroke-width: 14; vector-effect: non-scaling-stroke; pointer-events: stroke; cursor: help; stroke-linecap: round; }
 .river-hit.active, .river-hit:focus { stroke: var(--river); stroke-opacity: .2; stroke-width: 14; outline: none; }
 .journey-route { fill: none; stroke-width: 2; stroke-dasharray: 5 5; vector-effect: non-scaling-stroke; pointer-events: none; }
+.migration-route { stroke-width: 2.5; stroke-dasharray: 8 5 2 5; }
+.journey-chip { position: absolute; left: 12px; bottom: 10px; max-width: calc(100% - 24px); background: var(--panel); color: #d9a34b; border: 1px dashed #d9a34b; border-radius: 6px; padding: 6px 9px; font-size: 11px; cursor: pointer; }
+.full-journey { display: block; }
 .journey-spot { cursor: help; }
 .journey-spot circle { stroke: var(--panel); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
 .journey-spot text { fill: var(--ink); paint-order: stroke; stroke: var(--land); stroke-width: 3px; pointer-events: none; }

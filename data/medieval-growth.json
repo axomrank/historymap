@@ -49,9 +49,46 @@
       "title": "UNESCO: Charaideo and the Tai-Ahom first capital",
       "url": "https://whc.unesco.org/en/list/1711/",
       "verification": "Official description read: 13th-century migration and Charaideo first capital; does not independently specify every stop/date."
+    },
+    "migration-report": {
+      "title": "SITA Assam report, India–Southeast Asia connections, p.191",
+      "url": "https://sita.assam.gov.in/sites/default/files/swf_utility_folder/departments/sita_medhassu_in_oid_4/portlet/level_1/files/final_report-north_east_indias_connection_with_south_east_asia_the_historical_and_civilizational_link.pdf",
+      "verification": "Indexed official report passage checked: Mong Mao, Hukawng, Patkai–Hukawng–Mogaung corridor. Direct download returned 404 in this session; it supports the broad corridor, not a surveyed track."
+    },
+    "migration-phukan": {
+      "title": "Comprehensive History of Assam II, Tai-Ahom chapter: migration itinerary",
+      "url": "https://www.scribd.com/document/914496064/The-Comprehensive-History-of-Assam-2-H-K-Barpujari-Editor-2-2-2003-Publication-Board-Assam-Fb354ba6bb80809dc5c1275e48f7bb6f-Anna-s",
+      "verification": "Search-indexed book passage checked: 1215 Mong Mao departure; Wieng Maw opposite Myitkyina, Irrawaddy crossing, Soi-Ke, Mogaung, Nong Yang and Khamjang. Full volume not obtained; old muang identifications and detailed track remain unresolved."
+    },
+    "migration-tai": {
+      "title": "Indian Journal of Tai Studies (2018): migration accounts",
+      "url": "https://taistudiesmoranhat.org/webdocs/Indian%20Journal%20of%20Tai%20Studies2018PDF/Indian%20Journal%20of%20Tai%20Studies%202018%20Final1.pdf",
+      "verification": "Indexed journal passage checked: Mong Mao 1215, Upper Myanmar/Hukawng and Patkai. It proposes Wing Men may be Bhamo, differing from the Wieng Maw/Myitkyina identification; download returned 403. Bhamo is not pinned as an established Sukaphaa stop."
+    },
+    "migration-nath": {
+      "title": "Nath & Tripathi (2024), Ancient Asia 15, p.84",
+      "url": "https://www.arfjournals.com/image/catalog/Journals%20Papers/AAJ/2024/4_Sauradeep.pdf",
+      "verification": "Open research article read: migration background places departure in 1215 and passage through Mong-Kwang and Patkai. It does not establish every bend or camp; its research focus is weapons."
+    },
+    "migration-coordinates": {
+      "title": "GeoNames / modern locality references for Upper Myanmar",
+      "url": "https://www.geonames.org/1307741/myitkyina.html",
+      "verification": "Modern geographic placement only. Myitkyina/Waingmaw and Mogaung points cross-checked against current locality catalogues; coordinates do not establish medieval camp locations."
     }
   },
   "phases": [
+    {
+      "polity": "ahom",
+      "start": 1215,
+      "end": 1227,
+      "date": "1215–1228 · conventional migration chronology",
+      "title": "Mong Mao → Upper Myanmar → Patkai",
+      "text": "Sukaphaa’s party is conventionally said to have left Mong Mao in 1215. The gold winding trail previews a reconstructed corridor through western Yunnan, the upper Irrawaddy near Waingmaw/Myitkyina, Mogaung and Hukawng toward Nong Yang and Pangsau. Bends are illustrative; intermediate stop dates and several old place identifications are unresolved. This is a migration route, not Ahom territory in Myanmar.",
+      "sources": [
+        "migration-phukan",
+        "migration-nath"
+      ]
+    },
     {
       "polity": "ahom",
       "start": 1228,
@@ -500,16 +537,95 @@
   ],
   "spots": [
     {
+      "id": "mong-mao-origin",
+      "polity": "ahom",
+      "name": "Mong Mao ≈ · 1215",
+      "lat": 24.018,
+      "lon": 97.856,
+      "start": 1215,
+      "end": 1267,
+      "date": "1215 · conventional departure",
+      "note": "Regional locator near modern Ruili / the Shweli valley, western Yunnan. Not an exact palace or departure point. Some chronicle traditions instead associate departure with Mong Mit in 1227.",
+      "dy": 17,
+      "dx": -8,
+      "anchor": "end",
+      "color": "#d9a34b",
+      "fontSize": 10
+    },
+    {
+      "id": "waingmaw-corridor",
+      "polity": "ahom",
+      "name": "Waingmaw / Myitkyina ≈",
+      "lat": 25.3508,
+      "lon": 97.4428,
+      "start": 1215,
+      "end": 1267,
+      "date": "Between 1215 and 1228 · exact year unknown",
+      "note": "Modern regional reference for the Wieng Maw identification and upper Irrawaddy crossing in the Comprehensive History account. Crossing point and stop date uncertain.",
+      "dy": 18,
+      "dx": 8,
+      "color": "#d9a34b",
+      "fontSize": 10
+    },
+    {
+      "id": "mogaung-corridor",
+      "polity": "ahom",
+      "name": "Mogaung / Mong Kwang ≈",
+      "lat": 25.3014,
+      "lon": 96.9417,
+      "start": 1215,
+      "end": 1267,
+      "date": "Between 1215 and 1228 · exact year unknown",
+      "note": "Mong Kwang/Mogaung is named in migration accounts. Modern town used to locate the region; no year or exact medieval camp assigned.",
+      "dy": -11,
+      "dx": -8,
+      "anchor": "end",
+      "color": "#d9a34b",
+      "fontSize": 10
+    },
+    {
+      "id": "hukawng-corridor",
+      "polity": "ahom",
+      "name": "Hukawng valley ≈ · Myanmar",
+      "lat": 26.38,
+      "lon": 96.57,
+      "start": 1215,
+      "end": 1267,
+      "date": "Between 1215 and 1228 · exact year unknown",
+      "note": "Broad valley locator within the documented regional corridor; the winding line does not trace a particular historic road.",
+      "dy": -10,
+      "dx": 9,
+      "color": "#d9a34b",
+      "fontSize": 10
+    },
+    {
+      "id": "nong-yang-corridor",
+      "polity": "ahom",
+      "name": "Nong Yang / Khamjang ≈",
+      "lat": 27.2192,
+      "lon": 96.1439,
+      "start": 1215,
+      "end": 1267,
+      "date": "Near the end of the 1215–1228 journey",
+      "note": "Traditional lake/Khamjang association near Pangsau. Uses the modern Nong Yang lake identification; historical camp perimeter and date remain uncertain.",
+      "dy": 18,
+      "dx": 10,
+      "color": "#d9a34b",
+      "fontSize": 10
+    },
+    {
       "id": "pangsau",
       "polity": "ahom",
-      "name": "Patkai / Pangsau ≈",
+      "name": "Pangsau / Patkai · 1228 ≈",
       "lat": 27.2476,
       "lon": 96.156,
-      "start": 1228,
+      "start": 1215,
       "end": 1267,
       "date": "1228 · conventional pass identification",
       "note": "Approximate overland crossing corridor; exact medieval track unverified.",
-      "dy": 0
+      "dy": -10,
+      "dx": -7,
+      "anchor": "end"
     },
     {
       "id": "namrup",
@@ -521,7 +637,9 @@
       "end": 1267,
       "date": "1228",
       "note": "Modern locality used for the arrival-region marker.",
-      "dy": 17
+      "dy": 18,
+      "dx": -7,
+      "anchor": "end"
     },
     {
       "id": "tipam",
@@ -741,6 +859,159 @@
     }
   ],
   "routes": [
+    {
+      "id": "mong-mao-pangsau",
+      "polity": "ahom",
+      "start": 1215,
+      "end": 1267,
+      "kind": "reconstruction",
+      "color": "#d9a34b",
+      "points": [
+        [
+          24.018,
+          97.856
+        ],
+        [
+          24.12,
+          97.94
+        ],
+        [
+          24.23,
+          97.87
+        ],
+        [
+          24.36,
+          98.04
+        ],
+        [
+          24.49,
+          97.97
+        ],
+        [
+          24.64,
+          98.16
+        ],
+        [
+          24.77,
+          98.09
+        ],
+        [
+          24.92,
+          98.24
+        ],
+        [
+          25.06,
+          98.1
+        ],
+        [
+          25.15,
+          97.92
+        ],
+        [
+          25.24,
+          97.98
+        ],
+        [
+          25.29,
+          97.77
+        ],
+        [
+          25.4,
+          97.69
+        ],
+        [
+          25.35,
+          97.44
+        ],
+        [
+          25.3833,
+          97.3964
+        ],
+        [
+          25.42,
+          97.25
+        ],
+        [
+          25.34,
+          97.14
+        ],
+        [
+          25.4,
+          97.04
+        ],
+        [
+          25.3014,
+          96.9417
+        ],
+        [
+          25.45,
+          96.85
+        ],
+        [
+          25.6,
+          96.94
+        ],
+        [
+          25.77,
+          96.8
+        ],
+        [
+          25.94,
+          96.89
+        ],
+        [
+          26.1,
+          96.69
+        ],
+        [
+          26.27,
+          96.78
+        ],
+        [
+          26.38,
+          96.57
+        ],
+        [
+          26.53,
+          96.65
+        ],
+        [
+          26.69,
+          96.43
+        ],
+        [
+          26.85,
+          96.51
+        ],
+        [
+          26.99,
+          96.3
+        ],
+        [
+          27.09,
+          96.34
+        ],
+        [
+          27.16,
+          96.2
+        ],
+        [
+          27.2192,
+          96.1439
+        ],
+        [
+          27.2476,
+          96.156
+        ]
+      ],
+      "sources": [
+        "migration-phukan",
+        "migration-report",
+        "migration-tai",
+        "migration-nath"
+      ],
+      "note": "1215–1228 migration corridor: Mong Mao region → upper Irrawaddy/Waingmaw–Myitkyina vicinity → Mogaung → Hukawng → Nong Yang → Patkai/Pangsau. This full route is previewed from 1215; intermediate dates are not interpolated. Winding bends are illustrative, not a surveyed track or proof of specific camps. Alternative source itineraries exist."
+    },
     {
       "id": "patkai-namrup",
       "polity": "ahom",
