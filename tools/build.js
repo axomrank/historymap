@@ -128,6 +128,19 @@ function curveAt(l, ax, v) {
   if (hits.length) return hits.reduce((s, x) => s + x, 0) / hits.length;
   return ln.reduce((best, p) => Math.abs(p[k] - v) < Math.abs(best[k] - v) ? p : best)[o];
 }
+// Clip against the actual river vertices, preserving bends shared by the base layer.
+function riverMask(spec, axis, high) {
+  const id = spec?.startsWith('river:') && !spec.includes('>') ? spec.slice(6) : null;
+  if (!id || !A.rivers[id]) return null;
+  let pts = A.rivers[id].pts.map(([lat, lon]) => [lon, lat]);
+  const along = axis === 0 ? 1 : 0;
+  if (pts[0][along] > pts.at(-1)[along]) pts.reverse();
+  const lo = axis === 0 ? lat0 - 8 : lon0 - 8, hi = axis === 0 ? lat1 + 8 : lon1 + 8;
+  const edge = high ? (axis === 0 ? lon1 + 8 : lat1 + 8) : (axis === 0 ? lon0 - 8 : lat0 - 8);
+  const a = [...pts[0]], b = [...pts.at(-1)]; a[along] = lo; b[along] = hi;
+  const c = [...b], d = [...a]; c[axis] = edge; d[axis] = edge;
+  return [[ [a, ...pts, b, c, d, a] ]];
+}
 function limitsShape([ws, es, ns, ss]) {
   const w = limitOf(ws), e = limitOf(es), n = limitOf(ns), s = limitOf(ss);
   const plain = (w ? curveAt(w, 0, 26) : 99) < 90.4 || (!w && e && curveAt(e, 0, 26) < 92);
@@ -142,7 +155,14 @@ function limitsShape([ws, es, ns, ss]) {
   }
   const close = pts => [[...pts, pts[0]]];
   const region = close([...west, ...east.reverse()]), band = close([...south, ...north.reverse()]);
-  return safe(() => fillHoles(pc.intersection(limitLand(plain), region, band)), []);
+  const fallback = [region, band];
+  // A shared trace is used for each river side; coordinate/compound limits retain
+  // their existing envelope. This avoids separate near-river sketch lines.
+  const wm = riverMask(ws, 0, true), em = riverMask(es, 0, false);
+  const nm = riverMask(ns, 1, false), sm = riverMask(ss, 1, true);
+  const vertical = wm || em ? [wm || close([...west, [lon1 + 8, 30], [lon1 + 8, 21.5]]), em || close([[lon0 - 8, 21.5], [lon0 - 8, 30], ...east])] : [region];
+  const horizontal = nm || sm ? [nm || close([...north, [98.4, 15], [87, 15]]), sm || close([...south, [98.4, 38], [87, 38]])] : [band];
+  return safe(() => fillHoles(pc.intersection(limitLand(plain), ...vertical, ...horizontal)), []);
 }
 
 function termShape(term) {
@@ -216,10 +236,10 @@ function labelPoint(mp) { // a well-inside point of the largest polygon (in proj
   return best && [Math.round(best[0]), Math.round(best[1]), Math.round(Math.max(bd, 0))];
 }
 const pathOf = mp => mp.map(poly => poly.map(rg => {
-  const s = dp(rg, 0.006); if (s.length < 4) return '';
+  const s = rg; if (s.length < 4) return '';
   return 'M' + s.map(([lo, la]) => X(lo) + ' ' + Y(la)).join('L') + 'Z';
 }).join('')).join('');
-const linePath = pts => 'M' + dp(pts.map(([la, lo]) => [lo, la]), 0.004).map(([lo, la]) => X(lo) + ' ' + Y(la)).join('L');
+const linePath = pts => 'M' + pts.map(([la, lo]) => [lo, la]).map(([lo, la]) => X(lo) + ' ' + Y(la)).join('L');
 
 /* ---------- territories ---------- */
 const polityIdx = Object.fromEntries(polities.map((p, i) => [p.id, i]));
@@ -234,6 +254,13 @@ for (const phase of ratnaPhases) territories.push({
 const T = territories.map((t, row) => {
   if (!(t.polity in polityIdx)) throw new Error('unknown polity ' + t.polity + ' in ' + t.id);
   let mp = fillHoles(safe(() => pc.intersection(union(t.shape.split(' + ').map(s => termShape(s.trim()))), FRAME), []));
+  // User-adopted plain/hill convention for the eastern successor kingdoms.
+  // Restrict only the eastern sector, retaining western historical acquisitions.
+  if (['ahom', 'chutia'].includes(t.polity)) {
+    const east = [[[[94.2, lat0-1], [lon1+1, lat0-1], [lon1+1, lat1+1], [94.2, lat1+1], [94.2, lat0-1]]]];
+    const outsideAssam = safe(() => pc.difference(east, landNamed('assam')), []);
+    if (outsideAssam.length) mp = safe(() => pc.difference(mp, outsideAssam), mp);
+  }
   // Reserve the regional sector even when the current phase is unknown. Old broad
   // Kamarupa and campaign polygons must not silently imply continuous possession.
   if (!t.id.startsWith('ratna-') && +t.end >= 350 && +t.end <= 1099)
@@ -300,14 +327,14 @@ const towns = ['guwahati', 'dibrugarh', 'tezpur', 'silchar', 'shillong', 'kohima
 
 const out = {
   built: new Date().toISOString().slice(0, 10), start: START, end: END, W, H, proj: { lat0, lat1, lon0, lon1 },
-  base: { countries, rivers, modern, towns },
+  base: { countries, rivers, modern, towns, ridges: Object.entries(A.ridges || {}).map(([name, pts]) => ({ name, d: linePath(pts) })) },
   polities: P,
   territories: T.map(t => ({ id: t.id, p: polityIdx[t.polity], s: t.start, e: t.end, label: t.label, note: t.note, conf: t.confidence, style: t.style })),
   ratna: { outline: pathOf(ratnaMP), phases: ratnaPhases.map(r => ({ ...r, start: +r.start, end: +r.end, p: polityIdx[r.polity] })) },
   postPala: { ...postPala, spots: postPala.spots.map(s => ({ ...s, x: X(s.lon), y: Y(s.lat) })) },
   growth: { ...growth,
     spots: growth.spots.map(s => ({ ...s, x: X(s.lon), y: Y(s.lat) })),
-    routes: growth.routes.map(r => ({ ...r, d: linePath(r.points) })),
+    routes: growth.routes.map(r => ({ ...r, d: r.riverPaths ? r.riverPaths.map(linePath).join('') : linePath(r.points) })),
   },
   pithas: {
     rivers: [['teesta-karatoya', 'Teesta / Karatoya'], ['sonkosh', 'Sankosh'], ['puthimari', 'Rupahi*'], ['bharali', 'Bharali'], ['dikrong', 'Dikrong']].map(([id, name]) => ({ id, name, d: linePath(A.rivers[id].pts), label: A.rivers[id].pts[Math.floor(A.rivers[id].pts.length * .25)].map((v, i, a) => i === 0 ? X(a[1]) : Y(a[0])) })),

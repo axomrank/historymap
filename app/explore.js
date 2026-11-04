@@ -52,7 +52,7 @@
   svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
   svg.innerHTML = `<defs id="defs"></defs>
     <g id="gLand">${D.base.countries.map(c => `<path class="m-land" d="${c.d}"><title>${esc(c.name)} (today)</title></path>`).join('')}</g>
-    <g id="gRealms"></g>
+    <g id="gRelief">${(D.base.ridges || []).map(r => `<path class="ridge-reference" d="${r.d}"><title>${esc(r.name)} · geographic ridge reference</title></path>`).join('')}</g><g id="gRealms"></g>
     <g id="gRivers">${D.base.rivers.map(r => `<path class="m-river" d="${r.d}" stroke-width="${[0.7, 1.3, 2.6][r.m]}" opacity="${[0.55, 0.8, 0.95][r.m]}"><title>${esc(r.n)}</title></path>`).join('')}</g>
     <g class="g-modern">${D.base.modern.map(m => `<path class="m-modern${m.assam ? ' assam' : ''}" d="${m.d}"/>`).join('')}
       ${D.base.towns.map(([n, x, y]) => `<g class="m-town"><circle cx="${x}" cy="${y}" r="1.8"/><text x="${x + 4}" y="${y + 3.5}">${esc(n)}</text></g>`).join('')}</g>
@@ -68,6 +68,7 @@
   const darker = hex => { const n = parseInt(hex.slice(1), 16); const f = c => Math.round(c * .62).toString(16).padStart(2, '0'); return '#' + f(n >> 16) + f((n >> 8) & 255) + f(n & 255); };
   let shown = new Map();
   function drawMap() {
+    $('journeyChip').textContent = year < 1228 ? `1215–1228 · travelling · ${year} · illustrative pacing ↗` : '1215–1228 · Mong Mao → Patkai · reconstructed ↗';
     $('journeyChip').hidden = !(year >= 1215 && year <= 1267 && (sel < 0 || P[sel].id === 'ahom'));
     $('pithaRivers').style.display = year < 1100 ? '' : 'none';
     svg.classList.toggle('pitha-era', year < 1100);
@@ -129,8 +130,22 @@
       `<g class="history-spot"><circle cx="${s.x}" cy="${s.y}" r="${3 * pithaScale}"/><text x="${s.x + 5 * pithaScale}" y="${s.y + (s.id === 'capital-north' ? 13 : -5) * pithaScale}" font-size="${9 * pithaScale}">${esc(s.name)}</text><title>${esc(s.kind + ': ' + s.note)}</title></g>`).join('') : '';
     const show = p => sel < 0 || P[sel].id === p;
     const routes = D.growth.routes.filter(r => year >= r.start && year <= r.end && show(r.polity));
-    const spots = D.growth.spots.filter(s => year >= s.start && year <= s.end && show(s.polity));
-    $('gJourney').innerHTML = routes.map(r => `<path class="journey-route${r.kind === 'reconstruction' ? ' migration-route' : ''}" data-route="${esc(r.id)}" d="${r.d}" stroke="${r.color || P.find(p => p.id === r.polity).color}" marker-end="url(#${r.kind === 'reconstruction' ? 'migrationArrow' : 'journeyArrow'})" ${r.id === 'dihing-excursion' ? 'marker-start="url(#journeyArrow)"' : ''}><title>${esc(r.note)}</title></path>`).join('') + spots.map(s => {
+    const migration = routes.find(r => r.progress);
+    const fraction = migration ? Math.max(0, Math.min(1, (year - 1215) / 13)) : 1;
+    const spots = D.growth.spots.filter(s => year >= s.start && year <= s.end && show(s.polity) &&
+      !(year < 1228 && ['waingmaw-corridor','mogaung-corridor','hukawng-corridor','nong-yang-corridor','pangsau'].includes(s.id)));
+    const travelled = r => {
+      if (!r.progress) return r.d;
+      const pts = r.points.map(([lat,lon]) => px(lon,lat));
+      const lengths = pts.slice(1).map((p,i) => Math.hypot(p[0]-pts[i][0],p[1]-pts[i][1]));
+      let remaining = lengths.reduce((a,b)=>a+b,0)*fraction, out=[pts[0]];
+      for(let i=0;i<lengths.length;i++) { const f=Math.min(1,remaining/lengths[i]); out.push([pts[i][0]+(pts[i+1][0]-pts[i][0])*f,pts[i][1]+(pts[i+1][1]-pts[i][1])*f]); remaining-=lengths[i]; if(remaining<=0)break; }
+      if (out.length < 3) return 'M'+out.map(p=>p.join(' ')).join('L');
+      let path='M'+out[0].join(' ');
+      for(let i=1;i<out.length-1;i++)path+='Q'+out[i].join(' ')+' '+[(out[i][0]+out[i+1][0])/2,(out[i][1]+out[i+1][1])/2].join(' ');
+      return path+'L'+out.at(-1).join(' ');
+    };
+    $('gJourney').innerHTML = routes.map(r => `<path class="journey-route${r.kind === 'reconstruction' ? ' migration-route' : ''}" data-route="${esc(r.id)}" d="${travelled(r)}" stroke="${r.color || P.find(p => p.id === r.polity).color}" marker-end="url(#${r.kind === 'reconstruction' ? 'migrationArrow' : 'journeyArrow'})" ${r.id === 'dihing-excursion' ? 'marker-start="url(#journeyArrow)"' : ''}><title>${esc(r.note)}</title></path>`).join('') + spots.map(s => {
       const color = s.color || P.find(p => p.id === s.polity).color;
       return `<g class="journey-spot" data-spot="${esc(s.id)}" tabindex="0" role="button" aria-label="${esc(s.name + ': ' + s.date)}"><circle cx="${s.x}" cy="${s.y}" r="${3.5 * pithaScale}" fill="${color}"/><text x="${s.x + (s.dx || 6) * pithaScale}" y="${s.y + (s.dy || -7) * pithaScale}" font-size="${(s.fontSize || 9) * pithaScale}" ${s.anchor ? `text-anchor="${s.anchor}"` : ''}>${esc(s.name)}</text><title>${esc(s.date + ' · ' + s.note)}</title></g>`;
     }).join('');
@@ -355,7 +370,7 @@
 
   function card(i) {
     const p = P[i], a = areaAt(i, year);
-    if (p.id === 'ahom' && year >= 1215 && year < 1228) return '<div class="card"><h3>Sukaphaa’s migrating party</h3><p>The gold dashed trail previews the reconstructed 1215–1228 journey. Intermediate stop dates and the exact track are unresolved. The Ahom territorial sequence begins in 1228; this trail does not mark an Ahom kingdom in Myanmar.</p></div>';
+    if (p.id === 'ahom' && year >= 1215 && year < 1228) return '<div class="card"><h3>Sukaphaa’s migrating party</h3><p>The gold dashed trail advances through the reconstructed 1215–1228 journey. Annual pacing is illustrative. Intermediate stop dates and the exact track are unresolved. The Ahom territorial sequence begins in 1228; this trail does not mark an Ahom kingdom in Myanmar.</p></div>';
     if (p.id === 'late-kamarupa') return `<div class="card"><h3>Kamarupa successor polities</h3><p>This outline gives geographic context for several rulers and regional powers, rather than a measured kingdom under one dynasty. The evidence panel above distinguishes known inscriptions, approximate reigns and disputed identifications.</p></div>`;
     if (p.id === 'ratna-uncertain') return `<div class="card"><h3>Control uncertain</h3><p>The neutral region marks an interval without a secure owner in the adopted sequence. Use the Paundravardhana controls above to follow the losses and recoveries.</p></div>`;
     const ts = D.territories.filter(t => P[t.p] === p && year >= t.s && year <= t.e);
@@ -395,7 +410,7 @@
   const chart = $('chart'), rowsEl = $('rows');
   // Lanes: a kingdom and the ones that followed it in the same lane, so one rises as the last fades.
   const lanes = [...new Set(P.map(p => p.lane))].sort((a, b) => a - b);
-  const RH = 26;
+  const RH = 17;
   const band = i => {   // centred on the lane; thickness grows with the land held (square-root scale, shared by all)
     const p = P[i], pts = [];
     for (let y = Math.max(S, p.start); y <= Math.min(E, p.end); y++) {
@@ -499,6 +514,8 @@
     else if (k === 'Escape') select(-1);
   });
 
+  $('panelToggle').onclick = () => { document.body.classList.toggle('panel-collapsed'); drawLabels(D.states[D.years[year-S]]); };
+  $('timelineToggle').onclick = () => document.body.classList.toggle('timeline-collapsed');
   $('modernToggle').addEventListener('change', e => svg.classList.toggle('hide-modern', !e.target.checked));
   $('ratnaChip').addEventListener('click', () => {
     $('panel').scrollTop = 0;

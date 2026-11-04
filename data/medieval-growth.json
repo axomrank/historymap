@@ -83,7 +83,7 @@
       "end": 1227,
       "date": "1215–1228 · conventional migration chronology",
       "title": "Mong Mao → Upper Myanmar → Patkai",
-      "text": "Sukaphaa’s party is conventionally said to have left Mong Mao in 1215. The gold winding trail previews a reconstructed corridor through western Yunnan, the upper Irrawaddy near Waingmaw/Myitkyina, Mogaung and Hukawng toward Nong Yang and Pangsau. Bends are illustrative; intermediate stop dates and several old place identifications are unresolved. This is a migration route, not Ahom territory in Myanmar.",
+      "text": "Sukaphaa’s party departed in the conventional 1215 chronology and reached Assam in 1228, after thirteen years of movement and stays. The gold line progressively reveals that journey. The moving party symbol uses illustrative pacing; intermediate annual positions and arrival dates at Myanmar stops are unknown. Unreached reference places stay hidden.",
       "sources": [
         "migration-phukan",
         "migration-nath"
@@ -1010,7 +1010,13 @@
         "migration-tai",
         "migration-nath"
       ],
-      "note": "1215–1228 migration corridor: Mong Mao region → upper Irrawaddy/Waingmaw–Myitkyina vicinity → Mogaung → Hukawng → Nong Yang → Patkai/Pangsau. This full route is previewed from 1215; intermediate dates are not interpolated. Winding bends are illustrative, not a surveyed track or proof of specific camps. Alternative source itineraries exist."
+      "note": "1215–1228 migration corridor: Mong Mao region → upper Irrawaddy/Waingmaw–Myitkyina vicinity → Mogaung → Hukawng → Nong Yang → Patkai/Pangsau. Only the travelled fraction is revealed from 1215 to 1228. Annual positions interpolate distance for playback; they are not documented stop dates. Winding bends are illustrative, not a surveyed track or proof of specific camps. Alternative source itineraries exist.",
+      "progress": {
+        "start": 1215,
+        "arrival": 1228,
+        "method": "distance-interpolation",
+        "note": "Illustrative pacing over thirteen years; intermediate annual positions are not historically dated."
+      }
     },
     {
       "id": "patkai-namrup",
@@ -1044,27 +1050,206 @@
       "end": 1267,
       "points": [
         [
-          27.1836,
-          95.3469
+          27.255,
+          95.409
         ],
         [
-          27.2723,
-          95.4018
+          27.249,
+          95.421
+        ],
+        [
+          27.257,
+          95.436
+        ],
+        [
+          27.232,
+          95.452
+        ],
+        [
+          27.249,
+          95.454
+        ],
+        [
+          27.263,
+          95.467
+        ],
+        [
+          27.242,
+          95.486
         ],
         [
           27.247,
           95.503
         ],
         [
+          27.261,
+          95.509
+        ],
+        [
+          27.259,
+          95.521
+        ],
+        [
+          27.297,
+          95.556
+        ],
+        [
+          27.269,
+          95.567
+        ],
+        [
+          27.285,
+          95.581
+        ],
+        [
+          27.284,
+          95.608
+        ],
+        [
+          27.299,
+          95.628
+        ],
+        [
           27.284,
           95.661
+        ],
+        [
+          27.3,
+          95.681
+        ],
+        [
+          27.298,
+          95.701
+        ],
+        [
+          27.336,
+          95.719
+        ],
+        [
+          27.324,
+          95.729
+        ],
+        [
+          27.338,
+          95.76
+        ],
+        [
+          27.354,
+          95.757
+        ],
+        [
+          27.359,
+          95.765
         ],
         [
           27.354,
           95.792
         ]
       ],
-      "note": "Reported upstream Dihing exploration and return to Tipam; line follows the modern river approximately, not a GPS trail."
+      "note": "Reported upstream Dihing exploration and return to Tipam; line follows the modern river approximately, not a GPS trail. Drawn river sections share every vertex with the river layer. Gaps indicate unresolved historic access/confluences; no straight bridge is invented.",
+      "riverSections": [
+        "dihing"
+      ],
+      "riverPaths": [
+        [
+          [
+            27.255,
+            95.409
+          ],
+          [
+            27.249,
+            95.421
+          ],
+          [
+            27.257,
+            95.436
+          ],
+          [
+            27.232,
+            95.452
+          ],
+          [
+            27.249,
+            95.454
+          ],
+          [
+            27.263,
+            95.467
+          ],
+          [
+            27.242,
+            95.486
+          ],
+          [
+            27.247,
+            95.503
+          ],
+          [
+            27.261,
+            95.509
+          ],
+          [
+            27.259,
+            95.521
+          ],
+          [
+            27.297,
+            95.556
+          ],
+          [
+            27.269,
+            95.567
+          ],
+          [
+            27.285,
+            95.581
+          ],
+          [
+            27.284,
+            95.608
+          ],
+          [
+            27.299,
+            95.628
+          ],
+          [
+            27.284,
+            95.661
+          ],
+          [
+            27.3,
+            95.681
+          ],
+          [
+            27.298,
+            95.701
+          ],
+          [
+            27.336,
+            95.719
+          ],
+          [
+            27.324,
+            95.729
+          ],
+          [
+            27.338,
+            95.76
+          ],
+          [
+            27.354,
+            95.757
+          ],
+          [
+            27.359,
+            95.765
+          ],
+          [
+            27.354,
+            95.792
+          ]
+        ]
+      ]
     },
     {
       "id": "to-habung",
@@ -1073,27 +1258,373 @@
       "end": 1267,
       "points": [
         [
-          27.2723,
-          95.4018
+          27.255,
+          95.409
+        ],
+        [
+          27.297,
+          95.379
+        ],
+        [
+          27.285,
+          95.366
+        ],
+        [
+          27.301,
+          95.349
+        ],
+        [
+          27.296,
+          95.332
+        ],
+        [
+          27.315,
+          95.335
+        ],
+        [
+          27.323,
+          95.321
+        ],
+        [
+          27.301,
+          95.285
+        ],
+        [
+          27.326,
+          95.266
         ],
         [
           27.36,
           95.194
         ],
         [
+          27.337,
+          95.184
+        ],
+        [
+          27.347,
+          95.155
+        ],
+        [
+          27.329,
+          95.151
+        ],
+        [
+          27.326,
+          95.098
+        ],
+        [
+          27.307,
+          95.06
+        ],
+        [
+          27.326,
+          95.054
+        ],
+        [
+          27.325,
+          95.035
+        ],
+        [
+          27.343,
+          95.038
+        ],
+        [
+          27.343,
+          95.022
+        ],
+        [
+          27.355,
+          95.023
+        ],
+        [
+          27.349,
+          94.995
+        ],
+        [
+          27.36,
+          94.992
+        ],
+        [
+          27.372,
+          95.005
+        ],
+        [
+          27.38,
+          94.998
+        ],
+        [
+          27.356,
+          94.983
+        ],
+        [
+          27.335,
+          94.941
+        ],
+        [
+          27.308,
+          94.916
+        ],
+        [
+          27.321,
+          94.901
+        ],
+        [
+          27.316,
+          94.886
+        ],
+        [
+          27.294,
+          94.87
+        ],
+        [
+          27.296,
+          94.846
+        ],
+        [
+          27.278,
+          94.843
+        ],
+        [
+          27.271,
+          94.831
+        ],
+        [
           27.29,
           94.802
         ],
         [
-          27.2,
-          94.68
+          27.252,
+          94.798
+        ],
+        [
+          27.248,
+          94.78
+        ],
+        [
+          27.235,
+          94.778
+        ],
+        [
+          27.245,
+          94.768
+        ],
+        [
+          27.249,
+          94.739
+        ],
+        [
+          27.272,
+          94.752
+        ],
+        [
+          27.277,
+          94.745
+        ],
+        [
+          27.268,
+          94.718
+        ],
+        [
+          27.427,
+          94.779
+        ],
+        [
+          27.027,
+          94.461
         ],
         [
           27.3415,
           94.5009
         ]
       ],
-      "note": "Sequence toward Habung via the Brahmaputra. Intermediate Mungklang/Abhaypur site is unresolved and intentionally not pinned; historical channels differed."
+      "note": "Sequence toward Habung via the Brahmaputra. Intermediate Mungklang/Abhaypur site is unresolved and intentionally not pinned; historical channels differed. The short cross-channel/access links are schematic land/access connectors; the river sections reuse the base map vertices. Drawn river sections share every vertex with the river layer. Gaps indicate unresolved historic access/confluences; no straight bridge is invented.",
+      "riverSections": [
+        "dihing",
+        "brahmaputra"
+      ],
+      "riverPaths": [
+        [
+          [
+            27.255,
+            95.409
+          ],
+          [
+            27.297,
+            95.379
+          ],
+          [
+            27.285,
+            95.366
+          ],
+          [
+            27.301,
+            95.349
+          ],
+          [
+            27.296,
+            95.332
+          ],
+          [
+            27.315,
+            95.335
+          ],
+          [
+            27.323,
+            95.321
+          ],
+          [
+            27.301,
+            95.285
+          ],
+          [
+            27.326,
+            95.266
+          ],
+          [
+            27.36,
+            95.194
+          ],
+          [
+            27.337,
+            95.184
+          ],
+          [
+            27.347,
+            95.155
+          ],
+          [
+            27.329,
+            95.151
+          ],
+          [
+            27.326,
+            95.098
+          ],
+          [
+            27.307,
+            95.06
+          ],
+          [
+            27.326,
+            95.054
+          ],
+          [
+            27.325,
+            95.035
+          ],
+          [
+            27.343,
+            95.038
+          ],
+          [
+            27.343,
+            95.022
+          ],
+          [
+            27.355,
+            95.023
+          ],
+          [
+            27.349,
+            94.995
+          ],
+          [
+            27.36,
+            94.992
+          ],
+          [
+            27.372,
+            95.005
+          ],
+          [
+            27.38,
+            94.998
+          ],
+          [
+            27.356,
+            94.983
+          ],
+          [
+            27.335,
+            94.941
+          ],
+          [
+            27.308,
+            94.916
+          ],
+          [
+            27.321,
+            94.901
+          ],
+          [
+            27.316,
+            94.886
+          ],
+          [
+            27.294,
+            94.87
+          ],
+          [
+            27.296,
+            94.846
+          ],
+          [
+            27.278,
+            94.843
+          ],
+          [
+            27.271,
+            94.831
+          ],
+          [
+            27.29,
+            94.802
+          ],
+          [
+            27.252,
+            94.798
+          ],
+          [
+            27.248,
+            94.78
+          ],
+          [
+            27.235,
+            94.778
+          ],
+          [
+            27.245,
+            94.768
+          ],
+          [
+            27.249,
+            94.739
+          ],
+          [
+            27.272,
+            94.752
+          ],
+          [
+            27.277,
+            94.745
+          ],
+          [
+            27.268,
+            94.718
+          ]
+        ],
+        [
+          [
+            27.427,
+            94.779
+          ],
+          [
+            27.027,
+            94.461
+          ]
+        ]
+      ]
     },
     {
       "id": "habung-dikhou",
@@ -1106,24 +1637,108 @@
           94.5009
         ],
         [
-          27.15,
-          94.49
+          27.027,
+          94.461
         ],
         [
           27.001,
           94.429
         ],
         [
+          26.998,
+          94.472
+        ],
+        [
+          27.007,
+          94.481
+        ],
+        [
+          26.989,
+          94.473
+        ],
+        [
+          26.99,
+          94.501
+        ],
+        [
           26.974,
           94.498
+        ],
+        [
+          26.981,
+          94.501
+        ],
+        [
+          26.976,
+          94.515
+        ],
+        [
+          26.971,
+          94.505
+        ],
+        [
+          26.963,
+          94.52
+        ],
+        [
+          26.97,
+          94.527
+        ],
+        [
+          26.952,
+          94.532
+        ],
+        [
+          26.961,
+          94.568
+        ],
+        [
+          26.979,
+          94.561
+        ],
+        [
+          26.973,
+          94.568
         ],
         [
           26.98,
           94.567
         ],
         [
+          26.986,
+          94.588
+        ],
+        [
+          26.976,
+          94.589
+        ],
+        [
+          26.982,
+          94.601
+        ],
+        [
+          26.973,
+          94.611
+        ],
+        [
           26.983,
           94.624
+        ],
+        [
+          26.971,
+          94.639
+        ],
+        [
+          26.978,
+          94.67
+        ],
+        [
+          26.951,
+          94.681
+        ],
+        [
+          26.959,
+          94.706
         ],
         [
           26.946,
@@ -1134,7 +1749,125 @@
           94.71
         ]
       ],
-      "note": "1244: Habung down the Brahmaputra to Dikhoumukh, then upriver toward Ligirigaon; schematic river corridor."
+      "note": "1244: Habung down the Brahmaputra to Dikhoumukh, then upriver toward Ligirigaon; schematic river corridor. Drawn river sections share every vertex with the river layer. Gaps indicate unresolved historic access/confluences; no straight bridge is invented.",
+      "riverSections": [
+        "brahmaputra",
+        "dikhou"
+      ],
+      "riverPaths": [
+        [
+          [
+            27.027,
+            94.461
+          ]
+        ],
+        [
+          [
+            27.001,
+            94.429
+          ],
+          [
+            26.998,
+            94.472
+          ],
+          [
+            27.007,
+            94.481
+          ],
+          [
+            26.989,
+            94.473
+          ],
+          [
+            26.99,
+            94.501
+          ],
+          [
+            26.974,
+            94.498
+          ],
+          [
+            26.981,
+            94.501
+          ],
+          [
+            26.976,
+            94.515
+          ],
+          [
+            26.971,
+            94.505
+          ],
+          [
+            26.963,
+            94.52
+          ],
+          [
+            26.97,
+            94.527
+          ],
+          [
+            26.952,
+            94.532
+          ],
+          [
+            26.961,
+            94.568
+          ],
+          [
+            26.979,
+            94.561
+          ],
+          [
+            26.973,
+            94.568
+          ],
+          [
+            26.98,
+            94.567
+          ],
+          [
+            26.986,
+            94.588
+          ],
+          [
+            26.976,
+            94.589
+          ],
+          [
+            26.982,
+            94.601
+          ],
+          [
+            26.973,
+            94.611
+          ],
+          [
+            26.983,
+            94.624
+          ],
+          [
+            26.971,
+            94.639
+          ],
+          [
+            26.978,
+            94.67
+          ],
+          [
+            26.951,
+            94.681
+          ],
+          [
+            26.959,
+            94.706
+          ],
+          [
+            26.946,
+            94.706
+          ]
+        ]
+      ]
     },
     {
       "id": "simaluguri",

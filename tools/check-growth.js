@@ -78,3 +78,12 @@ for (let y = D.start; y <= D.end; y++) for (const si of D.states[D.years[y - D.s
   const t = D.territories[D.shapes[si].t]; assert.ok(t.s <= y && y <= t.e);
 }
 console.log(`PASS: ${D.growth.phases.length} researched stages, migration/capital chronology, settlement symbols, long consolidation, 1512–24 reversals, Khen progression, separate Bhuyan seats, ${D.base.rivers.length} named rivers and all annual joins.`);
+assert.equal(migration.progress.start,1215);
+assert.equal(migration.progress.arrival,1228);
+const rawMap=JSON.parse(fs.readFileSync(path.join(__dirname,'../data/maps/assam.json'),'utf8'));
+for(const r of D.growth.routes.filter(r=>r.riverPaths)) {
+ const allowed=new Set(r.riverSections.flatMap(id=>rawMap.rivers[id].pts.map(p=>JSON.stringify(p))));
+ for(const section of r.riverPaths) for(const point of section) assert.ok(allowed.has(JSON.stringify(point)), 'River travel must reuse exact mapped river vertices');
+ assert.equal((r.d.match(/M/g)||[]).length,r.riverPaths.length,'Do not bridge disconnected river sections with straight lines');
+}
+console.log('PASS: progressive 1215–1228 pacing metadata and exact, separately drawn river sections.');

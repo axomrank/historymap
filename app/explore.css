@@ -193,3 +193,12 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   .controls #speed { margin-left: auto; }
 }
 .card a { color: var(--accent); }
+
+/* Give the historical geography priority over the overview bands. */
+@media (min-width: 861px) { .mapbox { min-height: 420px; } .time { flex-shrink: 0; } .chart { max-height: 215px; overflow-y: auto; } body { height: auto; min-height: 100vh; } .layout { min-height: 58vh; } }
+
+.ridge-reference { fill:none; stroke:var(--modern); stroke-opacity:.35; stroke-width:7; stroke-dasharray:2 5; pointer-events:none; }
+.panel-collapsed .layout { grid-template-columns:1fr; } .panel-collapsed #panel { display:none; }
+.timeline-collapsed .chart, .timeline-collapsed .time .hint { display:none; }
+.top { flex-wrap:wrap; } .top h1 { margin-right:auto; }
+@media (min-width: 861px) { .layout { flex: none; height: max(420px, calc(100vh - 275px)); min-height: 0; } }
