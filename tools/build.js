@@ -165,13 +165,13 @@ function limitsShape([ws, es, ns, ss]) {
   return safe(() => fillHoles(pc.intersection(limitLand(plain), ...vertical, ...horizontal)), []);
 }
 
-function termShape(term) {
+function termShape(term, expandEasternAssam = false) {
   const i = term.indexOf(':'), kind = term.slice(0, i), arg = term.slice(i + 1);
   if (kind === 'realm') {
     const r = realmById[arg]; if (!r) throw new Error('unknown realm ' + arg);
-    return limitsShape([r.limit_west, r.limit_east, r.limit_north, r.limit_south]);
+    return limitsShape([r.limit_west, expandEasternAssam && r.limit_east === 'place:sadiya' ? 'lon:98.7' : r.limit_east, r.limit_north, r.limit_south]);
   }
-  if (kind === 'limits') return limitsShape(arg.split('|'));
+  if (kind === 'limits') return limitsShape(arg.split('|').map((v,i) => expandEasternAssam && i === 1 && v === 'place:sadiya' ? 'lon:98.7' : v));
   if (kind === 'land') return union(arg.split(',').map(s => landNamed(s.trim())));
   if (kind === 'poly') return ringsMP([parsePoly(arg)]);
   // Symbolic locality patches, not surveyed territorial borders. Radii are degrees.
@@ -253,7 +253,7 @@ for (const phase of ratnaPhases) territories.push({
 });
 const T = territories.map((t, row) => {
   if (!(t.polity in polityIdx)) throw new Error('unknown polity ' + t.polity + ' in ' + t.id);
-  let mp = fillHoles(safe(() => pc.intersection(union(t.shape.split(' + ').map(s => termShape(s.trim()))), FRAME), []));
+  let mp = fillHoles(safe(() => pc.intersection(union(t.shape.split(' + ').map(s => termShape(s.trim(), t.polity === 'ahom' && +t.start >= 1523))), FRAME), []));
   // User-adopted plain/hill convention for the eastern successor kingdoms.
   // Restrict only the eastern sector, retaining western historical acquisitions.
   if (['ahom', 'chutia'].includes(t.polity)) {
