@@ -21,3 +21,5 @@ The [University of North Bengal campaign chapter, printed p.92](https://ir.nbu.a
 The campaign’s maximum reach, the Majuli settlement, tribute, and lasting territorial administration are distinct. The island is not automatically recoloured as a permanently annexed Koch province simply because the Koch king camped there. The map retains its qualified Narayanpur-side reconstruction for the settlement envelope; descriptions of north-bank cession west of the Subansiri should not be confused with Majuli being the final campaign endpoint.
 
 Run `node tools/check-mainstem-chronology.js`, along with the existing atlas checks, after rebuilding. It checks a single continuous main stem, the exact sequence of joined source vertices, preservation of Dehing as a tributary, no Kachari core-area reduction in 1523, the separate contested and settled-border stages, and both 1563 campaign markers.
+
+The [subsequent Subansiri correction](../subansiri-jaintia-2026-11-04/README.md) supersedes the Narayanpur-side settlement sketch above: both north-bank boundaries now follow the same Subansiri river trace throughout the existing 1563–1580 phase.

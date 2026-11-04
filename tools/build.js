@@ -75,7 +75,7 @@ const clipBox = (ring, la0, la1, lo0, lo1) => [[0, la0, true], [0, la1, false], 
 
 /* ---------- named land ---------- */
 const HILLS = ['karbi-anglong', 'west-karbi-anglong', 'dima-hasao'], BARAK = ['cachar', 'hailakandi', 'karimganj'];
-const JAINTIA = '25.95 91.85;26.05 92.35;25.85 92.75;25.45 92.85;25.05 92.55;24.93 92.15;25.05 91.85;25.5 91.78';
+const JAINTIA = JSON.parse(rd('data/maps/jaintia-hills.json'));
 const parsePoly = s => s.split(';').map(p => p.trim().split(/\s+/).map(Number));
 const ringsMP = rings => union(rings.filter(r => r.length > 2).map(toPC));
 const landCache = {};
@@ -86,7 +86,7 @@ function landNamed(name) {
   else if (name === 'valley') mp = union(Object.entries(A.districts).filter(([id]) => !HILLS.includes(id) && !BARAK.includes(id)).map(([id]) => landNamed(id)));
   else if (NE.regions[name]) mp = ringsMP(NE.regions[name].rings);
   else if (name === 'bangladesh') mp = ringsMP(NB.countries.Bangladesh);
-  else if (name === 'jaintia') mp = ringsMP([parsePoly(JAINTIA)]);
+  else if (name === 'jaintia') mp = pc.difference(pc.intersection(ringsMP(JAINTIA.rings), landNamed('meghalaya')), landNamed('assam'), union(Object.keys(A.districts).map(landNamed)));
   else throw new Error('unknown land: ' + name);
   return landCache[name] = fillHoles(mp);
 }

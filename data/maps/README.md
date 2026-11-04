@@ -32,3 +32,5 @@ The four traditional river-bounded divisions of Kāmarūpa (Ratnapīṭha: Karat
 ### Joined Brahmaputra main stem
 
 The interactive atlas renders Siang, Dihang and Brahmaputra as one continuous feature with regional aliases. `brahmaputra-mainstem.json` supplies the missing inter-segment reach from Natural Earth 1:10m rivers (public domain), with its source URL and approximation note. The original lower-Brahmaputra territory-mask geometry is retained. See the [continuity and chronology revision](../../research/mainstem-chronology-2026-11-04/README.md).
+
+`jaintia-hills.json` extracts the former Jaintia Hills district (Meghalaya, Census 2011 code 299) from [DataMeet district boundaries](https://github.com/datameet/maps/tree/master/Districts/Census_2011), CC BY 4.0 / ODbL. The builder clips this modern hill-region proxy to Meghalaya and excludes all mapped Assam geometry. The adopted display omits the historical kingdom’s Jaintiapur/Sylhet plains.

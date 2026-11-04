@@ -94,6 +94,11 @@
       "title": "Acharyya, History of Medieval Assam, Kachari chapter, pp.219 onward",
       "url": "https://pahar.in/pahar/Books%20and%20Articles/Indian%20Subcontinent/1966%20The%20History%20of%20Medieval%20Assam%20from%20the%2013th%20to%20the%2017th%20century%20by%20Acharya%20s.pdf",
       "verification": "Indexed text checked: December 1526 Dhansiri campaign and 1531 Marangi fighting; full direct scan remains inaccessible. 1532 is retained only as an approximate settled-map stage, not the first clash."
+    },
+    "majuli-treaty": {
+      "title": "Treaty of Majuli: Nath (1989), p.58; Sarkar (1992), p.80, as cited in the treaty summary",
+      "url": "https://en.wikipedia.org/wiki/Treaty_of_Majuli",
+      "verification": "User-supplied treaty summary read: north-bank cession west of Subansiri, Koch overlordship, hostages and indemnity. Bibliographic citations identified; original book pages were not directly inspected in this revision."
     }
   },
   "phases": [
@@ -657,10 +662,11 @@
       "end": 1580,
       "date": "c.1563–1580",
       "title": "Majuli settlement and contested overlordship",
-      "text": "Koch forces reached Majuli, where Naranarayan camped, and occupied Garhgaon. The Majuli settlement brought Ahom submission and a north-bank cession; the existing reconstructed Narayanpur-side frontier is distinct from those campaign locations. Neither the camp nor the capital occupation alone establishes permanent Koch annexation of the whole island or Ahom kingdom.",
+      "text": "Koch forces reached Majuli and occupied Garhgaon. For the 1563–1580 settlement phase, north-bank land west of the Subansiri is shown as Koch and land east as Ahom. Both sides follow the same river trace. The 1581 successor-state geography is separate. The campaign markers do not imply permanent annexation of Majuli or the whole Ahom kingdom.",
       "sources": [
         "gait",
-        "koch-campaigns"
+        "koch-campaigns",
+        "majuli-treaty"
       ]
     }
   ],
