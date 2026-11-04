@@ -6,7 +6,7 @@
 <title>Assam Through Time</title>
 <meta name="description" content="Explore every year of Assam's history from 350 CE to today: how kingdoms rose, reached their height and gave way to the next.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="app/explore.css?v=postpala-20261104">
+<link rel="stylesheet" href="app/explore.css?v=growth-20261104">
 </head>
 <body>
 <header class="top">
@@ -16,13 +16,13 @@
 
 <main class="layout">
   <section class="mapbox" aria-label="Map">
-    <svg id="map" role="img" aria-label="Map of Assam and its kingdoms in the selected year"></svg>
+    <svg id="map" role="group" aria-label="Map of Assam and its kingdoms in the selected year"></svg>
     <div class="zoom">
       <button id="zin" aria-label="Zoom in">+</button>
       <button id="zout" aria-label="Zoom out">−</button>
       <button id="zfit" aria-label="Show whole map">⤢</button>
     </div>
-    <div id="tip" class="tip" hidden></div>
+    <div id="tip" class="tip" role="status" aria-live="polite" hidden></div>
     <button id="ratnaChip" class="ratna-chip" aria-label="Show Paundravardhana phase details"></button>
     <div class="yearbig" aria-hidden="true"><span id="yearBig"></span><small id="eraBig"></small></div>
   </section>
@@ -52,10 +52,10 @@
     <div class="cursor" id="cursor"><span id="cursorYear"></span></div>
     <div class="axis" id="axis"></div>
   </div>
-  <p class="hint">Each band is a kingdom: its thickness is the land it held that year, so you can watch it rise, peak and fade. Click or drag anywhere on the bands to travel in time.</p>
+  <p class="hint">Bands track approximate mapped territory; thin traces and locality patches indicate uncertain centres, not measured possessions. Tap a river to see its name. Click or drag anywhere on the bands to travel in time.</p>
 </section>
 
-<script src="data/atlas.js?v=postpala-20261104"></script>
-<script src="app/explore.js?v=postpala-20261104"></script>
+<script src="data/atlas.js?v=growth-20261104"></script>
+<script src="app/explore.js?v=growth-20261104"></script>
 </body>
 </html>

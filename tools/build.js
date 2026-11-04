@@ -29,11 +29,12 @@ function parseCSV(text) {
 
 /* ---------- inputs ---------- */
 const history = parseCSV(rd('data/assam_history.csv'));
-const polities = parseCSV(rd('data/polities.csv'));
+const polities = parseCSV(rd('data/polities.csv')).map(p => ({ ...p, color: p.color.replace(/\s/g, '') }));
 const territories = parseCSV(rd('data/territories.csv'));
 const events = parseCSV(rd('data/events.csv'));
 const ratnaPhases = parseCSV(rd('data/paundravardhana-map-phases.csv'));
 const postPala = JSON.parse(rd('data/kamarupa-after-palas.json'));
+const growth = JSON.parse(rd('data/medieval-growth.json'));
 const A = JSON.parse(rd('data/maps/assam.json'));
 const NB = JSON.parse(rd('data/maps/neighbours.json'));
 const NE = JSON.parse(rd('data/maps/northeast.json'));
@@ -152,6 +153,14 @@ function termShape(term) {
   if (kind === 'limits') return limitsShape(arg.split('|'));
   if (kind === 'land') return union(arg.split(',').map(s => landNamed(s.trim())));
   if (kind === 'poly') return ringsMP([parsePoly(arg)]);
+  // Symbolic locality patches, not surveyed territorial borders. Radii are degrees.
+  if (kind === 'patch') {
+    const [lat, lon, rx, ry] = arg.split('|').map(Number);
+    return ringsMP([Array.from({ length: 40 }, (_, j) => {
+      const a = j * Math.PI / 20;
+      return [lat + Math.sin(a) * ry, lon + Math.cos(a) * rx];
+    })]);
+  }
   throw new Error('unknown shape term ' + term);
 }
 
@@ -292,9 +301,13 @@ const out = {
   built: new Date().toISOString().slice(0, 10), start: START, end: END, W, H, proj: { lat0, lat1, lon0, lon1 },
   base: { countries, rivers, modern, towns },
   polities: P,
-  territories: T.map(t => ({ p: polityIdx[t.polity], s: t.start, e: t.end, label: t.label, note: t.note, conf: t.confidence, style: t.style })),
+  territories: T.map(t => ({ id: t.id, p: polityIdx[t.polity], s: t.start, e: t.end, label: t.label, note: t.note, conf: t.confidence, style: t.style })),
   ratna: { outline: pathOf(ratnaMP), phases: ratnaPhases.map(r => ({ ...r, start: +r.start, end: +r.end, p: polityIdx[r.polity] })) },
   postPala: { ...postPala, spots: postPala.spots.map(s => ({ ...s, x: X(s.lon), y: Y(s.lat) })) },
+  growth: { ...growth,
+    spots: growth.spots.map(s => ({ ...s, x: X(s.lon), y: Y(s.lat) })),
+    routes: growth.routes.map(r => ({ ...r, d: linePath(r.points) })),
+  },
   pithas: {
     rivers: [['teesta-karatoya', 'Teesta / Karatoya'], ['sonkosh', 'Sankosh'], ['puthimari', 'Rupahi*'], ['bharali', 'Bharali'], ['dikrong', 'Dikrong']].map(([id, name]) => ({ id, name, d: linePath(A.rivers[id].pts), label: A.rivers[id].pts[Math.floor(A.rivers[id].pts.length * .25)].map((v, i, a) => i === 0 ? X(a[1]) : Y(a[0])) })),
     labels: [['Paundravardhana / Ratnapitha', 26.35, 89.15], ['Kamapitha', 26.35, 90.65], ['Suvarnapitha', 26.55, 92.05], ['Saumarapitha', 26.93, 93.15]].map(([name, lat, lon]) => ({ name, x: X(lon), y: Y(lat) })),

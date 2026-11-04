@@ -1,0 +1,903 @@
+{
+  "sources": {
+    "gait": {
+      "title": "Gait (1906), A History of Assam, chs. III–V",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/A_History_of_Assam_by_E._A._Gait.pdf",
+      "verification": "Full public-domain text read; especially pp. 74–76, 84–90. Chronicle synthesis; colonial interpretations require caution."
+    },
+    "gu": {
+      "title": "Gauhati University, History of Assam 1228–1826, Unit 2",
+      "url": "https://gucdoe.in/sites/default/files/206%20HISTORY%20OF%20ASSAM%281228-1826%29.pdf",
+      "verification": "Search-indexed passages verified; direct PDF currently returns 404. Conventional migration chronology and consolidation."
+    },
+    "ignou": {
+      "title": "IGNOU, Unit 11: State Formation in the Northeast",
+      "url": "https://egyankosh.ac.in/bitstream/123456789/84180/3/Unit-11.pdf",
+      "verification": "Search-indexed passage verified: Suteuphaa and the Namdang frontier; download unavailable."
+    },
+    "nbu": {
+      "title": "NBU research, State in the Making: the Kamata-Koches, pp. 57–58, 68",
+      "url": "https://ir.nbu.ac.in/bitstreams/15fe8ad7-cbf9-4fa3-b50a-0e05c40ae1a8/download",
+      "verification": "Full chapter downloaded/read. Research synthesis with references; early reigns and local traditions remain approximate."
+    },
+    "neog": {
+      "title": "Neog (1977), epigraphic study, pp. 813–820",
+      "url": "https://www.jstor.org/stable/41691751",
+      "verification": "Bibliographic record and quoted inscription readings cross-checked through secondary citations; full article inaccessible in this session. Not a claim of direct plate inspection."
+    },
+    "landgrants": {
+      "title": "NBU epigraphic research, land measures, p.177",
+      "url": "https://ir.nbu.ac.in/server/api/core/bitstreams/dd3842dd-f379-4933-8bec-f7b995e5fe62/content",
+      "verification": "Indexed research passage independently verifies the 1392 Dhenukhana and 1401 Ghilamara grants."
+    },
+    "gazetteer": {
+      "title": "Arunachal Pradesh State Gazetteer: Tamreswari inscription",
+      "url": "https://arunachalpradesh.gov.in/images/Gazetteer/state-gazetteer.pdf",
+      "verification": "Official gazetteer indexed inscription account: Mukta-dharmanarayana, Saka 1364/1442, temple enclosure wall."
+    },
+    "shin": {
+      "title": "Shin (2020), Chutiya and Dimasa genealogical claims",
+      "url": "https://journals.sagepub.com/doi/10.1177/0019464619894134",
+      "verification": "Publisher record and scholarly quotations consulted; full text restricted. Discusses limits of founding genealogies."
+    },
+    "nagaon": {
+      "title": "Census of India, Nagaon District Handbook, history",
+      "url": "https://censusindia.gov.in/nada/index.php/catalog/237/download/598/DH_2011_1806_PART_B_DCHB_NAGAON.pdf",
+      "verification": "Official indexed passage: Sankardeva born into a Bhuyan family at Bardowa, 1449; local legends are not treated as dated conquests."
+    },
+    "unesco": {
+      "title": "UNESCO: Charaideo and the Tai-Ahom first capital",
+      "url": "https://whc.unesco.org/en/list/1711/",
+      "verification": "Official description read: 13th-century migration and Charaideo first capital; does not independently specify every stop/date."
+    }
+  },
+  "phases": [
+    {
+      "polity": "ahom",
+      "start": 1228,
+      "end": 1229,
+      "date": "1228 · conventional arrival",
+      "title": "Across the Patkai to Namrup",
+      "text": "Sukaphaa entered the Assam plains by an overland Patkai crossing. Pangsau is the conventional pass identification; the line shown is an approximate corridor. Namrup is the first Assam stop in this sequence. This is a migrating group, not yet the later Ahom kingdom.",
+      "sources": [
+        "gait",
+        "unesco"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1230,
+      "end": 1235,
+      "date": "c.1228–1236 · 1230 display anchor",
+      "title": "Dihing exploration and Tipam",
+      "text": "The chronicle sequence crosses the Sessa, goes upstream on the Dihing, then returns downstream to Tipam. Exact camps and the riverbank track cannot be recovered. The river excursion is schematic; no upstream camp is plotted as an exact site.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1236,
+      "end": 1239,
+      "date": "1236",
+      "title": "Mungklang / Abhaypur",
+      "text": "Sukaphaa moved from Tipam to Mungklang Chekhru, identified in histories as Abhaypur. Its exact historical site is unresolved here, so it is listed without a false map pin. Earlier locality patches stand for the settlement network, not continuous possession.",
+      "sources": [
+        "gait",
+        "gu"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1240,
+      "end": 1243,
+      "date": "1240–1244",
+      "title": "Habung: cultivation and floods",
+      "text": "The chronicles place a move down the Brahmaputra to Habung in 1240. Flooding prompted another move in 1244. The pin uses the modern Dhakuakhana-area identification; the historical tract was broader and is also associated with the Dhemaji region.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1244,
+      "end": 1245,
+      "date": "1244",
+      "title": "Downstream to Dikhoumukh, then Ligirigaon",
+      "text": "From Habung the party followed the Brahmaputra downstream to the Dikhou mouth and travelled up the Dikhou toward Ligirigaon (Song-Tak), near present Nazira. Changing channels and uncertain old settlements make the trail a corridor rather than a literal boat track.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1246,
+      "end": 1252,
+      "date": "1246",
+      "title": "Simaluguri settlement",
+      "text": "Simaluguri became the next base, with a detachment left at Ligirigaon. The historical settlement is associated with the modern Simaluguri vicinity; the marker is approximate. These are local footholds, not a continuous kingdom stretching to Sadiya.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1253,
+      "end": 1267,
+      "date": "1253 · conventional chronology",
+      "title": "Charaideo: capital and a small kingdom",
+      "text": "Charaideo became the enduring capital in 1253 in the conventional chronology; some histories give 1251–1252. The surrounding foothill-and-plain core grew through coercion, accommodation and marriage with Moran and Barahi groups. The reconstructed core remains much smaller than the 16th-century realm.",
+      "sources": [
+        "gait",
+        "unesco"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1268,
+      "end": 1281,
+      "date": "During Suteuphaa’s reign, 1268–1281",
+      "title": "Toward the Dikhou–Namdang tract",
+      "text": "Suteuphaa’s reign is associated with gaining land from the Kacharis in the Dikhou–Namdang tract. The exact acquisition year is unknown: 1268 starts the display window, not a dated conquest. This small western addition precedes a long period of consolidation.",
+      "sources": [
+        "ignou",
+        "gait"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1282,
+      "end": 1496,
+      "date": "c.1281–1497",
+      "title": "Consolidation, not continuous expansion",
+      "text": "The kingdom largely held its Upper Assam core for roughly two centuries. Campaigns, a Kamata conflict and eastern diplomacy do not establish permanent annexation of the routes traversed. Sudangphaa’s Patkai settlement belongs to frontier consolidation, not an automatic conquest of all intervening hills.",
+      "sources": [
+        "gait",
+        "ignou"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1497,
+      "end": 1511,
+      "date": "1497–1511",
+      "title": "Suhungmung: preparations for expansion",
+      "text": "Suhungmung’s reign brought administrative reorganisation, a population enquiry in 1510 and campaigns against neighbouring groups. The map retains the inherited core until specific territorial acquisitions are reported.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1512,
+      "end": 1512,
+      "date": "1512",
+      "title": "Habung annexed",
+      "text": "Habung was annexed under Suhungmung. A separate north-bank patch marks this gain; it does not yet colour the whole Chutia kingdom as Ahom.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1513,
+      "end": 1519,
+      "date": "1513 · some accounts give 1516",
+      "title": "Dikhoumukh fighting and eastern gains",
+      "text": "A Chutia offensive was defeated at Dikhoumukh and on the river. Ahom gains around Mungkhrang and a Namdang locality followed. This eastern Namdang must not be confused automatically with the Sivasagar tributary of that name; the eastern patch is a broad Dihing-area locator, not an exact fort.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1520,
+      "end": 1521,
+      "date": "1520–1521",
+      "title": "Chutia counterattack: eastern setback",
+      "text": "The Chutias retook Mungkhrang and the associated eastern tract after the Ahom garrison withdrew. The eastern Ahom patch disappears and a contested Chutia recovery patch returns. Sources do not securely establish the extent of any Habung recovery, so the north-bank ownership is shown as unresolved during this interval.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1522,
+      "end": 1522,
+      "date": "1522",
+      "title": "Ahom recovery and advance",
+      "text": "Suhungmung recovered the lost eastern tract and established a fort farther east in the river-mouth zone. The source names Sessa and Tiphao; modern identifications vary. The expansion is schematic and is not labelled as a securely located fort.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1523,
+      "end": 1531,
+      "date": "1523–1524",
+      "title": "Sadiya and the Chutia kingdom annexed",
+      "text": "The decisive campaigns ended the independent Chutia monarchy in 1523–1524. Sadiya came under an Ahom governor, the Sadiya Khowa Gohain. The eastern domain now joins the older core; this does not yet imply the later western extent toward the Kolong.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "ahom",
+      "start": 1532,
+      "end": 1536,
+      "date": "c.1532–1536",
+      "title": "Westward campaigns against the Kacharis",
+      "text": "Ahom power advanced in the Dhansiri region through successive campaigns; Dimapur was sacked in 1536. The broad western map phase begins in 1532 as an approximate campaign-stage anchor. The 1537 map then shows the later Kolong-side expansion.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "chutia",
+      "start": 1187,
+      "end": 1375,
+      "date": "Before the late 14th century · founding date uncertain",
+      "title": "Sadiya centre; early extent unknown",
+      "text": "1187 and Birpal belong to a later founding tradition, not a securely dated conquest sequence. Only a small symbolic Sadiya-area patch is shown in this early window. It neither measures the early state nor assigns the later Lakhimpur–Dhemaji domain to it.",
+      "sources": [
+        "shin",
+        "neog"
+      ]
+    },
+    {
+      "polity": "chutia",
+      "start": 1376,
+      "end": 1391,
+      "date": "Late 14th century · 1376 chronicle anchor",
+      "title": "Chutia power becomes clearer in the records",
+      "text": "Chronicles place conflict with the Ahoms in Sutuphaa’s time, conventionally around 1376. Nandin / Nandisvara is the earliest king remembered in the inscription genealogy of Satyanarayana. This supports an eastern political centre, not a precise founding year or frontier.",
+      "sources": [
+        "gait",
+        "neog"
+      ]
+    },
+    {
+      "polity": "chutia",
+      "start": 1392,
+      "end": 1400,
+      "date": "1392",
+      "title": "Dhenukhana grant: western evidence appears",
+      "text": "The grant of Satyanarayana and Pratyakshanarayana provides dated evidence in the Habung–Dhakuakhana region. An additional locality patch marks this evidence. Its appearance in 1392 is an attestation date, not proof that the tract was conquered that year.",
+      "sources": [
+        "landgrants",
+        "neog"
+      ]
+    },
+    {
+      "polity": "chutia",
+      "start": 1401,
+      "end": 1427,
+      "date": "1401",
+      "title": "Ghilamara: Lakshminarayana’s grant",
+      "text": "Lakshminarayana’s Ghilamara charter adds another dated western record. Its locality patch joins the earlier Sadiya and Habung-region symbols. The map does not fill the intervening country from this grant alone or assign a conquest to 1401.",
+      "sources": [
+        "landgrants",
+        "neog"
+      ]
+    },
+    {
+      "polity": "chutia",
+      "start": 1428,
+      "end": 1441,
+      "date": "1428",
+      "title": "Sadiya–Chepakhowa charter and Habung",
+      "text": "Durlabhnarayana’s charter names a Habung authority. Genealogical references to a Kamatapura ruler have competing interpretations and do not justify colouring all Kamata as Chutia territory. The Habung and Sadiya markers locate regions, not the charter’s exact original issue/find sites.",
+      "sources": [
+        "neog"
+      ]
+    },
+    {
+      "polity": "chutia",
+      "start": 1442,
+      "end": 1511,
+      "date": "1442–early 16th century",
+      "title": "Tamreswari: an eastern royal inscription",
+      "text": "The Paya–Tamreswari inscription records Mukta-dharmanarayana’s temple enclosure wall in 1442. Alongside the earlier grants, this supports a mid-15th-century domain context in the eastern plains and river valleys. The wider envelope is reconstructed, not a conquest in 1442; upland Arunachal is not automatically annexed.",
+      "sources": [
+        "gazetteer",
+        "neog"
+      ]
+    },
+    {
+      "polity": "chutia",
+      "start": 1512,
+      "end": 1519,
+      "date": "1512–1519",
+      "title": "Habung lost; Ahom–Chutia war",
+      "text": "Ahom annexation of Habung was followed by Chutia offensives and reverses in the Dihing–Dikhoumukh theatre. The Habung patch changes owner separately from the Sadiya heartland. Dhirnarayana’s exact accession is unknown, and royal names vary between chronicles.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "chutia",
+      "start": 1520,
+      "end": 1521,
+      "date": "1520–1521",
+      "title": "Mungkhrang recovered",
+      "text": "A Chutia counterattack recovered the eastern tract around Mungkhrang. The map restores a symbolic recovery patch there. Claims of a simultaneous, complete reconquest of Habung are less secure and are not treated as a settled border change.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "chutia",
+      "start": 1522,
+      "end": 1522,
+      "date": "1522",
+      "title": "Ahom counteroffensive",
+      "text": "The Ahoms recovered their eastern losses and advanced toward the river mouths. Chutia control contracted toward Sadiya before the final campaign. A land grant or findspot by itself cannot define every wartime frontier.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "chutia",
+      "start": 1523,
+      "end": 1536,
+      "date": "1523–1524 and aftermath",
+      "title": "Independent monarchy ends; people and traditions continue",
+      "text": "Ahom annexation ended independent Chutia kingship around 1523–1524. Chronicles disagree over the last royal names and deaths. Chutia communities, specialists and Deori religious traditions continued; a polity’s disappearance from the map does not mean its population disappeared.",
+      "sources": [
+        "gait",
+        "shin"
+      ]
+    },
+    {
+      "polity": "kamata",
+      "start": 1257,
+      "end": 1299,
+      "date": "After 1257; capital shift often c.1260",
+      "title": "Sandhya’s western reorganisation",
+      "text": "The map begins with a Kamatapur–western plains focus and an uncertain successor region farther east. This is a change of political centre, not a newly conquered kingdom growing from zero. The capital-shift date and frontier are approximate.",
+      "sources": [
+        "nbu"
+      ]
+    },
+    {
+      "polity": "kamata",
+      "start": 1300,
+      "end": 1364,
+      "date": "Early–mid 14th century",
+      "title": "Rival rulers and competing authority",
+      "text": "Durlabhnarayana and Indranarayana belong to approximate 14th-century chronologies. Kamata authority was contested; the eastern reach is dashed and separate from the western core. No automatic, continuous rule to the later Barnadi limit is assumed.",
+      "sources": [
+        "nbu"
+      ]
+    },
+    {
+      "polity": "kamata",
+      "start": 1365,
+      "end": 1439,
+      "date": "Late 14th–early 15th century",
+      "title": "Fragmentation before the Khen",
+      "text": "Arimatta and successor traditions cannot furnish exact borders or reigns. The reconstruction contracts to the western Kamata focus, while independent Bhuyan localities remain distinct. The c.1365 division is a display anchor, not a securely dated territorial collapse.",
+      "sources": [
+        "nbu"
+      ]
+    },
+    {
+      "polity": "khen",
+      "start": 1440,
+      "end": 1459,
+      "date": "c.1440–1460",
+      "title": "Niladhwaj: Kamatapur base",
+      "text": "A western core represents the early Khen kingdom. The c.1440 foundation is conventional; the later Nilambar footprint is not shown at the dynasty’s beginning.",
+      "sources": [
+        "nbu",
+        "gait"
+      ]
+    },
+    {
+      "polity": "khen",
+      "start": 1460,
+      "end": 1479,
+      "date": "c.1460–1480",
+      "title": "Chakradhwaj: consolidation",
+      "text": "An intermediate western-plains envelope locates the kingdom during consolidation. The larger outline is a schematic stage, not a dated annexation of each district.",
+      "sources": [
+        "nbu",
+        "gait"
+      ]
+    },
+    {
+      "polity": "khen",
+      "start": 1480,
+      "end": 1497,
+      "date": "c.1480–1498",
+      "title": "Nilambar: wider Kamata domain",
+      "text": "Nilambar’s later kingdom reached farther into lower Assam; a broad reconstruction extends toward the Barnadi area. The transition at 1480 follows approximate reign chronology. Husain Shah captured Kamatapur in 1498.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "bhuyan",
+      "start": 1250,
+      "end": 1329,
+      "date": "13th–early 14th century · poorly dated",
+      "title": "Regional chiefs, not a single Bhuyan kingdom",
+      "text": "Bhuyan is a category of landed chiefs, not one dynasty or a permanently united set of twelve. A few open locality patches indicate a central-valley setting only. Dates, membership and boundaries are uncertain; this early interval does not establish the later Chandivara lineage at these precise sites.",
+      "sources": [
+        "nbu",
+        "gait"
+      ]
+    },
+    {
+      "polity": "bhuyan",
+      "start": 1330,
+      "end": 1448,
+      "date": "14th century · approximate sequence",
+      "title": "Chandivara and the Barnadi region",
+      "text": "Charit traditions associate Chandivara’s group with Langamaguri / Lengamaguri near the Barnadi. Exact date and site are unresolved. A north-Guwahati/Barnadi-area patch is a regional locator, while separate central-valley chiefs retain their own localities.",
+      "sources": [
+        "nbu"
+      ]
+    },
+    {
+      "polity": "bhuyan",
+      "start": 1449,
+      "end": 1497,
+      "date": "1449 and the 15th century",
+      "title": "Bardowa: the Shiromani Bhuyan lineage",
+      "text": "Sankardeva was born into a Bhuyan family at Bardowa in 1449. This adds a securely associated south-bank centre; it is not the year the Bhuyans conquered Bardowa. The patches represent distinct seats, not a unified country across both banks.",
+      "sources": [
+        "nagaon",
+        "nbu"
+      ]
+    },
+    {
+      "polity": "bhuyan",
+      "start": 1498,
+      "end": 1504,
+      "date": "After the 1498 Kamata conquest",
+      "title": "Sultanate pressure and local resistance",
+      "text": "The Bengal conquest displaced the Khen monarchy. The extent and duration of the garrisons varied; local chiefs remained important. The western resistance stage is separated from the older central-valley seats.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "bhuyan",
+      "start": 1505,
+      "end": 1514,
+      "date": "Early 16th century · c.1505 anchor",
+      "title": "Local recovery after Bengal’s withdrawal",
+      "text": "Independent chiefs re-emerged after the Bengal garrisons lost control. The c.1505 change is an approximate display anchor, not proof of a single Harupnarayan state extending from Sankosh to Subansiri.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "bhuyan",
+      "start": 1515,
+      "end": 1529,
+      "date": "c.1515–1530",
+      "title": "Koch advance in the west; Ahom pressure in the east",
+      "text": "Biswa Singha subdued western chiefs over a sequence of campaigns, while Ahom expansion reduced eastern autonomy. The patches contract in stages; neither all chiefs nor both banks fell in one year.",
+      "sources": [
+        "gait"
+      ]
+    },
+    {
+      "polity": "bhuyan",
+      "start": 1530,
+      "end": 1536,
+      "date": "1530s and later",
+      "title": "Chiefly independence declines; offices persist",
+      "text": "Regional Bhuyan seats were progressively subordinated by larger states. This map ends the independent-locality layer in the 1530s, not every Bhuyan family or office. Local and district histories also record later Bhuyan authority and resistance.",
+      "sources": [
+        "nagaon",
+        "gait"
+      ]
+    }
+  ],
+  "spots": [
+    {
+      "id": "pangsau",
+      "polity": "ahom",
+      "name": "Patkai / Pangsau ≈",
+      "lat": 27.2476,
+      "lon": 96.156,
+      "start": 1228,
+      "end": 1267,
+      "date": "1228 · conventional pass identification",
+      "note": "Approximate overland crossing corridor; exact medieval track unverified.",
+      "dy": 0
+    },
+    {
+      "id": "namrup",
+      "polity": "ahom",
+      "name": "Namrup · 1228",
+      "lat": 27.1836,
+      "lon": 95.3469,
+      "start": 1228,
+      "end": 1267,
+      "date": "1228",
+      "note": "Modern locality used for the arrival-region marker.",
+      "dy": 17
+    },
+    {
+      "id": "tipam",
+      "polity": "ahom",
+      "name": "Tipam · c.1230",
+      "lat": 27.2723,
+      "lon": 95.4018,
+      "start": 1230,
+      "end": 1267,
+      "date": "Before 1236",
+      "note": "Locality identification approximate; the upstream Dihing camp is not exactly located.",
+      "dy": 0
+    },
+    {
+      "id": "habung-camp",
+      "polity": "ahom",
+      "name": "Habung · 1240",
+      "lat": 27.3415,
+      "lon": 94.5009,
+      "start": 1240,
+      "end": 1252,
+      "date": "1240–1244",
+      "note": "Dhakuakhana-area identification; wider historical tract and settlement site uncertain.",
+      "dy": 0
+    },
+    {
+      "id": "dikhoumukh",
+      "polity": "ahom",
+      "name": "Dikhou mouth · 1244",
+      "lat": 27.001,
+      "lon": 94.429,
+      "start": 1244,
+      "end": 1267,
+      "date": "1244",
+      "note": "River-mouth corridor; modern course is not the medieval channel.",
+      "dy": 0
+    },
+    {
+      "id": "ligiri",
+      "polity": "ahom",
+      "name": "Ligirigaon ≈ · 1244",
+      "lat": 26.94,
+      "lon": 94.71,
+      "start": 1244,
+      "end": 1252,
+      "date": "1244",
+      "note": "Nazira vicinity, not an excavated or fixed historical camp.",
+      "dy": 17
+    },
+    {
+      "id": "simalu",
+      "polity": "ahom",
+      "name": "Simaluguri ≈ · 1246",
+      "lat": 26.911,
+      "lon": 94.758,
+      "start": 1246,
+      "end": 1252,
+      "date": "1246",
+      "note": "Modern vicinity; historical site and river channels uncertain.",
+      "dy": 30
+    },
+    {
+      "id": "charaideo-growth",
+      "polity": "ahom",
+      "name": "Charaideo · 1253",
+      "lat": 26.941175,
+      "lon": 94.87635,
+      "start": 1253,
+      "end": 1281,
+      "date": "1253 conventional; variants 1251–1252",
+      "note": "First enduring capital; modern archaeological location.",
+      "dy": 0
+    },
+    {
+      "id": "namdang-west",
+      "polity": "ahom",
+      "name": "Dikhou–Namdang tract ≈",
+      "lat": 26.95,
+      "lon": 94.52,
+      "start": 1268,
+      "end": 1281,
+      "date": "Acquired during 1268–1281",
+      "note": "Regional locator; exact acquisition year unknown.",
+      "dy": 20
+    },
+    {
+      "id": "habung-annex",
+      "polity": "ahom",
+      "name": "Habung · 1512",
+      "lat": 27.3415,
+      "lon": 94.5009,
+      "start": 1512,
+      "end": 1519,
+      "date": "1512 annexation",
+      "note": "Symbolic regional patch, separate from Sadiya.",
+      "dy": 0
+    },
+    {
+      "id": "habung-recovery",
+      "polity": "ahom",
+      "name": "Habung · control uncertain",
+      "lat": 27.3415,
+      "lon": 94.5009,
+      "start": 1520,
+      "end": 1522,
+      "date": "1520–1522",
+      "note": "Wartime ownership is not securely fixed for the whole tract.",
+      "dy": 0
+    },
+    {
+      "id": "sadiya-chutia",
+      "polity": "chutia",
+      "name": "Sadhayapura / Sadiya ≈",
+      "lat": 27.83,
+      "lon": 95.67,
+      "start": 1187,
+      "end": 1522,
+      "date": "Early foundation unknown; inscriptions late 14th century onward",
+      "note": "Regional centre; the precise medieval capital footprint is not fixed.",
+      "dy": 0
+    },
+    {
+      "id": "habung-grant",
+      "polity": "chutia",
+      "name": "Dhenukhana / Habung ≈",
+      "lat": 27.3415,
+      "lon": 94.5009,
+      "start": 1392,
+      "end": 1511,
+      "date": "1392 grant; 1428 Habung authority",
+      "note": "Regional locator, not an exact charter findspot.",
+      "dy": 17
+    },
+    {
+      "id": "ghilamara",
+      "polity": "chutia",
+      "name": "Ghilamara · 1401",
+      "lat": 27.32,
+      "lon": 94.32,
+      "start": 1401,
+      "end": 1511,
+      "date": "1401 grant",
+      "note": "Modern vicinity; land grant attests authority, not an acquisition date.",
+      "dy": 0
+    },
+    {
+      "id": "tamreswari",
+      "polity": "chutia",
+      "name": "Tamreswari / Paya ≈",
+      "lat": 27.89,
+      "lon": 95.81,
+      "start": 1442,
+      "end": 1522,
+      "date": "1442 inscription",
+      "note": "Temple region east of Sadiya; approximate point.",
+      "dy": -21
+    },
+    {
+      "id": "kamatapur-growth",
+      "polity": "kamata",
+      "name": "Kamatapur / Gosanimari",
+      "lat": 26.15,
+      "lon": 89.3533,
+      "start": 1257,
+      "end": 1439,
+      "date": "Capital shift after 1257, often c.1260",
+      "note": "Gosanimari ruins locate Kamatapur; exact shift date disputed.",
+      "dy": 0
+    },
+    {
+      "id": "khen-cap",
+      "polity": "khen",
+      "name": "Kamatapur / Gosanimari",
+      "lat": 26.15,
+      "lon": 89.3533,
+      "start": 1440,
+      "end": 1497,
+      "date": "Khen period, conventionally c.1440–1498",
+      "note": "Fortified capital; staged envelopes are reconstructed.",
+      "dy": 0
+    },
+    {
+      "id": "langamaguri",
+      "polity": "bhuyan",
+      "name": "Langamaguri / Barnadi region ≈",
+      "lat": 26.32,
+      "lon": 91.76,
+      "start": 1330,
+      "end": 1497,
+      "date": "14th-century charit tradition",
+      "note": "Exact settlement not fixed; broad regional locator.",
+      "dy": 0
+    },
+    {
+      "id": "bardowa",
+      "polity": "bhuyan",
+      "name": "Bardowa / Batadrava",
+      "lat": 26.408,
+      "lon": 92.556,
+      "start": 1449,
+      "end": 1529,
+      "date": "1449: Sankardeva’s birth",
+      "note": "A Bhuyan lineage centre, not a newly conquered province.",
+      "dy": 0
+    },
+    {
+      "id": "northbank-chiefs",
+      "polity": "bhuyan",
+      "name": "North-bank chiefdoms ≈",
+      "lat": 26.79,
+      "lon": 93.1,
+      "start": 1250,
+      "end": 1536,
+      "date": "13th–16th-century context, varying local chiefs",
+      "note": "Symbolic regional locator; not one capital or fixed confederacy.",
+      "dy": 0
+    }
+  ],
+  "routes": [
+    {
+      "id": "patkai-namrup",
+      "polity": "ahom",
+      "start": 1228,
+      "end": 1267,
+      "points": [
+        [
+          27.2476,
+          96.156
+        ],
+        [
+          27.27,
+          95.94
+        ],
+        [
+          27.12,
+          95.7
+        ],
+        [
+          27.1836,
+          95.3469
+        ]
+      ],
+      "note": "1228 overland Patkai–Namrup corridor; Pangsau identification conventional, exact path unknown."
+    },
+    {
+      "id": "dihing-excursion",
+      "polity": "ahom",
+      "start": 1230,
+      "end": 1267,
+      "points": [
+        [
+          27.1836,
+          95.3469
+        ],
+        [
+          27.2723,
+          95.4018
+        ],
+        [
+          27.247,
+          95.503
+        ],
+        [
+          27.284,
+          95.661
+        ],
+        [
+          27.354,
+          95.792
+        ]
+      ],
+      "note": "Reported upstream Dihing exploration and return to Tipam; line follows the modern river approximately, not a GPS trail."
+    },
+    {
+      "id": "to-habung",
+      "polity": "ahom",
+      "start": 1240,
+      "end": 1267,
+      "points": [
+        [
+          27.2723,
+          95.4018
+        ],
+        [
+          27.36,
+          95.194
+        ],
+        [
+          27.29,
+          94.802
+        ],
+        [
+          27.2,
+          94.68
+        ],
+        [
+          27.3415,
+          94.5009
+        ]
+      ],
+      "note": "Sequence toward Habung via the Brahmaputra. Intermediate Mungklang/Abhaypur site is unresolved and intentionally not pinned; historical channels differed."
+    },
+    {
+      "id": "habung-dikhou",
+      "polity": "ahom",
+      "start": 1244,
+      "end": 1267,
+      "points": [
+        [
+          27.3415,
+          94.5009
+        ],
+        [
+          27.15,
+          94.49
+        ],
+        [
+          27.001,
+          94.429
+        ],
+        [
+          26.974,
+          94.498
+        ],
+        [
+          26.98,
+          94.567
+        ],
+        [
+          26.983,
+          94.624
+        ],
+        [
+          26.946,
+          94.706
+        ],
+        [
+          26.94,
+          94.71
+        ]
+      ],
+      "note": "1244: Habung down the Brahmaputra to Dikhoumukh, then upriver toward Ligirigaon; schematic river corridor."
+    },
+    {
+      "id": "simaluguri",
+      "polity": "ahom",
+      "start": 1246,
+      "end": 1267,
+      "points": [
+        [
+          26.94,
+          94.71
+        ],
+        [
+          26.911,
+          94.758
+        ]
+      ],
+      "note": "1246 locality connection; exact camp and track unknown."
+    },
+    {
+      "id": "charaideo",
+      "polity": "ahom",
+      "start": 1253,
+      "end": 1267,
+      "points": [
+        [
+          26.911,
+          94.758
+        ],
+        [
+          26.941175,
+          94.87635
+        ]
+      ],
+      "note": "1253 conventional capital establishment: approximate overland connection to Charaideo."
+    }
+  ]
+}
