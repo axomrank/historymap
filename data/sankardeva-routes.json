@@ -1,0 +1,337 @@
+{
+  "points": [
+    {
+      "name": "Alipukhuri / Patekibari (1449)",
+      "lat": 26.241989,
+      "lon": 92.103426,
+      "start": 1449,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Traditional birthplace candidate near Mairabari, present-day Morigaon: 26.241989, 92.103426. The Alipukhuri–Patekibori Than is mapped at this location.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Bordowa / Batadrava Than",
+      "lat": 26.4107,
+      "lon": 92.5516,
+      "start": 1449,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Another commonly identified birthplace and the site of his early religious activities: 26.410700, 92.551600. There is a historical disagreement over the precise birthplace; do not merge this pin with Patekibari.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Bordowa Than / first Namghar (c. 1468–1509)",
+      "lat": 26.4107,
+      "lon": 92.5516,
+      "start": 1468,
+      "end": 1568,
+      "kind": "locality",
+      "note": "26.410700, 92.551600. The present Than is the practical map reference for this historical centre.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Jagannath Puri, Odisha",
+      "lat": 19.80472,
+      "lon": 85.81833,
+      "start": 1481,
+      "end": 1493,
+      "kind": "pilgrimage",
+      "note": "Jagannath Temple: 19.804720, 85.818330.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Gaya, Bihar",
+      "lat": 24.77733,
+      "lon": 85.00935,
+      "start": 1481,
+      "end": 1493,
+      "kind": "pilgrimage",
+      "note": "Vishnupad Temple: 24.777330, 85.009350. Reported in some pilgrimage biographies.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Ayodhya, Uttar Pradesh",
+      "lat": 26.7939,
+      "lon": 82.19657,
+      "start": 1481,
+      "end": 1493,
+      "kind": "pilgrimage",
+      "note": "Ram Janmabhoomi area: 26.793900, 82.196570.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Mathura, Uttar Pradesh",
+      "lat": 27.504748,
+      "lon": 77.669754,
+      "start": 1481,
+      "end": 1493,
+      "kind": "pilgrimage",
+      "note": "Krishna Janmasthan area: 27.504748, 77.669754.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Vrindavan, Uttar Pradesh",
+      "lat": 27.5798,
+      "lon": 77.6905,
+      "start": 1481,
+      "end": 1493,
+      "kind": "pilgrimage",
+      "note": "Banke Bihari Temple area: 27.579800, 77.690500.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Prayag / Allahabad, Uttar Pradesh",
+      "lat": 25.42223,
+      "lon": 81.89233,
+      "start": 1481,
+      "end": 1493,
+      "kind": "pilgrimage",
+      "note": "Triveni Sangam: 25.422230, 81.892330.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Kashi / Varanasi, Uttar Pradesh",
+      "lat": 25.3108,
+      "lon": 83.0106,
+      "start": 1481,
+      "end": 1493,
+      "kind": "pilgrimage",
+      "note": "Kashi Vishwanath Temple: 25.310800, 83.010600.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Badrikashram / Badrinath, Uttarakhand",
+      "lat": 30.7447,
+      "lon": 79.4912,
+      "start": 1481,
+      "end": 1493,
+      "kind": "pilgrimage",
+      "note": "Badrinath Temple: 30.744700, 79.491200.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Dwarka, Gujarat",
+      "lat": 22.2379,
+      "lon": 68.9676,
+      "start": 1481,
+      "end": 1493,
+      "kind": "pilgrimage",
+      "note": "Dwarkadhish Temple: 22.237900, 68.967600.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Rameswaram, Tamil Nadu",
+      "lat": 9.28807,
+      "lon": 79.31737,
+      "start": 1481,
+      "end": 1493,
+      "kind": "pilgrimage",
+      "note": "Ramanathaswamy Temple: 9.288070, 79.317370. Included in some pilgrimage accounts, but not every itinerary records it.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Sitakunda, Chittagong, Bangladesh",
+      "lat": 22.61804,
+      "lon": 91.65866,
+      "start": 1481,
+      "end": 1493,
+      "kind": "pilgrimage",
+      "note": "Town-centre approximation: 22.618040, 91.658660. Reported in some accounts; the precise stop is not established.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Rowta (c. 1516)",
+      "lat": 26.71251,
+      "lon": 92.20646,
+      "start": 1516,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Modern Rowta village, Udalguri: 26.712510, 92.206460.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Gangmou (c. 1517)",
+      "lat": 26.76375,
+      "lon": 93.32765,
+      "start": 1517,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Gangmou, Behali region, Biswanath: 26.763750, 93.327650. This is an approximate locality coordinate from a field-study record.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Bhalukaguri",
+      "lat": 26.9924,
+      "lon": 94.011,
+      "start": 1449,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Listed in the Majuli-side migration account. A possible modern village match in the Bihpuria area is approximately 26.992400, 94.011000; treat this as a tentative waypoint, not a verified historic site.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Dhuwahat-Belaguri (c. 1522 onwards)",
+      "lat": 27.0378,
+      "lon": 94.2346,
+      "start": 1522,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Present-day Sri Sri Dhuwahata Belguri Than, at Napamua Gaon, Jengraimukh, Majuli. Approximate Jengraimukh-area reference: 27.037800, 94.234600. This is a locality proxy, not a surveyed coordinate for the original historical settlement; the original site was affected by river erosion.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Sunpora / Palengdi (c. 1541)",
+      "lat": 26.330421,
+      "lon": 91.004055,
+      "start": 1541,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Identified in an academic account as Palengdi, now part of Barpeta town near Barpeta Bil. Approximate Barpeta-town reference: 26.330421, 91.004055; this is not an exact Sunpora pin.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Chunpora / Chinpara Bhethi (c. 1541)",
+      "lat": 26.325552,
+      "lon": 91.01351,
+      "start": 1541,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Sacred landing place east of Palangdihati, Barpeta: 26.325552, 91.013510. This is one of the better-supported locations in the migration route.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Baradi",
+      "lat": 26.3285,
+      "lon": 91.05023,
+      "start": 1541,
+      "end": 1568,
+      "kind": "locality",
+      "note": "A temporary settlement mentioned in the academic migration account, east of Barpeta town. Approximate Satra/locality reference: 26.328500, 91.050230.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Ganakpara / Ganakkuchi",
+      "lat": 26.31826,
+      "lon": 91.03707,
+      "start": 1541,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Ganak Kuchi locality, Barpeta: 26.318260, 91.037070. The present Ganakkuchi Satra was founded by Madhavdev on land purchased by Sankardev; this is an associated religious site, not necessarily Sankardev's residence.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Patbausi (c. 1542 onwards)",
+      "lat": 26.296753,
+      "lon": 91.030441,
+      "start": 1542,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Patbausi Satra, Barpeta: 26.296753, 91.030441. This is a mapped point at the Satra itself. The Barpeta district administration records his 18-year association with the Satra.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Barnagar (c. 1542–1543)",
+      "lat": 26.5088,
+      "lon": 90.9132,
+      "start": 1542,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Approximate Barnagar locality reference, Barpeta district: 26.508800, 90.913200. Associated with his meeting with King Naranarayana; the exact historical meeting location is not identified.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Puri (1550–1551)",
+      "lat": 19.80472,
+      "lon": 85.81833,
+      "start": 1550,
+      "end": 1551,
+      "kind": "pilgrimage",
+      "note": "Jagannath Temple: 19.804720, 85.818330. This is the reported second pilgrimage destination.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Koch Behar (1552 onwards)",
+      "lat": 26.3224,
+      "lon": 89.4592,
+      "start": 1552,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Approximate Cooch Behar town centre: 26.322400, 89.459200. Associated with the court of King Naranarayana and Chilarai. The present Rajbari is not the exact 16th-century court building.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Bheladanga (final period)",
+      "lat": 26.309483,
+      "lon": 89.430622,
+      "start": 1560,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Modern Bheladanga village reference: 26.309483, 89.430622. The historical Satra area is associated with the royal land grant, but this village-centre pin should not be mistaken for the exact medieval residence.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Madhupur Satra (1568)",
+      "lat": 26.363537,
+      "lon": 89.37822,
+      "start": 1568,
+      "end": 1568,
+      "kind": "locality",
+      "note": "Present Madhupur Satra, Cooch Behar: 26.363537, 89.378220. Traditionally associated with his final days and passing.&#x20;",
+      "chronology": "User-supplied approximate chronology; dates and identifications remain qualified."
+    },
+    {
+      "name": "Singari",
+      "lat": 26.598897081937125,
+      "lon": 92.52953815787787,
+      "start": 1516,
+      "end": 1568,
+      "kind": "supplied identification",
+      "note": "Coordinate supplied in the final additions. Historical identification and date approximate; independently unverified.",
+      "chronology": "Display anchor only"
+    },
+    {
+      "name": "Mahendra Kandali’s Tol",
+      "lat": 26.411588546513286,
+      "lon": 92.55189500973907,
+      "start": 1461,
+      "end": 1568,
+      "kind": "supplied identification",
+      "note": "Coordinate supplied in the final additions. Historical identification and date approximate; independently unverified.",
+      "chronology": "Display anchor only"
+    },
+    {
+      "name": "Kapalabari",
+      "lat": 26.27009554067973,
+      "lon": 91.29775693208741,
+      "start": 1540,
+      "end": 1568,
+      "kind": "supplied identification",
+      "note": "Coordinate supplied in the final additions. Historical identification and date approximate; independently unverified.",
+      "chronology": "Display anchor only"
+    },
+    {
+      "name": "Kumarkuchi",
+      "lat": 26.350978715458567,
+      "lon": 91.48665413565513,
+      "start": 1541,
+      "end": 1568,
+      "kind": "supplied identification",
+      "note": "Coordinate supplied in the final additions. Historical identification and date approximate; independently unverified.",
+      "chronology": "Display anchor only"
+    }
+  ],
+  "unlocated": [
+    "Rowmari",
+    "Gajalasuti",
+    "Komorakata",
+    "Maluwalarati",
+    "Kagajkuta Ghat"
+  ],
+  "note": "Adopted supplied chronology. Conflicting accounts exist, especially Gangmou/Dhuwahat dating. Pilgrimage sites are displayed within the journey window without assigning individual arrival years. Modern pins locate regions/sites, not exact medieval buildings. Badrikashram is associated with the first Borgeet in the supplied correction; no composition year assigned.",
+  "sources": [
+    "https://barpetasatra.org/about-srimanta-sankardeva/srimanta-sankardev/",
+    "https://bordowathan.co.in/about-sankardev.php",
+    "https://ir.nbu.ac.in/server/api/core/bitstreams/62cbea07-e5b2-4f22-af24-853b820a4749/content"
+  ]
+}
