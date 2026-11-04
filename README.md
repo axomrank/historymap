@@ -40,6 +40,12 @@ Edit the CSV files and rebuild with `node tools/build.js`, which writes `data/at
 Borders before the British period are reconstructions from the boundary texts noted in each row;
 they show roughly where a kingdom held power, not surveyed frontiers.
 
+The [Kamarupa research audit (4 November 2026)](research/kamarupa-2026-11-04/README.md)
+includes a [39-event, source-linked CSV](data/kamarupa-events-researched.csv), an audit of
+the supplied teaching charts, a historical gazetteer, and proposed map corrections.
+These research records preserve uncertain dates and distinguish campaigns, grants,
+and territorial control; they are not yet inputs to the live border animation.
+
 ## Sources for the shapes
 
 - North-east Indian states: [DataMeet Community Maps](https://github.com/datameet/maps), States/Admin2 (CC BY 4.0 / ODbL).
