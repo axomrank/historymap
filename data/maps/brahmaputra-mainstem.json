@@ -1,0 +1,64 @@
+{
+  "note": "Natural Earth 1:10m Dihang centreline fills the gap between the existing Siang and Dihang segments. End joins connect datasets of different resolution; they are approximate modern reference geometry, not medieval surveyed channels. Existing territory masks retain their original lower Brahmaputra reference.",
+  "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_10m_rivers_lake_centerlines.geojson",
+  "licence": "Natural Earth public domain",
+  "feature": null,
+  "connector": [
+    [
+      28.326768,
+      95.013438
+    ],
+    [
+      28.309353,
+      94.999766
+    ],
+    [
+      28.286444,
+      94.992931
+    ],
+    [
+      28.259385,
+      94.988699
+    ],
+    [
+      28.250556,
+      94.989513
+    ],
+    [
+      28.243109,
+      94.992931
+    ],
+    [
+      28.237169,
+      94.998139
+    ],
+    [
+      28.226386,
+      95.010265
+    ],
+    [
+      28.214545,
+      95.019054
+    ],
+    [
+      28.201728,
+      95.024913
+    ],
+    [
+      28.173651,
+      95.031993
+    ],
+    [
+      28.171658,
+      95.037201
+    ],
+    [
+      28.161241,
+      95.051768
+    ],
+    [
+      28.15587,
+      95.06601
+    ]
+  ]
+}

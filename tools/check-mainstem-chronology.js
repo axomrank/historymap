@@ -1,0 +1,26 @@
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const w={};new Function('window',fs.readFileSync('data/atlas.js','utf8'))(w);const D=w.ATLAS;
+const A=require('../data/maps/assam.json');const bridge=require('../data/maps/brahmaputra-mainstem.json');
+const stem=D.base.rivers.find(r=>r.id==='brahmaputra');
+assert(stem&&stem.m===2);assert.deepEqual(stem.aliases,['Siang','Dihang','Brahmaputra']);
+assert(!D.base.rivers.some(r=>['siang','dihang'].includes(r.id)),'Only one interactive main stem');
+assert(D.base.rivers.some(r=>r.id==='dihing'),'Dehing tributary remains separate');
+assert.equal((stem.d.match(/M/g)||[]).length,1,'Joined river must be continuous');
+const expected=[...A.rivers.siang.pts,...bridge.connector,...A.rivers.dihang.pts,...A.rivers.brahmaputra.pts].filter((p,i,a)=>!i||p[0]!==a[i-1][0]||p[1]!==a[i-1][1]);
+const project=([lat,lon])=>[+((lon-D.proj.lon0)/(D.proj.lon1-D.proj.lon0)*D.W).toFixed(1),+((D.proj.lat1-lat)/(D.proj.lat1-D.proj.lat0)*D.H).toFixed(1)];
+assert.deepEqual(stem.d.slice(1).split('L').map(p=>p.split(' ').map(Number)),expected.map(project));
+const start=A.rivers.siang.pts.at(-1),end=A.rivers.dihang.pts[0];
+assert(Math.hypot(start[0]-bridge.connector[0][0],start[1]-bridge.connector[0][1])<.08);
+assert(Math.hypot(end[0]-bridge.connector.at(-1)[0],end[1]-bridge.connector.at(-1)[1])<.02);
+const pieces=(id,y)=>D.states[D.years[y-D.start]].map(i=>D.shapes[i]).filter(s=>D.polities[D.territories[s.t].p].id===id);
+const area=(id,y)=>pieces(id,y).filter(s=>D.territories[s.t].style==='core').reduce((a,s)=>a+s.a,0);
+assert.equal(area('dimasa',1522),area('dimasa',1523),'No Kachari retreat from unrelated Chutia annexation');
+assert.equal(area('dimasa',1523),area('dimasa',1531),'Kachari core persists through the contested campaign interval');
+assert(area('dimasa',1532)<area('dimasa',1531));
+assert(area('ahom',1532)>area('ahom',1531));
+for(const y of [1526,1531])assert(pieces('ahom',y).some(s=>D.territories[s.t].id==='ahom-kachari-campaigns-1526'&&D.territories[s.t].style==='reach'));
+assert(!pieces('ahom',1525).some(s=>D.territories[s.t].id==='ahom-kachari-campaigns-1526'));
+const retreat=D.territories.find(t=>t.id==='dimasa-1532');assert.equal(retreat.s,1532);
+for(const id of ['koch-majuli-camp','koch-garhgaon-occupation']){const s=D.growth.spots.find(s=>s.id===id);assert(s);assert.equal(s.start,1563);assert.equal(s.end,1563);}
+console.log('PASS: continuous Siang–Dihang–Brahmaputra with mapped connector, separate Dehing tributary, no 1523 Kachari retreat, contested 1526/1531 campaigns, 1532 transition and 1563 campaign markers.');

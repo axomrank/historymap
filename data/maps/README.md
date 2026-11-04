@@ -28,3 +28,7 @@ Rivers added from the user's `Assam Rivers.kml` (2026-10-31/11-01): Teesta/Karat
 `research/places/boundary-reports-2026-11-01.md` (local).
 
 The four traditional river-bounded divisions of Kāmarūpa (Ratnapīṭha: Karatoyā to Sankosh; Kāmapīṭha: Sankosh to Bornadi; Suvarṇapīṭha: Bornadi to Bharali; Saumārapīṭha: Bharali to Dikrang) are integrated directly into the Kāmarūpa kingdom layer as an internal subdivision toggle rather than a disconnected separate layer.
+
+### Joined Brahmaputra main stem
+
+The interactive atlas renders Siang, Dihang and Brahmaputra as one continuous feature with regional aliases. `brahmaputra-mainstem.json` supplies the missing inter-segment reach from Natural Earth 1:10m rivers (public domain), with its source URL and approximation note. The original lower-Brahmaputra territory-mask geometry is retained. See the [continuity and chronology revision](../../research/mainstem-chronology-2026-11-04/README.md).

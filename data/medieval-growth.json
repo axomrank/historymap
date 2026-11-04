@@ -89,6 +89,11 @@
       "title": "N. N. Acharyya, History of Medieval Assam (1966), Koch chapter, p.189 onward",
       "url": "https://pahar.in/pahar/Books%20and%20Articles/Indian%20Subcontinent/1966%20The%20History%20of%20Medieval%20Assam%20from%20the%2013th%20to%20the%2017th%20century%20by%20Acharya%20s.pdf",
       "verification": "Indexed p.189 checked: Chikna/Khuntaghat and successive neighbouring-chief campaigns. Direct download returned 403."
+    },
+    "kachari-campaigns": {
+      "title": "Acharyya, History of Medieval Assam, Kachari chapter, pp.219 onward",
+      "url": "https://pahar.in/pahar/Books%20and%20Articles/Indian%20Subcontinent/1966%20The%20History%20of%20Medieval%20Assam%20from%20the%2013th%20to%20the%2017th%20century%20by%20Acharya%20s.pdf",
+      "verification": "Indexed text checked: December 1526 Dhansiri campaign and 1531 Marangi fighting; full direct scan remains inaccessible. 1532 is retained only as an approximate settled-map stage, not the first clash."
     }
   },
   "phases": [
@@ -269,7 +274,7 @@
       "end": 1531,
       "date": "1523–1524",
       "title": "Sadiya and the Chutia kingdom annexed",
-      "text": "The decisive campaigns ended the independent Chutia monarchy in 1523–1524. Sadiya came under an Ahom governor, the Sadiya Khowa Gohain. The eastern domain now joins the older core; this does not yet imply the later western extent toward the Kolong.",
+      "text": "The decisive campaigns ended the independent Chutia monarchy in 1523–1524. Sadiya came under an Ahom governor, the Sadiya Khowa Gohain. The eastern domain now joins the older core; this does not yet imply the later western extent toward the Kolong. The Kachari frontier does not automatically retreat with this separate Chutia conquest. From 1526 the Dhansiri campaign corridor is shown as hatching, reflecting clashes before the approximate 1532 settled-map stage.",
       "sources": [
         "gait"
       ]
@@ -278,11 +283,12 @@
       "polity": "ahom",
       "start": 1532,
       "end": 1536,
-      "date": "c.1532–1536",
+      "date": "c.1532–1536 · earlier campaigns in 1526 and 1531",
       "title": "Westward campaigns against the Kacharis",
-      "text": "Ahom power advanced in the Dhansiri region through successive campaigns; Dimapur was sacked in 1536. The broad western map phase begins in 1532 as an approximate campaign-stage anchor. The 1537 map then shows the later Kolong-side expansion.",
+      "text": "The 1526 campaign and renewed 1531 Marangi fighting preceded this approximate 1532 settled-border stage. The map no longer retreats the Kachari boundary in 1523. Dimapur was sacked in 1536; the later Kolong-side phase begins in 1537.",
       "sources": [
-        "gait"
+        "gait",
+        "kachari-campaigns"
       ]
     },
     {
@@ -651,7 +657,7 @@
       "end": 1580,
       "date": "c.1563–1580",
       "title": "Majuli settlement and contested overlordship",
-      "text": "The Majuli settlement enlarges the displayed domain; tribute is not annexation. Later resistance limits effective control. Intermediate outlines and early stage years are approximate reconstructions.",
+      "text": "Koch forces reached Majuli, where Naranarayan camped, and occupied Garhgaon. The Majuli settlement brought Ahom submission and a north-bank cession; the existing reconstructed Narayanpur-side frontier is distinct from those campaign locations. Neither the camp nor the capital occupation alone establishes permanent Koch annexation of the whole island or Ahom kingdom.",
       "sources": [
         "gait",
         "koch-campaigns"
@@ -982,6 +988,32 @@
       "note": "Symbolic regional locator; not one capital or fixed confederacy.",
       "dy": 0,
       "hideLabel": true
+    },
+    {
+      "id": "koch-majuli-camp",
+      "polity": "koch",
+      "name": "Majuli · Koch camp (1563)",
+      "lat": 27.0,
+      "lon": 94.2167,
+      "start": 1563,
+      "end": 1563,
+      "date": "1563 campaign and Majuli settlement",
+      "note": "Naranarayan camped at Majuli during the campaign. The pin is a present-day island reference, not a verified camp site or proof of permanent island annexation.",
+      "dy": -18,
+      "dx": -5,
+      "anchor": "end"
+    },
+    {
+      "id": "koch-garhgaon-occupation",
+      "polity": "koch",
+      "name": "Garhgaon · occupied (1563)",
+      "lat": 26.966667,
+      "lon": 94.683333,
+      "start": 1563,
+      "end": 1563,
+      "date": "1563 campaign",
+      "note": "Koch forces occupied the Ahom capital; occupation and Ahom tribute are not equivalent to permanent annexation. The marker uses the existing approximate capital reference.",
+      "dy": 18
     }
   ],
   "routes": [

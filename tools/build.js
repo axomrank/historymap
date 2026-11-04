@@ -322,7 +322,15 @@ const clipFrame = rings => safe(() => pc.intersection(union(rings.filter(r => r.
 const G = (() => { const w = {}; new Function('window', rd('data/maps/atlas-geography.js'))(w); return w.ATLAS_GEOGRAPHY; })();
 const countries = G.countries.map(c => ({ name: c.name, d: pathOf(clipFrame(c.rings)) })).filter(c => c.d);
 const MAJOR = ['brahmaputra', 'siang', 'teesta-karatoya', 'manas', 'sonkosh', 'subansiri', 'dikhou', 'kapili', 'bharali', 'dhansiri-south', 'lohit', 'dibang', 'dihing', 'barak'];
-const rivers = Object.entries(A.rivers).map(([id, r]) => ({ id, n: r.name, d: linePath(r.pts), m: id === 'brahmaputra' ? 2 : MAJOR.includes(id) ? 1 : 0 }));
+// One interactive main-stem feature: the regional names do not split the river.
+const mainstemBridge = JSON.parse(rd('data/maps/brahmaputra-mainstem.json'));
+const mainstemPoints = [...A.rivers.siang.pts, ...mainstemBridge.connector, ...A.rivers.dihang.pts, ...A.rivers.brahmaputra.pts]
+  .filter((p,i,a) => !i || p[0] !== a[i-1][0] || p[1] !== a[i-1][1]);
+const rivers = Object.entries(A.rivers).filter(([id]) => !['siang','dihang'].includes(id)).map(([id, r]) => ({
+  id, n: id === 'brahmaputra' ? 'Brahmaputra (Siang / Dihang)' : r.name,
+  d: linePath(id === 'brahmaputra' ? mainstemPoints : r.pts), m: id === 'brahmaputra' ? 2 : MAJOR.includes(id) ? 1 : 0,
+  ...(id === 'brahmaputra' ? { aliases: ['Siang','Dihang','Brahmaputra'], note: mainstemBridge.note } : {}),
+}));
 const modern = [
   ...Object.entries(NE.regions).filter(([id]) => id !== 'sylhet').map(([id, r]) => ({ n: r.name, d: pathOf(fillHoles(ringsMP(r.rings))), assam: id === 'assam' })),
 ];

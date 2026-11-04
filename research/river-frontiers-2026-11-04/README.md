@@ -20,3 +20,5 @@ The [Census of India Sivasagar handbook](https://censusindia.gov.in/nada/index.p
 ## Validation
 
 `node tools/check-frontiers.js` checks actual rendered ownership on both sides of Dehing and Dikhou, at least twenty exact shared river vertices per frontier, over 99.5% coverage of each of the six requested districts at the early maximum and later hill–Barak phase, and four independently drawn Bhuyan sectors. `check-growth.js`, `check-ratna.js` and `check-sankardeva.js` verify the retained staging, annual map joins and journey data.
+
+The [subsequent chronology correction](../mainstem-chronology-2026-11-04/README.md) extends the early Kachari core through 1531 and replaces the old 1523 retreat with a contested campaign layer and approximate 1532 transition. It supersedes the 1275–1522 interval described above.
