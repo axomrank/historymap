@@ -280,7 +280,7 @@ const clipFrame = rings => safe(() => pc.intersection(union(rings.filter(r => r.
 const G = (() => { const w = {}; new Function('window', rd('data/maps/atlas-geography.js'))(w); return w.ATLAS_GEOGRAPHY; })();
 const countries = G.countries.map(c => ({ name: c.name, d: pathOf(clipFrame(c.rings)) })).filter(c => c.d);
 const MAJOR = ['brahmaputra', 'siang', 'teesta-karatoya', 'manas', 'sonkosh', 'subansiri', 'dikhou', 'kapili', 'bharali', 'dhansiri-south', 'lohit', 'dibang', 'dihing', 'barak'];
-const rivers = Object.entries(A.rivers).map(([id, r]) => ({ n: r.name, d: linePath(r.pts), m: id === 'brahmaputra' ? 2 : MAJOR.includes(id) ? 1 : 0 }));
+const rivers = Object.entries(A.rivers).map(([id, r]) => ({ id, n: r.name, d: linePath(r.pts), m: id === 'brahmaputra' ? 2 : MAJOR.includes(id) ? 1 : 0 }));
 const modern = [
   ...Object.entries(NE.regions).filter(([id]) => id !== 'sylhet').map(([id, r]) => ({ n: r.name, d: pathOf(fillHoles(ringsMP(r.rings))), assam: id === 'assam' })),
 ];
@@ -293,6 +293,11 @@ const out = {
   polities: P,
   territories: T.map(t => ({ p: polityIdx[t.polity], s: t.start, e: t.end, label: t.label, note: t.note, conf: t.confidence, style: t.style })),
   ratna: { outline: pathOf(ratnaMP), phases: ratnaPhases.map(r => ({ ...r, start: +r.start, end: +r.end, p: polityIdx[r.polity] })) },
+  pithas: {
+    rivers: [['teesta-karatoya', 'Teesta / Karatoya'], ['sonkosh', 'Sankosh'], ['puthimari', 'Rupahi*'], ['bharali', 'Bharali'], ['dikrong', 'Dikrong']].map(([id, name]) => ({ id, name, d: linePath(A.rivers[id].pts), label: A.rivers[id].pts[Math.floor(A.rivers[id].pts.length * .25)].map((v, i, a) => i === 0 ? X(a[1]) : Y(a[0])) })),
+    labels: [['Paundravardhana / Ratnapitha', 26.35, 89.15], ['Kamapitha', 26.35, 90.65], ['Suvarnapitha', 26.55, 92.05], ['Saumarapitha', 26.93, 93.15]].map(([name, lat, lon]) => ({ name, x: X(lon), y: Y(lat) })),
+    note: 'Adopted pitha scheme. Rupahi* uses the existing catalogue’s approximate Puthimari trace; its historical identification is unverified.',
+  },
   shapes, states, years,
   events: [...events.map(e => ({ y: +e.year, p: polityIdx[e.polity] ?? -1, t: e.title, x: e.text })),
     ...ratnaPhases.filter(r => r.certainty !== 'unknown').map(r => ({ y: +r.start, p: polityIdx[r.polity], t: 'Paundravardhana: ' + r.title, x: r.date_label + '. ' + r.note }))]

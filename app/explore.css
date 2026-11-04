@@ -103,7 +103,11 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .ev.now { background: color-mix(in srgb, var(--accent) 12%, transparent); }
 .ev .x { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
 .empty { color: var(--muted); font-size: 14px; }
-.ratna-outline { fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-dasharray: 7 3; pointer-events: none; }
+.pitha-boundary { fill: none; stroke: #e13b36; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.pitha-label { fill: var(--ink); text-anchor: middle; font-weight: 500; paint-order: stroke; stroke: var(--land); stroke-width: 2px; pointer-events: none; }
+.pitha-river-label { fill: #e13b36; font-weight: 600; paint-order: stroke; stroke: var(--land); stroke-width: 2px; pointer-events: none; }
+.pitha-era .realm:not(.reach) { stroke: none; }
+.pitha-note { color: var(--muted); }
 .ratna-chip { position: absolute; bottom: 12px; left: 12px; max-width: calc(100% - 24px); font-size: 12px; text-align: left; box-shadow: var(--shadow); }
 .ratna-card { border-bottom: 1px solid var(--line); margin-bottom: 14px; padding-bottom: 14px; }
 .ratna-card p { font-size: 13px; margin: 7px 0; }

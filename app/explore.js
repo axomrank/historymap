@@ -55,15 +55,16 @@
     <g id="gRivers">${D.base.rivers.map(r => `<path class="m-river" d="${r.d}" stroke-width="${[0.7, 1.3, 2.6][r.m]}" opacity="${[0.55, 0.8, 0.95][r.m]}"><title>${esc(r.n)}</title></path>`).join('')}</g>
     <g class="g-modern">${D.base.modern.map(m => `<path class="m-modern${m.assam ? ' assam' : ''}" d="${m.d}"/>`).join('')}
       ${D.base.towns.map(([n, x, y]) => `<g class="m-town"><circle cx="${x}" cy="${y}" r="1.8"/><text x="${x + 4}" y="${y + 3.5}">${esc(n)}</text></g>`).join('')}</g>
-    <path id="ratnaOutline" class="ratna-outline" d="${D.ratna.outline}"/>
-    <g id="gLabels"></g><g id="gCaps"></g>`;
+    <g id="pithaRivers">${D.pithas.rivers.map(r => `<path class="pitha-boundary" d="${r.d}"><title>${esc(r.name === 'Rupahi*' ? D.pithas.note : r.name)}</title></path>`).join('')}</g>
+    <g id="gLabels"></g><g id="gPithaLabels"></g><g id="gCaps"></g>`;
   // hatch patterns for "campaign reach" shapes
   $('defs').innerHTML = P.map((p, i) => `<pattern id="h${i}" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="${p.color}" fill-opacity=".18"/><line x1="0" y1="0" x2="0" y2="7" stroke="${p.color}" stroke-width="3"/></pattern>`).join('');
 
   const darker = hex => { const n = parseInt(hex.slice(1), 16); const f = c => Math.round(c * .62).toString(16).padStart(2, '0'); return '#' + f(n >> 16) + f((n >> 8) & 255) + f(n & 255); };
   let shown = new Map();
   function drawMap() {
-    $('ratnaOutline').style.display = year <= 1256 ? '' : 'none';
+    $('pithaRivers').style.display = year <= 1256 ? '' : 'none';
+    svg.classList.toggle('pitha-era', year <= 1256);
     const regionalPhase = D.ratna.phases.find(r => year >= r.start && year <= r.end);
     $('ratnaChip').hidden = !regionalPhase;
     if (regionalPhase) $('ratnaChip').textContent = 'Ratnapitha · ' + regionalPhase.title + ' ↗';
@@ -95,10 +96,12 @@
 
   function drawLabels(list) {
     const k = vb.w / D.W;                       // 1 = fully zoomed out
+    const pithaScale = 1 / Math.min(svg.clientWidth / vb.w, svg.clientHeight / vb.h);
     const seen = new Set(), out = [];
     // biggest piece of each polity gets the label (or the territory's own label, e.g. "Nagaland")
     [...list].sort((a, b) => D.shapes[b].a - D.shapes[a].a).forEach(si => {
       const sh = D.shapes[si], t = D.territories[sh.t], p = P[t.p];
+      if (t.label === 'Paundravardhana / Ratnapitha') return;
       if (!sh.l) return;
       const name = t.label || shortName(p.name), key = t.p + '|' + name;
       if (seen.has(key)) return; seen.add(key);
@@ -109,6 +112,9 @@
       out.push(`<text class="lbl" x="${sh.l[0]}" y="${sh.l[1] - (lines.length - 1) * fs * .55}" font-size="${fs.toFixed(1)}">${lines.map((ln, i) => `<tspan x="${sh.l[0]}" dy="${i ? fs * 1.1 : fs * .35}">${esc(ln)}</tspan>`).join('')}</text>`);
     });
     $('gLabels').innerHTML = out.join('');
+    $('gPithaLabels').innerHTML = year <= 1256 ?
+      D.pithas.labels.map((p, i) => `<text class="pitha-label" x="${p.x}" y="${p.y}" font-size="${(i === 0 ? 6 : 8) * pithaScale}">${i === 0 ? `<tspan x="${p.x}">Paundravardhana</tspan><tspan x="${p.x}" dy="${8 * pithaScale}">/ Ratnapitha</tspan>` : `<tspan x="${p.x}">${esc(p.name.replace('pitha', ''))}</tspan><tspan x="${p.x}" dy="${9 * pithaScale}">pitha</tspan>`}</text>`).join('') +
+      D.pithas.rivers.map(r => `<text class="pitha-river-label" x="${r.label[0] + 4 * pithaScale}" y="${r.label[1]}" font-size="${7 * pithaScale}">${esc(r.name)}</text>`).join('') : '';
     // capitals of polities on the map this year
     const on = new Set(list.map(si => D.territories[D.shapes[si].t].p));
     $('gCaps').innerHTML = [...on].flatMap(pi => P[pi].capitals.filter(c => year >= c[3] && year <= c[4]).map(c =>
@@ -228,6 +234,7 @@
     return `<section class="ratna-card" aria-label="Paundravardhana regional sequence">
       <h2>Paundravardhana / Ratnapitha</h2>
       <p class="ratna-bounds">Sankosh ↔ Karatoya / Teesta</p>
+      <p class="pitha-note">Four pithas are labelled with red river boundaries. Rupahi* follows the catalogue’s approximate Puthimari trace.</p>
       <p class="ratna-phase"><span class="sw" style="background:${p.color}"></span><b>${esc(r.title)}</b></p>
       <p><strong>${esc(r.date_label)}</strong> <span class="badge">${esc(r.certainty)}</span></p>
       <p>${esc(r.note)}</p>
